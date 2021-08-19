@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes" ?>
+<Reporte
+        Consulta="
+
+SELECT
+  SIC_EMPRESA.corporativo_id as col1 ,
+  SIC_EMPRESA.nombre as col2 ,
+  dbo.Consulta.empresa_id AS COL3,
+  CONVERT(varchar(20),dbo.Consulta.FechaCreacion, 103)  AS COL4,
+  CONVERT(varchar(20),dbo.Consulta.FechaModificacion, 103)  AS COL5,
+  CONVERT(varchar(20),dbo.Consulta.FechaCreacion,103) + ' ' + CONVERT(varchar(20),dbo.Consulta.FechaCreacion,108) + CASE WHEN Consulta.FechaModificacion IS NULL THEN '-' + CONVERT(varchar(20),dbo.Consulta.FechaCreacion,103) + ' ' + CONVERT(varchar(20),dbo.Consulta.FechaCreacion,108)  ELSE '-' + CONVERT(varchar(20),dbo.Consulta.FechaModificacion,103) + ' ' + CONVERT(varchar(20),dbo.Consulta.FechaModificacion,108)END  AS COL6,
+  dbo.Users.NameUser AS COL7,
+  dbo.Consulta.ConsecutivoNombre AS COL8,
+  dbo.Prestadores.NombrePrestador AS COL9,
+  dbo.Sedes.nombreSede AS COL10,
+  CASE WHEN dbo.SIC_EMPLEADO.locClave IS NULL 
+  THEN ISNULL(dbo.SIC_BENEFICIARIO.locDescripcion, '')
+  ELSE ISNULL(dbo.SIC_EMPLEADO.locDescripcion, '')
+  END AS COL11,
+  CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN isnull(SIC_EMPLEADO.primer_nombre + ' ', '') 
+  + isnull(SIC_EMPLEADO.segundo_nombre + ' ', '') + isnull(SIC_EMPLEADO.apellido_paterno + ' ', '') 
+  + isnull(SIC_EMPLEADO.apellido_materno + ' ', '') 
+  ELSE isnull(SIC_BENEFICIARIO.primer_nombre + ' ', '') 
+  + isnull(SIC_BENEFICIARIO.segundo_nombre + ' ', '') + isnull(SIC_BENEFICIARIO.primer_apellido + ' ', '') 
+  + isnull(SIC_BENEFICIARIO.segundo_apellido + ' ', '')   
+  END AS COL12,
+  CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN CONVERT(VARCHAR(12), ISNULL(SIC_EMPLEADO.identificacion  COLLATE Modern_Spanish_CI_AS, '')) ELSE CONVERT(VARCHAR(12), ISNULL(SIC_BENEFICIARIO.identificacion  COLLATE Modern_Spanish_CI_AS, '')) END AS COL13,
+  CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN CONVERT(varchar(20), SIC_EMPLEADO.fecha_nacimiento, 103) ELSE CONVERT(varchar(20), SIC_BENEFICIARIO.fecha_nacimiento, 103) END AS COL14,
+  CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN CASE WHEN SIC_EMPLEADO.sexo = 1 THEN 'M' ELSE 'F' END ELSE CASE WHEN SIC_BENEFICIARIO.genero = 1 THEN 'M' ELSE 'F' END END AS COL15,
+  CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN 'TITULAR' ELSE Parentescos.NombreParentesco END AS COL16,
+  TipoConsultas.IdTipoConsulta AS COL17,
+  CASE --MAHG Se agregó la columna para identificar si Wellness primera Vez es editable
+  WHEN (Consulta.IdTipoConsulta = 3 AND ISNULL(Convert(smallint,Consulta.Finalizada),0) = 1 )
+  THEN 
+  TipoConsultas.NombreTipoConsulta + ' (Cerrada)'
+  WHEN (Consulta.IdTipoConsulta = 3 AND ISNULL(Convert(smallint,Consulta.Finalizada),0) = 0 )
+  THEN 
+  TipoConsultas.NombreTipoConsulta + ' (Abierta)'
+  ELSE TipoConsultas.NombreTipoConsulta 
+  END AS COL18,
+  TipoEnfermedades.NombreTipoEnfermedad AS COL19, 
+  CASE WHEN ConsultaEstiloVidaParte1.ProgramaWellness = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.ProgramaWellness = 0 THEN 'No'  ELSE '' END AS COL20
+  ,CASE WHEN ConsultaEstiloVidaParte1.FirmaWellness = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.FirmaWellness = 0 THEN 'No'  ELSE '' END AS COL21
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.ConductaCigarrillo) AS COL22
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.TiempoPrimerCigarrillo) AS COL23
+  ,CASE WHEN ConsultaEstiloVidaParte1.DificultadFumar = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.DificultadFumar = 0 THEN 'No'  ELSE '' END AS COL24
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.CigarrilloSuprimir) AS COL25
+  ,ConsultaEstiloVidaParte1.CigarrillosalDia AS COL26
+  ,CASE WHEN ConsultaEstiloVidaParte1.FrecuenciaPrimerasHorasDia = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.FrecuenciaPrimerasHorasDia = 0 THEN 'No'  ELSE '' END AS COL27
+  ,CASE WHEN ConsultaEstiloVidaParte1.FumaEnfermedad = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.FumaEnfermedad = 0 THEN 'No'  ELSE '' END AS COL28
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.CategoriaCigarrillos) AS COL29
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.AspiraHumo) AS COL30
+  ,ConsultaEstiloVidaParte1.AnosDejoFumar AS COL31
+  ,ConsultaEstiloVidaParte1.PromedioDiarioX2Anos AS COL32
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.CopasSemana) AS COL33
+  ,CASE WHEN ConsultaEstiloVidaParte1.CriticaAlcohol = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.CriticaAlcohol = 0 THEN 'No'  ELSE '' END AS COL34
+  ,CASE WHEN ConsultaEstiloVidaParte1.ArrepentidoAlcohol = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.ArrepentidoAlcohol = 0 THEN 'No'  ELSE '' END AS COL35
+  ,CASE WHEN ConsultaEstiloVidaParte1.LagunaAlcohol = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.LagunaAlcohol = 0 THEN 'No'  ELSE '' END AS COL36
+  ,CASE WHEN ConsultaEstiloVidaParte1.MananaAlcohol = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.MananaAlcohol = 0 THEN 'No'  ELSE '' END AS COL37
+  ,CASE WHEN ConsultaEstiloVidaParte1.InfluenciaEstacional = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.InfluenciaEstacional = 0 THEN 'No'  ELSE '' END AS COL38
+  ,CONVERT(varchar(20),ConsultaEstiloVidaParte1.FechaInfluenzaEstacional,103) AS COL39
+  ,CASE WHEN ConsultaEstiloVidaParte1.InfluenciaH1N1 = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.InfluenciaH1N1 = 0 THEN 'No'  ELSE '' END AS COL40
+  ,CONVERT(varchar(20),ConsultaEstiloVidaParte1.FechaInfluenciaH1N1,103) AS COL41
+  ,CASE WHEN ConsultaEstiloVidaParte1.FiebreAmarilla = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.FiebreAmarilla = 0 THEN 'No'  ELSE '' END AS COL42
+  ,CONVERT(varchar(20),ConsultaEstiloVidaParte1.FechaFiebreAmarilla,103) AS COL43
+  ,CASE WHEN ConsultaEstiloVidaParte1.HepatitisViral = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.HepatitisViral = 0 THEN 'No'  ELSE '' END AS COL44
+  ,CONVERT(varchar(20),ConsultaEstiloVidaParte1.FechaHepatitisViral,103) AS COL45
+  ,CASE WHEN ConsultaEstiloVidaParte1.ToxoideTetanico = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.ToxoideTetanico = 0 THEN 'No'  ELSE '' END AS COL46
+  ,CONVERT(varchar(20),ConsultaEstiloVidaParte1.FechaToxoideTetanico,103) AS COL47
+  ,CASE WHEN ConsultaEstiloVidaParte1.PracticaDeporte = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.PracticaDeporte = 0 THEN 'No'  ELSE '' END AS COL48
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.PracticaDeporteSemana) AS COL49
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.PromedioTiempoMinutos) AS COL50
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.TipoActividadFisica ) AS COL51
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.HorasDiariasTV) AS COL52
+  ,CASE WHEN ConsultaEstiloVidaParte1.ConsultaOdontologica = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.ConsultaOdontologica = 0 THEN 'No'  ELSE '' END AS COL53
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.LavaDientes) AS COL54
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.SedaDental) AS COL55
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.PocoInteres) AS COL56
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.SinEsperanza) AS COL57
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.NivelEstres) AS COL58
+  ,(SELECT     CASE WHEN ISNULL(PreguntaRespuesta.Descripcion, '') NOT IN ('') THEN PreguntaRespuesta.Descripcion + '-' ELSE '' END AS '*'
+FROM    ConsultaOpcion INNER JOIN
+PreguntaRespuesta ON ConsultaOpcion.IdPreguntaRespuesta = PreguntaRespuesta.IdPreguntaRespuesta
+WHERE  ConsultaOpcion.IdPreguntaRespuestaPadre   = 50 AND ConsultaOpcion.IdConsulta = Consulta.IdConsulta FOR XML PATH('')) AS COL59
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.ControlarEstres) AS COL60
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.CalificacionSueno) AS COL61
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.EstadoLevantarse) AS COL62
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.HorasDuermeRegular) AS COL63
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.EstadoAnimoEmocional) AS COL64
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.CinturonSeguridad) AS COL65
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.CocheCelular) AS COL66
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.LimiteVelocidad) AS COL67
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.ConductorBebido) AS COL68
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.Casco) AS COL69
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.FiltroSolar) AS COL70
+,CASE WHEN ConsultaEstiloVidaParte2.SeguridadDomestica = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte2.SeguridadDomestica = 0 THEN 'No'  ELSE '' END AS COL71
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.TrasmisionSexual) AS COL72
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.EstadoSalud) AS COL73
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.HabitosVida) AS COL74
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.SentidoEstresado) AS COL75
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte2.DormidoSuficiente) AS COL76
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte3.PorcionesFrutas) AS COL77
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte3.PorcionesVegetales) AS COL78
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte3.FrecuenciaCarne) AS COL79
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte3.FrecuenciaSano) AS COL80
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte3.FrecuenciaGranos) AS COL81
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte3.FrecuenciaAzucar) AS COL82
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte3.FrecuenciaSodio) AS COL83
+,(SELECT     CASE WHEN ISNULL(PreguntaRespuesta.Descripcion, '') NOT IN ('') 
+THEN PreguntaRespuesta.Descripcion + ',' ELSE '' END AS '*'
+FROM    ConsultaOpcion 
+INNER JOIN PreguntaRespuesta 
+ON ConsultaOpcion.IdPreguntaRespuesta = PreguntaRespuesta.IdPreguntaRespuesta
+WHERE  ConsultaOpcion.IdPreguntaRespuestaPadre   = 506 
+AND ConsultaOpcion.IdConsulta = Consulta.IdConsulta FOR XML PATH('')) AS COL84
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.ConviveFumador) AS COL85     
+,CASE WHEN ConsultaEstiloVidaParte3.Incapacitado = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte3.Incapacitado = 0 THEN 'No'  ELSE '' END AS COL86
+,(SELECT NombreDiagnostico FROM Diagnosticos WHERE IdDiagnostico= ConsultaEstiloVidaParte3.IdDiagnosticoIncapacidad) AS COL87
+,ConsultaEstiloVidaParte3.DiasIncapacidad AS COL88
+,(SELECT NombreDiagnostico FROM Diagnosticos WHERE IdDiagnostico= ConsultaEstiloVidaParte3.IdDiagnosticoHospitalizacion1) AS COL89
+,CONVERT(VARCHAR(10), ConsultaEstiloVidaParte3.FechaHospitalizacion1, 103) AS COL90
+,CONVERT(VARCHAR(12), ConsultaEstiloVidaParte3.DiasHospitalizacion1) AS COL91
+,(SELECT NombreDiagnostico FROM Diagnosticos WHERE IdDiagnostico= ConsultaEstiloVidaParte3.IdDiagnosticoHospitalizacion2) AS COL92
+,CONVERT(VARCHAR(10), ConsultaEstiloVidaParte3.FechaHospitalizacion2, 103) AS COL93
+,CONVERT(VARCHAR(12),ConsultaEstiloVidaParte3.DiasHospitalizacion2) AS COL94
+,(SELECT NombreDiagnostico FROM Diagnosticos WHERE IdDiagnostico= ConsultaEstiloVidaParte3.IdDiagnosticoHospitalizacion3) AS COL95
+,CONVERT(VARCHAR(10), ConsultaEstiloVidaParte3.FechaHospitalizacion3, 103) AS COL96
+,CONVERT(VARCHAR(12),ConsultaEstiloVidaParte3.DiasHospitalizacion3) AS COL97
+,(SELECT NombreDiagnostico FROM Diagnosticos WHERE IdDiagnostico= ConsultaEstiloVidaParte3.IdDiagnosticoHospitalizacion4) AS COL98
+,CONVERT(VARCHAR(10), ConsultaEstiloVidaParte3.FechaHospitalizacion4, 103)  AS COL99
+,CONVERT(VARCHAR(12),ConsultaEstiloVidaParte3.DiasHospitalizacion4) AS COL100
+,(SELECT     CASE WHEN ISNULL(PreguntaRespuesta.Descripcion, '') NOT IN ('') 
+THEN PreguntaRespuesta.Descripcion + '-' ELSE '' END AS '*'
+FROM    ConsultaOpcion 
+INNER JOIN PreguntaRespuesta 
+ON ConsultaOpcion.IdPreguntaRespuesta = PreguntaRespuesta.IdPreguntaRespuesta
+WHERE  ConsultaOpcion.IdPreguntaRespuestaPadre   = 168 
+AND ConsultaOpcion.IdConsulta = Consulta.IdConsulta FOR XML PATH('')) AS COL101
+FROM  dbo.Parentescos INNER JOIN
+      SIC_BENEFICIARIO ON dbo.Parentescos.IdParentesco = SIC_BENEFICIARIO.parentesco RIGHT OUTER JOIN
+      SIC_EMPLEADO INNER JOIN
+      dbo.Consulta INNER JOIN
+      dbo.Prestadores ON dbo.Consulta.IdPrestador = dbo.Prestadores.IdPrestador INNER JOIN
+      dbo.TipoConsultas ON dbo.Consulta.IdTipoConsulta = dbo.TipoConsultas.IdTipoConsulta INNER JOIN
+      dbo.TipoEnfermedades ON dbo.Consulta.IdTipoEnfermedad = dbo.TipoEnfermedades.IdTipoEnfermedad INNER JOIN
+      dbo.ConsultaAntecedentes ON dbo.Consulta.IdConsulta = dbo.ConsultaAntecedentes.IdConsulta INNER JOIN
+      dbo.ConsultaRevisionSistemas ON dbo.Consulta.IdConsulta = dbo.ConsultaRevisionSistemas.IdConsulta INNER JOIN
+      dbo.ConsultaHabitos ON dbo.Consulta.IdConsulta = dbo.ConsultaHabitos.IdConsulta INNER JOIN      
+      dbo.ConsultaExamenFisico ON dbo.Consulta.IdConsulta = dbo.ConsultaExamenFisico.IdConsulta ON 
+      SIC_EMPLEADO.id_empleado = dbo.Consulta.id_empleado INNER JOIN
+      dbo.Users ON dbo.Consulta.IdUserCreacion = dbo.Users.IdUser ON 
+      SIC_BENEFICIARIO.beneficiario_id = dbo.Consulta.beneficiario_id LEFT OUTER JOIN
+      dbo.Solicitud ON dbo.Consulta.IdConsulta = dbo.Solicitud.IdConsulta LEFT OUTER JOIN
+      dbo.Incapacidad ON dbo.Consulta.IdConsulta = dbo.Incapacidad.IdConsulta LEFT OUTER JOIN
+      dbo.ConsultaPruebasBiometricas ON ConsultaPruebasBiometricas.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+      dbo.ConsultaEstiloVidaParte1 ON ConsultaEstiloVidaParte1.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+      dbo.ConsultaEstiloVidaParte2 ON ConsultaEstiloVidaParte2.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+      dbo.ConsultaEstiloVidaParte3 ON ConsultaEstiloVidaParte3.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+      dbo.ConsultaNutricion ON ConsultaNutricion.IdConsulta = dbo.Consulta.IdConsulta INNER JOIN 
+      sic_empresa ON Consulta.empresa_id = sic_empresa.empresa_id LEFT OUTER JOIN
+      dbo.Sedes ON dbo.Consulta.sede_id = dbo.Sedes.sede_id
+ WHERE		(1=1) "
+        DirPlantillas="Basica\"
+        NombreReporte="Consultas"
+        cadenaConexion="ConnectionStringReembolsos"
+        cantidad_parametros="0"
+        Titulo="CONSULTAS "
+>
+  <Campos>
+    <Campo titulo="CORPORATIVO" filtro="si" select="si" tabla="SIC_CORPORATIVO" campo_valor="corporativo_id" campo_nombre="nombre"></Campo>
+    <Campo titulo="EMPRESA" filtro="no"></Campo>
+    <Campo titulo="EMPRESA ID" expansion="si" filtro="si" multiple="si" tabla="EmpresaDatos" campo_valor="empresa_id" campo_nombre="AbreviacionEmpresa"></Campo>
+    <Campo titulo="FECHA CREACION CONSULTA" filtro="si"  fecha="si"></Campo>
+    <Campo titulo="FECHA MODIFICACION CONSULTA" filtro="si"  fecha="si"></Campo>
+    <Campo titulo="FECHA Y HORA CONSULTA - ÚLTIMA MODIFICACION" filtro="no"></Campo>
+    <Campo titulo="USUARIO CREACIÓN" filtro="no"></Campo>
+    <Campo titulo="No. CONSULTA" filtro="no"></Campo>
+    <Campo titulo="MÉDICO" filtro="no"></Campo>
+    <Campo titulo="SEDE CONSULTA" filtro="si"></Campo>
+    <Campo titulo="LOCALIDAD EMPLEADO" filtro="si"></Campo>
+    <Campo titulo="PACIENTE" filtro="si"></Campo>
+    <Campo titulo="No EMPLEADO" filtro="si"></Campo>
+    <Campo titulo="FECHA NACIMIENTO" filtro="no" fecha="si"></Campo>
+    <Campo titulo="GÉNERO" filtro="no"></Campo>
+    <Campo titulo="PARENTESCO" filtro="no"></Campo>
+    <Campo titulo="ID TIPO CONSULTA" filtro="si" select="si" tabla="TipoConsultas" campo_valor="IdTipoConsulta" campo_nombre="NombreTipoConsulta"></Campo>
+    <Campo titulo="TIPO CONSULTA" filtro="no"></Campo>
+    <Campo titulo="TIPO ENFERMEDAD" filtro="no"></Campo>
+    <Campo titulo="AFILIADO WELLNESS" filtro="no"></Campo>
+    <Campo titulo="FIRMO ACUERDO WELLNESS" filtro="no"></Campo>
+    <Campo titulo="CONDUCTA FRENTE AL CIGARRILLO" filtro="no"></Campo>
+    <Campo titulo="TIEMPO DESDE LEVANTARSE HASTA PRIMER CIGARRILLO" filtro="no"></Campo>
+    <Campo titulo="DIFICULTAD NO FUMAR SITIOS PROHIBIDOS" filtro="no"></Campo>
+    <Campo titulo="CIGARRILLO QUE COSTARÍA MAS SUPRIMIR" filtro="no"></Campo>
+    <Campo titulo="CIGARRILLOS AL DÍA" filtro="no"></Campo>
+    <Campo titulo="FUMA MAS FRECUENTE EN LAS HORAS DEL DÍA" filtro="no"></Campo>
+    <Campo titulo="FUMA EN ENFERMEDAD" filtro="no"></Campo>
+    <Campo titulo="CATEGORÍA DE CIGARRILLO" filtro="no"></Campo>
+    <Campo titulo="ASPIRA EL HUMO MIENTRAS FUMA" filtro="no"></Campo>
+    <Campo titulo="AÑOS DEJÓ DE FUMAR" filtro="no"></Campo>
+    <Campo titulo="PROMEDIO CIGARRILLOS DOS AÑOS ANTES DE DEJAR DE FUMAR" filtro="no"></Campo>
+    <Campo titulo="COPAS X SEMANA" filtro="no"></Campo>
+    <Campo titulo="HA CRITICADO CONSUMO ALCOHOL" filtro="no"></Campo>
+    <Campo titulo="SE HA ARREPENTIDO CANTIDAD DE ALCOHOL CONSUMIDO" filtro="no"></Campo>
+    <Campo titulo="HA TENIDO LAGUNAS" filtro="no"></Campo>
+    <Campo titulo="LO PRIMERO EN CONSUMIR EN LA MAÑANA ES UNA COPA ALCOHOL" filtro="no"></Campo>
+    <Campo titulo="VACUNA INFLUENZA ESTACIONAL" filtro="no"></Campo>
+    <Campo titulo="FECHA INFLUENZA ESTACIONAL" filtro="no"></Campo>
+    <Campo titulo="VACUNA INFLUENZA H1N1" filtro="no"></Campo>
+    <Campo titulo="FECHA INFLUENZA H1N1" filtro="no"></Campo>
+    <Campo titulo="VACUNA FIEBRE AMARILLA" filtro="no"></Campo>
+    <Campo titulo="FECHA FIEBRE AMARILLA" filtro="no"></Campo>
+    <Campo titulo="VACUNA HEPATITIS VIRAL B" filtro="no"></Campo>
+    <Campo titulo="FECHA HEPATITIS VIRAL B" filtro="no"></Campo>
+    <Campo titulo="VACUNA TOXOIDE TETÁNICO" filtro="no"></Campo>
+    <Campo titulo="FECHA TOXOIDE TETÁNICO" filtro="no"></Campo>
+    <Campo titulo="PRACTICA DEPORTE" filtro="no"></Campo>
+    <Campo titulo="VECES PRACTICA DEPORTE SEMANA" filtro="no"></Campo>
+    <Campo titulo="PROMEDIO MINUTOS PRACTICA DEPORTE" filtro="no"></Campo>
+    <Campo titulo="TIPO ACTIVIDAD FÍSICA" filtro="no"></Campo>
+    <Campo titulo="HORAS DIARIAS TV" filtro="no"></Campo>
+    <Campo titulo="CONSULTA ODONTOLÓGICA ÚLITMO AÑO" filtro="no"></Campo>
+    <Campo titulo="VECES AL DIA LAVA DIENTES " filtro="no"></Campo>
+    <Campo titulo="USA SEDA DENTAL" filtro="no"></Campo>
+    <Campo titulo="POCO INTERÉS O PLACER POR HACER COSAS" filtro="no"></Campo>
+    <Campo titulo="DECAÍDO, DEPRIMIDO O SIN ESPERANZA" filtro="no"></Campo>
+    <Campo titulo="NIVEL ESTRÉS" filtro="no"></Campo>
+    <Campo titulo="FUENTES DE ESTRÉS" filtro="no"></Campo>
+    <Campo titulo="PLANES CONTROL ESTRÉS" filtro="no"></Campo>
+    <Campo titulo="CALIFICACIÓN CALIDAD SUEÑO" filtro="no"></Campo>
+    <Campo titulo="ESTADO AL LEVANTARSE" filtro="no"></Campo>
+    <Campo titulo="HORAS DE SUEÑO REGULARES" filtro="no"></Campo>
+    <Campo titulo="ESTADO DE ANIMO EMOCIONAL" filtro="no"></Campo>
+    <Campo titulo="USA CINTURÓN DE SEGURIDAD" filtro="no"></Campo>
+    <Campo titulo="UTILIZA MANOS LIBRES" filtro="no"></Campo>
+    <Campo titulo="QUE TAN CERCA CONDUCE DE LIMITES DE VELOCIDAD" filtro="no"></Campo>
+    <Campo titulo="HA VIAJADO CON CONDUCTOR BEBIDO" filtro="no"></Campo>
+    <Campo titulo="UTILIZA CASCO CON MOTO O BICICLETA" filtro="no"></Campo>
+    <Campo titulo="UTILIZA FILTRO SOLAR" filtro="no"></Campo>
+    <Campo titulo="REALIZADO REVISIÓN DOMESTICA ÚLTIMOS 6 MESES" filtro="no"></Campo>
+    <Campo titulo="TOMA MEDIDAS CONTRA ENFERMEDADES TRANSMISIÓN SEXUAL" filtro="no"></Campo>
+    <Campo titulo="CALIFICACIÓN ESTADO DE SALUD" filtro="no"></Campo>
+    <Campo titulo="DISPONIBILIDAD CAMBIO HÁBITOS DE VIDA" filtro="no"></Campo>
+    <Campo titulo="ESTRESADO LOS ULTIMO 3 MESES" filtro="no"></Campo>
+    <Campo titulo="HA DORMIDO LO SUFICIENTE" filtro="no"></Campo>
+    <Campo titulo="PORCIONES DE FRUTA PROMEDIO AL DÍA" filtro="no"></Campo>
+    <Campo titulo="PORCIONES DE VEGETALES PROMEDIO AL DÍA" filtro="no"></Campo>
+    <Campo titulo="FRECUENCIA EN SUS COMIDAS DE CARNES ROJAS,SALAMI... ETC" filtro="no"></Campo>
+    <Campo titulo="FRECUENCIA EN SUS COMIDAS DE NUECES, MANTEQUILLA DE NUEZ" filtro="no"></Campo>
+    <Campo titulo="PORCIONES DE GRANOS PROMEDIO AL DÍA" filtro="no"></Campo>
+    <Campo titulo="BEBIDAS DE AZUCAR PROMEDIO AL DÍA" filtro="no"></Campo>
+    <Campo titulo="VECES CUIDADOSO CON LA SAL AL DÍA" filtro="no"></Campo>
+    <Campo titulo="PRODUCTOS DE TABACO QUE CONSUME" filtro="no"></Campo>
+    <Campo titulo="CONVIVE CON FUMADOR" filtro="no"></Campo>
+    <Campo titulo="INCAPACIDAD ÚLTIMO AÑO" filtro="no"></Campo>
+    <Campo titulo="DIAGNÓSTICO INCAPACIDAD" filtro="no"></Campo>
+    <Campo titulo="DÍAS INCAPACIDAD" filtro="no"></Campo>
+    <Campo titulo="ANTECEDENTE ÚLTIMO AÑO GENERARON INCAPACIDAD 1" filtro="no"></Campo>
+    <Campo titulo="FECHA DE INCAPACIDAD 1" filtro="no"></Campo>
+    <Campo titulo="DÍAS DE INCAPACIDAD 1" filtro="no"></Campo>
+    <Campo titulo="ANTECEDENTE ÚLTIMO AÑO GENERARON INCAPACIDAD 2" filtro="no"></Campo>
+    <Campo titulo="FECHA DE INCAPACIDAD 2" filtro="no"></Campo>
+    <Campo titulo="DÍAS DE INCAPACIDAD 2" filtro="no"></Campo>
+    <Campo titulo="ANTECEDENTE ÚLTIMO AÑO GENERARON INCAPACIDAD 3" filtro="no"></Campo>
+    <Campo titulo="FECHA DE INCAPACIDAD 3" filtro="no"></Campo>
+    <Campo titulo="DÍAS DE INCAPACIDAD 3" filtro="no"></Campo>
+    <Campo titulo="ANTECEDENTE ÚLTIMO AÑO GENERARON INCAPACIDAD 4" filtro="no"></Campo>
+    <Campo titulo="FECHA DE INCAPACIDAD 4" filtro="no"></Campo>
+    <Campo titulo="DÍAS DE INCAPACIDAD 4" filtro="no"></Campo>
+    <Campo titulo="PLANES RECOMENDADOS" filtro="no"></Campo>
+
+  </Campos>
+</Reporte>

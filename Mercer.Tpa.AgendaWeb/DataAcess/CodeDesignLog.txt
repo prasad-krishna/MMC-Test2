@@ -1,0 +1,7 @@
+﻿**Mayo 3 2010**
+-Refactor clases
+-Documentación metodos
+
+**Abril 10 2010 Creado**
+Clases de acceso a datos del módulo de agenda.
+Con el objetivo de promover la claridad del código y correcta separacion de responsabilidades se utiliza un patron Repositorio que abstrae la logica de acceso a datos.

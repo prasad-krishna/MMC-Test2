@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{A9157AC4-7B4D-4DAF-9578-809A4A0271C7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{BCCF58D6-E3BD-4107-84F5-716944390A01}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{478834A3-1609-4694-B979-8B978413ABDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9157AC4-7B4D-4DAF-9578-809A4A0271C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9157AC4-7B4D-4DAF-9578-809A4A0271C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9157AC4-7B4D-4DAF-9578-809A4A0271C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9157AC4-7B4D-4DAF-9578-809A4A0271C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCCF58D6-E3BD-4107-84F5-716944390A01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCCF58D6-E3BD-4107-84F5-716944390A01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCCF58D6-E3BD-4107-84F5-716944390A01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCCF58D6-E3BD-4107-84F5-716944390A01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{478834A3-1609-4694-B979-8B978413ABDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{478834A3-1609-4694-B979-8B978413ABDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{478834A3-1609-4694-B979-8B978413ABDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{478834A3-1609-4694-B979-8B978413ABDF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E1028FAA-9134-4FA7-AA12-C61A7BAE12C1}
+	EndGlobalSection
+	GlobalSection(SourceCodeControl) = preSolution
+		SccNumberOfProjects = 4
+		SccProjectUniqueName0 = Web\\Web.csproj
+		SccProjectName0 = \u0022$/EH&B/004\u0020-\u0020Historias\u0020Clinicas/1\u0020-\u0020DEV/Web\u0022,\u0020YNDYAAAA
+		SccLocalPath0 = Web
+		SccProjectUniqueName1 = DataAccess\\DataAccess.csproj
+		SccProjectName1 = \u0022$/EH&B/004\u0020-\u0020Historias\u0020Clinicas/1\u0020-\u0020DEV/DataAccess\u0022,\u0020WTBYAAAA
+		SccLocalPath1 = DataAccess
+		SccProjectUniqueName2 = Logic\\Logic.csproj
+		SccProjectName2 = \u0022$/EH&B/004\u0020-\u0020Historias\u0020Clinicas/1\u0020-\u0020DEV/Logic\u0022,\u0020HVBYAAAA
+		SccLocalPath2 = Logic
+		SccLocalPath3 = .
+	EndGlobalSection
+EndGlobal

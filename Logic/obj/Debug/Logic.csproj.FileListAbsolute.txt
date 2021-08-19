@@ -1,0 +1,61 @@
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\bin\Debug\Logic.dll.config
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\bin\Debug\Logic.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\bin\Debug\Logic.pdb
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\bin\Debug\AntiXSSLibrary.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\bin\Debug\DataAccess.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\bin\Debug\DataAccess.pdb
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\obj\Debug\Logic.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\obj\Debug\Logic.pdb
+C:\Users\rayala00\Documents\HB.HC\Logic\bin\Debug\Logic.dll.config
+C:\Users\rayala00\Documents\HB.HC\Logic\bin\Debug\Logic.dll
+C:\Users\rayala00\Documents\HB.HC\Logic\bin\Debug\Logic.pdb
+C:\Users\rayala00\Documents\HB.HC\Logic\bin\Debug\AntiXSSLibrary.dll
+C:\Users\rayala00\Documents\HB.HC\Logic\bin\Debug\DataAccess.dll
+C:\Users\rayala00\Documents\HB.HC\Logic\bin\Debug\DataAccess.pdb
+C:\Users\rayala00\Documents\HB.HC\Logic\bin\Debug\AntiXSSLibrary.xml
+C:\Users\rayala00\Documents\HB.HC\Logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+C:\Users\rayala00\Documents\HB.HC\Logic\obj\Debug\Logic.dll
+C:\Users\rayala00\Documents\HB.HC\Logic\obj\Debug\Logic.pdb
+C:\Users\rayala00\Documents\HB.HC version Ultima\Logic\bin\Debug\Logic.dll.config
+C:\Users\rayala00\Documents\HB.HC version Ultima\Logic\bin\Debug\Logic.dll
+C:\Users\rayala00\Documents\HB.HC version Ultima\Logic\bin\Debug\Logic.pdb
+C:\Users\rayala00\Documents\HB.HC version Ultima\Logic\bin\Debug\AntiXSSLibrary.dll
+C:\Users\rayala00\Documents\HB.HC version Ultima\Logic\bin\Debug\DataAccess.dll
+C:\Users\rayala00\Documents\HB.HC version Ultima\Logic\bin\Debug\DataAccess.pdb
+C:\Users\rayala00\Documents\HB.HC version Ultima\Logic\bin\Debug\AntiXSSLibrary.xml
+C:\Users\rayala00\Documents\HB.HC version Ultima\Logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+C:\Users\rayala00\Documents\HB.HC version Ultima\Logic\obj\Debug\Logic.dll
+C:\Users\rayala00\Documents\HB.HC version Ultima\Logic\obj\Debug\Logic.pdb
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Debug\Logic.dll.config
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Debug\Logic.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Debug\Logic.pdb
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Debug\DataAccess.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Debug\DataAccess.pdb
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Logic\obj\Debug\Logic.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Logic\obj\Debug\Logic.pdb
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Debug\Logic.dll.config
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Debug\Logic.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Debug\Logic.pdb
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Debug\DataAccess.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Debug\DataAccess.pdb
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Logic\obj\Debug\Logic.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Logic\obj\Debug\Logic.pdb
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Logic\bin\Debug\Logic.dll.config
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Logic\bin\Debug\Logic.dll
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Logic\bin\Debug\Logic.pdb
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Logic\bin\Debug\DataAccess.dll
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Logic\bin\Debug\DataAccess.pdb
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Logic\obj\Debug\Logic.dll
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Logic\obj\Debug\Logic.pdb
+C:\SS\004 - Historias Clinicas\1 - DEV\Logic\bin\Debug\Logic.dll.config
+C:\SS\004 - Historias Clinicas\1 - DEV\Logic\bin\Debug\Logic.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Logic\bin\Debug\Logic.pdb
+C:\SS\004 - Historias Clinicas\1 - DEV\Logic\bin\Debug\DataAccess.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Logic\bin\Debug\DataAccess.pdb
+C:\SS\004 - Historias Clinicas\1 - DEV\Logic\obj\Debug\Logic.csprojResolveAssemblyReference.cache
+C:\SS\004 - Historias Clinicas\1 - DEV\Logic\obj\Debug\Logic.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Logic\obj\Debug\Logic.pdb

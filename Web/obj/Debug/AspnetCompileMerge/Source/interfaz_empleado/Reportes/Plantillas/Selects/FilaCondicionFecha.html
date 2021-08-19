@@ -1,0 +1,37 @@
+<TR height=10>
+        <td class="textogris" vAlign="top">{NOMBRECAMPO}</td>
+        <td width="138" vAlign="top">
+                <select name="_C{POSICIONCAMPO}" onChange="javascript:cambiarRestriccion{POSICIONCAMPO}(this)"size="1" class="textogris" >
+                <option value="">Escoja ...</option>
+                <option value="=">Igual a</option>
+                <option value="LIKE">Parecido a</option>
+                <option value="GT">Mayor a ...</option>
+                <option value="GTE">Mayor o igual a ...</option>
+                <option value="LT">Menor a ...</option>
+                <option value="LTE">Menor o igual a ...</option>
+                <option value="BETWEEN">Entre</option>
+                </select>
+        </td>
+        
+        <td  width="156"class="textogris" vAlign="top">
+                <input type=text name=_V{POSICIONCAMPO} value="" class="info" size="15">Fecha
+                <div class="textogris"" id=divRestricionY{POSICIONCAMPO} style="visibility:hidden">
+                        y
+                </div>
+                <div class="textogris" id=divRestricion{POSICIONCAMPO} style="visibility:hidden">
+                        <input type=text name=_2V{POSICIONCAMPO} value="" class="info"> Fecha
+                </div>
+        </td>
+</TR>
+<script>
+        function        cambiarRestriccion{POSICIONCAMPO}(){
+                if(document.reporte._C{POSICIONCAMPO}.options[document.reporte._C{POSICIONCAMPO}.options.selectedIndex].value == 'BETWEEN'){
+                        divRestricion{POSICIONCAMPO}.style.visibility = '';
+                        divRestricionY{POSICIONCAMPO}.style.visibility = '';
+                }
+                else{
+                        divRestricion{POSICIONCAMPO}.style.visibility = 'hidden';
+                        divRestricionY{POSICIONCAMPO}.style.visibility = 'hidden';
+                }
+        }
+</script>

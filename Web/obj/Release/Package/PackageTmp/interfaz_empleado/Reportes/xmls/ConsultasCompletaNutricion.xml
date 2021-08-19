@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes" ?>
+<Reporte
+        Consulta="
+
+SELECT	
+      Sic_empresa.corporativo_id as col1, 
+      sic_empresa.nombre as col2, 
+	    dbo.Consulta.empresa_id AS COL3, 
+	    CONVERT(varchar(20),dbo.Consulta.FechaCreacion, 103)  AS COL4, 
+      CONVERT(varchar(20),dbo.Consulta.FechaModificacion, 103)  AS COL5,
+      CONVERT(varchar(20),dbo.Consulta.FechaCreacion,103) + ' ' + CONVERT(varchar(20),dbo.Consulta.FechaCreacion,108) + CASE WHEN Consulta.FechaModificacion IS NULL THEN '-' + CONVERT(varchar(20),dbo.Consulta.FechaCreacion,103) + ' ' + CONVERT(varchar(20),dbo.Consulta.FechaCreacion,108)  ELSE '-' + CONVERT(varchar(20),dbo.Consulta.FechaModificacion,103) + ' ' + CONVERT(varchar(20),dbo.Consulta.FechaModificacion,108)END  AS COL6,
+      dbo.Users.NameUser AS COL7,
+	    dbo.Consulta.ConsecutivoNombre AS COL8, 
+      dbo.Prestadores.NombrePrestador AS COL9, 	
+		  Sedes.nombreSede AS COL10,
+		  CASE WHEN dbo.SIC_EMPLEADO.locClave IS NULL 
+		  THEN
+			  ISNULL(dbo.SIC_BENEFICIARIO.locDescripcion, '')
+		  ELSE
+			  ISNULL(dbo.SIC_EMPLEADO.locDescripcion, '')
+		  END AS COL11,
+       CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN isnull(SIC_EMPLEADO.primer_nombre + ' ', '') 
+                      + isnull(SIC_EMPLEADO.segundo_nombre + ' ', '') + isnull(SIC_EMPLEADO.apellido_paterno + ' ', '') 
+                      + isnull(SIC_EMPLEADO.apellido_materno + ' ', '') + ' -  ' + CONVERT(VARCHAR(12), ISNULL(SIC_EMPLEADO.identificacion  COLLATE Modern_Spanish_CI_AS, '')) 
+	    ELSE isnull(SIC_BENEFICIARIO.primer_nombre + ' ', '') 
+                      + isnull(SIC_BENEFICIARIO.segundo_nombre + ' ', '') + isnull(SIC_BENEFICIARIO.primer_apellido + ' ', '') 
+                      + isnull(SIC_BENEFICIARIO.segundo_apellido + ' ', '') + ' -  ' + CONVERT(VARCHAR(12), ISNULL(SIC_BENEFICIARIO.identificacion  COLLATE Modern_Spanish_CI_AS, ''))  
+	END AS COL12, 
+        CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN CONVERT(varchar(20), SIC_EMPLEADO.fecha_nacimiento, 103) ELSE CONVERT(varchar(20), SIC_BENEFICIARIO.fecha_nacimiento, 103) END AS COL13, 
+        CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN CASE WHEN SIC_EMPLEADO.sexo = 1 THEN 'M' ELSE 'F' END ELSE CASE WHEN SIC_BENEFICIARIO.genero = 1 THEN 'M' ELSE 'F' END END AS COL14,
+  CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN 'TITULAR' ELSE Parentescos.NombreParentesco END AS COL15, 
+	TipoConsultas.IdTipoConsulta AS COL16, 
+	CASE --MAHG Se agregó la columna para identificar si Wellness primera Vez es editable
+		WHEN (Consulta.IdTipoConsulta = 3 AND ISNULL(Convert(smallint,Consulta.Finalizada),0) = 1 )
+		THEN 
+			TipoConsultas.NombreTipoConsulta + ' (Cerrada)'
+		WHEN (Consulta.IdTipoConsulta = 3 AND ISNULL(Convert(smallint,Consulta.Finalizada),0) = 0 )
+		THEN 
+			TipoConsultas.NombreTipoConsulta + ' (Abierta)'		
+		ELSE TipoConsultas.NombreTipoConsulta 
+		END AS COL17,
+  TipoEnfermedades.NombreTipoEnfermedad AS COL18
+	,ConsultaNutricion.PesoHace6Meses AS COL19
+  ,CASE WHEN ConsultaNutricion.PesoFluctuacion = 1 THEN 'Si' WHEN ConsultaNutricion.PesoFluctuacion = 0 THEN 'No'  ELSE '' END AS COL20
+	,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.ConsideracionApetito) AS COL21
+	,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.EliminacionIntestinal) AS COL22
+	,CASE WHEN ConsultaNutricion.IntoranciaAlimento = 1 THEN 'Si' WHEN ConsultaNutricion.IntoranciaAlimento = 0 THEN 'No'  ELSE '' END AS COL23
+	,ConsultaNutricion.IntoranciaAlimentoEspecificacion AS COL24
+	,CASE WHEN ConsultaNutricion.AlergiaAlimento = 1 THEN 'Si' WHEN ConsultaNutricion.AlergiaAlimento = 0 THEN 'No'  ELSE '' END AS COL25
+	,ConsultaNutricion.AlergiaAlimentoEspecificacion AS COL26
+ 
+    ,(SELECT     CASE WHEN ISNULL(PreguntaRespuesta.Descripcion, '') NOT IN ('') THEN PreguntaRespuesta.Descripcion + '  ' ELSE '' END AS '*'
+	FROM    ConsultaOpcion INNER JOIN
+		PreguntaRespuesta ON ConsultaOpcion.IdPreguntaRespuesta = PreguntaRespuesta.IdPreguntaRespuesta
+	WHERE  ConsultaOpcion.IdPreguntaRespuestaPadre   = 214 AND ConsultaOpcion.IdConsulta = Consulta.IdConsulta FOR XML PATH('')) AS COL27
+
+    ,(SELECT     CASE WHEN ISNULL(PreguntaRespuesta.Descripcion, '') NOT IN ('') THEN PreguntaRespuesta.Descripcion + '  ' ELSE '' END AS '*'
+	FROM    ConsultaOpcion INNER JOIN
+		PreguntaRespuesta ON ConsultaOpcion.IdPreguntaRespuesta = PreguntaRespuesta.IdPreguntaRespuesta
+	WHERE  ConsultaOpcion.IdPreguntaRespuestaPadre   = 209 AND ConsultaOpcion.IdConsulta = Consulta.IdConsulta FOR XML PATH('')) AS COL28      
+                
+        
+    ,CASE WHEN ConsultaNutricion.Desayuno = 1 THEN 'Si' WHEN ConsultaNutricion.Desayuno = 0 THEN 'No'  ELSE '' END AS COL29
+	,ConsultaNutricion.DesayunoHora AS COL30
+    ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.DesayunoLugar) AS COL31
+    ,CASE WHEN ConsultaNutricion.Almuerzo = 1 THEN 'Si' WHEN ConsultaNutricion.Almuerzo = 0 THEN 'No'  ELSE '' END AS COL32
+	,ConsultaNutricion.AlmuerzoHora AS COL33
+    ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.AlmuerzoLugar) AS COL34
+    ,CASE WHEN ConsultaNutricion.Comida = 1 THEN 'Si' WHEN ConsultaNutricion.Comida = 0 THEN 'No'  ELSE '' END AS COL35
+	,ConsultaNutricion.ComidaHora AS COL36
+    ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.ComidaLugar) AS COL37
+    ,CASE WHEN ConsultaNutricion.Entremes = 1 THEN 'Si' WHEN ConsultaNutricion.Entremes = 0 THEN 'No'  ELSE '' END AS COL38
+	,ConsultaNutricion.EntremesHora AS COL39
+    ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.EntremesLugar) AS COL40
+    ,CASE WHEN ConsultaNutricion.Cena = 1 THEN 'Si' WHEN ConsultaNutricion.Cena = 0 THEN 'No'  ELSE '' END AS COL41
+	,ConsultaNutricion.CenaHora AS COL42
+    ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.CenaLugar) AS COL43
+    ,(SELECT     CASE WHEN ISNULL(PreguntaRespuesta.Descripcion, '') NOT IN ('') THEN PreguntaRespuesta.Descripcion + '  ' ELSE '' END AS '*'
+	FROM    ConsultaOpcion INNER JOIN
+		PreguntaRespuesta ON ConsultaOpcion.IdPreguntaRespuesta = PreguntaRespuesta.IdPreguntaRespuesta
+	WHERE  ConsultaOpcion.IdPreguntaRespuestaPadre   = 228 AND ConsultaOpcion.IdConsulta = Consulta.IdConsulta FOR XML PATH('')) AS COL44  
+    ,(SELECT     CASE WHEN ISNULL(PreguntaRespuesta.Descripcion, '') NOT IN ('') THEN PreguntaRespuesta.Descripcion + '  ' ELSE '' END AS '*'
+	FROM    ConsultaOpcion INNER JOIN
+		PreguntaRespuesta ON ConsultaOpcion.IdPreguntaRespuesta = PreguntaRespuesta.IdPreguntaRespuesta
+	WHERE  ConsultaOpcion.IdPreguntaRespuestaPadre   = 244 AND ConsultaOpcion.IdConsulta = Consulta.IdConsulta FOR XML PATH('')) AS COL45  
+	,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.EstarSatisfecho) AS COL46
+	,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.SatisfaccionFacilidad) AS COL47
+	,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.ReconocerHambre) AS COL48
+	,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.ComerDespacio) AS COL49
+	,ConsultaNutricion.MayorApetitoHora AS COL50
+	,ConsultaNutricion.AntojosHora AS COL51
+	,CASE WHEN ConsultaNutricion.SometidoDieta = 1 THEN 'Si' WHEN ConsultaNutricion.SometidoDieta = 0 THEN 'No'  ELSE '' END AS COL52
+  
+	,CASE WHEN ConsultaNutricion.LlevasDieta = 1 THEN 'Si' WHEN ConsultaNutricion.LlevasDieta = 0 THEN 'No'  ELSE '' END AS COL53
+	,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.QuienPrescribe) AS COL54
+	,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.MotivoIniciarDieta) AS COL55
+	,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.IngestionAlimentos) AS COL56
+	,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.BajarPesoPrescrito) AS COL57
+	,ConsultaNutricion.BajarPesoPrescritoEspecificacion AS COL58
+    ,CASE WHEN ConsultaNutricion.TrastornoAlimentacion = 1 THEN 'Si' WHEN ConsultaNutricion.TrastornoAlimentacion = 0 THEN 'No'  ELSE '' END AS COL59
+    ,(SELECT NombreDiagnostico FROM Diagnosticos WHERE IdDiagnostico= ConsultaNutricion.IdDiagnosticoTrastorno) AS COL60
+    ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.PadecerTrastorno) AS COL61
+    ,ConsultaNutricion.DiametroCintura AS COL62
+    ,ConsultaNutricion.DiametroCadera AS COL63
+    ,ConsultaNutricion.RelacionCinturaCadera AS COL64
+    ,CASE WHEN ConsultaNutricion.DescripcionRelacion = 1 THEN 'Con Riesgo' WHEN ConsultaNutricion.DescripcionRelacion = 0 THEN 'Sin Riesgo'  ELSE '' END AS COL65
+    ,ConsultaNutricion.MasaGrasa AS COL66
+    ,ConsultaNutricion.MasaGrama AS COL67
+    ,ConsultaNutricion.PesoRecomendable AS COL68
+    ,ConsultaNutricion.ExcedenteGrasa AS COL69
+    ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.DiagnosticoNutricional) AS COL70
+    ,(SELECT NombreDiagnostico FROM Diagnosticos WHERE IdDiagnostico= ConsultaNutricion.IdDiagnosticoNutricional) AS COL71
+    ,ConsultaNutricion.RecomendacionesNutricionales AS COL72
+    ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.AlimentacionSaludable) AS COL73
+    ,ConsultaNutricion.LevantarseEntreSemana AS COL74
+    ,ConsultaNutricion.LevantarseFinDeSemana AS COL75
+    ,ConsultaNutricion.SalirCasaEntreSemana AS COL76
+    ,ConsultaNutricion.SalirCasaFinDeSemana AS COL77
+    ,ConsultaNutricion.AcostarseEntreSemana AS COL78
+    ,ConsultaNutricion.AcostarseFinDeSemana AS COL79		
+    ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.ComidaRapida) AS COL80
+    ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaNutricion.VasosAgua) AS COL81
+    ,ConsultaExamenFisico.Peso AS COL82
+    ,ConsultaExamenFisico.Talla AS COL83
+    ,ConsultaExamenFisico.IndiceMasaCorporal AS COL84
+    ,ConsultaExamenFisico.TensionArterial AS COL85
+    ,ConsultaExamenFisico.TensionArterialDiastolica AS COL86
+    ,ConsultaExamenFisico.TensionArterialSistolica AS COL87
+    ,ConsultaExamenFisico.FrecuenciaCardiaca AS COL88
+FROM  dbo.Parentescos INNER JOIN
+      SIC_BENEFICIARIO ON dbo.Parentescos.IdParentesco = SIC_BENEFICIARIO.parentesco RIGHT OUTER JOIN
+      SIC_EMPLEADO INNER JOIN
+      dbo.Consulta INNER JOIN
+      dbo.Prestadores ON dbo.Consulta.IdPrestador = dbo.Prestadores.IdPrestador INNER JOIN
+      dbo.TipoConsultas ON dbo.Consulta.IdTipoConsulta = dbo.TipoConsultas.IdTipoConsulta INNER JOIN
+      dbo.TipoEnfermedades ON dbo.Consulta.IdTipoEnfermedad = dbo.TipoEnfermedades.IdTipoEnfermedad INNER JOIN
+      dbo.ConsultaAntecedentes ON dbo.Consulta.IdConsulta = dbo.ConsultaAntecedentes.IdConsulta INNER JOIN
+      dbo.ConsultaRevisionSistemas ON dbo.Consulta.IdConsulta = dbo.ConsultaRevisionSistemas.IdConsulta INNER JOIN
+      dbo.ConsultaHabitos ON dbo.Consulta.IdConsulta = dbo.ConsultaHabitos.IdConsulta INNER JOIN
+      dbo.ConsultaExamenFisico ON dbo.Consulta.IdConsulta = dbo.ConsultaExamenFisico.IdConsulta ON 
+      SIC_EMPLEADO.id_empleado = dbo.Consulta.id_empleado INNER JOIN
+      dbo.Users ON dbo.Consulta.IdUserCreacion = dbo.Users.IdUser ON 
+      SIC_BENEFICIARIO.beneficiario_id = dbo.Consulta.beneficiario_id LEFT OUTER JOIN
+      dbo.Incapacidad ON dbo.Consulta.IdConsulta = dbo.Incapacidad.IdConsulta LEFT OUTER JOIN
+      dbo.ConsultaPruebasBiometricas ON ConsultaPruebasBiometricas.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+      dbo.ConsultaEstiloVidaParte1 ON ConsultaEstiloVidaParte1.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+      dbo.ConsultaEstiloVidaParte2 ON ConsultaEstiloVidaParte2.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+      dbo.ConsultaEstiloVidaParte3 ON ConsultaEstiloVidaParte3.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+      dbo.ConsultaNutricion ON ConsultaNutricion.IdConsulta = dbo.Consulta.IdConsulta	INNER JOIN 
+      sic_empresa ON Consulta.empresa_id = sic_empresa.empresa_id LEFT OUTER JOIN 
+      Sedes ON Consulta.sede_id = Sedes.sede_id  
+ WHERE		(1=1) "
+        DirPlantillas="Basica\"
+        NombreReporte="Consultas"
+        cadenaConexion="ConnectionStringReembolsos"
+        cantidad_parametros="0"
+        Titulo="CONSULTAS "
+>
+  <Campos>
+    <Campo titulo="CORPORATIVO" filtro="si" select="si" tabla="SIC_CORPORATIVO" campo_valor="corporativo_id" campo_nombre="nombre"></Campo>
+    <Campo titulo="EMPRESA" filtro="no"></Campo>
+    <Campo titulo="EMPRESA ID" expansion="si" filtro="si" multiple="si" tabla="EmpresaDatos" campo_valor="empresa_id" campo_nombre="AbreviacionEmpresa"></Campo>
+    <Campo titulo="FECHA CREACION CONSULTA" filtro="si"  fecha="si"></Campo>
+    <Campo titulo="FECHA MODIFICACION CONSULTA" filtro="si"  fecha="si"></Campo>
+    <Campo titulo="FECHA Y HORA CONSULTA - ÚLTIMA MODIFICACION" filtro="no"></Campo>
+    <Campo titulo="USUARIO CREACIÓN" filtro="no"></Campo>
+    <Campo titulo="No. CONSULTA" filtro="no"></Campo>
+    <Campo titulo="MÉDICO" filtro="no"></Campo>
+    <Campo titulo="SEDE CONSULTA" filtro="si"></Campo>
+    <Campo titulo="LOCALIDAD EMPLEADO" filtro="si"></Campo>
+    <Campo titulo="PACIENTE" filtro="si"></Campo>
+    <Campo titulo="FECHA NACIMIENTO" filtro="no" fecha="si"></Campo>
+    <Campo titulo="GÉNERO" filtro="no"></Campo>
+    <Campo titulo="PARENTESCO" filtro="no"></Campo>
+    <Campo titulo="ID TIPO CONSULTA" filtro="si" select="si" tabla="TipoConsultas" campo_valor="IdTipoConsulta" campo_nombre="NombreTipoConsulta"></Campo>
+    <Campo titulo="TIPO CONSULTA" filtro="no"></Campo>
+    <Campo titulo="TIPO ENFERMEDAD" filtro="no"></Campo>
+    <Campo titulo="PESO HACE 6 MESES" filtro="no"></Campo>
+    <Campo titulo="CONSIDERACIÓN FLUCTUACIÓN MAYOR 10% ULTIMO AÑO" filtro="no"></Campo>
+    <Campo titulo="CONSIDERACIÓN APETITO" filtro="no"></Campo>
+    <Campo titulo="FRECUENCIA ELIMINACIÓN INTESTINAL" filtro="no"></Campo>
+    <Campo titulo="PADECE INTOLERANCIA ALIMENTO" filtro="no"></Campo>
+    <Campo titulo="ESPECIFICAR INTOLERANCIA ALIMENTO" filtro="no"></Campo>
+    <Campo titulo="PADECE ALERGIAS ALGUN ALIMENTO" filtro="no"></Campo>
+    <Campo titulo="ESPECIFICACIÓN ALERGIA ALIMENTO" filtro="no"></Campo>
+    <Campo titulo="QUIEN COMPRA ALIMENTOS" filtro="no"></Campo>
+    <Campo titulo="QUIEN PREPARA ALIMENTOS" filtro="no"></Campo>
+    <Campo titulo="DESAYUNA" filtro="no"></Campo>
+    <Campo titulo="HORA DESAYUNO" filtro="no"></Campo>
+    <Campo titulo="LUGAR DESAYUNO" filtro="no"></Campo>
+    <Campo titulo="ALMUERZO" filtro="no"></Campo>
+    <Campo titulo="HORA ALMUERZO" filtro="no"></Campo>
+    <Campo titulo="LUGAR ALMUERZO" filtro="no"></Campo>
+    <Campo titulo="COMIDA" filtro="no"></Campo>
+    <Campo titulo="HORA COMIDA" filtro="no"></Campo>
+    <Campo titulo="LUGAR COMIDA" filtro="no"></Campo>
+    <Campo titulo="ENTREMÉS" filtro="no"></Campo>
+    <Campo titulo="HORA ENTREMÉS" filtro="no"></Campo>
+    <Campo titulo="LUGAR ENTREMÉS" filtro="no"></Campo>
+    <Campo titulo="CENA" filtro="no"></Campo>
+    <Campo titulo="HORA CENA" filtro="no"></Campo>
+    <Campo titulo="LUGAR CENA" filtro="no"></Campo>
+    <Campo titulo="ALIMENTOS AGRADO" filtro="no"></Campo>
+    <Campo titulo="ALIMIENTOS DISGUSTAN" filtro="no"></Campo>
+    <Campo titulo="RECONOCE CUANDO ESTÁ SATISFECHO" filtro="no"></Campo>
+    <Campo titulo="SATISFACCIÓN CON FACILIDAD" filtro="no"></Campo>
+    <Campo titulo="RECONOCE CUANDO TIENE HAMBRE" filtro="no"></Campo>
+    <Campo titulo="COSTUMBRE COMER DESPACIO" filtro="no"></Campo>
+    <Campo titulo="HORA DEL DÍA MAYOR APETITO" filtro="no"></Campo>
+    <Campo titulo="HORA DEL DÍA CON ANTOJOS" filtro="no"></Campo>
+    <Campo titulo="DIETA EN EL ÚLTIMO AÑO" filtro="no"></Campo>
+    <Campo titulo="ACTUALMENTE DIETA" filtro="no"></Campo>
+    <Campo titulo="PRESCRIPCIÓN DIETA" filtro="no"></Campo>
+    <Campo titulo="RAZON INICIO DIETA" filtro="no"></Campo>
+    <Campo titulo="CONSIDERACIÓN INGESTIÓN ACTUAL ALIMENTOS" filtro="no"></Campo>
+    <Campo titulo="PRESCRIPCIÓN COMPLEMENTO BAJAR PESO" filtro="no"></Campo>
+    <Campo titulo="ESPECIFICACIÓN COMPLEMENTO BAJAR PESO" filtro="no"></Campo>
+    <Campo titulo="PADECIMIENTO TRASTORNO ALIMENTICIO" filtro="no"></Campo>
+    <Campo titulo="TRASTORNO ALIMENTICIO" filtro="no"></Campo>
+    <Campo titulo="HACE CUANTO TRASTORNO ALIMENTICIO" filtro="no"></Campo>
+    <Campo titulo="DIÁMETRO CINTURA" filtro="no"></Campo>
+    <Campo titulo="DIÁMETRO CADERA" filtro="no"></Campo>
+    <Campo titulo="RELACIÓN CINTURA CADERA" filtro="no"></Campo>
+    <Campo titulo="DESCRIPCIÓN RELACIÓN CINTURA CADERA" filtro="no"></Campo>
+    <Campo titulo="MASA GRASA" filtro="no"></Campo>
+    <Campo titulo="MASA MAGRA" filtro="no"></Campo>
+    <Campo titulo="PESO RECOMENDABLE" filtro="no"></Campo>
+    <Campo titulo="EXCEDENTE GRASA" filtro="no"></Campo>
+    <Campo titulo="DIAGNÓSTICO NUTRICIONAL" filtro="no"></Campo>
+    <Campo titulo="DIAGNÓSTICO NUTRICIONAL 2" filtro="no"></Campo>
+    <Campo titulo="RECOMENDACIONES NUTRICIONALES" filtro="no"></Campo>
+    <Campo titulo="PLANES PARA ALIMENTACIÓN SALUDABLE" filtro="no"></Campo>
+    <Campo titulo="LEVANTARSE ENTRE SEMANA" filtro="no"></Campo>
+    <Campo titulo="LEVANTARSE FIN DE SEMANA" filtro="no"></Campo>
+    <Campo titulo="SALIR CASA ENTRE SEMANA" filtro="no"></Campo>
+    <Campo titulo="SALIR CASA FIN DE SEMANA" filtro="no"></Campo>
+    <Campo titulo="HORA ACOSTARSE ENTRE SEMANA" filtro="no"></Campo>
+    <Campo titulo="HORA ACOSTARSE FIN DE SEMANA" filtro="no"></Campo>
+    <Campo titulo="FRECUENCIA COMPRA COMIDA RÁPIDA" filtro="no"></Campo>
+    <Campo titulo="VASOS AGUA DÍA" filtro="no"></Campo>
+    <Campo titulo="PESO " filtro="no"></Campo>
+    <Campo titulo="TALLA " filtro="no"></Campo>
+    <Campo titulo="ÍNIDICE MASA CORPORAL " filtro="no"></Campo>
+    <Campo titulo="TENSIÓN ARTERIAL " filtro="no"></Campo>
+    <Campo titulo="TENSIÓN DIASTÓLICA " filtro="no"></Campo>
+    <Campo titulo="TENSIÓN SISTÓLICA " filtro="no"></Campo>
+    <Campo titulo="FRECUENCIA CARDIACA " filtro="no"></Campo>
+  </Campos>
+</Reporte>

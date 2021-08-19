@@ -1,0 +1,41 @@
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\rayala00\Documents\HB.HC\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\rayala00\Documents\HB.HC\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\rayala00\Documents\HB.HC\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\rayala00\Documents\HB.HC\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\rayala00\Documents\HB.HC\DataAccess\obj\Debug\DataAccess.pdb
+C:\Users\rayala00\Documents\HB.HC version Ultima\DataAccess\bin\Debug\DataAccess.dll.config
+C:\Users\rayala00\Documents\HB.HC version Ultima\DataAccess\bin\Debug\DataAccess.dll
+C:\Users\rayala00\Documents\HB.HC version Ultima\DataAccess\bin\Debug\DataAccess.pdb
+C:\Users\rayala00\Documents\HB.HC version Ultima\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\Users\rayala00\Documents\HB.HC version Ultima\DataAccess\obj\Debug\DataAccess.dll
+C:\Users\rayala00\Documents\HB.HC version Ultima\DataAccess\obj\Debug\DataAccess.pdb
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\bin\Debug\DataAccess.dll.config
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\bin\Debug\DataAccess.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\bin\Debug\DataAccess.pdb
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\obj\Debug\DataAccess.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\obj\Debug\DataAccess.pdb
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\bin\Debug\DataAccess.dll.config
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\bin\Debug\DataAccess.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\bin\Debug\DataAccess.pdb
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\obj\Debug\DataAccess.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\obj\Debug\DataAccess.pdb
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\DataAccess\bin\Debug\DataAccess.dll.config
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\DataAccess\bin\Debug\DataAccess.dll
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\DataAccess\bin\Debug\DataAccess.pdb
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\DataAccess\obj\Debug\DataAccess.dll
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\DataAccess\obj\Debug\DataAccess.pdb
+C:\SS\004 - Historias Clinicas\1 - DEV\DataAccess\bin\Debug\DataAccess.dll.config
+C:\SS\004 - Historias Clinicas\1 - DEV\DataAccess\bin\Debug\DataAccess.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\DataAccess\bin\Debug\DataAccess.pdb
+C:\SS\004 - Historias Clinicas\1 - DEV\DataAccess\obj\Debug\DataAccess.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\DataAccess\obj\Debug\DataAccess.pdb
+C:\SS\004 - Historias Clinicas\1 - DEV\DataAccess\obj\Debug\DataAccess.csprojResolveAssemblyReference.cache

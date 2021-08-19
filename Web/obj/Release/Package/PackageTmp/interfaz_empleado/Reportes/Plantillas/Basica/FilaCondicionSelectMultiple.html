@@ -1,0 +1,68 @@
+<TR height=10>
+        <td class="textogris" vAlign="top">{NOMBRECAMPO}</td>
+        <td class="textogris" vAlign="top"><input type=checkbox id=_VISIBLE{POSICIONCAMPO} name=_VISIBLE{POSICIONCAMPO} checked value="visible" onchange="var a = document.getElementById('_GROUP{POSICIONCAMPO}');var b = document.getElementById('_ORDER{POSICIONCAMPO}');if(!this.checked){a.checked = false; b.checked = false;}"></td>
+        <td class="textogris" vAlign="top">{AGRUPABLE}<input type=checkbox id=_GROUP{POSICIONCAMPO} name=_GROUP{POSICIONCAMPO}  value="grupo"
+                                                onclick="javascript:
+                                                                var elemento = document.getElementById('_VISIBLE{POSICIONCAMPO}');
+                                                                if(!elemento.checked && this.checked){
+                                                                        alert('Para poder agrupar por el campo debe estar en la seleccion');
+                                                                        this.checked = false;
+                                                                }
+                                                        ">{FINAGRUPABLE}</td>
+        <td class="textogris" vAlign="top">{ORDENABLE}<input type=checkbox id=_ORDER{POSICIONCAMPO} name=_ORDER{POSICIONCAMPO} value="{POSICIONCAMPO}"
+                                                onclick="javascript:
+                                                                var elemento = document.getElementById('_VISIBLE{POSICIONCAMPO}');
+                                                                if(!elemento.checked && this.checked){
+                                                                        alert('Para poder ordenar por el campo debe estar en los visibles');
+                                                                        this.checked = false;
+                                                                        borrarOrden({POSICIONCAMPO});
+                                                                }
+                                                                else if(this.checked){
+                                                                        nuevoOrden({POSICIONCAMPO});
+                                                                }
+                                                                else if(!this.checked){
+                                                                        borrarOrden({POSICIONCAMPO});
+                                                                }
+                                                                else{
+                                                                }
+                                                        ">{FINORDENABLE} <div style="visibility:hidden" id="_DIVSELECTORDER{POSICIONCAMPO}"><select id="_SELECTORDER{POSICIONCAMPO}" name="_SELECTORDER{POSICIONCAMPO}" class="textBox"><option value="">Posición</option></select></div>
+                                                        </td>
+        <td width="138" vAlign="top">
+                {CAMPOFILTRO1}
+                <select class="textBox" id="_C{POSICIONCAMPO}" name="_C{POSICIONCAMPO}" onChange="javascript:cambiarRestriccion{POSICIONCAMPO}(this)"size="1" class="textogris" >
+                <option value="">Escoja ...</option>
+                <option value="=">Igual a</option>
+                </select>
+                {FINCAMPOFILTRO1}
+        </td>
+        
+        <td  width="156"class="textogris" vAlign="top">
+                {CAMPOFILTRO2}
+                <input type=text id=_T{POSICIONCAMPO} name=_T{POSICIONCAMPO} value="" class="textBox" size="45" readonly onChange="cambiarRestriccion{POSICIONCAMPO}(); var a = document.getElementById('_C{POSICIONCAMPO}');">
+                <input type=hidden name=_V{POSICIONCAMPO} value="">
+                <a href="#" onclick="javascript:seleccionarEntidad('{NOMBREENTIDAD}','{TABLABASE}','{IDTABLABASE}','{NOMBRETABLABASE}',{POSICIONCAMPO},'{CADENACONEXION}','{CORPORATIVO}','{CONDICION}');document.getElementById('_C{POSICIONCAMPO}').options.selectedIndex=1;">Escoger valores</a>
+                {FINCAMPOFILTRO2}
+        </td>
+</TR>
+<script>
+        function        cambiarRestriccion{POSICIONCAMPO}(){
+                if(document.reporte._C{POSICIONCAMPO}.options.selectedIndex > 0 && document.getElementById('_T{POSICIONCAMPO}').value == ''){
+                        document.getElementById('_C{POSICIONCAMPO}').className = 'textBox';
+                        document.getElementById('_T{POSICIONCAMPO}').className = 'textBoxError';
+                }
+                else if(document.reporte._C{POSICIONCAMPO}.options.selectedIndex > 0 && document.getElementById('_T{POSICIONCAMPO}').value != ''){
+                        document.getElementById('_C{POSICIONCAMPO}').className = 'textBox';
+                        document.getElementById('_T{POSICIONCAMPO}').className = 'textBox';
+                }
+                else if(document.reporte._C{POSICIONCAMPO}.options.selectedIndex == 0 && document.getElementById('_T{POSICIONCAMPO}').value != ''){
+                        document.getElementById('_C{POSICIONCAMPO}').className = 'textBoxError';
+                        document.getElementById('_T{POSICIONCAMPO}').className = 'textBox';
+                }
+                else if(document.reporte._C{POSICIONCAMPO}.options.selectedIndex == 0 && document.getElementById('_T{POSICIONCAMPO}').value == ''){
+                        document.getElementById('_C{POSICIONCAMPO}').className = 'textBox';
+                        document.getElementById('_T{POSICIONCAMPO}').className = 'textBox';
+                }
+                else{
+                }
+        }
+</script>

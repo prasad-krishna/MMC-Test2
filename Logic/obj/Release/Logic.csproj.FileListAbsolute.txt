@@ -1,0 +1,25 @@
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\bin\Release\Logic.dll.config
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\bin\Release\Logic.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\bin\Release\AntiXSSLibrary.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\bin\Release\DataAccess.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\bin\Release\AntiXSSLibrary.xml
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\obj\Release\Logic.csprojResolveAssemblyReference.cache
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Logic\obj\Release\Logic.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Release\Logic.dll.config
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Release\Logic.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Release\DataAccess.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Release\AntiXSSLibrary.xml
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Logic\obj\Release\Logic.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Logic\obj\Release\Logic.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Release\Logic.dll.config
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Release\Logic.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Release\DataAccess.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Logic\bin\Release\AntiXSSLibrary.xml
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Logic\obj\Release\Logic.csprojResolveAssemblyReference.cache
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Logic\obj\Release\Logic.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Logic\bin\Release\Logic.dll.config
+C:\SS\004 - Historias Clinicas\1 - DEV\Logic\bin\Release\Logic.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Logic\bin\Release\DataAccess.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Logic\bin\Release\AntiXSSLibrary.xml
+C:\SS\004 - Historias Clinicas\1 - DEV\Logic\obj\Release\Logic.csprojResolveAssemblyReference.cache
+C:\SS\004 - Historias Clinicas\1 - DEV\Logic\obj\Release\Logic.dll

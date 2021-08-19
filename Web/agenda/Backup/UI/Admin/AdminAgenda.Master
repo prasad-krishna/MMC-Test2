@@ -1,0 +1,49 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminAgenda.master.cs"
+    Inherits="Mercer.Tpa.Agenda.Web.UI.Admin.AdminAgenda" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="../../Content/jquery.ui.all.css" type="text/css" rel="Stylesheet" />
+    <link href="../../Content/jquery-ui-1.8rc3.custom.css" type="text/css" rel="Stylesheet" />
+    <link href="../../Content/ui.jqgrid.css" rel="stylesheet" type="text/css" />
+    <link type="text/css" rel="Stylesheet" href="../../../css/admon.css" />
+    <link href="../../Content/estiloscomunes.css" type="text/css" rel="Stylesheet" />
+    <!--[if IE 6]>
+    <link href="../../Content/ie6.css" type="text/css" rel="Stylesheet" />
+    <![endif]-->
+
+    <script type="text/javascript" src="../../Scripts/jquery-1.4.2.min.js"></script>
+
+    <script type="text/javascript" src="../../Scripts/jquery-ui-1.8.custom.min.js"></script>
+
+    <script type="text/javascript" src="../../Scripts/json2.js"></script>
+
+    <script type="text/javascript" src="../../Scripts/common.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div class="agenda_menu">
+        <ul class="agenda_menu_list">
+            <li><a href="AdminAgendaInicio.aspx">Parámetros agenda</a> </li>
+            <li><a href="AdminSedes.aspx">Sedes</a> </li>
+            <li><a href="AdminTiposCita.aspx">Tipos de cita</a> </li>
+            <li><a href="AdminFestivos.aspx">Días festivos</a> </li>
+            <li><a href="AdminZonasHorarias.aspx">Zona horaria</a> </li>
+            <li><a href="AdminMediosComunicacion.aspx">Medios de contacto</a> </li>
+        </ul>
+        <div style="clear: both"></div>
+    </div>
+    <div>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+    </form>
+</body>
+</html>

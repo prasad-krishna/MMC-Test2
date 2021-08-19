@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="DataAccess">
+</Property><Property Name="Archivo de la solución" Value="C:\Documents and Settings\kualtus-mercer\Escritorio\DataAccess\DataAccess.sln">
+</Property><Property Name="Date" Value="Lunes, 11 de Enero de 2010">
+</Property><Property Name="Time" Value="16:34:36 p.m.">
+</Property></Properties><Event ErrorLevel="0" Project="DataAccess" Source="DataAccess.csproj" Description="Proyecto convertido correctamente">
+</Event><Event ErrorLevel="3" Project="DataAccess" Source="DataAccess.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="DataAccess" Source="DataAccess.csproj" Description="Examen completo: no es necesario actualizar los archivos de proyecto.">
+</Event></UpgradeLog>

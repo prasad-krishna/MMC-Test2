@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes" ?>
+<Reporte
+        Consulta="
+SELECT			
+      sic_empresa.corporativo_id as COL1, 
+      sic_empresa.nombre as COL2,
+      dbo.Consulta.empresa_id AS COL3,
+      CONVERT(varchar(20),dbo.Consulta.FechaCreacion, 103)  AS COL4,
+      CONVERT(varchar(20),dbo.Consulta.FechaModificacion, 103)  AS COL5,
+      CONVERT(varchar(20),dbo.Consulta.FechaCreacion,103) + ' ' + CONVERT(varchar(20),dbo.Consulta.FechaCreacion,108) + CASE WHEN Consulta.FechaModificacion IS NULL THEN '-' + CONVERT(varchar(20),dbo.Consulta.FechaCreacion,103) + ' ' + CONVERT(varchar(20),dbo.Consulta.FechaCreacion,108)  ELSE '-' + CONVERT(varchar(20),dbo.Consulta.FechaModificacion,103) + ' ' + CONVERT(varchar(20),dbo.Consulta.FechaModificacion,108)END  AS COL6,
+      dbo.Users.NameUser AS COL7,
+      dbo.Consulta.ConsecutivoNombre AS COL8,
+      dbo.Prestadores.NombrePrestador AS COL9,
+      Sedes.nombreSede AS COL10,
+      CASE WHEN dbo.SIC_EMPLEADO.locClave IS NULL 
+      THEN ISNULL(dbo.SIC_BENEFICIARIO.locDescripcion, '')
+      ELSE ISNULL(dbo.SIC_EMPLEADO.locDescripcion, '')
+      END AS COL11,
+      CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN isnull(SIC_EMPLEADO.primer_nombre + ' ', '') 
+      + isnull(SIC_EMPLEADO.segundo_nombre + ' ', '') + isnull(SIC_EMPLEADO.apellido_paterno + ' ', '') 
+      + isnull(SIC_EMPLEADO.apellido_materno + ' ', '') 
+      ELSE isnull(SIC_BENEFICIARIO.primer_nombre + ' ', '') 
+      + isnull(SIC_BENEFICIARIO.segundo_nombre + ' ', '') + isnull(SIC_BENEFICIARIO.primer_apellido + ' ', '') 
+      + isnull(SIC_BENEFICIARIO.segundo_apellido + ' ', '')   
+      END AS COL12,
+      CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN CONVERT(VARCHAR(12), ISNULL(SIC_EMPLEADO.identificacion  COLLATE Modern_Spanish_CI_AS, '')) ELSE CONVERT(VARCHAR(12), ISNULL(SIC_BENEFICIARIO.identificacion  COLLATE Modern_Spanish_CI_AS, '')) END AS COL13,
+      CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN CONVERT(varchar(20), SIC_EMPLEADO.fecha_nacimiento, 103) ELSE CONVERT(varchar(20), SIC_BENEFICIARIO.fecha_nacimiento, 103) END AS COL14,
+      CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN CASE WHEN SIC_EMPLEADO.sexo = 1 THEN 'M' ELSE 'F' END ELSE CASE WHEN SIC_BENEFICIARIO.genero = 1 THEN 'M' ELSE 'F' END END AS COL15,
+      CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN 'TITULAR' ELSE Parentescos.NombreParentesco END AS COL16,
+      TipoConsultas.IdTipoConsulta AS COL17,
+      CASE --MAHG Se agregó la columna para identificar si Wellness primera Vez es editable
+      WHEN (Consulta.IdTipoConsulta = 3 AND ISNULL(Convert(smallint,Consulta.Finalizada),0) = 1 )
+      THEN 
+      TipoConsultas.NombreTipoConsulta + ' (Cerrada)'
+      WHEN (Consulta.IdTipoConsulta = 3 AND ISNULL(Convert(smallint,Consulta.Finalizada),0) = 0 )
+      THEN 
+      TipoConsultas.NombreTipoConsulta + ' (Abierta)'
+      ELSE TipoConsultas.NombreTipoConsulta 
+      END AS COL18,      
+      (SELECT  NombreDiagnostico
+      FROM  dbo.ConsultaDiagnosticos INNER JOIN
+      dbo.Diagnosticos ON dbo.ConsultaDiagnosticos.IdDiagnostico = dbo.Diagnosticos.IdDiagnostico
+      WHERE OrdenDiagnosticos = 1 AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta) AS COL19,
+      (SELECT CASE WHEN dbo.ConsultaDiagnosticos.TiempoEvolucion IS NULL THEN '' ELSE CONVERT(VARCHAR(10),dbo.ConsultaDiagnosticos.TiempoEvolucion) END + ' ' +  ISNULL(dbo.ConsultaDiagnosticos.PeriodoEvolucion,'')  as TiempoEvolucion
+      FROM dbo.ConsultaDiagnosticos
+      WHERE OrdenDiagnosticos = 1 AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta) AS COL20,
+      (SELECT dbo.TipoDiagnosticos.NombreTipoDiagnostico
+      FROM  dbo.ConsultaDiagnosticos INNER JOIN
+      dbo.TipoDiagnosticos ON dbo.ConsultaDiagnosticos.IdTipoDiagnostico = dbo.TipoDiagnosticos.IdTipoDiagnostico
+      WHERE  OrdenDiagnosticos = 1 AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta) AS COL21,      
+      (SELECT dbo.DiagnosticosClasificacion.NombreDiagnosticoClasificacion
+      FROM dbo.ConsultaDiagnosticos INNER JOIN
+           dbo.DiagnosticosClasificacion ON dbo.ConsultaDiagnosticos.IdDiagnosticoClasificacion = dbo.DiagnosticosClasificacion.IdDiagnosticoClasificacion
+      WHERE  OrdenDiagnosticos = 1 AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta) AS COL22,      
+      dbo.TipoServicios.IdTipoServicio AS COL23, 
+      dbo.TipoServicios.NombreTipoServicio AS COL24, 
+			CASE WHEN Medicamentos.IdMedicamento IS NULL THEN dbo.Servicios.NombreServicio ELSE ISNULL(dbo.Medicamentos.NombreComercial, '') END AS COL25, 
+      CASE WHEN Medicamentos.IdMedicamento IS NULL THEN '' ELSE ISNULL(dbo.Medicamentos.PrincipioActivo, '') END AS COL26, 
+      CASE WHEN Medicamentos.IdMedicamento IS NULL THEN '' ELSE ISNULL(dbo.Laboratorios.NombreLaboratorio, '') END AS COL27, 
+      CASE WHEN Medicamentos.IdMedicamento IS NULL THEN ISNULL(dbo.SolicitudServicio.Cantidad, '') ELSE ISNULL(dbo.SolicitudServicio.Cantidad, '') + '-' + ISNULL(dbo.SolicitudServicio.Duracion, '') + '-' + ISNULL(dbo.SolicitudServicio.Dosis, '') + '-' + ISNULL(dbo.SolicitudServicio.ViaAdministracion, '') END AS COL28,
+      dbo.SolicitudServicio.Comentarios AS COL29,
+      dbo.SolicitudTipoServicio.Comentarios AS COL30,
+      Solicitud.Observaciones AS COL31                      
+FROM    dbo.Laboratorios RIGHT OUTER JOIN
+        dbo.Medicamentos ON dbo.Laboratorios.IdLaboratorio = dbo.Medicamentos.IdLaboratorio RIGHT OUTER JOIN
+        dbo.Parentescos INNER JOIN
+        dbo.SIC_BENEFICIARIO ON dbo.Parentescos.IdParentesco = dbo.SIC_BENEFICIARIO.parentesco RIGHT OUTER JOIN
+        dbo.SIC_EMPLEADO INNER JOIN
+        dbo.Consulta INNER JOIN
+        dbo.Prestadores ON dbo.Consulta.IdPrestador = dbo.Prestadores.IdPrestador INNER JOIN
+        dbo.TipoConsultas ON dbo.Consulta.IdTipoConsulta = dbo.TipoConsultas.IdTipoConsulta INNER JOIN
+        dbo.TipoEnfermedades ON dbo.Consulta.IdTipoEnfermedad = dbo.TipoEnfermedades.IdTipoEnfermedad ON 
+        dbo.SIC_EMPLEADO.id_empleado = dbo.Consulta.id_empleado INNER JOIN
+        dbo.Users ON dbo.Consulta.IdUserCreacion = dbo.Users.IdUser ON 
+        dbo.SIC_BENEFICIARIO.beneficiario_id = dbo.Consulta.beneficiario_id LEFT OUTER JOIN
+        dbo.Solicitud ON dbo.Consulta.IdConsulta = dbo.Solicitud.IdConsulta INNER JOIN
+        dbo.SIC_EMPRESA ON dbo.Consulta.empresa_id = dbo.SIC_EMPRESA.empresa_id INNER JOIN
+        dbo.SolicitudTipoServicio ON dbo.Solicitud.IdSolicitud = dbo.SolicitudTipoServicio.IdSolicitud INNER JOIN
+        dbo.SolicitudServicio ON dbo.SolicitudTipoServicio.IdSolicitud = dbo.SolicitudServicio.IdSolicitud AND 
+        dbo.SolicitudTipoServicio.IdSolicitudTipoServicio = dbo.SolicitudServicio.IdSolicitudTipoServicio INNER JOIN
+        dbo.TipoServicios ON dbo.SolicitudTipoServicio.IdTipoServicio = dbo.TipoServicios.IdTipoServicio LEFT OUTER JOIN
+        dbo.Servicios ON dbo.SolicitudServicio.IdServicio = dbo.Servicios.IdServicio ON 
+        dbo.Medicamentos.IdMedicamento = dbo.SolicitudServicio.IdMedicamento LEFT OUTER JOIN
+        dbo.Sedes ON dbo.Consulta.sede_id = dbo.Sedes.sede_id
+WHERE		(1=1)
+                "
+        DirPlantillas="Basica\"
+        NombreReporte="Consulta Servicios Medicamentos"
+        cadenaConexion="ConnectionStringReembolsos"
+        cantidad_parametros="0"
+        Titulo="CONSULTAS SERVICIOS Y MEDICAMENTOS "
+>
+<Campos>
+  <Campo titulo="CORPORATIVO" filtro="si" select="si" tabla="SIC_CORPORATIVO" campo_valor="corporativo_id" campo_nombre="nombre"></Campo>
+  <Campo titulo="EMPRESA" filtro="no"></Campo>
+  <Campo titulo="EMPRESA ID" expansion="si" filtro="si" multiple="si" tabla="EmpresaDatos" campo_valor="empresa_id" campo_nombre="AbreviacionEmpresa"></Campo>
+  <Campo titulo="FECHA CREACION CONSULTA" filtro="si"  fecha="si"></Campo>
+  <Campo titulo="FECHA MODIFICACION CONSULTA" filtro="si"  fecha="si"></Campo>
+  <Campo titulo="FECHA Y HORA CONSULTA - ÚLTIMA MODIFICACION" filtro="no"></Campo>
+  <Campo titulo="USUARIO CREACIÓN" filtro="no"></Campo>
+  <Campo titulo="No. CONSULTA" filtro="no"></Campo>
+  <Campo titulo="MÉDICO" filtro="no"></Campo>
+  <Campo titulo="SEDE CONSULTA" filtro="si"></Campo>
+  <Campo titulo="LOCALIDAD EMPLEADO" filtro="si"></Campo>
+  <Campo titulo="PACIENTE" filtro="si"></Campo>
+  <Campo titulo="No EMPLEADO" filtro="si"></Campo>
+  <Campo titulo="FECHA NACIMIENTO" filtro="no" fecha="si"></Campo>
+  <Campo titulo="GÉNERO" filtro="no"></Campo>
+  <Campo titulo="PARENTESCO" filtro="no"></Campo>
+  <Campo titulo="ID TIPO CONSULTA" filtro="si" select="si" tabla="TipoConsultas" campo_valor="IdTipoConsulta" campo_nombre="NombreTipoConsulta"></Campo>
+  <Campo titulo="TIPO CONSULTA" filtro="no"></Campo>
+  <Campo titulo="DIAGNÓSTICO PRINCIPAL" filtro="no"></Campo>
+  <Campo titulo="TIEMPO EVOLUCIÓN PRINCIPAL" filtro="no"></Campo>
+  <Campo titulo="TIPO DIAGNÓSTICO PRINCIPAL" filtro="no"></Campo>
+  <Campo titulo="CATEGORÍA DIAGNÓSTICO PRINCIPAL" filtro="no"></Campo>
+  <Campo titulo="ID TIPO SERVICIO" filtro="si" select="si" tabla="TipoServicios" campo_valor="IdTipoServicio" campo_nombre="NombreTipoServicio"></Campo>
+  <Campo titulo="TIPO SERVICIO" filtro="no"></Campo>
+  <Campo titulo="SERVICIO/MEDICAMENTO" filtro="no"></Campo>
+  <Campo titulo="MEDICAMENTO PRINCIPIO ACTIVO" filtro="no"></Campo>
+  <Campo titulo="MEDICAMENTO LABORATORIO" filtro="no"></Campo>
+  <Campo titulo="MEDICAMENTO/SERVICIO CANTIDAD DETALLE" filtro="no"></Campo>
+  <Campo titulo="MEDICAMENTO/SERVICIO COMENTARIOS" filtro="no"></Campo>
+  <Campo titulo="ORDEN TIPO SERVICIO COMENTARIOS" filtro="no"></Campo>
+  <Campo titulo="OBSERVACIONES GENERALES" filtro="no"></Campo>  
+</Campos>
+</Reporte>

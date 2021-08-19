@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes" ?>
+<Reporte
+        Consulta="
+SELECT		dbo.Consulta.empresa_id AS COL1, 
+			CONVERT(varchar(20),dbo.Consulta.FechaCreacion, 103)  AS COL2, 
+			dbo.Consulta.ConsecutivoNombre AS COL3, 
+			dbo.TipoConsultas.NombreTipoConsulta AS COL4,
+            dbo.Prestadores.NombrePrestador AS COL5, 
+            dbo.Ciudades.NombreCiudad AS COL6,
+			CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN SICAU.dbo.SIC_EMPLEADO.identificacion ELSE SICAU.dbo.SIC_BENEFICIARIO.identificacion END AS COL7, 
+            CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN isnull(SICAU.dbo.SIC_EMPLEADO.primer_nombre + ' ', '') 
+                      + isnull(SICAU.dbo.SIC_EMPLEADO.segundo_nombre + ' ', '') + isnull(SICAU.dbo.SIC_EMPLEADO.apellido_paterno + ' ', '') 
+                      + isnull(SICAU.dbo.SIC_EMPLEADO.apellido_materno + ' ', '') ELSE isnull(SICAU.dbo.SIC_BENEFICIARIO.primer_nombre + ' ', '') 
+                      + isnull(SICAU.dbo.SIC_BENEFICIARIO.segundo_nombre + ' ', '') + isnull(SICAU.dbo.SIC_BENEFICIARIO.primer_apellido + ' ', '') 
+                      + isnull(SICAU.dbo.SIC_BENEFICIARIO.segundo_apellido + ' ', '') END AS COL8, 
+            CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN CONVERT(varchar(20), SICAU.dbo.SIC_EMPLEADO.fecha_nacimiento, 103) ELSE CONVERT(varchar(20), SICAU.dbo.SIC_BENEFICIARIO.fecha_nacimiento, 103) END AS COL9, 
+            CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN CASE WHEN SICAU.dbo.SIC_EMPLEADO.sexo = 1 THEN 'M' ELSE 'F' END ELSE CASE WHEN SICAU.dbo.SIC_BENEFICIARIO.genero = 1 THEN 'M' ELSE 'F' END END AS COL10,
+              CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN DATEDIFF(DAY, SICAU.dbo.SIC_EMPLEADO.fecha_nacimiento, GETDATE())/365 ELSE DATEDIFF(DAY, SICAU.dbo.SIC_BENEFICIARIO.fecha_nacimiento, GETDATE())/365 END AS COL11
+FROM        dbo.TipoConsultas INNER JOIN
+            dbo.Consulta INNER JOIN
+            SICAU.dbo.SIC_EMPLEADO ON dbo.Consulta.id_empleado = SICAU.dbo.SIC_EMPLEADO.id_empleado INNER JOIN
+            dbo.Prestadores ON dbo.Consulta.IdPrestador = dbo.Prestadores.IdPrestador ON 
+            dbo.TipoConsultas.IdTipoConsulta = dbo.Consulta.IdTipoConsulta LEFT OUTER JOIN
+            dbo.Ciudades ON dbo.Prestadores.IdCiudad = dbo.Ciudades.IdCiudad LEFT OUTER JOIN
+            SICAU.dbo.SIC_BENEFICIARIO ON dbo.Consulta.beneficiario_id = SICAU.dbo.SIC_BENEFICIARIO.beneficiario_id
+WHERE		(1=1)
+                "
+        DirPlantillas="Basica\"
+        NombreReporte="Consultas"
+        cadenaConexion="ConnectionStringReembolsos"
+        cantidad_parametros="0"
+        Titulo="CONSULTAS "
+>
+<Campos>
+<Campo titulo="EMPRESA ID" expansion="si" filtro="si" multiple="si" tabla="EmpresaDatos" campo_valor="empresa_id" campo_nombre="AbreviacionEmpresa"></Campo>
+<Campo titulo="FECHA CONSULTA" filtro="si"  fecha="si"></Campo>
+<Campo titulo="No. CONSULTA" filtro="no"></Campo>
+<Campo titulo="TIPO CONSULTA" filtro="no"></Campo>
+<Campo titulo="MEDICO" filtro="no"></Campo>
+<Campo titulo="CIUDAD" filtro="no"></Campo>
+<Campo titulo="IDENTIFICACION" filtro="si"></Campo>
+<Campo titulo="PACIENTE" filtro="si"></Campo>
+<Campo titulo="FECHA NACIMIENTO" filtro="no" fecha="si"></Campo>
+<Campo titulo="GÉNERO" filtro="no"></Campo>
+<Campo titulo="EDAD" filtro="no"></Campo>
+
+</Campos>
+</Reporte>

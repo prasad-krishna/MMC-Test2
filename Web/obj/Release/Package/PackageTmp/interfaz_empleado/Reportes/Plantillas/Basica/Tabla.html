@@ -1,0 +1,30 @@
+{FORMULARIO}
+<div align=center><span class="textogris"><font face=Verdana size=2>{TITULO} - {FECHA}</font></span></div>
+<div align=center><span class="textogris"><font face=Verdana size=2>Numero de registros {NUMREGISTROS}</font></span></div>
+<br>
+
+        <div style="position:absolute; top:50px; left:10px; overflow: visible">
+        <TABLE class="config_table" cellspacing="0" cellpadding="0" border=1>
+        {TITULOS}
+        {REGISTROS}
+        </TABLE>
+        {NAVEGACION}
+        </div>
+<script>
+        function orden(idOrden){
+                var idOrden = document.getElementById(idOrden);
+                if(idOrden.value == ""){
+                        idOrden.value = "ASC";
+                }
+                else if(idOrden.value == "ASC"){
+                        idOrden.value = "DESC";
+                }
+                else if(idOrden.value == "DESC"){
+                        idOrden.value = "";
+                }
+                else{
+                }
+                document.formularioReporte.paginaActual.value = 1;
+                document.formularioReporte.submit();
+        }
+</script>

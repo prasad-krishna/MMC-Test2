@@ -1,0 +1,126 @@
+/* =General
+-----------------------------------------------------------------------------*/
+/* Remove padding and margin */
+* {margin: 0 0 0 0;
+padding: 0 0 0 0;}
+/* Put it back on certain elements */
+h1, h2, h3, h4, h5, h6, p, pre, blockquote, form, fieldset, table, ul {margin: 1em 0;}
+/* Class for clearing floats */
+
+/* Remove border around linked images */
+img {border: 0;}
+a:link {text-decoration: none;}
+a:visited {text-decoration: none;}
+a:hover {text-decoration: none;}
+a:active {text-decoration: none;}
+/* =Typography
+-----------------------------------------------------------------------------*/
+.clear {clear:both;}
+.clear2 {clear:both; height:1px;}
+body {
+        font-family:Arial, Helvetica, sans-serif;
+}
+
+#todo img {
+border:0;
+}
+
+/* Contenedor general de la pagina de reportes, contiene todos los elementos del formulario */
+#wrapper {
+width:auto;
+margin:0 0 0 0;
+}
+
+/* Removes fieldset borders. even on Opea 7 */
+fieldset {
+  border: 1px solid transparent;
+}
+
+
+/* =home
+-----------------------------------------------------------------------------*/
+#contenidoinic{
+width:523px;
+float:left;
+margin:20px 0 20px 15px;
+}
+#contenidoinic p{
+margin:0 0 0 5px;
+font-family:Arial, Helvetica, sans-serif;
+font-size:11px;
+color:#666666;}
+
+#contenidoinic h1{
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+font-weight:bold;
+color:#fe5110;}
+
+#barraizq{
+width:203px;
+float:left;
+margin:20px 0 0 15px;
+_margin:20px 0 0 5px;
+}
+
+#cajalogin{
+width:203px;
+background:url(img/fonlogin.gif) repeat-y;}
+
+.caja{
+font-family:Arial, Helvetica, sans-serif;
+font-size:11px;
+color:#666666;
+border:#dedede 1px solid;}
+
+.textonara{
+font-family:Arial, Helvetica, sans-serif;
+font-size:11px;
+color:#fe5110;}
+
+/* Texto que controla los titulos de los campos de los formularios y los textos de las paginas de resultados y los controles */
+.textogris{
+font-family:Arial, Helvetica, sans-serif;
+font-size:11px;
+color:#666666;}
+
+.textogris a{
+color:#666666;
+text-decoration:none;}
+
+.textogris a:hover{
+color:#666666;
+text-decoration:underline;}
+
+/* Contiene los filtros de búsqueda y la tabla de resultados correspondientes */
+#contenido{
+float:left;
+margin:0px 0px 0px 0px;
+height: auto;
+}
+
+#menuizq{
+width:193px;
+margin:0px 0 0px 0;}
+
+.listado_menuizq {
+padding:5px 15px 0 0;}
+.listado_menuizq ul {
+margin:5px 0 5px 0;
+list-style-type:none;
+width:193px}
+.listado_menuizq ul li {
+padding:5px 0 5px 0;
+border-bottom:#bebebe 1px dotted;
+}
+
+.listado_menuizq a {
+color:#878787;
+font-size:12px;
+font-weight:bold;
+display:block;
+font-family: Arial, Helvetica, sans-serif;
+}
+.listado_menuizq a:hover {
+color:#565656;
+background:#fafafa;}

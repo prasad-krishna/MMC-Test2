@@ -1,0 +1,118 @@
+.table-style
+{
+	border-right: #a0a0a0 1px solid;
+	border-top: #a0a0a0 1px solid;
+	font-size: 11px;
+	border-left: #a0a0a0 1px solid;
+	border-bottom: #a0a0a0 1px solid;
+	font-family: arial;
+	background-color: #ffffff;
+}
+.div-style
+{
+    Z-INDEX: 999;
+    VISIBILITY: hidden;
+    POSITION: absolute
+}
+.title-style
+{
+	padding-right: 2px;
+	padding-left: 2px;
+	font-size: 11px;
+	padding-bottom: 2px;
+	color: #4268a0;
+	padding-top: 2px;
+	font-family: arial;
+}
+.title-background-style
+{
+	background-color: #BFD5E9;
+}
+.title-control-normal-style
+{
+	border-right: #3a6ea5 1px solid;
+	border-top: #3a6ea5 1px solid;
+	border-left: #3a6ea5 1px solid;
+	border-bottom: #3a6ea5 1px solid;
+	vertical-align: top;
+}
+.title-control-select-style
+{
+    BORDER-RIGHT: #3a6ea5 1px solid;
+    BORDER-TOP: #3a6ea5 1px solid;
+    BORDER-LEFT: #3a6ea5 1px solid;
+    BORDER-BOTTOM: #3a6ea5 1px solid
+}
+.dropdown-style
+{
+	border-right: #a0a0a0 1px solid;
+	border-top: #a0a0a0 1px solid;
+	font-size: 11px;
+	border-left: #a0a0a0 1px solid;
+	cursor: auto;
+	border-bottom: #a0a0a0 1px solid;
+	font-family: arial;
+	background-color: #cfe7ff;
+}
+.dropdown-select-style
+{
+	background-color: #e5e5e6;
+}
+.dropdown-normal-style
+{
+}
+.body-style
+{
+	padding-right: 5px;
+	padding-left: 5px;
+	font-size: 10px;
+	padding-bottom: 5px;
+	padding-top: 5px;
+	font-family: verdana;
+}
+.current-day-style
+{
+    FONT-WEIGHT: bold;
+    COLOR: #DE8703;
+    TEXT-DECORATION: none
+}
+.end-of-weekday-style
+{
+    COLOR: #613005;
+    TEXT-DECORATION: none
+}
+.normal-day-style
+{
+    COLOR: black;
+    TEXT-DECORATION: none
+}
+.selected-day-style
+{
+    BORDER-RIGHT: #a0a0a0 1px solid;
+    BORDER-TOP: #a0a0a0 1px solid;
+    BORDER-LEFT: #a0a0a0 1px solid;
+    BORDER-BOTTOM: #a0a0a0 1px solid
+}
+.holiday-style
+{
+    BACKGROUND-COLOR: #FEF1C5
+}
+.today-style
+{
+	padding-right: 0px;
+	padding-left: 0px;
+	padding-bottom: 0px;
+	color: #333333;
+	padding-top: 0px;
+	background-color: #BFD5E9;
+	text-align: center;
+	text-decoration: none;
+}
+.weeknumber-div-style
+{
+    PADDING-RIGHT: 0px;
+    PADDING-LEFT: 0px;
+    PADDING-BOTTOM: 0px;
+    PADDING-TOP: 0px;
+    BACKGROUND-COLOR: darkslategray
+}

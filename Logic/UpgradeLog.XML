@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="Logic">
+</Property><Property Name="Archivo de la solución" Value="C:\Documents and Settings\kualtus-mercer\Escritorio\Logic\Logic.sln">
+</Property><Property Name="Date" Value="Lunes, 11 de Enero de 2010">
+</Property><Property Name="Time" Value="16:35:39 p.m.">
+</Property></Properties><Event ErrorLevel="1" Project="Logic" Source="Logic.csproj" Description="MSB2013: La referencia entre proyectos con GUID {BCCF58D6-E3BD-4107-84F5-716944390A01} no se pudo convertir porque no se pudo encontrar un archivo .SLN válido que contuviera todos los proyectos.">
+</Event><Event ErrorLevel="0" Project="Logic" Source="Logic.csproj" Description="Proyecto convertido correctamente">
+</Event><Event ErrorLevel="3" Project="Logic" Source="Logic.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="Logic" Source="Logic.csproj" Description="Examen completo: no es necesario actualizar los archivos de proyecto.">
+</Event></UpgradeLog>

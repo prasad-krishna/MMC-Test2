@@ -1,0 +1,843 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4F181988-08BF-4C47-AED2-F028A8881063}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mercer.Tpa.Agenda.Web</RootNamespace>
+    <AssemblyName>Mercer.Tpa.Agenda.Web</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AntiXSSLibrary">
+      <HintPath>..\bin\AntiXSSLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAccess">
+      <HintPath>..\..\DataAccess\bin\Release\DataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v10.1">
+      <HintPath>..\bin\DevExpress.Data.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxEditors.v10.1">
+      <HintPath>..\bin\DevExpress.Web.ASPxEditors.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.ASPxScheduler.v10.1">
+      <HintPath>..\bin\DevExpress.Web.ASPxScheduler.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Web.v10.1">
+      <HintPath>..\bin\DevExpress.Web.v10.1.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.XtraScheduler.v10.1.Core">
+      <HintPath>..\bin\DevExpress.XtraScheduler.v10.1.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="fredck.fckeditorv2">
+      <HintPath>..\bin\fredck.fckeditorv2.dll</HintPath>
+    </Reference>
+    <Reference Include="Idunno.AntiCsrf">
+      <HintPath>..\bin\Idunno.AntiCsrf.dll</HintPath>
+    </Reference>
+    <Reference Include="Logic">
+      <HintPath>..\bin\Logic.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions, Version=1.0.61025.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="Web">
+      <HintPath>..\bin\Web.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAcess\CitasDataRepository.cs" />
+    <Compile Include="DataAcess\PacientesDataRepository.cs" />
+    <Compile Include="Logic\Cita.cs" />
+    <Compile Include="Logic\InfoPaciente.cs" />
+    <Compile Include="Logic\InfoPrestador.cs" />
+    <Compile Include="Logic\InfoSede.cs" />
+    <Compile Include="Logic\TipoCita.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\agenda.css">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\images\ui-anim_basic_16x16.gif" />
+    <Content Include="Content\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\images\ui-bg_flat_75_102251_40x100.png" />
+    <Content Include="Content\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\images\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="Content\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\images\ui-icons_fff0f0_256x240.png" />
+    <Content Include="Content\jquery-ui-1.8rc3.custom.css" />
+    <Content Include="Content\jquery.ui.accordion.css" />
+    <Content Include="Content\jquery.ui.all.css" />
+    <Content Include="Content\jquery.ui.autocomplete.css" />
+    <Content Include="Content\jquery.ui.base.css" />
+    <Content Include="Content\jquery.ui.button.css" />
+    <Content Include="Content\jquery.ui.core.css" />
+    <Content Include="Content\jquery.ui.datepicker.css" />
+    <Content Include="Content\jquery.ui.dialog.css" />
+    <Content Include="Content\jquery.ui.progressbar.css" />
+    <Content Include="Content\jquery.ui.resizable.css" />
+    <Content Include="Content\jquery.ui.slider.css" />
+    <Content Include="Content\jquery.ui.tabs.css" />
+    <Content Include="Content\jquery.ui.theme.css" />
+    <Content Include="Content\ui.jqgrid.css" />
+    <Content Include="DataAcess\CodeDesignLog.txt" />
+    <Content Include="Scripts\jquery-1.4.2.min.js" />
+    <Content Include="Scripts\json2.js" />
+    <Content Include="Scripts\MiAgenda.js" />
+    <Content Include="web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\DevExpress_Web_ASPxScheduler_v10_1.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>DevExpress_Web_ASPxScheduler_v10_1.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\DevExpress_XtraScheduler_v10_1_Core.es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>DevExpress_XtraScheduler_v10_1_Core.es.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\DevExpress_XtraScheduler_v10_1_Core.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>DevExpress_XtraScheduler_v10_1_Core.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\DevExpress_Web_ASPxScheduler_v10_1.es.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>DevExpress_Web_ASPxScheduler_v10_1.es.designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DevExpress\ASPxSchedulerForms\AppointmentForm.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentForm.ascx.cs">
+      <DependentUpon>AppointmentForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DevExpress\ASPxSchedulerForms\AppointmentFormEx.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentFormEx.ascx.cs">
+      <DependentUpon>AppointmentFormEx.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DevExpress\ASPxSchedulerForms\GotoDateForm.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DevExpress\ASPxSchedulerForms\GotoDateForm.ascx.cs">
+      <DependentUpon>GotoDateForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DevExpress\ASPxSchedulerForms\InplaceEditor.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DevExpress\ASPxSchedulerForms\InplaceEditor.ascx.cs">
+      <DependentUpon>InplaceEditor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DevExpress\ASPxSchedulerForms\RecurrentAppointmentDeleteForm.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DevExpress\ASPxSchedulerForms\RecurrentAppointmentDeleteForm.ascx.cs">
+      <DependentUpon>RecurrentAppointmentDeleteForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DevExpress\ASPxSchedulerForms\RecurrentAppointmentEditForm.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DevExpress\ASPxSchedulerForms\RecurrentAppointmentEditForm.ascx.cs">
+      <DependentUpon>RecurrentAppointmentEditForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DevExpress\ASPxSchedulerForms\HorizontalAppointmentTemplate.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DevExpress\ASPxSchedulerForms\HorizontalAppointmentTemplate.ascx.cs">
+      <DependentUpon>HorizontalAppointmentTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DevExpress\ASPxSchedulerForms\HorizontalSameDayAppointmentTemplate.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DevExpress\ASPxSchedulerForms\HorizontalSameDayAppointmentTemplate.ascx.cs">
+      <DependentUpon>HorizontalSameDayAppointmentTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DevExpress\ASPxSchedulerForms\VerticalAppointmentTemplate.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DevExpress\ASPxSchedulerForms\VerticalAppointmentTemplate.ascx.cs">
+      <DependentUpon>VerticalAppointmentTemplate.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DevExpress\ASPxSchedulerForms\ReminderForm.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DevExpress\ASPxSchedulerForms\ReminderForm.ascx.cs">
+      <DependentUpon>ReminderForm.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DevExpress\ASPxSchedulerForms\AppointmentToolTip.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentToolTip.ascx.cs">
+      <DependentUpon>AppointmentToolTip.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DevExpress\ASPxSchedulerForms\AppointmentDragToolTip.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentDragToolTip.ascx.cs">
+      <DependentUpon>AppointmentDragToolTip.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\images\icoCalendar.gif" />
+    <Content Include="Content\images\ico_adicionar.gif" />
+    <Content Include="Scripts\AdministracionSedes.js" />
+    <Content Include="Scripts\AdministracionTiposCita.js" />
+    <Content Include="Scripts\ConfiguracionHorarioMedico.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-cs.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-de.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-es.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-fr.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-hu.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-is.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-it.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-ja.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-nl.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-pl.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-pt.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-ro.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-ru.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-sk.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-sv.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-tr.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-vi.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry-zh-CN.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry.compat-1.2.6.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry.css" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry.min.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\jquery.timeentry.pack.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\spinnerDefault.png" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\spinnerDefaultBig.png" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\spinnerGem.png" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\spinnerGemBig.png" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\spinnerGreen.png" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\spinnerGreenBig.png" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\spinnerOrange.png" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\spinnerOrangeBig.png" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\spinnerSquare.png" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\spinnerSquareBig.png" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\spinnerText.png" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\spinnerTextBig.png" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\spinnerUpDown.png" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\spinnerUpDownBig.png" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\timeEntryBasics.html" />
+    <Content Include="UI\Admin\AdminFestivos.aspx" />
+    <Content Include="UI\Admin\AdminSedes.aspx" />
+    <Content Include="UI\Admin\AdminTiposCita.aspx" />
+    <Content Include="UI\BusquedaCitas\BusquedaCitas.aspx" />
+    <Content Include="UI\ConfiguracionHorario\ConfigurarHorarioMedico.aspx" />
+    <Content Include="UI\ConfiguracionHorario\ControlHorarioDia.ascx" />
+    <Content Include="UI\ConfiguracionHorario\ControlHorarioSemana.ascx" />
+    <Content Include="UI\CustomSchedulerTemplates\AppointmentDragToolTip.ascx" />
+    <Content Include="DevExpress\ASPxSchedulerForms\SelectionToolTip.ascx" />
+    <Content Include="UI\Notificaciones\Notificador.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\DevExpress_Web_ASPxScheduler_v10_1.es.designer.cs">
+      <DependentUpon>DevExpress_Web_ASPxScheduler_v10_1.es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\DevExpress_Web_ASPxScheduler_v10_1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DevExpress_Web_ASPxScheduler_v10_1.resx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\DevExpress_XtraScheduler_v10_1_Core.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DevExpress_XtraScheduler_v10_1_Core.resx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="App_GlobalResources\DevExpress_XtraScheduler_v10_1_Core.es.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DevExpress_XtraScheduler_v10_1_Core.es.resx</DependentUpon>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="DataAcess\Abstract\ICitasDataRepository.cs" />
+    <Compile Include="DataAcess\Abstract\IDiasFestivosDataRepository.cs" />
+    <Compile Include="DataAcess\Abstract\IHorarioRepository.cs" />
+    <Compile Include="DataAcess\Abstract\IPrestadoresDataRepository.cs" />
+    <Compile Include="DataAcess\Abstract\IEspecialidadDataRepository.cs" />
+    <Compile Include="DataAcess\Abstract\IPacientesDataRepository.cs" />
+    <Compile Include="DataAcess\Abstract\ISedesDataRepository.cs" />
+    <Compile Include="DataAcess\Abstract\ITiposCitaDataRepository.cs" />
+    <Compile Include="DataAcess\AgendaDataRepository.cs" />
+    <Compile Include="DataAcess\MediosComunicacionDataRepository.cs" />
+    <Compile Include="Logic\BusquedaCitas\ParametrosBusquedaCita.cs" />
+    <Compile Include="DataAcess\PrestadoresDataRepository.cs" />
+    <Compile Include="DataAcess\EspecialidadDataRepository.cs" />
+    <Compile Include="DataAcess\NotificacionesDataRepository.cs" />
+    <Compile Include="DataAcess\DiasFestivosDataRepository.cs" />
+    <Compile Include="DataAcess\HorarioRepository.cs" />
+    <Compile Include="DataAcess\TiposCitaDataRepository.cs" />
+    <Compile Include="DataAcess\SedesDataRepository.cs" />
+    <Compile Include="Logic\ConfiguracionAgenda\ConfiguracionAgendaManager.cs" />
+    <Compile Include="Logic\ServicioZonaHoraria.cs" />
+    <Compile Include="Logic\Usuario.cs" />
+    <Compile Include="DataAcess\UsuariosDataRepository.cs" />
+    <Compile Include="Logic\Alertas\Alerta.cs" />
+    <Compile Include="Logic\Alertas\AlertasManager.cs" />
+    <Compile Include="Logic\CitaResult.cs" />
+    <Compile Include="Logic\ConfiguracionAgenda\ParametrosConfiguracionAgenda.cs" />
+    <Compile Include="Logic\Dia.cs" />
+    <Compile Include="Logic\EnumEstadoCita.cs" />
+    <Compile Include="Logic\EnumTipoNotificacion.cs" />
+    <Compile Include="Logic\HorarioMedico\ExcepcionIntervaloHorario.cs" />
+    <Compile Include="Logic\HorarioMedico\HorarioMedicoManager.cs" />
+    <Compile Include="Logic\HorarioMedico\IntervaloHorarioSede.cs" />
+    <Compile Include="Logic\Especialidad.cs" />
+    <Compile Include="Logic\Notificaciones\LogCitaEnEspera.cs" />
+    <Compile Include="Logic\Notificaciones\Notificacion.cs" />
+    <Compile Include="Logic\Notificaciones\EnumOrigenModificacionCita.cs" />
+    <Compile Include="Logic\Notificaciones\LogOperacionCitaBase.cs" />
+    <Compile Include="Logic\Notificaciones\LogCitaCancelada.cs" />
+    <Compile Include="Logic\Notificaciones\LogCitaRegistrada.cs" />
+    <Compile Include="Logic\Notificaciones\LogCitaReprogramada.cs" />
+    <Compile Include="Logic\Notificaciones\MedioComunicacion.cs" />
+    <Compile Include="Logic\Notificaciones\NotificacionesManager.cs" />
+    <Compile Include="Logic\HorarioMedico\IntervaloDisponibilidad.cs" />
+    <Compile Include="Logic\RegistroCitas\ParametrosBusquedaDisponibilidad.cs" />
+    <Compile Include="Logic\ServicioCitas.cs" />
+    <Compile Include="Logic\UtilidadesCadenas\StringUtils.cs" />
+    <Compile Include="Logic\UtilidadesFecha\ZonaHoraria.cs" />
+    <Compile Include="Logic\UtilidadesSedesUsuario\InfoSedeVista.cs" />
+    <Compile Include="Sistema\SessionManager.cs" />
+    <Compile Include="UI\Admin\AdminAgenda.Master.cs">
+      <DependentUpon>AdminAgenda.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Admin\AdminAgenda.Master.designer.cs">
+      <DependentUpon>AdminAgenda.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Admin\AdminAgendaInicio.aspx.cs">
+      <DependentUpon>AdminAgendaInicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Admin\AdminAgendaInicio.aspx.designer.cs">
+      <DependentUpon>AdminAgendaInicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Admin\AdminFestivos.aspx.cs">
+      <DependentUpon>AdminFestivos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Admin\AdminFestivos.aspx.designer.cs">
+      <DependentUpon>AdminFestivos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Admin\AdminMediosComunicacion.aspx.cs">
+      <DependentUpon>AdminMediosComunicacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Admin\AdminMediosComunicacion.aspx.designer.cs">
+      <DependentUpon>AdminMediosComunicacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Admin\AdminSedes.aspx.cs">
+      <DependentUpon>AdminSedes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Admin\AdminSedes.aspx.designer.cs">
+      <DependentUpon>AdminSedes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Admin\AdminTiposCita.aspx.cs">
+      <DependentUpon>AdminTiposCita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Admin\AdminTiposCita.aspx.designer.cs">
+      <DependentUpon>AdminTiposCita.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logic\HorarioMedico\IntervaloHorario.cs" />
+    <Compile Include="Logic\HorarioMedico\IntervalosSemana.cs" />
+    <Compile Include="Logic\HorarioMedico\IntervalosSemanaEspecifica.cs" />
+    <Compile Include="Logic\UtilidadesFecha\DateUtils.cs" />
+    <Compile Include="UI\Admin\AdminZonasHorarias.aspx.cs">
+      <DependentUpon>AdminZonasHorarias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Admin\AdminZonasHorarias.aspx.designer.cs">
+      <DependentUpon>AdminZonasHorarias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AgendaInicio.aspx.cs">
+      <DependentUpon>AgendaInicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\AgendaInicio.aspx.designer.cs">
+      <DependentUpon>AgendaInicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BusquedaCitas\ControlFiltroBusquedas.ascx.cs">
+      <DependentUpon>ControlFiltroBusquedas.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\BusquedaCitas\ControlFiltroBusquedas.ascx.designer.cs">
+      <DependentUpon>ControlFiltroBusquedas.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BusquedaCitas\ConvencionesEstados.ascx.cs">
+      <DependentUpon>ConvencionesEstados.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\BusquedaCitas\ConvencionesEstados.ascx.designer.cs">
+      <DependentUpon>ConvencionesEstados.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BusquedaCitas\DialogoCancelarCita.ascx.cs">
+      <DependentUpon>DialogoCancelarCita.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\BusquedaCitas\DialogoCancelarCita.ascx.designer.cs">
+      <DependentUpon>DialogoCancelarCita.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BusquedaCitas\DialogoRegistrarRecordatorioPaciente.ascx.cs">
+      <DependentUpon>DialogoRegistrarRecordatorioPaciente.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\BusquedaCitas\DialogoRegistrarRecordatorioPaciente.ascx.designer.cs">
+      <DependentUpon>DialogoRegistrarRecordatorioPaciente.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BusquedaCitas\DialogoRegistroLlegadaPaciente.ascx.cs">
+      <DependentUpon>DialogoRegistroLlegadaPaciente.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\BusquedaCitas\DialogoRegistroLlegadaPaciente.ascx.designer.cs">
+      <DependentUpon>DialogoRegistroLlegadaPaciente.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CitasMedico\CitasMedicoGrid.ascx.cs">
+      <DependentUpon>CitasMedicoGrid.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CitasMedico\CitasMedicoGrid.ascx.designer.cs">
+      <DependentUpon>CitasMedicoGrid.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CitasMedico\CitasMedicoScheduler.ascx.cs">
+      <DependentUpon>CitasMedicoScheduler.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CitasMedico\CitasMedicoScheduler.ascx.designer.cs">
+      <DependentUpon>CitasMedicoScheduler.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\BusquedaCitas\BusquedaCitas.aspx.cs">
+      <DependentUpon>BusquedaCitas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\BusquedaCitas\BusquedaCitas.aspx.designer.cs">
+      <DependentUpon>BusquedaCitas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\AgendaMedico.aspx.cs">
+      <DependentUpon>AgendaMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\AgendaMedico.aspx.designer.cs">
+      <DependentUpon>AgendaMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CitasMedico\CustomMenuAppointmentCallbackCommand.cs" />
+    <Compile Include="UI\CitasMedico\ControlInfoCitas.ascx.cs">
+      <DependentUpon>ControlInfoCitas.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CitasMedico\ControlInfoCitas.ascx.designer.cs">
+      <DependentUpon>ControlInfoCitas.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConfiguracionHorario\ConfigurarHorarioMedico.aspx.cs">
+      <DependentUpon>ConfigurarHorarioMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ConfiguracionHorario\ConfigurarHorarioMedico.aspx.designer.cs">
+      <DependentUpon>ConfigurarHorarioMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConfiguracionHorario\ControlHorarioDia.ascx.cs">
+      <DependentUpon>ControlHorarioDia.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ConfiguracionHorario\ControlHorarioDia.ascx.designer.cs">
+      <DependentUpon>ControlHorarioDia.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConfiguracionHorario\ControlHorarioSemana.ascx.cs">
+      <DependentUpon>ControlHorarioSemana.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ConfiguracionHorario\ControlHorarioSemana.ascx.designer.cs">
+      <DependentUpon>ControlHorarioSemana.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConfiguracionHorario\HorarioMedicoInicio.aspx.cs">
+      <DependentUpon>HorarioMedicoInicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ConfiguracionHorario\HorarioMedicoInicio.aspx.designer.cs">
+      <DependentUpon>HorarioMedicoInicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ConfiguracionHorario\SelectorSemana.ascx.cs">
+      <DependentUpon>SelectorSemana.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ConfiguracionHorario\SelectorSemana.ascx.designer.cs">
+      <DependentUpon>SelectorSemana.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentDragToolTip.ascx.designer.cs">
+      <DependentUpon>AppointmentDragToolTip.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentForm.ascx.designer.cs">
+      <DependentUpon>AppointmentForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentFormEx.ascx.designer.cs">
+      <DependentUpon>AppointmentFormEx.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\AppointmentToolTip.ascx.designer.cs">
+      <DependentUpon>AppointmentToolTip.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\GotoDateForm.ascx.designer.cs">
+      <DependentUpon>GotoDateForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\HorizontalAppointmentTemplate.ascx.designer.cs">
+      <DependentUpon>HorizontalAppointmentTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\HorizontalSameDayAppointmentTemplate.ascx.designer.cs">
+      <DependentUpon>HorizontalSameDayAppointmentTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\InplaceEditor.ascx.designer.cs">
+      <DependentUpon>InplaceEditor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\RecurrentAppointmentDeleteForm.ascx.designer.cs">
+      <DependentUpon>RecurrentAppointmentDeleteForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\RecurrentAppointmentEditForm.ascx.designer.cs">
+      <DependentUpon>RecurrentAppointmentEditForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\ReminderForm.ascx.designer.cs">
+      <DependentUpon>ReminderForm.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\SelectionToolTip.ascx.cs">
+      <DependentUpon>SelectionToolTip.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\SelectionToolTip.ascx.designer.cs">
+      <DependentUpon>SelectionToolTip.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="DevExpress\ASPxSchedulerForms\VerticalAppointmentTemplate.ascx.designer.cs">
+      <DependentUpon>VerticalAppointmentTemplate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomSchedulerTemplates\AppointmentDragToolTip.ascx.cs">
+      <DependentUpon>AppointmentDragToolTip.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CustomSchedulerTemplates\AppointmentDragToolTip.ascx.designer.cs">
+      <DependentUpon>AppointmentDragToolTip.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomSchedulerTemplates\HorizontalAppointmentTemplateCustom.ascx.cs">
+      <DependentUpon>HorizontalAppointmentTemplateCustom.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CustomSchedulerTemplates\HorizontalAppointmentTemplateCustom.ascx.designer.cs">
+      <DependentUpon>HorizontalAppointmentTemplateCustom.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomSchedulerTemplates\HorizontalSameDayAppointmentTemplateCustom.ascx.cs">
+      <DependentUpon>HorizontalSameDayAppointmentTemplateCustom.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CustomSchedulerTemplates\HorizontalSameDayAppointmentTemplateCustom.ascx.designer.cs">
+      <DependentUpon>HorizontalSameDayAppointmentTemplateCustom.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomSchedulerTemplates\PlantillaCitaSchedulerWorkweek.ascx.cs">
+      <DependentUpon>PlantillaCitaSchedulerWorkweek.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CustomSchedulerTemplates\PlantillaCitaSchedulerWorkweek.ascx.designer.cs">
+      <DependentUpon>PlantillaCitaSchedulerWorkweek.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\CustomSchedulerTemplates\PlantillaCitaScheduler.ascx.cs">
+      <DependentUpon>PlantillaCitaScheduler.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\CustomSchedulerTemplates\PlantillaCitaScheduler.ascx.designer.cs">
+      <DependentUpon>PlantillaCitaScheduler.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Notificaciones\Notificador.ascx.cs">
+      <DependentUpon>Notificador.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Notificaciones\Notificador.ascx.designer.cs">
+      <DependentUpon>Notificador.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Pacientes\ControlInfoPaciente.ascx.cs">
+      <DependentUpon>ControlInfoPaciente.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Pacientes\ControlInfoPaciente.ascx.designer.cs">
+      <DependentUpon>ControlInfoPaciente.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PaginaBaseAgenda.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\RegistroCitas\ControlFiltroDisponibilidad.ascx.cs">
+      <DependentUpon>ControlFiltroDisponibilidad.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\RegistroCitas\ControlFiltroDisponibilidad.ascx.designer.cs">
+      <DependentUpon>ControlFiltroDisponibilidad.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegistroCitas\ModuloRegistroCitas.aspx.cs">
+      <DependentUpon>ModuloRegistroCitas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\RegistroCitas\ModuloRegistroCitas.aspx.designer.cs">
+      <DependentUpon>ModuloRegistroCitas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\RegistroCitas\ParametrosRegistroCita.aspx.cs" />
+    <Compile Include="UI\RegistroCitas\ParametrosReprogramacionCita.aspx.cs" />
+    <Compile Include="UI\ServiciosAgendaCliente.aspx.cs">
+      <DependentUpon>ServiciosAgendaCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\ServiciosAgendaCliente.aspx.designer.cs">
+      <DependentUpon>ServiciosAgendaCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Admin\UsuariosSedes.aspx.cs">
+      <DependentUpon>UsuariosSedes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Admin\UsuariosSedes.aspx.designer.cs">
+      <DependentUpon>UsuariosSedes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Utils\ControlMensajeError.ascx.cs">
+      <DependentUpon>ControlMensajeError.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\ControlMensajeError.ascx.designer.cs">
+      <DependentUpon>ControlMensajeError.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Utils\EnumUserMessage.cs" />
+    <Compile Include="UI\Utils\UserControlMessage.ascx.cs">
+      <DependentUpon>UserControlMessage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Utils\UserControlMessage.ascx.designer.cs">
+      <DependentUpon>UserControlMessage.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Utils\WebUtils.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ChangeLog.txt" />
+    <Content Include="Content\configuracionHorarios.css" />
+    <Content Include="Content\estiloscomunes.css" />
+    <Content Include="Content\ie6.css" />
+    <Content Include="Content\images\accept.png" />
+    <Content Include="Content\images\add.png" />
+    <Content Include="Content\images\application_go.png" />
+    <Content Include="Content\images\bell.png" />
+    <Content Include="Content\images\bigButton.gif" />
+    <Content Include="Content\images\bullet_error.png" />
+    <Content Include="Content\images\clock.png" />
+    <Content Include="Content\images\clock_32.png" />
+    <Content Include="Content\images\clock_red.png" />
+    <Content Include="Content\images\close_16.png" />
+    <Content Include="Content\images\icoMenu.gif" />
+    <Content Include="Content\images\imgBullet.gif" />
+    <Content Include="Content\images\imgClose.gif" />
+    <Content Include="Content\images\newspaper_32.png" />
+    <Content Include="Content\images\note.png" />
+    <Content Include="Content\images\page_text_32.png" />
+    <Content Include="Content\images\search_32.png" />
+    <Content Include="Content\images\telephone.png" />
+    <Content Include="Content\images\user.png" />
+    <Content Include="Content\notificaciones.css" />
+    <Content Include="Content\registroCitas.css" />
+    <Content Include="DevExpress\Leer.txt" />
+    <Content Include="Scripts\achtung-0.3.0\AUTHORS.txt" />
+    <Content Include="Scripts\achtung-0.3.0\LICENSE.txt" />
+    <Content Include="Scripts\achtung-0.3.0\ui.achtung-min.css" />
+    <Content Include="Scripts\achtung-0.3.0\ui.achtung-min.js" />
+    <Content Include="Scripts\achtung-0.3.0\ui.achtung.css" />
+    <Content Include="Scripts\achtung-0.3.0\ui.achtung.js" />
+    <Content Include="Scripts\achtung-0.3.0\version.txt" />
+    <Content Include="Scripts\BusquedaCitas.js" />
+    <Content Include="Scripts\AgendaMedico.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\AdministracionMedios.js" />
+    <Content Include="Scripts\jquery-ui-1.8.custom.min.js" />
+    <Content Include="Scripts\jquery.bgiframe.js" />
+    <Content Include="Content\jquery.jgrowl.css" />
+    <Content Include="Scripts\jquery.jgrowl_minimized.js" />
+    <Content Include="Scripts\jquery.tablehover.min.js" />
+    <Content Include="Scripts\jquery.timeentry-es.js" />
+    <Content Include="Scripts\jquery.timeentry.1.4.7\Copy of jquery.timeentry.min.js" />
+    <Content Include="Scripts\jquery.timeentry.css" />
+    <Content Include="Scripts\jquery.timeentry.min.js" />
+    <Content Include="Scripts\jquery.ui.datepicker-es.js" />
+    <Content Include="Scripts\ModuloRegistroCitas.js" />
+    <Content Include="Scripts\ui.achtung-min.css" />
+    <Content Include="Scripts\ui.achtung-min.js" />
+    <Content Include="Scripts\ui.achtung.css" />
+    <Content Include="Scripts\ui.achtung.js" />
+    <Content Include="UI\Admin\AdminAgenda.Master" />
+    <Content Include="UI\Admin\AdminAgendaInicio.aspx" />
+    <Content Include="UI\Admin\AdminMediosComunicacion.aspx" />
+    <Content Include="UI\Admin\AdminZonasHorarias.aspx" />
+    <Content Include="UI\AgendaInicio.aspx" />
+    <Content Include="UI\BusquedaCitas\ControlFiltroBusquedas.ascx" />
+    <Content Include="UI\BusquedaCitas\ConvencionesEstados.ascx" />
+    <Content Include="UI\BusquedaCitas\DialogoCancelarCita.ascx" />
+    <Content Include="UI\BusquedaCitas\DialogoRegistrarRecordatorioPaciente.ascx" />
+    <Content Include="UI\BusquedaCitas\DialogoRegistroLlegadaPaciente.ascx" />
+    <Content Include="UI\CitasMedico\CitasMedicoGrid.ascx" />
+    <Content Include="UI\CitasMedico\CitasMedicoScheduler.ascx" />
+    <Content Include="UI\AgendaMedico.aspx" />
+    <Content Include="UI\CitasMedico\ControlInfoCitas.ascx" />
+    <Content Include="UI\ConfiguracionHorario\DesignLog.txt" />
+    <Content Include="UI\ConfiguracionHorario\HorarioMedicoInicio.aspx" />
+    <Content Include="UI\ConfiguracionHorario\SelectorSemana.ascx" />
+    <Content Include="UI\CustomSchedulerTemplates\HorizontalAppointmentTemplateCustom.ascx" />
+    <Content Include="UI\CustomSchedulerTemplates\HorizontalSameDayAppointmentTemplateCustom.ascx" />
+    <Content Include="UI\CustomSchedulerTemplates\PlantillaCitaSchedulerWorkweek.ascx" />
+    <Content Include="UI\CustomSchedulerTemplates\PlantillaCitaScheduler.ascx" />
+    <Content Include="UI\Pacientes\ControlInfoPaciente.ascx" />
+    <Content Include="UI\RegistroCitas\ControlFiltroDisponibilidad.ascx" />
+    <Content Include="UI\RegistroCitas\ModuloRegistroCitas.aspx" />
+    <Content Include="UI\ServiciosAgendaCliente.aspx" />
+    <Content Include="UI\Admin\UsuariosSedes.aspx" />
+    <Content Include="UI\Utils\ControlMensajeError.ascx" />
+    <Content Include="UI\Utils\UserControlMessage.ascx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\publish.pubxml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49800</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

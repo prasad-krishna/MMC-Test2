@@ -1,0 +1,79 @@
+﻿1.0.13.0----------------------
+Autor:Hugo Fernando Zapata
+Corregido bug que mostraba citas en la agenda de todas las empresas y no solo de la empresa de la sesión.
+Hubo que actualizar el procedimiento GetCitasMedico agregandole el parametro adicional idEmpresa
+1.0.12.0-----------------------
+Autor:Hugo Fernando Zapata
+-Corregido bug que no mostraba los huecos en la disponibilidad (HorarioMedicoManager)
+-Corregida novedades de agenda para que filtre por empresa (solo muestra las novedades de la empresa actual)
+-
+1.0.11.0------------------------
+Correccion de bug en asociacion de sedes/usuario null object
+1.0.10.0------------------------
+Creada a raiz de 2 problemas:
+1) Se debe manejar de forma independiente el horario de un prestador y una empresa, actualmente se estan revolviendo
+2) Problemas de rendimiento en cliente (optimizacion eventos jquery)
+1.0.9.0-------------------------
+Correccion ajuste de imagenes que desaparecian en pantalla de busqueda (el problema lo causaba el plugin tablehover)
+Se elimino también referencia a json2 pues no se esta usando (se usa el parsing de jquery a json)
+
+1.0.8.0-------------------------
+2010/07/06
+No se aplicaba formato de fecha correcto en gridview, hubo que poner HtmlEncode = false para las columnas de fecha
+Ajustes para problema de gifs que desaparecian en links cuando se hacia hover.
+
+2010/06/22
+(Actualización de componente AspxScheduler)
+Se actualizó a la versión 2010 v1 de ASPxScheduler
+1.0.7.0------------------------
+2010/06/07
+Validacion agenda para no permitir registrar consulta a citas con estados distintos a pendiente o espera.
+(Cambio para grid y scheduler)
+Cambio de mensajes de error al eliminar sede porque esta siendo usada.
+Ajuste en cultura de la pagina aspx de la agenda para que detecte la cultura usada por componente scheduler
+(No hubo cambios en DB)
+1.0.6.0------------------------
+2010/05/31
+Ajustes en formas para detectar timeout de sesión y redirigir
+Cambio de imagenes de png a gifs (ie6)
+Mejora de presentación de citas en control agenda.
+Mejora layout dialogo recordatorio.
+Asteriscos campos requeridos registro y ReprogramarCita
+Reporte de log de citas 
+1.0.5.0------------------------
+2010/05/26
+Corregido formato fechas a dia/mes/año.
+Agregado limite de caracteres a textarea (script)
+Se muestra referencia de los colores de las citas
+Uso de HtmlEncode en partes donde se presenta información al usuario
+(No hubo cambios en DB)
+
+1.0.4.0------------------------
+2010/05/20
+Creados reportes iniciales.
+Cambios en DB: Vistas, funciones para reportes
+
+1.0.3.0------------------------
+2010/05/18
+Incorporado módulo que permite asociar usuarios con sedes para que solo puedan buscar citas para las sedes especificadas.
+Refactor de módulo de búsqueda de citas
+- Agregados parametros de idUsuario e idEmpresa
+- Solo retorna resultados de sedes asociadas al usuario.
+Multiples Bug Fixes (Revisión John)
+1.0.2.0------------------------
+2010/05/13
+Agregado parametro de limite de tiempo para cancelacion reprogramación
+BugFix: Fecha final al reprogramar incorrecta
+BugFix: Corregido bug al eliminar cita "De aqui en adelante"
+al registrar cita, los links para dias festivos se muestran en rojo (pendiente mostrar advertencia)
+Base de datos:
+Procedimientos para marcar citas como inasistidas y citas completadas
+
+
+1.0.1.0------------------------
+11/05/2010
+Corregidos problemas en configuración de horario
+
+1.0.0.0------------------------
+Versión inicial Módulo agenda
+

@@ -1,0 +1,13 @@
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\DataAccess\bin\Release\DataAccess.dll.config
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\DataAccess\bin\Release\DataAccess.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\DataAccess\obj\Release\DataAccess.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\bin\Release\DataAccess.dll.config
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\bin\Release\DataAccess.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\obj\Release\DataAccess.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\bin\Release\DataAccess.dll.config
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\bin\Release\DataAccess.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\DataAccess\obj\Release\DataAccess.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\DataAccess\bin\Release\DataAccess.dll.config
+C:\SS\004 - Historias Clinicas\1 - DEV\DataAccess\bin\Release\DataAccess.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\DataAccess\obj\Release\DataAccess.csprojResolveAssemblyReference.cache
+C:\SS\004 - Historias Clinicas\1 - DEV\DataAccess\obj\Release\DataAccess.dll

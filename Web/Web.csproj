@@ -1,0 +1,2815 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A9157AC4-7B4D-4DAF-9578-809A4A0271C7}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Web</RootNamespace>
+    <AssemblyName>Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AntiXSSLibrary, Version=4.2.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Asemblies\AntiXSSLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="fredck.fckeditorv2, Version=2.6.3.23773, Culture=neutral, PublicKeyToken=4f86767c9b519a06" />
+    <Reference Include="Idunno.AntiCsrf, Version=0.9.1.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="MFAUtil, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\MFAUtil.dll</HintPath>
+    </Reference>
+    <Reference Include="MMC.Seguridad, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Asemblies\MMC.Seguridad.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AE_Contrasena.aspx" />
+    <Content Include="AE_Empresa.aspx" />
+    <Content Include="AE_Ingreso_SICAU.aspx" />
+    <Content Include="AE_login_admin.aspx" />
+    <Content Include="agenda\bin\Content\agenda.css" />
+    <Content Include="agenda\bin\DataAccess.dll" />
+    <Content Include="agenda\bin\DataAccess.pdb" />
+    <Content Include="agenda\bin\DevExpress.Data.v10.1.dll" />
+    <Content Include="agenda\bin\DevExpress.Web.ASPxEditors.v10.1.dll" />
+    <Content Include="agenda\bin\DevExpress.Web.ASPxScheduler.v10.1.dll" />
+    <Content Include="agenda\bin\DevExpress.Web.v10.1.dll" />
+    <Content Include="agenda\bin\DevExpress.XtraScheduler.v10.1.Core.dll" />
+    <Content Include="agenda\bin\Logic.dll" />
+    <Content Include="agenda\bin\Logic.pdb" />
+    <Content Include="agenda\bin\Mercer.Tpa.Agenda.Web.dll" />
+    <Content Include="agenda\bin\Mercer.Tpa.Agenda.Web.pdb" />
+    <Content Include="agenda\bin\Web.dll" />
+    <Content Include="agenda\bin\Web.pdb" />
+    <Content Include="agenda\ChangeLog.txt" />
+    <Content Include="agenda\Content\agenda.css" />
+    <Content Include="agenda\Content\configuracionHorarios.css" />
+    <Content Include="agenda\Content\estiloscomunes.css" />
+    <Content Include="agenda\Content\ie6.css" />
+    <Content Include="agenda\Content\images\accept.png" />
+    <Content Include="agenda\Content\images\add.png" />
+    <Content Include="agenda\Content\images\application_go.png" />
+    <Content Include="agenda\Content\images\bell.png" />
+    <Content Include="agenda\Content\images\bigButton.gif" />
+    <Content Include="agenda\Content\images\bullet_error.png" />
+    <Content Include="agenda\Content\images\clock.png" />
+    <Content Include="agenda\Content\images\clock_32.png" />
+    <Content Include="agenda\Content\images\clock_red.png" />
+    <Content Include="agenda\Content\images\close_16.png" />
+    <Content Include="agenda\Content\images\icoCalendar.gif" />
+    <Content Include="agenda\Content\images\icoMenu.gif" />
+    <Content Include="agenda\Content\images\ico_adicionar.gif" />
+    <Content Include="agenda\Content\images\imgBullet.gif" />
+    <Content Include="agenda\Content\images\imgClose.gif" />
+    <Content Include="agenda\Content\images\newspaper_32.png" />
+    <Content Include="agenda\Content\images\note.png" />
+    <Content Include="agenda\Content\images\page_text_32.png" />
+    <Content Include="agenda\Content\images\search_32.png" />
+    <Content Include="agenda\Content\images\telephone.png" />
+    <Content Include="agenda\Content\images\ui-anim_basic_16x16.gif" />
+    <Content Include="agenda\Content\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="agenda\Content\images\ui-bg_flat_75_102251_40x100.png" />
+    <Content Include="agenda\Content\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="agenda\Content\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="agenda\Content\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="agenda\Content\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="agenda\Content\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="agenda\Content\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="agenda\Content\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="agenda\Content\images\ui-bg_inset-soft_95_fef1ec_1x100.png" />
+    <Content Include="agenda\Content\images\ui-icons_222222_256x240.png" />
+    <Content Include="agenda\Content\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="agenda\Content\images\ui-icons_454545_256x240.png" />
+    <Content Include="agenda\Content\images\ui-icons_888888_256x240.png" />
+    <Content Include="agenda\Content\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="agenda\Content\images\ui-icons_fff0f0_256x240.png" />
+    <Content Include="agenda\Content\images\user.png" />
+    <Content Include="agenda\Content\jquery-ui-1.8rc3.custom.css" />
+    <Content Include="agenda\Content\jquery.jgrowl.css" />
+    <Content Include="agenda\Content\jquery.ui.accordion.css" />
+    <Content Include="agenda\Content\jquery.ui.all.css" />
+    <Content Include="agenda\Content\jquery.ui.autocomplete.css" />
+    <Content Include="agenda\Content\jquery.ui.base.css" />
+    <Content Include="agenda\Content\jquery.ui.button.css" />
+    <Content Include="agenda\Content\jquery.ui.core.css" />
+    <Content Include="agenda\Content\jquery.ui.datepicker.css" />
+    <Content Include="agenda\Content\jquery.ui.dialog.css" />
+    <Content Include="agenda\Content\jquery.ui.progressbar.css" />
+    <Content Include="agenda\Content\jquery.ui.resizable.css" />
+    <Content Include="agenda\Content\jquery.ui.slider.css" />
+    <Content Include="agenda\Content\jquery.ui.tabs.css" />
+    <Content Include="agenda\Content\jquery.ui.theme.css" />
+    <Content Include="agenda\Content\notificaciones.css" />
+    <Content Include="agenda\Content\registroCitas.css" />
+    <Content Include="agenda\Content\ui.jqgrid.css" />
+    <Content Include="agenda\DataAcess\CodeDesignLog.txt" />
+    <Content Include="agenda\DevExpress\ASPxSchedulerForms\AppointmentDragToolTip.ascx" />
+    <Content Include="agenda\DevExpress\ASPxSchedulerForms\AppointmentForm.ascx" />
+    <Content Include="agenda\DevExpress\ASPxSchedulerForms\AppointmentFormEx.ascx" />
+    <Content Include="agenda\DevExpress\ASPxSchedulerForms\AppointmentToolTip.ascx" />
+    <Content Include="agenda\DevExpress\ASPxSchedulerForms\GotoDateForm.ascx" />
+    <Content Include="agenda\DevExpress\ASPxSchedulerForms\HorizontalAppointmentTemplate.ascx" />
+    <Content Include="agenda\DevExpress\ASPxSchedulerForms\HorizontalSameDayAppointmentTemplate.ascx" />
+    <Content Include="agenda\DevExpress\ASPxSchedulerForms\InplaceEditor.ascx" />
+    <Content Include="agenda\DevExpress\ASPxSchedulerForms\RecurrentAppointmentDeleteForm.ascx" />
+    <Content Include="agenda\DevExpress\ASPxSchedulerForms\RecurrentAppointmentEditForm.ascx" />
+    <Content Include="agenda\DevExpress\ASPxSchedulerForms\ReminderForm.ascx" />
+    <Content Include="agenda\DevExpress\ASPxSchedulerForms\SelectionToolTip.ascx" />
+    <Content Include="agenda\DevExpress\ASPxSchedulerForms\VerticalAppointmentTemplate.ascx" />
+    <Content Include="agenda\DevExpress\Leer.txt" />
+    <Content Include="agenda\Scripts\achtung-0.3.0\AUTHORS.txt" />
+    <Content Include="agenda\Scripts\achtung-0.3.0\LICENSE.txt" />
+    <Content Include="agenda\Scripts\achtung-0.3.0\ui.achtung-min.css" />
+    <Content Include="agenda\Scripts\achtung-0.3.0\ui.achtung-min.js" />
+    <Content Include="agenda\Scripts\achtung-0.3.0\ui.achtung.css" />
+    <Content Include="agenda\Scripts\achtung-0.3.0\ui.achtung.js" />
+    <Content Include="agenda\Scripts\achtung-0.3.0\version.txt" />
+    <Content Include="agenda\Scripts\AdministracionMedios.js" />
+    <Content Include="agenda\Scripts\AdministracionSedes.js" />
+    <Content Include="agenda\Scripts\AdministracionTiposCita.js" />
+    <Content Include="agenda\Scripts\AgendaMedico.js" />
+    <Content Include="agenda\Scripts\BusquedaCitas.js" />
+    <Content Include="agenda\Scripts\common.js" />
+    <Content Include="agenda\Scripts\ConfiguracionHorarioMedico.js" />
+    <Content Include="agenda\Scripts\jquery-1.4.2.min.js" />
+    <Content Include="agenda\Scripts\jquery-ui-1.8.custom.min.js" />
+    <Content Include="agenda\Scripts\jquery-ui-1.8.min.js" />
+    <Content Include="agenda\Scripts\jquery.bgiframe.js" />
+    <Content Include="agenda\Scripts\jquery.jgrowl_minimized.js" />
+    <Content Include="agenda\Scripts\jquery.tablehover.min.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry-es.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\Copy of jquery.timeentry.min.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-cs.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-de.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-es.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-fr.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-hu.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-is.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-it.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-ja.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-nl.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-pl.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-pt.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-ro.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-ru.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-sk.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-sv.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-tr.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-vi.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry-zh-CN.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry.compat-1.2.6.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry.css" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry.min.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\jquery.timeentry.pack.js" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\spinnerDefault.png" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\spinnerDefaultBig.png" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\spinnerGem.png" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\spinnerGemBig.png" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\spinnerGreen.png" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\spinnerGreenBig.png" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\spinnerOrange.png" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\spinnerOrangeBig.png" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\spinnerSquare.png" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\spinnerSquareBig.png" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\spinnerText.png" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\spinnerTextBig.png" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\spinnerUpDown.png" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\spinnerUpDownBig.png" />
+    <Content Include="agenda\Scripts\jquery.timeentry.1.4.7\timeEntryBasics.html" />
+    <Content Include="agenda\Scripts\jquery.timeentry.css" />
+    <Content Include="agenda\Scripts\jquery.timeentry.min.js" />
+    <Content Include="agenda\Scripts\jquery.ui.datepicker-es.js" />
+    <Content Include="agenda\Scripts\json2.js" />
+    <Content Include="agenda\Scripts\MiAgenda.js" />
+    <Content Include="agenda\Scripts\ModuloRegistroCitas.js" />
+    <Content Include="agenda\Scripts\ui.achtung-min.css" />
+    <Content Include="agenda\Scripts\ui.achtung-min.js" />
+    <Content Include="agenda\Scripts\ui.achtung.css" />
+    <Content Include="agenda\Scripts\ui.achtung.js" />
+    <Content Include="agenda\UI\Admin\AdminAgendaInicio.aspx" />
+    <Content Include="agenda\UI\Admin\AdminFestivos.aspx" />
+    <Content Include="agenda\UI\Admin\AdminMediosComunicacion.aspx" />
+    <Content Include="agenda\UI\Admin\AdminSedes.aspx" />
+    <Content Include="agenda\UI\Admin\AdminTiposCita.aspx" />
+    <Content Include="agenda\UI\Admin\AdminZonasHorarias.aspx" />
+    <Content Include="agenda\UI\Admin\UsuariosSedes.aspx" />
+    <Content Include="agenda\UI\AgendaInicio.aspx" />
+    <Content Include="agenda\UI\AgendaMedico.aspx" />
+    <Content Include="agenda\UI\BusquedaCitas\BusquedaCitas.aspx" />
+    <Content Include="agenda\UI\BusquedaCitas\ControlFiltroBusquedas.ascx" />
+    <Content Include="agenda\UI\BusquedaCitas\ConvencionesEstados.ascx" />
+    <Content Include="agenda\UI\BusquedaCitas\DialogoCancelarCita.ascx" />
+    <Content Include="agenda\UI\BusquedaCitas\DialogoRegistrarRecordatorioPaciente.ascx" />
+    <Content Include="agenda\UI\BusquedaCitas\DialogoRegistroLlegadaPaciente.ascx" />
+    <Content Include="agenda\UI\CitasMedico\CitasMedicoGrid.ascx" />
+    <Content Include="agenda\UI\CitasMedico\CitasMedicoScheduler.ascx" />
+    <Content Include="agenda\UI\CitasMedico\ControlInfoCitas.ascx" />
+    <Content Include="agenda\UI\ConfiguracionHorario\ConfigurarHorarioMedico.aspx" />
+    <Content Include="agenda\UI\ConfiguracionHorario\ControlHorarioDia.ascx" />
+    <Content Include="agenda\UI\ConfiguracionHorario\ControlHorarioSemana.ascx" />
+    <Content Include="agenda\UI\ConfiguracionHorario\DesignLog.txt" />
+    <Content Include="agenda\UI\ConfiguracionHorario\HorarioMedicoInicio.aspx" />
+    <Content Include="agenda\UI\ConfiguracionHorario\SelectorSemana.ascx" />
+    <Content Include="agenda\UI\CustomSchedulerTemplates\AppointmentDragToolTip.ascx" />
+    <Content Include="agenda\UI\CustomSchedulerTemplates\HorizontalAppointmentTemplateCustom.ascx" />
+    <Content Include="agenda\UI\CustomSchedulerTemplates\HorizontalSameDayAppointmentTemplateCustom.ascx" />
+    <Content Include="agenda\UI\CustomSchedulerTemplates\PlantillaCitaScheduler.ascx" />
+    <Content Include="agenda\UI\CustomSchedulerTemplates\PlantillaCitaSchedulerWorkweek.ascx" />
+    <Content Include="agenda\UI\Notificaciones\Notificador.ascx" />
+    <Content Include="agenda\UI\Pacientes\ControlInfoPaciente.ascx" />
+    <Content Include="agenda\UI\RegistroCitas\ControlFiltroDisponibilidad.ascx" />
+    <Content Include="agenda\UI\RegistroCitas\ModuloRegistroCitas.aspx" />
+    <Content Include="agenda\UI\ServiciosAgendaCliente.aspx" />
+    <Content Include="agenda\UI\Utils\ControlMensajeError.ascx" />
+    <Content Include="agenda\UI\Utils\UserControlMessage.ascx" />
+    <Content Include="Asemblies\MMC.Seguridad.dll" />
+    <Content Include="bin\Mercer.Tpa.Agenda.Web.dll" />
+    <Content Include="bin\MFAUtil.dll" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Web.dll" />
+    <Content Include="bin\Web.pdb" />
+    <Content Include="ckeditor\adapters\jquery.js" />
+    <Content Include="ckeditor\build-config.js" />
+    <Content Include="ckeditor\ckeditor.js" />
+    <Content Include="ckeditor\config.js" />
+    <Content Include="ckeditor\contents.css" />
+    <Content Include="ckeditor\lang\af.js" />
+    <Content Include="ckeditor\lang\ar.js" />
+    <Content Include="ckeditor\lang\az.js" />
+    <Content Include="ckeditor\lang\bg.js" />
+    <Content Include="ckeditor\lang\bn.js" />
+    <Content Include="ckeditor\lang\bs.js" />
+    <Content Include="ckeditor\lang\ca.js" />
+    <Content Include="ckeditor\lang\cs.js" />
+    <Content Include="ckeditor\lang\cy.js" />
+    <Content Include="ckeditor\lang\da.js" />
+    <Content Include="ckeditor\lang\de-ch.js" />
+    <Content Include="ckeditor\lang\de.js" />
+    <Content Include="ckeditor\lang\el.js" />
+    <Content Include="ckeditor\lang\en-au.js" />
+    <Content Include="ckeditor\lang\en-ca.js" />
+    <Content Include="ckeditor\lang\en-gb.js" />
+    <Content Include="ckeditor\lang\en.js" />
+    <Content Include="ckeditor\lang\eo.js" />
+    <Content Include="ckeditor\lang\es-mx.js" />
+    <Content Include="ckeditor\lang\es.js" />
+    <Content Include="ckeditor\lang\et.js" />
+    <Content Include="ckeditor\lang\eu.js" />
+    <Content Include="ckeditor\lang\fa.js" />
+    <Content Include="ckeditor\lang\fi.js" />
+    <Content Include="ckeditor\lang\fo.js" />
+    <Content Include="ckeditor\lang\fr-ca.js" />
+    <Content Include="ckeditor\lang\fr.js" />
+    <Content Include="ckeditor\lang\gl.js" />
+    <Content Include="ckeditor\lang\gu.js" />
+    <Content Include="ckeditor\lang\he.js" />
+    <Content Include="ckeditor\lang\hi.js" />
+    <Content Include="ckeditor\lang\hr.js" />
+    <Content Include="ckeditor\lang\hu.js" />
+    <Content Include="ckeditor\lang\id.js" />
+    <Content Include="ckeditor\lang\is.js" />
+    <Content Include="ckeditor\lang\it.js" />
+    <Content Include="ckeditor\lang\ja.js" />
+    <Content Include="ckeditor\lang\ka.js" />
+    <Content Include="ckeditor\lang\km.js" />
+    <Content Include="ckeditor\lang\ko.js" />
+    <Content Include="ckeditor\lang\ku.js" />
+    <Content Include="ckeditor\lang\lt.js" />
+    <Content Include="ckeditor\lang\lv.js" />
+    <Content Include="ckeditor\lang\mk.js" />
+    <Content Include="ckeditor\lang\mn.js" />
+    <Content Include="ckeditor\lang\ms.js" />
+    <Content Include="ckeditor\lang\nb.js" />
+    <Content Include="ckeditor\lang\nl.js" />
+    <Content Include="ckeditor\lang\no.js" />
+    <Content Include="ckeditor\lang\oc.js" />
+    <Content Include="ckeditor\lang\pl.js" />
+    <Content Include="ckeditor\lang\pt-br.js" />
+    <Content Include="ckeditor\lang\pt.js" />
+    <Content Include="ckeditor\lang\ro.js" />
+    <Content Include="ckeditor\lang\ru.js" />
+    <Content Include="ckeditor\lang\si.js" />
+    <Content Include="ckeditor\lang\sk.js" />
+    <Content Include="ckeditor\lang\sl.js" />
+    <Content Include="ckeditor\lang\sq.js" />
+    <Content Include="ckeditor\lang\sr-latn.js" />
+    <Content Include="ckeditor\lang\sr.js" />
+    <Content Include="ckeditor\lang\sv.js" />
+    <Content Include="ckeditor\lang\th.js" />
+    <Content Include="ckeditor\lang\tr.js" />
+    <Content Include="ckeditor\lang\tt.js" />
+    <Content Include="ckeditor\lang\ug.js" />
+    <Content Include="ckeditor\lang\uk.js" />
+    <Content Include="ckeditor\lang\vi.js" />
+    <Content Include="ckeditor\lang\zh-cn.js" />
+    <Content Include="ckeditor\lang\zh.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\a11yhelp.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\af.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ar.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\az.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\bg.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ca.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\cs.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\cy.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\da.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\de-ch.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\de.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\el.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\en-au.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\en-gb.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\en.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\eo.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\es-mx.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\es.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\et.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\eu.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\fa.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\fi.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\fo.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\fr-ca.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\fr.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\gl.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\gu.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\he.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\hi.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\hr.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\hu.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\id.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\it.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ja.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\km.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ko.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ku.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\lt.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\lv.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\mk.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\mn.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\nb.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\nl.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\no.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\oc.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\pl.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\pt-br.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\pt.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ro.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ru.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\si.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\sk.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\sl.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\sq.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\sr-latn.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\sr.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\sv.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\th.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\tr.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\tt.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\ug.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\uk.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\vi.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\zh-cn.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\zh.js" />
+    <Content Include="ckeditor\plugins\a11yhelp\dialogs\lang\_translationstatus.txt" />
+    <Content Include="ckeditor\plugins\about\dialogs\about.js" />
+    <Content Include="ckeditor\plugins\about\dialogs\hidpi\logo_ckeditor.png" />
+    <Content Include="ckeditor\plugins\about\dialogs\logo_ckeditor.png" />
+    <Content Include="ckeditor\plugins\clipboard\dialogs\paste.js" />
+    <Content Include="ckeditor\plugins\colordialog\dialogs\colordialog.css" />
+    <Content Include="ckeditor\plugins\colordialog\dialogs\colordialog.js" />
+    <Content Include="ckeditor\plugins\copyformatting\cursors\cursor-disabled.svg" />
+    <Content Include="ckeditor\plugins\copyformatting\cursors\cursor.svg" />
+    <Content Include="ckeditor\plugins\copyformatting\styles\copyformatting.css" />
+    <Content Include="ckeditor\plugins\dialog\dialogDefinition.js" />
+    <Content Include="ckeditor\plugins\dialog\styles\dialog.css" />
+    <Content Include="ckeditor\plugins\div\dialogs\div.js" />
+    <Content Include="ckeditor\plugins\find\dialogs\find.js" />
+    <Content Include="ckeditor\plugins\flash\dialogs\flash.js" />
+    <Content Include="ckeditor\plugins\flash\images\placeholder.png" />
+    <Content Include="ckeditor\plugins\forms\dialogs\button.js" />
+    <Content Include="ckeditor\plugins\forms\dialogs\checkbox.js" />
+    <Content Include="ckeditor\plugins\forms\dialogs\form.js" />
+    <Content Include="ckeditor\plugins\forms\dialogs\hiddenfield.js" />
+    <Content Include="ckeditor\plugins\forms\dialogs\radio.js" />
+    <Content Include="ckeditor\plugins\forms\dialogs\select.js" />
+    <Content Include="ckeditor\plugins\forms\dialogs\textarea.js" />
+    <Content Include="ckeditor\plugins\forms\dialogs\textfield.js" />
+    <Content Include="ckeditor\plugins\forms\images\hiddenfield.gif" />
+    <Content Include="ckeditor\plugins\icons.png" />
+    <Content Include="ckeditor\plugins\icons_hidpi.png" />
+    <Content Include="ckeditor\plugins\iframe\dialogs\iframe.js" />
+    <Content Include="ckeditor\plugins\iframe\images\placeholder.png" />
+    <Content Include="ckeditor\plugins\image\dialogs\image.js" />
+    <Content Include="ckeditor\plugins\image\images\noimage.png" />
+    <Content Include="ckeditor\plugins\link\dialogs\anchor.js" />
+    <Content Include="ckeditor\plugins\link\dialogs\link.js" />
+    <Content Include="ckeditor\plugins\link\images\anchor.png" />
+    <Content Include="ckeditor\plugins\link\images\hidpi\anchor.png" />
+    <Content Include="ckeditor\plugins\liststyle\dialogs\liststyle.js" />
+    <Content Include="ckeditor\plugins\magicline\images\hidpi\icon-rtl.png" />
+    <Content Include="ckeditor\plugins\magicline\images\hidpi\icon.png" />
+    <Content Include="ckeditor\plugins\magicline\images\icon-rtl.png" />
+    <Content Include="ckeditor\plugins\magicline\images\icon.png" />
+    <Content Include="ckeditor\plugins\pagebreak\images\pagebreak.gif" />
+    <Content Include="ckeditor\plugins\pastefromgdocs\filter\default.js" />
+    <Content Include="ckeditor\plugins\pastefromword\filter\default.js" />
+    <Content Include="ckeditor\plugins\pastetools\filter\common.js" />
+    <Content Include="ckeditor\plugins\pastetools\filter\image.js" />
+    <Content Include="ckeditor\plugins\preview\images\pagebreak.gif" />
+    <Content Include="ckeditor\plugins\preview\preview.html" />
+    <Content Include="ckeditor\plugins\preview\styles\screen.css" />
+    <Content Include="ckeditor\plugins\scayt\dialogs\dialog.css" />
+    <Content Include="ckeditor\plugins\scayt\dialogs\options.js" />
+    <Content Include="ckeditor\plugins\scayt\dialogs\toolbar.css" />
+    <Content Include="ckeditor\plugins\scayt\skins\moono-lisa\scayt.css" />
+    <Content Include="ckeditor\plugins\showblocks\images\block_address.png" />
+    <Content Include="ckeditor\plugins\showblocks\images\block_blockquote.png" />
+    <Content Include="ckeditor\plugins\showblocks\images\block_div.png" />
+    <Content Include="ckeditor\plugins\showblocks\images\block_h1.png" />
+    <Content Include="ckeditor\plugins\showblocks\images\block_h2.png" />
+    <Content Include="ckeditor\plugins\showblocks\images\block_h3.png" />
+    <Content Include="ckeditor\plugins\showblocks\images\block_h4.png" />
+    <Content Include="ckeditor\plugins\showblocks\images\block_h5.png" />
+    <Content Include="ckeditor\plugins\showblocks\images\block_h6.png" />
+    <Content Include="ckeditor\plugins\showblocks\images\block_p.png" />
+    <Content Include="ckeditor\plugins\showblocks\images\block_pre.png" />
+    <Content Include="ckeditor\plugins\smiley\dialogs\smiley.js" />
+    <Content Include="ckeditor\plugins\smiley\images\angel_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\angel_smile.png" />
+    <Content Include="ckeditor\plugins\smiley\images\angry_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\angry_smile.png" />
+    <Content Include="ckeditor\plugins\smiley\images\broken_heart.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\broken_heart.png" />
+    <Content Include="ckeditor\plugins\smiley\images\confused_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\confused_smile.png" />
+    <Content Include="ckeditor\plugins\smiley\images\cry_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\cry_smile.png" />
+    <Content Include="ckeditor\plugins\smiley\images\devil_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\devil_smile.png" />
+    <Content Include="ckeditor\plugins\smiley\images\embaressed_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\embarrassed_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\embarrassed_smile.png" />
+    <Content Include="ckeditor\plugins\smiley\images\envelope.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\envelope.png" />
+    <Content Include="ckeditor\plugins\smiley\images\heart.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\heart.png" />
+    <Content Include="ckeditor\plugins\smiley\images\kiss.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\kiss.png" />
+    <Content Include="ckeditor\plugins\smiley\images\lightbulb.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\lightbulb.png" />
+    <Content Include="ckeditor\plugins\smiley\images\omg_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\omg_smile.png" />
+    <Content Include="ckeditor\plugins\smiley\images\regular_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\regular_smile.png" />
+    <Content Include="ckeditor\plugins\smiley\images\sad_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\sad_smile.png" />
+    <Content Include="ckeditor\plugins\smiley\images\shades_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\shades_smile.png" />
+    <Content Include="ckeditor\plugins\smiley\images\teeth_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\teeth_smile.png" />
+    <Content Include="ckeditor\plugins\smiley\images\thumbs_down.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\thumbs_down.png" />
+    <Content Include="ckeditor\plugins\smiley\images\thumbs_up.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\thumbs_up.png" />
+    <Content Include="ckeditor\plugins\smiley\images\tongue_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\tongue_smile.png" />
+    <Content Include="ckeditor\plugins\smiley\images\tounge_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\whatchutalkingabout_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\whatchutalkingabout_smile.png" />
+    <Content Include="ckeditor\plugins\smiley\images\wink_smile.gif" />
+    <Content Include="ckeditor\plugins\smiley\images\wink_smile.png" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\af.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\ar.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\az.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\bg.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\ca.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\cs.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\cy.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\da.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\de-ch.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\de.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\el.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\en-au.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\en-ca.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\en-gb.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\en.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\eo.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\es-mx.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\es.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\et.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\eu.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\fa.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\fi.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\fr-ca.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\fr.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\gl.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\he.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\hr.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\hu.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\id.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\it.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\ja.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\km.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\ko.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\ku.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\lt.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\lv.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\nb.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\nl.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\no.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\oc.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\pl.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\pt-br.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\pt.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\ro.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\ru.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\si.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\sk.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\sl.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\sq.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\sr-latn.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\sr.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\sv.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\th.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\tr.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\tt.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\ug.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\uk.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\vi.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\zh-cn.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\zh.js" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\lang\_translationstatus.txt" />
+    <Content Include="ckeditor\plugins\specialchar\dialogs\specialchar.js" />
+    <Content Include="ckeditor\plugins\tableselection\styles\tableselection.css" />
+    <Content Include="ckeditor\plugins\tabletools\dialogs\tableCell.js" />
+    <Content Include="ckeditor\plugins\table\dialogs\table.js" />
+    <Content Include="ckeditor\plugins\templates\dialogs\templates.css" />
+    <Content Include="ckeditor\plugins\templates\dialogs\templates.js" />
+    <Content Include="ckeditor\plugins\templates\templates\default.js" />
+    <Content Include="ckeditor\plugins\templates\templates\images\template1.gif" />
+    <Content Include="ckeditor\plugins\templates\templates\images\template2.gif" />
+    <Content Include="ckeditor\plugins\templates\templates\images\template3.gif" />
+    <Content Include="ckeditor\plugins\widget\images\handle.png" />
+    <Content Include="ckeditor\plugins\wsc\dialogs\ciframe.html" />
+    <Content Include="ckeditor\plugins\wsc\dialogs\tmpFrameset.html" />
+    <Content Include="ckeditor\plugins\wsc\dialogs\wsc.css" />
+    <Content Include="ckeditor\plugins\wsc\dialogs\wsc.js" />
+    <Content Include="ckeditor\plugins\wsc\dialogs\wsc_ie.js" />
+    <Content Include="ckeditor\plugins\wsc\skins\moono-lisa\wsc.css" />
+    <Content Include="ckeditor\samples\css\samples.css" />
+    <Content Include="ckeditor\samples\img\github-top.png" />
+    <Content Include="ckeditor\samples\img\header-bg.png" />
+    <Content Include="ckeditor\samples\img\header-separator.png" />
+    <Content Include="ckeditor\samples\img\logo.png" />
+    <Content Include="ckeditor\samples\img\logo.svg" />
+    <Content Include="ckeditor\samples\img\navigation-tip.png" />
+    <Content Include="ckeditor\samples\index.html" />
+    <Content Include="ckeditor\samples\js\sample.js" />
+    <Content Include="ckeditor\samples\js\sf.js" />
+    <Content Include="ckeditor\samples\old\ajax.html" />
+    <Content Include="ckeditor\samples\old\api.html" />
+    <Content Include="ckeditor\samples\old\appendto.html" />
+    <Content Include="ckeditor\samples\old\assets\inlineall\logo.png" />
+    <Content Include="ckeditor\samples\old\assets\outputxhtml\outputxhtml.css" />
+    <Content Include="ckeditor\samples\old\assets\sample.jpg" />
+    <Content Include="ckeditor\samples\old\assets\uilanguages\languages.js" />
+    <Content Include="ckeditor\samples\old\datafiltering.html" />
+    <Content Include="ckeditor\samples\old\dialog\assets\my_dialog.js" />
+    <Content Include="ckeditor\samples\old\dialog\dialog.html" />
+    <Content Include="ckeditor\samples\old\divreplace.html" />
+    <Content Include="ckeditor\samples\old\enterkey\enterkey.html" />
+    <Content Include="ckeditor\samples\old\htmlwriter\assets\outputforflash\outputforflash.swf" />
+    <Content Include="ckeditor\samples\old\htmlwriter\assets\outputforflash\swfobject.js" />
+    <Content Include="ckeditor\samples\old\htmlwriter\outputforflash.html" />
+    <Content Include="ckeditor\samples\old\htmlwriter\outputhtml.html" />
+    <Content Include="ckeditor\samples\old\index.html" />
+    <Content Include="ckeditor\samples\old\inlineall.html" />
+    <Content Include="ckeditor\samples\old\inlinebycode.html" />
+    <Content Include="ckeditor\samples\old\inlinetextarea.html" />
+    <Content Include="ckeditor\samples\old\jquery.html" />
+    <Content Include="ckeditor\samples\old\magicline\magicline.html" />
+    <Content Include="ckeditor\samples\old\readonly.html" />
+    <Content Include="ckeditor\samples\old\replacebyclass.html" />
+    <Content Include="ckeditor\samples\old\replacebycode.html" />
+    <Content Include="ckeditor\samples\old\sample.css" />
+    <Content Include="ckeditor\samples\old\sample.js" />
+    <Content Include="ckeditor\samples\old\tabindex.html" />
+    <Content Include="ckeditor\samples\old\toolbar\toolbar.html" />
+    <Content Include="ckeditor\samples\old\uicolor.html" />
+    <Content Include="ckeditor\samples\old\uilanguages.html" />
+    <Content Include="ckeditor\samples\old\wysiwygarea\fullpage.html" />
+    <Content Include="ckeditor\samples\old\xhtmlstyle.html" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\css\fontello.css" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\font\fontello.svg" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\font\LICENSE.txt" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\index.html" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\js\abstracttoolbarmodifier.js" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\js\fulltoolbareditor.js" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\js\toolbarmodifier.js" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\js\toolbartextmodifier.js" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.css" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\codemirror.js" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\javascript.js" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\neo.css" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.css" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\show-hint.js" />
+    <Content Include="ckeditor\skins\moono-lisa\dialog.css" />
+    <Content Include="ckeditor\skins\moono-lisa\dialog_ie.css" />
+    <Content Include="ckeditor\skins\moono-lisa\dialog_ie8.css" />
+    <Content Include="ckeditor\skins\moono-lisa\dialog_iequirks.css" />
+    <Content Include="ckeditor\skins\moono-lisa\editor.css" />
+    <Content Include="ckeditor\skins\moono-lisa\editor_gecko.css" />
+    <Content Include="ckeditor\skins\moono-lisa\editor_ie.css" />
+    <Content Include="ckeditor\skins\moono-lisa\editor_ie8.css" />
+    <Content Include="ckeditor\skins\moono-lisa\editor_iequirks.css" />
+    <Content Include="ckeditor\skins\moono-lisa\icons.png" />
+    <Content Include="ckeditor\skins\moono-lisa\icons_hidpi.png" />
+    <Content Include="ckeditor\skins\moono-lisa\images\arrow.png" />
+    <Content Include="ckeditor\skins\moono-lisa\images\close.png" />
+    <Content Include="ckeditor\skins\moono-lisa\images\hidpi\close.png" />
+    <Content Include="ckeditor\skins\moono-lisa\images\hidpi\lock-open.png" />
+    <Content Include="ckeditor\skins\moono-lisa\images\hidpi\lock.png" />
+    <Content Include="ckeditor\skins\moono-lisa\images\hidpi\refresh.png" />
+    <Content Include="ckeditor\skins\moono-lisa\images\lock-open.png" />
+    <Content Include="ckeditor\skins\moono-lisa\images\lock.png" />
+    <Content Include="ckeditor\skins\moono-lisa\images\refresh.png" />
+    <Content Include="ckeditor\skins\moono-lisa\images\spinner.gif" />
+    <Content Include="ckeditor\styles.js" />
+    <Content Include="ckeditor\vendor\promise.js" />
+    <Content Include="css\admon.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\Calendar.css" />
+    <Content Include="css\qedemo.css" />
+    <Content Include="css\styles.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="images\excel.png" />
+    <Content Include="images\pdf.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\behaviors\disablehandles.htc" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\behaviors\showtableborders.htc" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\fck_editorarea.css" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\fck_internal.css" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\fck_showtableborders_gecko.css" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\block_address.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\block_blockquote.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\block_div.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\block_h1.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\block_h2.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\block_h3.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\block_h4.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\block_h5.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\block_h6.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\block_p.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\block_pre.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\fck_anchor.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\fck_flashlogo.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\fck_hiddenfield.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\fck_pagebreak.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\css\images\fck_plugin.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\common\fck_dialog_common.css" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\common\fck_dialog_common.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\common\images\locked.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\common\images\reset.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\common\images\unlocked.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_about.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_about\logo_fckeditor.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_about\logo_fredck.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_about\sponsors\spellchecker_net.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_anchor.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_button.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_checkbox.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_colorselector.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_div.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_docprops.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_docprops\fck_document_preview.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_flash.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_flash\fck_flash.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_flash\fck_flash_preview.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_form.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_hiddenfield.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_image.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_image\fck_image.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_image\fck_image_preview.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_link.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_link\fck_link.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_listprop.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_paste.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_radiobutton.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_replace.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_select.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_select\fck_select.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_smiley.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_source.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_specialchar.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_spellerpages.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_spellerpages\spellerpages\blank.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_spellerpages\spellerpages\controls.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_spellerpages\spellerpages\controlWindow.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_spellerpages\spellerpages\spellchecker.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_spellerpages\spellerpages\spellChecker.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_spellerpages\spellerpages\spellerStyle.css" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_spellerpages\spellerpages\wordWindow.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_table.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_tablecell.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_template.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_template\images\template1.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_template\images\template2.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_template\images\template3.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_textarea.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dialog\fck_textfield.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dtd\fck_dtd_test.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dtd\fck_xhtml10strict.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\dtd\fck_xhtml10transitional.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\fckdebug.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\fckdialog.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\fckeditor.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\fckeditor.original.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\anchor.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\arrow_ltr.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\arrow_rtl.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\angel_smile.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\angry_smile.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\broken_heart.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\cake.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\confused_smile.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\cry_smile.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\devil_smile.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\embaressed_smile.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\envelope.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\heart.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\kiss.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\lightbulb.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\omg_smile.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\regular_smile.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\sad_smile.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\shades_smile.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\teeth_smile.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\thumbs_down.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\thumbs_up.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\tounge_smile.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\whatchutalkingabout_smile.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\smiley\msn\wink_smile.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\images\spacer.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\js\fckadobeair.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\js\fckeditorcode_gecko.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\js\fckeditorcode_ie.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\af.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\ar.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\bg.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\bn.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\bs.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\ca.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\cs.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\da.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\de.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\el.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\en-au.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\en-ca.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\en-uk.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\en.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\eo.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\es.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\et.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\eu.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\fa.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\fi.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\fo.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\fr-ca.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\fr.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\gl.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\gu.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\he.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\hi.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\hr.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\hu.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\it.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\ja.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\km.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\ko.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\lt.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\lv.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\mn.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\ms.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\nb.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\nl.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\no.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\pl.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\pt-br.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\pt.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\ro.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\ru.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\sk.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\sl.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\sr-latn.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\sr.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\sv.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\th.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\tr.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\uk.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\vi.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\zh-cn.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\zh.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\lang\_translationstatus.txt" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\autogrow\fckplugin.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\bbcode\fckplugin.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\bbcode\_sample\sample.config.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\bbcode\_sample\sample.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\dragresizetable\fckplugin.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\placeholder\fckplugin.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\placeholder\fck_placeholder.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\placeholder\lang\de.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\placeholder\lang\en.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\placeholder\lang\es.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\placeholder\lang\fr.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\placeholder\lang\it.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\placeholder\lang\pl.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\placeholder\placeholder.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\simplecommands\fckplugin.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\plugins\tablecommands\fckplugin.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\fck_dialog.css" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\fck_dialog_ie6.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\fck_editor.css" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\fck_strip.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\images\dialog.sides.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\images\dialog.sides.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\images\dialog.sides.rtl.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\images\sprites.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\images\sprites.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\images\toolbar.arrowright.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\images\toolbar.buttonarrow.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\images\toolbar.collapse.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\images\toolbar.end.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\images\toolbar.expand.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\images\toolbar.separator.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\default\images\toolbar.start.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\fck_dialog.css" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\fck_dialog_ie6.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\fck_editor.css" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\fck_strip.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\images\dialog.sides.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\images\dialog.sides.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\images\dialog.sides.rtl.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\images\sprites.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\images\sprites.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\images\toolbar.arrowright.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\images\toolbar.bg.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\images\toolbar.buttonarrow.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\images\toolbar.collapse.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\images\toolbar.end.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\images\toolbar.expand.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\images\toolbar.separator.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\office2003\images\toolbar.start.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\fck_dialog.css" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\fck_dialog_ie6.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\fck_editor.css" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\fck_strip.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\images\dialog.sides.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\images\dialog.sides.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\images\dialog.sides.rtl.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\images\sprites.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\images\sprites.png" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\images\toolbar.arrowright.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\images\toolbar.buttonarrow.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\images\toolbar.buttonbg.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\images\toolbar.collapse.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\images\toolbar.end.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\images\toolbar.expand.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\images\toolbar.separator.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\silver\images\toolbar.start.gif" />
+    <Content Include="interfaz_empleado\fckeditor\editor\skins\_fckviewstrips.html" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckcontextmenu.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckdataprocessor.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckdocumentfragment_gecko.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckdocumentfragment_ie.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckdomrange.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckdomrangeiterator.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckdomrange_gecko.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckdomrange_ie.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckeditingarea.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckelementpath.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckenterkey.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckevents.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckhtmliterator.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckicon.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckiecleanup.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckimagepreloader.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckkeystrokehandler.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckmenublock.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckmenublockpanel.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckmenuitem.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckpanel.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckplugin.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckspecialcombo.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckstyle.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fcktoolbar.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fcktoolbarbreak_gecko.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fcktoolbarbreak_ie.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fcktoolbarbutton.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fcktoolbarbuttonui.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fcktoolbarfontformatcombo.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fcktoolbarfontscombo.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fcktoolbarfontsizecombo.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fcktoolbarpanelbutton.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fcktoolbarspecialcombo.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fcktoolbarstylecombo.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckw3crange.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckxml.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckxml_gecko.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\classes\fckxml_ie.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fckblockquotecommand.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fckcorestylecommand.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fckfitwindow.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fckindentcommands.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fckjustifycommands.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fcklistcommands.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fcknamedcommand.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fckpasteplaintextcommand.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fckpastewordcommand.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fckremoveformatcommand.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fckshowblocks.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fckspellcheckcommand_gecko.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fckspellcheckcommand_ie.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fckstylecommand.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fcktablecommand.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fcktextcolorcommand.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\commandclasses\fck_othercommands.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\fckconstants.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\fckeditorapi.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\fckjscoreextensions.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\fckscriptloader.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fck.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckbrowserinfo.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckcodeformatter.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckcommands.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckconfig.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckdebug.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckdebug_empty.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckdialog.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckdocumentprocessor.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckdomtools.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fcklanguagemanager.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fcklisthandler.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fcklistslib.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckplugins.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckregexlib.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckselection.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckselection_gecko.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckselection_ie.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckstyles.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fcktablehandler.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fcktablehandler_gecko.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fcktablehandler_ie.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fcktoolbaritems.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fcktoolbarset.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fcktools.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fcktools_gecko.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fcktools_ie.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckundo.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckurlparams.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckxhtml.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckxhtmlentities.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckxhtml_gecko.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fckxhtml_ie.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fck_contextmenu.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fck_gecko.js" />
+    <Content Include="interfaz_empleado\fckeditor\editor\_source\internals\fck_ie.js" />
+    <Content Include="interfaz_empleado\fckeditor\fckconfig.js" />
+    <Content Include="interfaz_empleado\fckeditor\fckeditor.asp" />
+    <Content Include="interfaz_empleado\fckeditor\fckeditor.js" />
+    <Content Include="interfaz_empleado\fckeditor\fckpackager.xml" />
+    <Content Include="interfaz_empleado\fckeditor\fckstyles.xml" />
+    <Content Include="interfaz_empleado\fckeditor\fcktemplates.xml" />
+    <Content Include="interfaz_empleado\fckeditor\license.txt" />
+    <Content Include="Global.asax" />
+    <Content Include="iconos\add.JPG" />
+    <Content Include="iconos\add.png" />
+    <Content Include="iconos\alertados.gif" />
+    <Content Include="iconos\ayuda.PNG" />
+    <Content Include="iconos\banner.PNG" />
+    <Content Include="iconos\bg_left.gif" />
+    <Content Include="iconos\bot_finalizado.png" />
+    <Content Include="iconos\bot_pendiente.png" />
+    <Content Include="iconos\bt_bg.jpg" />
+    <Content Include="iconos\bt_cerrar.gif" />
+    <Content Include="iconos\bt_ofertar.jpg" />
+    <Content Include="iconos\bullet1.gif" />
+    <Content Include="iconos\bullet1_r16_c11.gif" />
+    <Content Include="iconos\bullet1_r5_c18.gif" />
+    <Content Include="iconos\dreamstime_2061374.jpg" />
+    <Content Include="iconos\edit.PNG" />
+    <Content Include="iconos\file.png" />
+    <Content Include="iconos\fondo.PNG" />
+    <Content Include="iconos\fondo_main.PNG" />
+    <Content Include="iconos\fondo_title.PNG" />
+    <Content Include="iconos\hr.PNG" />
+    <Content Include="iconos\icoExcel.gif" />
+    <Content Include="iconos\icoExportar.gif" />
+    <Content Include="iconos\icoGuardar.gif" />
+    <Content Include="iconos\icoHistorial.gif" />
+    <Content Include="iconos\icon.PNG" />
+    <Content Include="iconos\iconA.PNG" />
+    <Content Include="iconos\iconB.PNG" />
+    <Content Include="iconos\iconC.PNG" />
+    <Content Include="iconos\iconD.PNG" />
+    <Content Include="iconos\icondetalle.PNG" />
+    <Content Include="iconos\iconE.PNG" />
+    <Content Include="iconos\icon_err.gif" />
+    <Content Include="iconos\icon_mercer.PNG" />
+    <Content Include="iconos\icon_mercer2.PNG" />
+    <Content Include="iconos\icoPrint.gif" />
+    <Content Include="iconos\icoVer.gif" />
+    <Content Include="iconos\ico_aceptar.gif" />
+    <Content Include="iconos\ico_adicionar.gif" />
+    <Content Include="iconos\ico_beneficiarios.gif" />
+    <Content Include="iconos\ico_borrar.gif" />
+    <Content Include="iconos\ico_borrarGrande.gif" />
+    <Content Include="iconos\ico_compras.gif" />
+    <Content Include="iconos\ico_config.gif" />
+    <Content Include="iconos\ico_documento.gif" />
+    <Content Include="iconos\ico_editar.gif" />
+    <Content Include="iconos\ico_exitosa.png" />
+    <Content Include="iconos\ico_limpiar.gif" />
+    <Content Include="iconos\ico_modestado.gif" />
+    <Content Include="iconos\ico_ok.gif" />
+    <Content Include="iconos\ico_pagos.gif" />
+    <Content Include="iconos\ico_poco-exitosa.png" />
+    <Content Include="iconos\ico_reloj.gif" />
+    <Content Include="iconos\imgButton.gif" />
+    <Content Include="iconos\imgButtonBig.gif" />
+    <Content Include="iconos\info.GIF" />
+    <Content Include="iconos\label_ok.gif" />
+    <Content Include="iconos\mmc-footer.gif" />
+    <Content Include="iconos\printer.PNG" />
+    <Content Include="iconos\seguir.PNG" />
+    <Content Include="images\about-over.jpg" />
+    <Content Include="images\about.jpg" />
+    <Content Include="images\backBanner.gif" />
+    <Content Include="images\backBlue.gif" />
+    <Content Include="images\backGreen.gif" />
+    <Content Include="images\b_wel.jpg" />
+    <Content Include="images\calClose.gif" />
+    <Content Include="images\calDivider.gif" />
+    <Content Include="images\calDrop1.gif" />
+    <Content Include="images\calDrop2.gif" />
+    <Content Include="images\calLeft1.gif" />
+    <Content Include="images\calLeft2.gif" />
+    <Content Include="images\calRight1.gif" />
+    <Content Include="images\calRight2.gif" />
+    <Content Include="images\contact-over.jpg" />
+    <Content Include="images\contact.jpg" />
+    <Content Include="images\exp1.jpg" />
+    <Content Include="images\exp2.jpg" />
+    <Content Include="images\exp3.jpg" />
+    <Content Include="images\home-over.jpg" />
+    <Content Include="images\home.jpg" />
+    <Content Include="images\icoAdd.gif" />
+    <Content Include="images\icoAutorizacion.gif" />
+    <Content Include="images\icoBeneficiarios.gif" />
+    <Content Include="images\icoCalendar.gif" />
+    <Content Include="images\icoCarpeta.gif" />
+    <Content Include="images\icoCollapse.gif" />
+    <Content Include="images\icoDiagnostico.gif" />
+    <Content Include="images\icoExpand.gif" />
+    <Content Include="images\icoExportar.gif" />
+    <Content Include="images\icoFactura.gif" />
+    <Content Include="images\icoHistoria.gif" />
+    <Content Include="images\icoHistorial.gif" />
+    <Content Include="images\icoMenu.gif" />
+    <Content Include="images\icoPlan.gif" />
+    <Content Include="images\icoProcesar.gif" />
+    <Content Include="images\icoQuestion.gif" />
+    <Content Include="images\icoReembolso.gif" />
+    <Content Include="images\icoSolicitud.gif" />
+    <Content Include="images\ico_limpiar.gif" />
+    <Content Include="images\imgBackTop.gif" />
+    <Content Include="images\imgBackTopReapeter.gif" />
+    <Content Include="images\imgBeneficiario.gif" />
+    <Content Include="images\imgBullet.gif" />
+    <Content Include="images\imgButton.gif" />
+    <Content Include="images\imgClose.gif" />
+    <Content Include="images\imgFooterGrid.gif" />
+    <Content Include="images\imgHeaderGrid.gif" />
+    <Content Include="images\imgHome.gif" />
+    <Content Include="images\imgMenuBack.gif" />
+    <Content Include="images\imgMenuBack2.gif" />
+    <Content Include="images\imgPersona.gif" />
+    <Content Include="images\imgPresupuesto.gif" />
+    <Content Include="images\imgReembolso.jpg" />
+    <Content Include="images\imgSalir.gif" />
+    <Content Include="images\imgSubmenuBack.gif" />
+    <Content Include="images\imgSubmenuBack2.gif" />
+    <Content Include="images\imgToolbarBack.gif" />
+    <Content Include="images\imgToolbarLeft.gif" />
+    <Content Include="images\imgToolbarRight.gif" />
+    <Content Include="images\LogoCentrosegurosFormato.jpg" />
+    <Content Include="images\LogoCentrosegurosSmall.jpg" />
+    <Content Include="images\logoMercer.gif" />
+    <Content Include="images\LogoMercerAzul.gif" />
+    <Content Include="images\LogoMercerAzul.jpg" />
+    <Content Include="images\logoMercerWhite.gif" />
+    <Content Include="images\logoMercerWhite.png" />
+    <Content Include="images\LogoMerceSmall.gif" />
+    <Content Include="images\LogoMerceSmall.jpg" />
+    <Content Include="images\logommc.gif" />
+    <Content Include="images\m1.jpg" />
+    <Content Include="images\m10.jpg" />
+    <Content Include="images\m11.jpg" />
+    <Content Include="images\m2.jpg" />
+    <Content Include="images\m3.jpg" />
+    <Content Include="images\m4.jpg" />
+    <Content Include="images\m5.jpg" />
+    <Content Include="images\m6.jpg" />
+    <Content Include="images\m7.jpg" />
+    <Content Include="images\m8.jpg" />
+    <Content Include="images\m9.jpg" />
+    <Content Include="images\medicamento.JPG" />
+    <Content Include="images\news-over.jpg" />
+    <Content Include="images\news.jpg" />
+    <Content Include="images\nt1.jpg" />
+    <Content Include="images\nt2.jpg" />
+    <Content Include="images\nt3.jpg" />
+    <Content Include="images\nw1.jpg" />
+    <Content Include="images\Pfizer.JPG" />
+    <Content Include="images\services-over.jpg" />
+    <Content Include="images\services.jpg" />
+    <Content Include="images\spacer.gif" />
+    <Content Include="images\sup1.jpg" />
+    <Content Include="interfaz_empleado\Formatos\FO_AutorizacionHistoriaClinica.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_CartaAsociacion.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_CertificadoPlanMedico.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_ConstanciaPlanMedico.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_Consultas.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_HistoriaClinica.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_HospitalarioOtros.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_IncapacidadOrden.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_Medicamentos.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_MedicamentosMargen.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_MedicamentosOrden.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_OtrosOrden.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_RecomendacionesOrden.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_Reembolsos.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_RemisionesOrden.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_ResumenImpresionAutorizacion.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_ResumenImpresionReembolso.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_Terapias.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_asociarsolicitudes.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_cargahistorias.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_CertificadoAptitud.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_employee.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_liquidarautconfirmacion.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_liquidarautorizaciones.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_liquidardetalleautorizacion.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_liquidarreembolsos.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_medicamento.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_password.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_presupuesto.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_presupuestoPrint.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_proveedorprestador.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_registroconsulta.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_servicio.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_solicitudautorizacion.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_solicitudautorizacionresumen.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_solicitudestado.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_solicitudorden.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_solicitudordenresumen.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_solicitudreembolso.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_solicitudreembolsoresumen.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_user.aspx" />
+    <Content Include="interfaz_empleado\Forma\blank.html" />
+    <Content Include="interfaz_empleado\Forma\AE_asociarempresas.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_empresa.aspx" />
+    <Content Include="interfaz_empleado\Forma\Home.aspx" />
+    <Content Include="interfaz_empleado\Forma\IntermedioSICAU.aspx" />
+    <Content Include="interfaz_empleado\Forma\IntermedioSICAUGeneral.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_beneficiarios.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_consulta.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_empleado.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_historicoconsultas.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_historicohistoriaclinica.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_historicosolicitudservicios.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_log.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_logErrors.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_medicamento.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_proveedorprestador.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_servicio.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_solicitud.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_solicitudfactura.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_solicitudgastos.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_solicitudinternet.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_solicitudliquidaciones.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_solicitudtiposervicio.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_user.aspx" />
+    <Content Include="interfaz_empleado\Forma\WfPage_Load.aspx" />
+    <Content Include="interfaz_empleado\Reportes\basico.css" />
+    <Content Include="interfaz_empleado\Reportes\formaReporte.aspx" />
+    <Content Include="interfaz_empleado\Reportes\formaSeleccionarEntidadReporte.aspx" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\BasicaInterna\Celda.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\BasicaInterna\FilaCelda.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\BasicaInterna\FilaCondicion.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\BasicaInterna\FilaTitulo.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\BasicaInterna\Navegacion.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\BasicaInterna\Tabla.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\BasicaInterna\TablaConsulta.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\BasicaInterna\Titulo - copia.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\BasicaInterna\Titulo.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\Celda - copia.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\Celda.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\FilaCelda.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\FilaCondicion.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\FilaCondicionFecha.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\FilaCondicionSelect.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\FilaCondicionSelectMultiple.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\FilaTitulo.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\img\all.jpg" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\img\asc.jpg" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\img\desc.jpg" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\Navegacion.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\Tabla.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\TablaConsulta.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\Titulo - copia.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Basica\Titulo.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Excel\Celda.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Excel\FilaCelda.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Excel\FilaTitulo.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Excel\Navegacion.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Excel\Tabla.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Excel\Titulo.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Selects\Celda.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Selects\FilaCelda.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Selects\FilaCondicion.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Selects\FilaCondicionFecha.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Selects\FilaCondicionSelect.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Selects\FilaCondicionSelectMultiple.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Selects\FilaTitulo.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Selects\Navegacion.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Selects\Tabla.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Selects\TablaConsulta.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Selects\Titulo.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Word\Celda.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Word\FilaCelda.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Word\FilaTitulo.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Word\Navegacion.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Word\Tabla.html" />
+    <Content Include="interfaz_empleado\Reportes\Plantillas\Word\Titulo.html" />
+    <Content Include="interfaz_empleado\Reportes\principalreportes.aspx" />
+    <Content Include="interfaz_empleado\Reportes\reporte.aspx" />
+    <Content Include="interfaz_empleado\Reportes\reporteExcel.aspx" />
+    <Content Include="interfaz_empleado\Reportes\reporteInterno.aspx" />
+    <Content Include="interfaz_empleado\Reportes\reporteWord.aspx" />
+    <Content Include="interfaz_empleado\Reportes\seleccionarEntidad.aspx" />
+    <Content Include="interfaz_empleado\Reportes\xmls\ConsultaHistoriaLaboral.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="interfaz_empleado\Reportes\xmls\ConsultaHistoriaLaboralPeriodico.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="interfaz_empleado\WebControls\WC_AdicionarDiagnostico.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_AdicionarDiagnosticoConsulta.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_AdicionarPrestador.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_AdicionarSolicitante.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_AnotacionesFijasFormato.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_Base.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_BuscarDiagnostico.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_BuscarDiagnosticoTipoServicio.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_BuscarPrestador.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_BuscarPrestadorTipoServicio.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_BuscarProveedor.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_BuscarServicioProducto.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_DatosConsulta.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_DatosEmpleado.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_DiagnosticosFormato.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_Encabezado.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_EncabezadoFormato.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_EncabezadoFormatoIncapacidad.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_EncabezadoFormatoOrden.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_EncabezadoFormatoReembolso.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_EncabezadoMercer.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_Menu.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_Pie.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_PieFormato.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_PieFormatoOrden.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_RegistrarUVR.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_Report.ascx" />
+    <Content Include="interfaz_empleado\WebControls\WC_SeleccionarDiagnostico.ascx" />
+    <Content Include="interfaz_empleado\WebControls\webControlPrueba.ascx" />
+    <Content Include="logos\logoFondo_85.gif" />
+    <Content Include="logos\logo_113.gif" />
+    <Content Include="logos\logo_67.gif" />
+    <Content Include="logos\logo_68.gif" />
+    <Content Include="logos\logo_69.gif" />
+    <Content Include="logos\logo_70.gif" />
+    <Content Include="logos\logo_71.gif" />
+    <Content Include="logos\logo_72.gif" />
+    <Content Include="logos\logo_73.gif" />
+    <Content Include="logos\logo_74.gif" />
+    <Content Include="logos\logo_85.gif" />
+    <Content Include="logos\logo_851.gif" />
+    <Content Include="logs\Log.txt" />
+    <Content Include="scripts\Base.js" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\Calendar.js" />
+    <Content Include="scripts\hashtable.js" />
+    <Content Include="scripts\jquery-2.1.4.js" />
+    <Content Include="scripts\npm.js" />
+    <Content Include="scripts\rsa.js" />
+    <Content Include="scripts\utilReportes.js" />
+    <Content Include="scripts\Validaciones.js" />
+    <Content Include="verifyToken.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AEDisclaimer.aspx.cs">
+      <DependentUpon>AEDisclaimer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AEDisclaimer.aspx.designer.cs">
+      <DependentUpon>AEDisclaimer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AE_Contrasena.aspx.cs">
+      <DependentUpon>AE_Contrasena.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AE_Contrasena.aspx.designer.cs">
+      <DependentUpon>AE_Contrasena.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AE_Empresa.aspx.cs">
+      <DependentUpon>AE_Empresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AE_Empresa.aspx.designer.cs">
+      <DependentUpon>AE_Empresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AE_Ingreso_SICAU.aspx.cs">
+      <DependentUpon>AE_Ingreso_SICAU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AE_Ingreso_SICAU.aspx.designer.cs">
+      <DependentUpon>AE_Ingreso_SICAU.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AE_login_admin.aspx.cs">
+      <DependentUpon>AE_login_admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AE_login_admin.aspx.designer.cs">
+      <DependentUpon>AE_login_admin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="agenda\bin\App_GlobalResources\DevExpress_Web_ASPxScheduler_v10_1.designer.cs" />
+    <Compile Include="agenda\bin\App_GlobalResources\DevExpress_Web_ASPxScheduler_v10_1.es.designer.cs" />
+    <Compile Include="agenda\bin\App_GlobalResources\DevExpress_XtraScheduler_v10_1_Core.designer.cs" />
+    <Compile Include="agenda\bin\App_GlobalResources\DevExpress_XtraScheduler_v10_1_Core.es.designer.cs" />
+    <Compile Include="agenda\Sistema\SessionManager.cs" />
+    <Compile Include="AuxiliarSeguridad.cs" />
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_AutorizacionHistoriaClinica.aspx.cs">
+      <DependentUpon>FO_AutorizacionHistoriaClinica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_AutorizacionHistoriaClinica.aspx.designer.cs">
+      <DependentUpon>FO_AutorizacionHistoriaClinica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_CartaAsociacion.aspx.cs">
+      <DependentUpon>FO_CartaAsociacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_CartaAsociacion.aspx.designer.cs">
+      <DependentUpon>FO_CartaAsociacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_CertificadoPlanMedico.aspx.cs">
+      <DependentUpon>FO_CertificadoPlanMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_CertificadoPlanMedico.aspx.designer.cs">
+      <DependentUpon>FO_CertificadoPlanMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_ConstanciaPlanMedico.aspx.cs">
+      <DependentUpon>FO_ConstanciaPlanMedico.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_ConstanciaPlanMedico.aspx.designer.cs">
+      <DependentUpon>FO_ConstanciaPlanMedico.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_Consultas.aspx.cs">
+      <DependentUpon>FO_Consultas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_Consultas.aspx.designer.cs">
+      <DependentUpon>FO_Consultas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_HistoriaClinica.aspx.cs">
+      <DependentUpon>FO_HistoriaClinica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_HistoriaClinica.aspx.designer.cs">
+      <DependentUpon>FO_HistoriaClinica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_HospitalarioOtros.aspx.cs">
+      <DependentUpon>FO_HospitalarioOtros.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_HospitalarioOtros.aspx.designer.cs">
+      <DependentUpon>FO_HospitalarioOtros.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_IncapacidadOrden.aspx.cs">
+      <DependentUpon>FO_IncapacidadOrden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_IncapacidadOrden.aspx.designer.cs">
+      <DependentUpon>FO_IncapacidadOrden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_ListadoReporteRiesgos.aspx.cs">
+      <DependentUpon>FO_ListadoReporteRiesgos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_ListadoReporteRiesgos.aspx.designer.cs">
+      <DependentUpon>FO_ListadoReporteRiesgos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_Medicamentos.aspx.cs">
+      <DependentUpon>FO_Medicamentos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_Medicamentos.aspx.designer.cs">
+      <DependentUpon>FO_Medicamentos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_MedicamentosMargen.aspx.cs">
+      <DependentUpon>FO_MedicamentosMargen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_MedicamentosMargen.aspx.designer.cs">
+      <DependentUpon>FO_MedicamentosMargen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_MedicamentosOrden.aspx.cs">
+      <DependentUpon>FO_MedicamentosOrden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_MedicamentosOrden.aspx.designer.cs">
+      <DependentUpon>FO_MedicamentosOrden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_MedicamentosOrdenCopias.aspx.cs">
+      <DependentUpon>FO_MedicamentosOrdenCopias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_MedicamentosOrdenCopias.aspx.designer.cs">
+      <DependentUpon>FO_MedicamentosOrdenCopias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_OtrosOrden.aspx.cs">
+      <DependentUpon>FO_OtrosOrden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_OtrosOrden.aspx.designer.cs">
+      <DependentUpon>FO_OtrosOrden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_RecomendacionesOrden.aspx.cs">
+      <DependentUpon>FO_RecomendacionesOrden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_RecomendacionesOrden.aspx.designer.cs">
+      <DependentUpon>FO_RecomendacionesOrden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_Reembolsos.aspx.cs">
+      <DependentUpon>FO_Reembolsos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_Reembolsos.aspx.designer.cs">
+      <DependentUpon>FO_Reembolsos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_RemisionesOrden.aspx.cs">
+      <DependentUpon>FO_RemisionesOrden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_RemisionesOrden.aspx.designer.cs">
+      <DependentUpon>FO_RemisionesOrden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_ResumenImpresionAutorizacion.aspx.cs">
+      <DependentUpon>FO_ResumenImpresionAutorizacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_ResumenImpresionAutorizacion.aspx.designer.cs">
+      <DependentUpon>FO_ResumenImpresionAutorizacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_ResumenImpresionReembolso.aspx.cs">
+      <DependentUpon>FO_ResumenImpresionReembolso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_ResumenImpresionReembolso.aspx.designer.cs">
+      <DependentUpon>FO_ResumenImpresionReembolso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_Terapias.aspx.cs">
+      <DependentUpon>FO_Terapias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Formatos\FO_Terapias.aspx.designer.cs">
+      <DependentUpon>FO_Terapias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_asociarsolicitudes.aspx.cs">
+      <DependentUpon>AE_asociarsolicitudes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_asociarsolicitudes.aspx.designer.cs">
+      <DependentUpon>AE_asociarsolicitudes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_avisoPrivacidad.aspx.cs">
+      <DependentUpon>AE_avisoPrivacidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_avisoPrivacidad.aspx.designer.cs">
+      <DependentUpon>AE_avisoPrivacidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_cambiarempresa.aspx.cs">
+      <DependentUpon>AE_cambiarempresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_cambiarempresa.aspx.designer.cs">
+      <DependentUpon>AE_cambiarempresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_cargahistorias.aspx.cs">
+      <DependentUpon>AE_cargahistorias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_cargahistorias.aspx.designer.cs">
+      <DependentUpon>AE_cargahistorias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_CertificadoAptitud.aspx.cs">
+      <DependentUpon>AE_CertificadoAptitud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_CertificadoAptitud.aspx.designer.cs">
+      <DependentUpon>AE_CertificadoAptitud.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_employee.aspx.cs">
+      <DependentUpon>AE_employee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_employee.aspx.designer.cs">
+      <DependentUpon>AE_employee.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_empresa.aspx.cs">
+      <DependentUpon>AE_empresa.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_empresasusuarios.aspx.cs">
+      <DependentUpon>AE_empresasusuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_empresasusuarios.aspx.designer.cs">
+      <DependentUpon>AE_empresasusuarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_lineanegocio.aspx.cs">
+      <DependentUpon>AE_lineanegocio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_lineanegocio.aspx.designer.cs">
+      <DependentUpon>AE_lineanegocio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_liquidarautconfirmacion.aspx.cs">
+      <DependentUpon>AE_liquidarautconfirmacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_liquidarautconfirmacion.aspx.designer.cs">
+      <DependentUpon>AE_liquidarautconfirmacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_liquidarautorizaciones.aspx.cs">
+      <DependentUpon>AE_liquidarautorizaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_liquidarautorizaciones.aspx.designer.cs">
+      <DependentUpon>AE_liquidarautorizaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_liquidardetalleautorizacion.aspx.cs">
+      <DependentUpon>AE_liquidardetalleautorizacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_liquidardetalleautorizacion.aspx.designer.cs">
+      <DependentUpon>AE_liquidardetalleautorizacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_liquidarreembolsos.aspx.cs">
+      <DependentUpon>AE_liquidarreembolsos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_liquidarreembolsos.aspx.designer.cs">
+      <DependentUpon>AE_liquidarreembolsos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_medicamento.aspx.cs">
+      <DependentUpon>AE_medicamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_medicamento.aspx.designer.cs">
+      <DependentUpon>AE_medicamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_password.aspx.cs">
+      <DependentUpon>AE_password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_password.aspx.designer.cs">
+      <DependentUpon>AE_password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_preguntarespuestaconsulta.aspx.cs">
+      <DependentUpon>AE_preguntarespuestaconsulta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_preguntarespuestaconsulta.aspx.designer.cs">
+      <DependentUpon>AE_preguntarespuestaconsulta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_presupuesto.aspx.cs">
+      <DependentUpon>AE_presupuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_presupuesto.aspx.designer.cs">
+      <DependentUpon>AE_presupuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_presupuestoPrint.aspx.cs">
+      <DependentUpon>AE_presupuestoPrint.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_presupuestoPrint.aspx.designer.cs">
+      <DependentUpon>AE_presupuestoPrint.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_proveedorprestador.aspx.cs">
+      <DependentUpon>AE_proveedorprestador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_proveedorprestador.aspx.designer.cs">
+      <DependentUpon>AE_proveedorprestador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_rangoreporteriesgos.aspx.cs">
+      <DependentUpon>AE_rangoreporteriesgos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_rangoreporteriesgos.aspx.designer.cs">
+      <DependentUpon>AE_rangoreporteriesgos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_registroconsulta.aspx.cs">
+      <DependentUpon>AE_registroconsulta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_registroconsulta.aspx.designer.cs">
+      <DependentUpon>AE_registroconsulta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_registroestamoscontigo.aspx.cs">
+      <DependentUpon>AE_registroestamoscontigo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_registroestamoscontigo.aspx.designer.cs">
+      <DependentUpon>AE_registroestamoscontigo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_registroestilovida.aspx.cs">
+      <DependentUpon>AE_registroestilovida.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_registroestilovida.aspx.designer.cs">
+      <DependentUpon>AE_registroestilovida.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_registronutricion.aspx.cs">
+      <DependentUpon>AE_registronutricion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_registronutricion.aspx.designer.cs">
+      <DependentUpon>AE_registronutricion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_servicio.aspx.cs">
+      <DependentUpon>AE_servicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_servicio.aspx.designer.cs">
+      <DependentUpon>AE_servicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_solicitudautorizacion.aspx.cs">
+      <DependentUpon>AE_solicitudautorizacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_solicitudautorizacion.aspx.designer.cs">
+      <DependentUpon>AE_solicitudautorizacion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_solicitudautorizacionresumen.aspx.cs">
+      <DependentUpon>AE_solicitudautorizacionresumen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_solicitudautorizacionresumen.aspx.designer.cs">
+      <DependentUpon>AE_solicitudautorizacionresumen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_solicitudestado.aspx.cs">
+      <DependentUpon>AE_solicitudestado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_solicitudestado.aspx.designer.cs">
+      <DependentUpon>AE_solicitudestado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_solicitudorden.aspx.cs">
+      <DependentUpon>AE_solicitudorden.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_solicitudorden.aspx.designer.cs">
+      <DependentUpon>AE_solicitudorden.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_solicitudordenresumen.aspx.cs">
+      <DependentUpon>AE_solicitudordenresumen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_solicitudordenresumen.aspx.designer.cs">
+      <DependentUpon>AE_solicitudordenresumen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_solicitudreembolso.aspx.cs">
+      <DependentUpon>AE_solicitudreembolso.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_solicitudreembolso.aspx.designer.cs">
+      <DependentUpon>AE_solicitudreembolso.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_solicitudreembolsoresumen.aspx.cs">
+      <DependentUpon>AE_solicitudreembolsoresumen.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_solicitudreembolsoresumen.aspx.designer.cs">
+      <DependentUpon>AE_solicitudreembolsoresumen.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_user.aspx.cs">
+      <DependentUpon>AE_user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_user.aspx.designer.cs">
+      <DependentUpon>AE_user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_asociarempresas.aspx.cs">
+      <DependentUpon>AE_asociarempresas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_asociarempresas.aspx.designer.cs">
+      <DependentUpon>AE_asociarempresas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\AE_empresa.aspx.designer.cs">
+      <DependentUpon>AE_empresa.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\IntermedioSICAU.aspx.cs">
+      <DependentUpon>IntermedioSICAU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\IntermedioSICAU.aspx.designer.cs">
+      <DependentUpon>IntermedioSICAU.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\IntermedioSICAUGeneral.aspx.cs">
+      <DependentUpon>IntermedioSICAUGeneral.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\IntermedioSICAUGeneral.aspx.designer.cs">
+      <DependentUpon>IntermedioSICAUGeneral.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_beneficiarios.aspx.cs">
+      <DependentUpon>LIS_beneficiarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_beneficiarios.aspx.designer.cs">
+      <DependentUpon>LIS_beneficiarios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_consulta.aspx.cs">
+      <DependentUpon>LIS_consulta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_consulta.aspx.designer.cs">
+      <DependentUpon>LIS_consulta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_empleado.aspx.cs">
+      <DependentUpon>LIS_empleado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_empleado.aspx.designer.cs">
+      <DependentUpon>LIS_empleado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_historicoconsultas.aspx.cs">
+      <DependentUpon>LIS_historicoconsultas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_historicoconsultas.aspx.designer.cs">
+      <DependentUpon>LIS_historicoconsultas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_historicohistoriaclinica.aspx.cs">
+      <DependentUpon>LIS_historicohistoriaclinica.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_historicohistoriaclinica.aspx.designer.cs">
+      <DependentUpon>LIS_historicohistoriaclinica.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_historicosolicitudes.aspx.cs">
+      <DependentUpon>LIS_historicosolicitudes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_historicosolicitudes.aspx.designer.cs">
+      <DependentUpon>LIS_historicosolicitudes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_historicosolicitudservicios.aspx.cs">
+      <DependentUpon>LIS_historicosolicitudservicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_historicosolicitudservicios.aspx.designer.cs">
+      <DependentUpon>LIS_historicosolicitudservicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_lineanegocio.aspx.cs">
+      <DependentUpon>LIS_lineanegocio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_lineanegocio.aspx.designer.cs">
+      <DependentUpon>LIS_lineanegocio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_log.aspx.cs">
+      <DependentUpon>LIS_log.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_log.aspx.designer.cs">
+      <DependentUpon>LIS_log.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_logErrors.aspx.cs">
+      <DependentUpon>LIS_logErrors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_logErrors.aspx.designer.cs">
+      <DependentUpon>LIS_logErrors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_medicamento.aspx.cs">
+      <DependentUpon>LIS_medicamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_medicamento.aspx.designer.cs">
+      <DependentUpon>LIS_medicamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_preguntarespuestaconsulta.aspx.cs">
+      <DependentUpon>LIS_preguntarespuestaconsulta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_preguntarespuestaconsulta.aspx.designer.cs">
+      <DependentUpon>LIS_preguntarespuestaconsulta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_proveedorprestador.aspx.cs">
+      <DependentUpon>LIS_proveedorprestador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_proveedorprestador.aspx.designer.cs">
+      <DependentUpon>LIS_proveedorprestador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_rangoreporteriesgos.aspx.cs">
+      <DependentUpon>LIS_rangoreporteriesgos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_rangoreporteriesgos.aspx.designer.cs">
+      <DependentUpon>LIS_rangoreporteriesgos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_servicio.aspx.cs">
+      <DependentUpon>LIS_servicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_servicio.aspx.designer.cs">
+      <DependentUpon>LIS_servicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_solicitud.aspx.cs">
+      <DependentUpon>LIS_solicitud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_solicitud.aspx.designer.cs">
+      <DependentUpon>LIS_solicitud.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_solicitudfactura.aspx.cs">
+      <DependentUpon>LIS_solicitudfactura.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_solicitudfactura.aspx.designer.cs">
+      <DependentUpon>LIS_solicitudfactura.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_solicitudgastos.aspx.cs">
+      <DependentUpon>LIS_solicitudgastos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_solicitudgastos.aspx.designer.cs">
+      <DependentUpon>LIS_solicitudgastos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_solicitudinternet.aspx.cs">
+      <DependentUpon>LIS_solicitudinternet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_solicitudinternet.aspx.designer.cs">
+      <DependentUpon>LIS_solicitudinternet.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_solicitudliquidaciones.aspx.cs">
+      <DependentUpon>LIS_solicitudliquidaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_solicitudliquidaciones.aspx.designer.cs">
+      <DependentUpon>LIS_solicitudliquidaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_solicitudtiposervicio.aspx.cs">
+      <DependentUpon>LIS_solicitudtiposervicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_solicitudtiposervicio.aspx.designer.cs">
+      <DependentUpon>LIS_solicitudtiposervicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_user.aspx.cs">
+      <DependentUpon>LIS_user.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\LIS_user.aspx.designer.cs">
+      <DependentUpon>LIS_user.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\PB_PaginaBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\REP_ausentismo.aspx.cs">
+      <DependentUpon>REP_ausentismo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\REP_ausentismo.aspx.designer.cs">
+      <DependentUpon>REP_ausentismo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\REP_morbilidad.aspx.cs">
+      <DependentUpon>REP_morbilidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\REP_morbilidad.aspx.designer.cs">
+      <DependentUpon>REP_morbilidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\REP_reporteriesgos.aspx.cs">
+      <DependentUpon>REP_reporteriesgos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\REP_reporteriesgos.aspx.designer.cs">
+      <DependentUpon>REP_reporteriesgos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\WfPage_Load.aspx.cs">
+      <DependentUpon>WfPage_Load.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Forma\WfPage_Load.aspx.designer.cs">
+      <DependentUpon>WfPage_Load.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\formaReporte.aspx.cs">
+      <DependentUpon>formaReporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\formaReporte.aspx.designer.cs">
+      <DependentUpon>formaReporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\formaSeleccionarEntidadReporte.aspx.cs">
+      <DependentUpon>formaSeleccionarEntidadReporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\formaSeleccionarEntidadReporte.aspx.designer.cs">
+      <DependentUpon>formaSeleccionarEntidadReporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\principalreportes.aspx.cs">
+      <DependentUpon>principalreportes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\principalreportes.aspx.designer.cs">
+      <DependentUpon>principalreportes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\reporte.aspx.cs">
+      <DependentUpon>reporte.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\reporte.aspx.designer.cs">
+      <DependentUpon>reporte.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\reporteExcel.aspx.cs">
+      <DependentUpon>reporteExcel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\reporteExcel.aspx.designer.cs">
+      <DependentUpon>reporteExcel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\reporteInterno.aspx.cs">
+      <DependentUpon>reporteInterno.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\reporteInterno.aspx.designer.cs">
+      <DependentUpon>reporteInterno.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\reporteWord.aspx.cs">
+      <DependentUpon>reporteWord.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\reporteWord.aspx.designer.cs">
+      <DependentUpon>reporteWord.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\seleccionarEntidad.aspx.cs">
+      <DependentUpon>seleccionarEntidad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\Reportes\seleccionarEntidad.aspx.designer.cs">
+      <DependentUpon>seleccionarEntidad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_AdicionarDiagnostico.ascx.cs">
+      <DependentUpon>WC_AdicionarDiagnostico.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_AdicionarDiagnostico.ascx.designer.cs">
+      <DependentUpon>WC_AdicionarDiagnostico.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_AdicionarDiagnosticoConsulta.ascx.cs">
+      <DependentUpon>WC_AdicionarDiagnosticoConsulta.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_AdicionarDiagnosticoConsulta.ascx.designer.cs">
+      <DependentUpon>WC_AdicionarDiagnosticoConsulta.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_AdicionarDiagnosticoConsultaCIE10.ascx.cs">
+      <DependentUpon>WC_AdicionarDiagnosticoConsultaCIE10.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_AdicionarDiagnosticoConsultaCIE10.ascx.designer.cs">
+      <DependentUpon>WC_AdicionarDiagnosticoConsultaCIE10.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_AdicionarPrestador.ascx.cs">
+      <DependentUpon>WC_AdicionarPrestador.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_AdicionarPrestador.ascx.designer.cs">
+      <DependentUpon>WC_AdicionarPrestador.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_AdicionarSolicitante.ascx.cs">
+      <DependentUpon>WC_AdicionarSolicitante.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_AdicionarSolicitante.ascx.designer.cs">
+      <DependentUpon>WC_AdicionarSolicitante.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_AnotacionesFijasFormato.ascx.cs">
+      <DependentUpon>WC_AnotacionesFijasFormato.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_AnotacionesFijasFormato.ascx.designer.cs">
+      <DependentUpon>WC_AnotacionesFijasFormato.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_Base.ascx.cs">
+      <DependentUpon>WC_Base.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_Base.ascx.designer.cs">
+      <DependentUpon>WC_Base.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_BuscarDiagnostico.ascx.cs">
+      <DependentUpon>WC_BuscarDiagnostico.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_BuscarDiagnostico.ascx.designer.cs">
+      <DependentUpon>WC_BuscarDiagnostico.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_BuscarDiagnosticoTipoServicio.ascx.cs">
+      <DependentUpon>WC_BuscarDiagnosticoTipoServicio.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_BuscarDiagnosticoTipoServicio.ascx.designer.cs">
+      <DependentUpon>WC_BuscarDiagnosticoTipoServicio.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_BuscarPrestador.ascx.cs">
+      <DependentUpon>WC_BuscarPrestador.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_BuscarPrestador.ascx.designer.cs">
+      <DependentUpon>WC_BuscarPrestador.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_BuscarPrestadorTipoServicio.ascx.cs">
+      <DependentUpon>WC_BuscarPrestadorTipoServicio.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_BuscarPrestadorTipoServicio.ascx.designer.cs">
+      <DependentUpon>WC_BuscarPrestadorTipoServicio.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_BuscarProveedor.ascx.cs">
+      <DependentUpon>WC_BuscarProveedor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_BuscarProveedor.ascx.designer.cs">
+      <DependentUpon>WC_BuscarProveedor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_BuscarServicioProducto.ascx.cs">
+      <DependentUpon>WC_BuscarServicioProducto.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_BuscarServicioProducto.ascx.designer.cs">
+      <DependentUpon>WC_BuscarServicioProducto.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_DatosConsulta.ascx.cs">
+      <DependentUpon>WC_DatosConsulta.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_DatosConsulta.ascx.designer.cs">
+      <DependentUpon>WC_DatosConsulta.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_DatosEmpleado.ascx.cs">
+      <DependentUpon>WC_DatosEmpleado.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_DatosEmpleado.ascx.designer.cs">
+      <DependentUpon>WC_DatosEmpleado.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_DiagnosticosFormato.ascx.cs">
+      <DependentUpon>WC_DiagnosticosFormato.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_DiagnosticosFormato.ascx.designer.cs">
+      <DependentUpon>WC_DiagnosticosFormato.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_Encabezado.ascx.cs">
+      <DependentUpon>WC_Encabezado.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_Encabezado.ascx.designer.cs">
+      <DependentUpon>WC_Encabezado.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_EncabezadoFormato.ascx.cs">
+      <DependentUpon>WC_EncabezadoFormato.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_EncabezadoFormato.ascx.designer.cs">
+      <DependentUpon>WC_EncabezadoFormato.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_EncabezadoFormatoIncapacidad.ascx.cs">
+      <DependentUpon>WC_EncabezadoFormatoIncapacidad.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_EncabezadoFormatoIncapacidad.ascx.designer.cs">
+      <DependentUpon>WC_EncabezadoFormatoIncapacidad.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_EncabezadoFormatoOrden.ascx.cs">
+      <DependentUpon>WC_EncabezadoFormatoOrden.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_EncabezadoFormatoOrden.ascx.designer.cs">
+      <DependentUpon>WC_EncabezadoFormatoOrden.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_EncabezadoFormatoReembolso.ascx.cs">
+      <DependentUpon>WC_EncabezadoFormatoReembolso.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_EncabezadoFormatoReembolso.ascx.designer.cs">
+      <DependentUpon>WC_EncabezadoFormatoReembolso.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_EncabezadoMercer.ascx.cs">
+      <DependentUpon>WC_EncabezadoMercer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_EncabezadoMercer.ascx.designer.cs">
+      <DependentUpon>WC_EncabezadoMercer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_Menu.ascx.cs">
+      <DependentUpon>WC_Menu.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_Menu.ascx.designer.cs">
+      <DependentUpon>WC_Menu.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_Pie.ascx.cs">
+      <DependentUpon>WC_Pie.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_Pie.ascx.designer.cs">
+      <DependentUpon>WC_Pie.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_PieFormato.ascx.cs">
+      <DependentUpon>WC_PieFormato.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_PieFormato.ascx.designer.cs">
+      <DependentUpon>WC_PieFormato.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_PieFormatoOrden.ascx.cs">
+      <DependentUpon>WC_PieFormatoOrden.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_PieFormatoOrden.ascx.designer.cs">
+      <DependentUpon>WC_PieFormatoOrden.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_RegistrarUVR.ascx.cs">
+      <DependentUpon>WC_RegistrarUVR.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_RegistrarUVR.ascx.designer.cs">
+      <DependentUpon>WC_RegistrarUVR.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_Report.ascx.cs">
+      <DependentUpon>WC_Report.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_Report.ascx.designer.cs">
+      <DependentUpon>WC_Report.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_SeleccionarDiagnostico.ascx.cs">
+      <DependentUpon>WC_SeleccionarDiagnostico.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\WC_SeleccionarDiagnostico.ascx.designer.cs">
+      <DependentUpon>WC_SeleccionarDiagnostico.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\webControlPrueba.ascx.cs">
+      <DependentUpon>webControlPrueba.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="interfaz_empleado\WebControls\webControlPrueba.ascx.designer.cs">
+      <DependentUpon>webControlPrueba.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="verifyToken.aspx.cs">
+      <DependentUpon>verifyToken.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="verifyToken.aspx.designer.cs">
+      <DependentUpon>verifyToken.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="AEDisclaimer.aspx" />
+    <Content Include="Asemblies\AntiXSSLibrary.dll" />
+    <Content Include="css\Web.config" />
+    <Content Include="agenda\UI\Admin\AdminAgenda.Master" />
+    <Content Include="agenda\web.config" />
+    <Content Include="ckeditor\CHANGES.md" />
+    <Content Include="ckeditor\LICENSE.md" />
+    <Content Include="ckeditor\plugins\scayt\CHANGELOG.md" />
+    <Content Include="ckeditor\plugins\scayt\LICENSE.md" />
+    <Content Include="ckeditor\plugins\scayt\README.md" />
+    <Content Include="ckeditor\plugins\wsc\LICENSE.md" />
+    <Content Include="ckeditor\plugins\wsc\README.md" />
+    <Content Include="ckeditor\README.md" />
+    <Content Include="ckeditor\samples\old\assets\posteddata.php" />
+    <Content Include="ckeditor\samples\old\htmlwriter\assets\outputforflash\outputforflash.fla" />
+    <Content Include="ckeditor\samples\old\sample_posteddata.php" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\font\config.json" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\font\fontello.eot" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\font\fontello.ttf" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\font\fontello.woff" />
+    <Content Include="ckeditor\samples\toolbarconfigurator\lib\codemirror\LICENSE" />
+    <Content Include="ckeditor\skins\moono-lisa\readme.md" />
+    <None Include="fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.cfm" />
+    <None Include="fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.php" />
+    <None Include="fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.pl" />
+    <None Include="fckeditor\fckeditor.afp" />
+    <None Include="fckeditor\fckeditor.cfc" />
+    <None Include="fckeditor\fckeditor.cfm" />
+    <None Include="fckeditor\fckeditor.lasso" />
+    <None Include="fckeditor\fckeditor.php" />
+    <None Include="fckeditor\fckeditor.pl" />
+    <None Include="fckeditor\fckeditor.py" />
+    <None Include="fckeditor\fckeditor_php4.php" />
+    <None Include="fckeditor\fckeditor_php5.php" />
+    <None Include="fckeditor\fckutils.cfm" />
+    <None Include="interfaz_empleado\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.cfm" />
+    <None Include="interfaz_empleado\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.php" />
+    <None Include="interfaz_empleado\fckeditor\editor\dialog\fck_spellerpages\spellerpages\server-scripts\spellchecker.pl" />
+    <None Include="interfaz_empleado\fckeditor\fckeditor.afp" />
+    <None Include="interfaz_empleado\fckeditor\fckeditor.cfc" />
+    <None Include="interfaz_empleado\fckeditor\fckeditor.cfm" />
+    <None Include="interfaz_empleado\fckeditor\fckeditor.lasso" />
+    <None Include="interfaz_empleado\fckeditor\fckeditor.php" />
+    <None Include="interfaz_empleado\fckeditor\fckeditor.pl" />
+    <None Include="interfaz_empleado\fckeditor\fckeditor.py" />
+    <None Include="interfaz_empleado\fckeditor\fckeditor_php4.php" />
+    <None Include="interfaz_empleado\fckeditor\fckeditor_php5.php" />
+    <None Include="interfaz_empleado\fckeditor\fckutils.cfm" />
+    <Content Include="ErrorPage.aspx" />
+    <Content Include="fckeditor\editor\css\behaviors\disablehandles.htc" />
+    <Content Include="fckeditor\editor\css\behaviors\showtableborders.htc" />
+    <Content Include="fckeditor\editor\css\fck_editorarea.css" />
+    <Content Include="fckeditor\editor\css\fck_internal.css" />
+    <Content Include="fckeditor\editor\css\fck_showtableborders_gecko.css" />
+    <Content Include="fckeditor\editor\css\images\block_address.png" />
+    <Content Include="fckeditor\editor\css\images\block_blockquote.png" />
+    <Content Include="fckeditor\editor\css\images\block_div.png" />
+    <Content Include="fckeditor\editor\css\images\block_h1.png" />
+    <Content Include="fckeditor\editor\css\images\block_h2.png" />
+    <Content Include="fckeditor\editor\css\images\block_h3.png" />
+    <Content Include="fckeditor\editor\css\images\block_h4.png" />
+    <Content Include="fckeditor\editor\css\images\block_h5.png" />
+    <Content Include="fckeditor\editor\css\images\block_h6.png" />
+    <Content Include="fckeditor\editor\css\images\block_p.png" />
+    <Content Include="fckeditor\editor\css\images\block_pre.png" />
+    <Content Include="fckeditor\editor\css\images\fck_anchor.gif" />
+    <Content Include="fckeditor\editor\css\images\fck_flashlogo.gif" />
+    <Content Include="fckeditor\editor\css\images\fck_hiddenfield.gif" />
+    <Content Include="fckeditor\editor\css\images\fck_pagebreak.gif" />
+    <Content Include="fckeditor\editor\css\images\fck_plugin.gif" />
+    <Content Include="fckeditor\editor\dialog\common\fck_dialog_common.css" />
+    <Content Include="fckeditor\editor\dialog\common\fck_dialog_common.js" />
+    <Content Include="fckeditor\editor\dialog\common\images\locked.gif" />
+    <Content Include="fckeditor\editor\dialog\common\images\reset.gif" />
+    <Content Include="fckeditor\editor\dialog\common\images\unlocked.gif" />
+    <Content Include="fckeditor\editor\dialog\fck_about\logo_fckeditor.gif" />
+    <Content Include="fckeditor\editor\dialog\fck_about\logo_fredck.gif" />
+    <Content Include="fckeditor\editor\dialog\fck_about\sponsors\spellchecker_net.gif" />
+    <Content Include="fckeditor\editor\dialog\fck_anchor.html" />
+    <Content Include="fckeditor\editor\dialog\fck_button.html" />
+    <Content Include="fckeditor\editor\dialog\fck_checkbox.html" />
+    <Content Include="fckeditor\editor\dialog\fck_colorselector.html" />
+    <Content Include="fckeditor\editor\dialog\fck_div.html" />
+    <Content Include="fckeditor\editor\dialog\fck_docprops.html" />
+    <Content Include="fckeditor\editor\dialog\fck_docprops\fck_document_preview.html" />
+    <Content Include="fckeditor\editor\dialog\fck_flash.html" />
+    <Content Include="fckeditor\editor\dialog\fck_flash\fck_flash.js" />
+    <Content Include="fckeditor\editor\dialog\fck_flash\fck_flash_preview.html" />
+    <Content Include="fckeditor\editor\dialog\fck_form.html" />
+    <Content Include="fckeditor\editor\dialog\fck_hiddenfield.html" />
+    <Content Include="fckeditor\editor\dialog\fck_image.html" />
+    <Content Include="fckeditor\editor\dialog\fck_image\fck_image.js" />
+    <Content Include="fckeditor\editor\dialog\fck_image\fck_image_preview.html" />
+    <Content Include="fckeditor\editor\dialog\fck_link.html" />
+    <Content Include="fckeditor\editor\dialog\fck_link\fck_link.js" />
+    <Content Include="fckeditor\editor\dialog\fck_listprop.html" />
+    <Content Include="fckeditor\editor\dialog\fck_paste.html" />
+    <Content Include="fckeditor\editor\dialog\fck_radiobutton.html" />
+    <Content Include="fckeditor\editor\dialog\fck_replace.html" />
+    <Content Include="fckeditor\editor\dialog\fck_select.html" />
+    <Content Include="fckeditor\editor\dialog\fck_select\fck_select.js" />
+    <Content Include="fckeditor\editor\dialog\fck_smiley.html" />
+    <Content Include="fckeditor\editor\dialog\fck_source.html" />
+    <Content Include="fckeditor\editor\dialog\fck_specialchar.html" />
+    <Content Include="fckeditor\editor\dialog\fck_spellerpages.html" />
+    <Content Include="fckeditor\editor\dialog\fck_spellerpages\spellerpages\blank.html" />
+    <Content Include="fckeditor\editor\dialog\fck_spellerpages\spellerpages\controls.html" />
+    <Content Include="fckeditor\editor\dialog\fck_spellerpages\spellerpages\controlWindow.js" />
+    <Content Include="fckeditor\editor\dialog\fck_spellerpages\spellerpages\spellchecker.html" />
+    <Content Include="fckeditor\editor\dialog\fck_spellerpages\spellerpages\spellChecker.js" />
+    <Content Include="fckeditor\editor\dialog\fck_spellerpages\spellerpages\spellerStyle.css" />
+    <Content Include="fckeditor\editor\dialog\fck_spellerpages\spellerpages\wordWindow.js" />
+    <Content Include="fckeditor\editor\dialog\fck_table.html" />
+    <Content Include="fckeditor\editor\dialog\fck_tablecell.html" />
+    <Content Include="fckeditor\editor\dialog\fck_template.html" />
+    <Content Include="fckeditor\editor\dialog\fck_template\images\template1.gif" />
+    <Content Include="fckeditor\editor\dialog\fck_template\images\template2.gif" />
+    <Content Include="fckeditor\editor\dialog\fck_template\images\template3.gif" />
+    <Content Include="fckeditor\editor\dialog\fck_textarea.html" />
+    <Content Include="fckeditor\editor\dialog\fck_textfield.html" />
+    <Content Include="fckeditor\editor\dtd\fck_dtd_test.html" />
+    <Content Include="fckeditor\editor\dtd\fck_xhtml10strict.js" />
+    <Content Include="fckeditor\editor\dtd\fck_xhtml10transitional.js" />
+    <Content Include="fckeditor\editor\fckdebug.html" />
+    <Content Include="fckeditor\editor\fckdialog.html" />
+    <Content Include="fckeditor\editor\fckeditor.html" />
+    <Content Include="fckeditor\editor\fckeditor.original.html" />
+    <Content Include="fckeditor\editor\images\anchor.gif" />
+    <Content Include="fckeditor\editor\images\arrow_ltr.gif" />
+    <Content Include="fckeditor\editor\images\arrow_rtl.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\angel_smile.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\angry_smile.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\broken_heart.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\cake.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\confused_smile.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\cry_smile.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\devil_smile.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\embaressed_smile.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\envelope.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\heart.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\kiss.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\lightbulb.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\omg_smile.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\regular_smile.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\sad_smile.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\shades_smile.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\teeth_smile.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\thumbs_down.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\thumbs_up.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\tounge_smile.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\whatchutalkingabout_smile.gif" />
+    <Content Include="fckeditor\editor\images\smiley\msn\wink_smile.gif" />
+    <Content Include="fckeditor\editor\images\spacer.gif" />
+    <Content Include="fckeditor\editor\js\fckadobeair.js" />
+    <Content Include="fckeditor\editor\js\fckeditorcode_gecko.js" />
+    <Content Include="fckeditor\editor\js\fckeditorcode_ie.js" />
+    <Content Include="fckeditor\editor\lang\af.js" />
+    <Content Include="fckeditor\editor\lang\ar.js" />
+    <Content Include="fckeditor\editor\lang\bg.js" />
+    <Content Include="fckeditor\editor\lang\bn.js" />
+    <Content Include="fckeditor\editor\lang\bs.js" />
+    <Content Include="fckeditor\editor\lang\ca.js" />
+    <Content Include="fckeditor\editor\lang\cs.js" />
+    <Content Include="fckeditor\editor\lang\da.js" />
+    <Content Include="fckeditor\editor\lang\de.js" />
+    <Content Include="fckeditor\editor\lang\el.js" />
+    <Content Include="fckeditor\editor\lang\en-au.js" />
+    <Content Include="fckeditor\editor\lang\en-ca.js" />
+    <Content Include="fckeditor\editor\lang\en-uk.js" />
+    <Content Include="fckeditor\editor\lang\en.js" />
+    <Content Include="fckeditor\editor\lang\eo.js" />
+    <Content Include="fckeditor\editor\lang\es.js" />
+    <Content Include="fckeditor\editor\lang\et.js" />
+    <Content Include="fckeditor\editor\lang\eu.js" />
+    <Content Include="fckeditor\editor\lang\fa.js" />
+    <Content Include="fckeditor\editor\lang\fi.js" />
+    <Content Include="fckeditor\editor\lang\fo.js" />
+    <Content Include="fckeditor\editor\lang\fr-ca.js" />
+    <Content Include="fckeditor\editor\lang\fr.js" />
+    <Content Include="fckeditor\editor\lang\gl.js" />
+    <Content Include="fckeditor\editor\lang\gu.js" />
+    <Content Include="fckeditor\editor\lang\he.js" />
+    <Content Include="fckeditor\editor\lang\hi.js" />
+    <Content Include="fckeditor\editor\lang\hr.js" />
+    <Content Include="fckeditor\editor\lang\hu.js" />
+    <Content Include="fckeditor\editor\lang\it.js" />
+    <Content Include="fckeditor\editor\lang\ja.js" />
+    <Content Include="fckeditor\editor\lang\km.js" />
+    <Content Include="fckeditor\editor\lang\ko.js" />
+    <Content Include="fckeditor\editor\lang\lt.js" />
+    <Content Include="fckeditor\editor\lang\lv.js" />
+    <Content Include="fckeditor\editor\lang\mn.js" />
+    <Content Include="fckeditor\editor\lang\ms.js" />
+    <Content Include="fckeditor\editor\lang\nb.js" />
+    <Content Include="fckeditor\editor\lang\nl.js" />
+    <Content Include="fckeditor\editor\lang\no.js" />
+    <Content Include="fckeditor\editor\lang\pl.js" />
+    <Content Include="fckeditor\editor\lang\pt-br.js" />
+    <Content Include="fckeditor\editor\lang\pt.js" />
+    <Content Include="fckeditor\editor\lang\ro.js" />
+    <Content Include="fckeditor\editor\lang\ru.js" />
+    <Content Include="fckeditor\editor\lang\sk.js" />
+    <Content Include="fckeditor\editor\lang\sl.js" />
+    <Content Include="fckeditor\editor\lang\sr-latn.js" />
+    <Content Include="fckeditor\editor\lang\sr.js" />
+    <Content Include="fckeditor\editor\lang\sv.js" />
+    <Content Include="fckeditor\editor\lang\th.js" />
+    <Content Include="fckeditor\editor\lang\tr.js" />
+    <Content Include="fckeditor\editor\lang\uk.js" />
+    <Content Include="fckeditor\editor\lang\vi.js" />
+    <Content Include="fckeditor\editor\lang\zh-cn.js" />
+    <Content Include="fckeditor\editor\lang\zh.js" />
+    <Content Include="fckeditor\editor\lang\_translationstatus.txt" />
+    <Content Include="fckeditor\editor\plugins\autogrow\fckplugin.js" />
+    <Content Include="fckeditor\editor\plugins\bbcode\fckplugin.js" />
+    <Content Include="fckeditor\editor\plugins\bbcode\_sample\sample.config.js" />
+    <Content Include="fckeditor\editor\plugins\bbcode\_sample\sample.html" />
+    <Content Include="fckeditor\editor\plugins\dragresizetable\fckplugin.js" />
+    <Content Include="fckeditor\editor\plugins\placeholder\fckplugin.js" />
+    <Content Include="fckeditor\editor\plugins\placeholder\fck_placeholder.html" />
+    <Content Include="fckeditor\editor\plugins\placeholder\lang\de.js" />
+    <Content Include="fckeditor\editor\plugins\placeholder\lang\en.js" />
+    <Content Include="fckeditor\editor\plugins\placeholder\lang\es.js" />
+    <Content Include="fckeditor\editor\plugins\placeholder\lang\fr.js" />
+    <Content Include="fckeditor\editor\plugins\placeholder\lang\it.js" />
+    <Content Include="fckeditor\editor\plugins\placeholder\lang\pl.js" />
+    <Content Include="fckeditor\editor\plugins\placeholder\placeholder.gif" />
+    <Content Include="fckeditor\editor\plugins\simplecommands\fckplugin.js" />
+    <Content Include="fckeditor\editor\plugins\tablecommands\fckplugin.js" />
+    <Content Include="fckeditor\editor\skins\default\fck_dialog.css" />
+    <Content Include="fckeditor\editor\skins\default\fck_dialog_ie6.js" />
+    <Content Include="fckeditor\editor\skins\default\fck_editor.css" />
+    <Content Include="fckeditor\editor\skins\default\fck_strip.gif" />
+    <Content Include="fckeditor\editor\skins\default\images\dialog.sides.gif" />
+    <Content Include="fckeditor\editor\skins\default\images\dialog.sides.png" />
+    <Content Include="fckeditor\editor\skins\default\images\dialog.sides.rtl.png" />
+    <Content Include="fckeditor\editor\skins\default\images\sprites.gif" />
+    <Content Include="fckeditor\editor\skins\default\images\sprites.png" />
+    <Content Include="fckeditor\editor\skins\default\images\toolbar.arrowright.gif" />
+    <Content Include="fckeditor\editor\skins\default\images\toolbar.buttonarrow.gif" />
+    <Content Include="fckeditor\editor\skins\default\images\toolbar.collapse.gif" />
+    <Content Include="fckeditor\editor\skins\default\images\toolbar.end.gif" />
+    <Content Include="fckeditor\editor\skins\default\images\toolbar.expand.gif" />
+    <Content Include="fckeditor\editor\skins\default\images\toolbar.separator.gif" />
+    <Content Include="fckeditor\editor\skins\default\images\toolbar.start.gif" />
+    <Content Include="fckeditor\editor\skins\office2003\fck_dialog.css" />
+    <Content Include="fckeditor\editor\skins\office2003\fck_dialog_ie6.js" />
+    <Content Include="fckeditor\editor\skins\office2003\fck_editor.css" />
+    <Content Include="fckeditor\editor\skins\office2003\fck_strip.gif" />
+    <Content Include="fckeditor\editor\skins\office2003\images\dialog.sides.gif" />
+    <Content Include="fckeditor\editor\skins\office2003\images\dialog.sides.png" />
+    <Content Include="fckeditor\editor\skins\office2003\images\dialog.sides.rtl.png" />
+    <Content Include="fckeditor\editor\skins\office2003\images\sprites.gif" />
+    <Content Include="fckeditor\editor\skins\office2003\images\sprites.png" />
+    <Content Include="fckeditor\editor\skins\office2003\images\toolbar.arrowright.gif" />
+    <Content Include="fckeditor\editor\skins\office2003\images\toolbar.bg.gif" />
+    <Content Include="fckeditor\editor\skins\office2003\images\toolbar.buttonarrow.gif" />
+    <Content Include="fckeditor\editor\skins\office2003\images\toolbar.collapse.gif" />
+    <Content Include="fckeditor\editor\skins\office2003\images\toolbar.end.gif" />
+    <Content Include="fckeditor\editor\skins\office2003\images\toolbar.expand.gif" />
+    <Content Include="fckeditor\editor\skins\office2003\images\toolbar.separator.gif" />
+    <Content Include="fckeditor\editor\skins\office2003\images\toolbar.start.gif" />
+    <Content Include="fckeditor\editor\skins\silver\fck_dialog.css" />
+    <Content Include="fckeditor\editor\skins\silver\fck_dialog_ie6.js" />
+    <Content Include="fckeditor\editor\skins\silver\fck_editor.css" />
+    <Content Include="fckeditor\editor\skins\silver\fck_strip.gif" />
+    <Content Include="fckeditor\editor\skins\silver\images\dialog.sides.gif" />
+    <Content Include="fckeditor\editor\skins\silver\images\dialog.sides.png" />
+    <Content Include="fckeditor\editor\skins\silver\images\dialog.sides.rtl.png" />
+    <Content Include="fckeditor\editor\skins\silver\images\sprites.gif" />
+    <Content Include="fckeditor\editor\skins\silver\images\sprites.png" />
+    <Content Include="fckeditor\editor\skins\silver\images\toolbar.arrowright.gif" />
+    <Content Include="fckeditor\editor\skins\silver\images\toolbar.buttonarrow.gif" />
+    <Content Include="fckeditor\editor\skins\silver\images\toolbar.buttonbg.gif" />
+    <Content Include="fckeditor\editor\skins\silver\images\toolbar.collapse.gif" />
+    <Content Include="fckeditor\editor\skins\silver\images\toolbar.end.gif" />
+    <Content Include="fckeditor\editor\skins\silver\images\toolbar.expand.gif" />
+    <Content Include="fckeditor\editor\skins\silver\images\toolbar.separator.gif" />
+    <Content Include="fckeditor\editor\skins\silver\images\toolbar.start.gif" />
+    <Content Include="fckeditor\editor\skins\_fckviewstrips.html" />
+    <Content Include="fckeditor\editor\_source\classes\fckcontextmenu.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckdataprocessor.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckdocumentfragment_gecko.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckdocumentfragment_ie.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckdomrange.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckdomrangeiterator.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckdomrange_gecko.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckdomrange_ie.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckeditingarea.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckelementpath.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckenterkey.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckevents.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckhtmliterator.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckicon.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckiecleanup.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckimagepreloader.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckkeystrokehandler.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckmenublock.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckmenublockpanel.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckmenuitem.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckpanel.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckplugin.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckspecialcombo.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckstyle.js" />
+    <Content Include="fckeditor\editor\_source\classes\fcktoolbar.js" />
+    <Content Include="fckeditor\editor\_source\classes\fcktoolbarbreak_gecko.js" />
+    <Content Include="fckeditor\editor\_source\classes\fcktoolbarbreak_ie.js" />
+    <Content Include="fckeditor\editor\_source\classes\fcktoolbarbutton.js" />
+    <Content Include="fckeditor\editor\_source\classes\fcktoolbarbuttonui.js" />
+    <Content Include="fckeditor\editor\_source\classes\fcktoolbarfontformatcombo.js" />
+    <Content Include="fckeditor\editor\_source\classes\fcktoolbarfontscombo.js" />
+    <Content Include="fckeditor\editor\_source\classes\fcktoolbarfontsizecombo.js" />
+    <Content Include="fckeditor\editor\_source\classes\fcktoolbarpanelbutton.js" />
+    <Content Include="fckeditor\editor\_source\classes\fcktoolbarspecialcombo.js" />
+    <Content Include="fckeditor\editor\_source\classes\fcktoolbarstylecombo.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckw3crange.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckxml.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckxml_gecko.js" />
+    <Content Include="fckeditor\editor\_source\classes\fckxml_ie.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fckblockquotecommand.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fckcorestylecommand.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fckfitwindow.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fckindentcommands.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fckjustifycommands.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fcklistcommands.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fcknamedcommand.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fckpasteplaintextcommand.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fckpastewordcommand.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fckremoveformatcommand.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fckshowblocks.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fckspellcheckcommand_gecko.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fckspellcheckcommand_ie.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fckstylecommand.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fcktablecommand.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fcktextcolorcommand.js" />
+    <Content Include="fckeditor\editor\_source\commandclasses\fck_othercommands.js" />
+    <Content Include="fckeditor\editor\_source\fckconstants.js" />
+    <Content Include="fckeditor\editor\_source\fckeditorapi.js" />
+    <Content Include="fckeditor\editor\_source\fckjscoreextensions.js" />
+    <Content Include="fckeditor\editor\_source\fckscriptloader.js" />
+    <Content Include="fckeditor\editor\_source\internals\fck.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckbrowserinfo.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckcodeformatter.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckcommands.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckconfig.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckdebug.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckdebug_empty.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckdialog.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckdocumentprocessor.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckdomtools.js" />
+    <Content Include="fckeditor\editor\_source\internals\fcklanguagemanager.js" />
+    <Content Include="fckeditor\editor\_source\internals\fcklisthandler.js" />
+    <Content Include="fckeditor\editor\_source\internals\fcklistslib.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckplugins.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckregexlib.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckselection.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckselection_gecko.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckselection_ie.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckstyles.js" />
+    <Content Include="fckeditor\editor\_source\internals\fcktablehandler.js" />
+    <Content Include="fckeditor\editor\_source\internals\fcktablehandler_gecko.js" />
+    <Content Include="fckeditor\editor\_source\internals\fcktablehandler_ie.js" />
+    <Content Include="fckeditor\editor\_source\internals\fcktoolbaritems.js" />
+    <Content Include="fckeditor\editor\_source\internals\fcktoolbarset.js" />
+    <Content Include="fckeditor\editor\_source\internals\fcktools.js" />
+    <Content Include="fckeditor\editor\_source\internals\fcktools_gecko.js" />
+    <Content Include="fckeditor\editor\_source\internals\fcktools_ie.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckundo.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckurlparams.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckxhtml.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckxhtmlentities.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckxhtml_gecko.js" />
+    <Content Include="fckeditor\editor\_source\internals\fckxhtml_ie.js" />
+    <Content Include="fckeditor\editor\_source\internals\fck_contextmenu.js" />
+    <Content Include="fckeditor\editor\_source\internals\fck_gecko.js" />
+    <Content Include="fckeditor\editor\_source\internals\fck_ie.js" />
+    <Content Include="fckeditor\fckconfig.js" />
+    <Content Include="fckeditor\fckeditor.asp" />
+    <Content Include="fckeditor\fckeditor.js" />
+    <Content Include="fckeditor\fckpackager.xml" />
+    <Content Include="fckeditor\fckstyles.xml" />
+    <Content Include="fckeditor\fcktemplates.xml" />
+    <Content Include="fckeditor\license.txt" />
+    <Content Include="iconos\loadingBar.gif" />
+    <Content Include="iconos\LoadingBlue.gif" />
+    <Content Include="iconos\LoadingBlueSmall.gif" />
+    <Content Include="iconos\loadingVista.gif" />
+    <Content Include="iconos\Web.config" />
+    <None Include="iconos\photothumb.db" />
+    <None Include="iconos\Thumbs.db" />
+    <None Include="images\photothumb.db" />
+    <Content Include="images\fondoApp.png" />
+    <Content Include="images\Footer.gif" />
+    <Content Include="images\icoCopiar.gif" />
+    <Content Include="images\logoblancoMercer.png" />
+    <Content Include="images\NuevoBanner.jpg" />
+    <Content Include="images\separador.png" />
+    <Content Include="images\Web.config" />
+    <None Include="images\Thumbs.db" />
+    <Content Include="interfaz_empleado\Layout_CargaBiometricas.xls" />
+    <Content Include="interfaz_empleado\Recursos\Certificado\Certificado_aptitud.docx" />
+    <None Include="interfaz_empleado\Reportes\Plantillas\BasicaInterna\TablaConsulta.html.bak" />
+    <None Include="interfaz_empleado\Reportes\Plantillas\BasicaInterna\vssver.scc" />
+    <None Include="interfaz_empleado\Reportes\Plantillas\Basica\img\vssver.scc" />
+    <None Include="interfaz_empleado\Reportes\Plantillas\Basica\vssver.scc" />
+    <None Include="interfaz_empleado\Reportes\Plantillas\Excel\vssver.scc" />
+    <None Include="interfaz_empleado\Reportes\Plantillas\Selects\vssver.scc" />
+    <None Include="interfaz_empleado\Reportes\Plantillas\Word\vssver.scc" />
+    <Content Include="interfaz_empleado\Formatos\FO_ListadoReporteRiesgos.aspx" />
+    <Content Include="interfaz_empleado\Formatos\FO_MedicamentosOrdenCopias.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_avisoPrivacidad.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_cambiarempresa.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_empresasusuarios.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_lineanegocio.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_preguntarespuestaconsulta.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_rangoreporteriesgos.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_registroestamoscontigo.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_registroestilovida.aspx" />
+    <Content Include="interfaz_empleado\Forma\AE_registronutricion.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_historicosolicitudes.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_lineanegocio.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_preguntarespuestaconsulta.aspx" />
+    <Content Include="interfaz_empleado\Forma\LIS_rangoreporteriesgos.aspx" />
+    <Content Include="interfaz_empleado\Forma\Pagina.htm" />
+    <Content Include="interfaz_empleado\Forma\REP_ausentismo.aspx" />
+    <Content Include="interfaz_empleado\Forma\REP_morbilidad.aspx" />
+    <Content Include="interfaz_empleado\Forma\REP_reporteriesgos.aspx" />
+    <Content Include="interfaz_empleado\Reportes\xmls\ConsultaDetalleSolicitudes.xml" />
+    <Content Include="interfaz_empleado\Reportes\xmls\ConsultaEstamosContigo.xml" />
+    <Content Include="interfaz_empleado\Reportes\xmls\Consultas.xml" />
+    <Content Include="interfaz_empleado\Reportes\xmls\ConsultaServiciosMedicamentos.xml" />
+    <Content Include="interfaz_empleado\Reportes\xmls\ConsultasIncapacidades.xml" />
+    <Content Include="interfaz_empleado\Reportes\xmls\ConsultasCompletas.xml" />
+    <Content Include="interfaz_empleado\Reportes\xmls\ConsultasCompletaNutricion.xml" />
+    <Content Include="interfaz_empleado\Reportes\xmls\EstiloVida.xml" />
+    <Content Include="interfaz_empleado\Reportes\xmls\Gasto.xml" />
+    <Content Include="interfaz_empleado\Reportes\xmls\InfoCitas.xml" />
+    <Content Include="interfaz_empleado\Reportes\xmls\InfoCitasCanceladas.xml" />
+    <Content Include="interfaz_empleado\Reportes\xmls\InfoHorarioMedico.xml" />
+    <Content Include="interfaz_empleado\Reportes\xmls\InfoLogCitas.xml" />
+    <Content Include="interfaz_empleado\Reportes\xmls\InfoOcupacionMedico.xml" />
+    <Content Include="interfaz_empleado\WebControls\WC_AdicionarDiagnosticoConsultaCIE10.ascx" />
+    <Content Include="interfaz_empleado\XMLS\Diagnosticos.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="scripts\ControlSesion.js" />
+    <Content Include="scripts\jquery-1.4.1.js" />
+    <Content Include="scripts\jquery.countdown.js" />
+    <Content Include="scripts\ValidaEntradaDatos.js" />
+    <None Include="Properties\PublishProfiles\GAMM.pubxml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{BCCF58D6-E3BD-4107-84F5-716944390A01}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logic\Logic.csproj">
+      <Project>{478834A3-1609-4694-B979-8B978413ABDF}</Project>
+      <Name>Logic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="agenda\Scripts\js\" />
+    <Folder Include="App_Data\" />
+    <Folder Include="bin\bin\es\" />
+    <Folder Include="interfaz_empleado\Forma\agenda\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="agenda\App_GlobalResources\DevExpress_Web_ASPxScheduler_v10_1.es.resx" />
+    <EmbeddedResource Include="agenda\App_GlobalResources\DevExpress_Web_ASPxScheduler_v10_1.resx" />
+    <EmbeddedResource Include="agenda\App_GlobalResources\DevExpress_XtraScheduler_v10_1_Core.es.resx" />
+    <EmbeddedResource Include="agenda\App_GlobalResources\DevExpress_XtraScheduler_v10_1_Core.resx" />
+    <EmbeddedResource Include="agenda\bin\App_GlobalResources\DevExpress_Web_ASPxScheduler_v10_1.es.resx" />
+    <EmbeddedResource Include="agenda\bin\App_GlobalResources\DevExpress_Web_ASPxScheduler_v10_1.resx" />
+    <EmbeddedResource Include="agenda\bin\App_GlobalResources\DevExpress_XtraScheduler_v10_1_Core.es.resx" />
+    <EmbeddedResource Include="agenda\bin\App_GlobalResources\DevExpress_XtraScheduler_v10_1_Core.resx" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>56247</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

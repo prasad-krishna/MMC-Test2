@@ -1,0 +1,39 @@
+﻿/*Estilos para la pantalla de configuracion de horario*/
+#dialogoAgregarIntervalo label
+{
+    width:150px;
+}
+
+/*Controles que muestran el horario configurado de los medicos*/
+.labelHoraHorarioMedico
+{
+font-size:11px;
+}
+
+.contenedorHorarioDia
+{
+    vertical-align:top;
+}
+
+#contenedorCamposIntervalo td
+{
+    vertical-align:top;
+}
+
+/*Marcar intervalos en conflicto*/
+.intervaloConflicto
+{
+    background-color:#CC3300;
+    color:#fff;
+}
+
+/*Intervalos en día festivo*/
+.intervaloFestivo,.esDiaFestivoTrue
+{
+    color:#FF6633;
+    display:block;
+    height:17px;
+    padding-left:42px;
+    background:#fff url(images/festivo.gif) no-repeat 0 0
+    
+}

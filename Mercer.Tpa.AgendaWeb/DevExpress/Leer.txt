@@ -1,0 +1,8 @@
+﻿Esta carpeta contiene plantillas usadas por el control Scheduler que muestra la agenda.
+Importante:
+!!!NO se deben realizar modificaciones a las plantillas en esta carpeta,  porque
+estas se perderían si se actualiza la versión del componente.!!!
+
+La forma correcta de realizar modificaciones a las plantillas es duplicarlas y copiarlas a la carpeta
+UI/CustomSchedulerTemplates
+

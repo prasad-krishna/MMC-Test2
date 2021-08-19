@@ -1,0 +1,66 @@
+﻿#dialogoConfirmarReprogramacionCita
+{
+    font-size:11px;
+}
+
+
+/*Titlos de las secciones de Detalles cita mostradas en el dialogo de confirmacion de registro*/
+.seccionDetallesCita,.seccionNotasAdicionales,.seccionTelefonosContacto
+{
+    display:block;
+    height:17px;
+    padding-left:17px;
+}
+
+.seccionDetallesCita
+{
+    background:#fff url("images/detallesCita.gif") no-repeat 0 0;
+}
+
+.seccionNotasAdicionales
+{
+    background:#fff url("images/note.gif") no-repeat 0 0;
+}
+
+.seccionTelefonosContacto
+{
+    background:#fff url("images/telephone.gif") no-repeat 0 0;
+}
+
+#dialogoConfirmarRegistroCita
+{
+    font-size:11px;
+}
+
+/*Estilo usado para mostrar el registro o reprogramacion exitoso de una cita*/
+#mensajesConfirmacion
+{
+    background-color:#A7D37F;
+    border:solid 1px #4FA800;
+    padding:10px;
+    margin-top:10px;
+    margin-bottom:10px;
+    width:100%;
+}
+
+/*Estilo de campos de detalles en dialogo de confirmacion de reprogramacion*/
+.detalleCita
+{
+    margin-bottom:5px;
+}
+/*Label de nueva fecha reprogramada de la cita*/
+#nuevaFecha
+{
+    font-weight:bold;   
+}
+
+/*Intervalos en día festivo*/
+.intervaloFestivo,.esDiaFestivoTrue
+{
+    color:#FF6633;
+    display:block;
+    height:17px;
+    padding-left:42px;
+    background:#fff url(images/festivo.gif) no-repeat 0 0
+    
+}

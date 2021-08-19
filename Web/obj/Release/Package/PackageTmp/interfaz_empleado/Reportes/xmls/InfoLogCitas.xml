@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes" ?>
+<Reporte
+        Consulta="
+/*Obtener información general de las citas*/
+SELECT    
+SIC_EMPRESA.corporativo_id as col1 ,
+vlogOperacionesCita.empresa_id	as	col2	,
+SIC_EMPRESA.Nombre AS COL3,
+cita_id	as	col4	,
+sede_id	as	col5	,
+nombreSede	as	col6	,
+tipoCita_id	as	col7	,
+nombreTipoCita	as	col8	,
+estado	as	col9	,
+EstadoActual	as	col10	,
+fechaInicio	as 	col11	,
+prestador_id	as	col12	,
+NombrePrestador	as	col13	,
+IdEspecialidad	as	col14	,
+NombreEspecialidad	as	col15	,
+nombrePaciente	as	col16	,
+telefonosContacto	as	col17	,
+identificacion_empleado	as	col18	,
+identificacion_paciente	as	col19	,
+idempleado	as	col20	,
+nombreempleado	as	col21	,
+idbeneficiario	as	col22	,
+nombrebeneficiario	as	col23	,
+IdUsuario	as	col24	,
+vlogOperacionesCita.Login	as	col25	,
+Accion	as	col26	,
+FechaNovedadHoraLocal	as	col27, 
+notasAdicionales AS col28
+
+FROM vlogOperacionesCita
+  INNER JOIN EmpresaUsers 
+          ON vlogOperacionesCita.empresa_id = EmpresaUsers.empresa_id
+  INNER JOIN users
+          ON EmpresaUsers.idUser = Users.idUser
+  INNER JOIN SIC_EMPRESA 
+    ON SIC_EMPRESA.empresa_id = vlogOperacionesCita.empresa_id    
+where 1 = 1 
+
+"
+        DirPlantillas="Basica\"
+        NombreReporte="Agenda_Log_Citas"
+        cadenaConexion="ConnectionStringReembolsos"
+        cantidad_parametros="0"
+        Titulo="Agenda (Log de cambios en citas)"
+>
+    <Campos>
+        <Campo titulo="CORPORATIVO" filtro="si" select="si" tabla="SIC_CORPORATIVO" campo_valor="corporativo_id" campo_nombre="nombre"></Campo>
+        <Campo titulo="EMPRESA ID" expansion="si" filtro="si" multiple="si" tabla="EmpresaDatos" campo_valor="empresa_id" campo_nombre="AbreviacionEmpresa"></Campo>
+        <Campo titulo="NOMBRE EMPRESA" filtro="no"></Campo>
+        <Campo titulo="ID CITA" filtro="no"></Campo>
+        <Campo titulo="ID SEDE"  filtro="si" multiple="si" tabla="SEDES" campo_valor="sede_id" campo_nombre="Sede"></Campo>
+        <Campo titulo="NOMBRE SEDE" filtro="si"></Campo>
+        <Campo titulo="ID TIPO CITA"  filtro="si" multiple="si" tabla="TIPOSCITA" campo_valor="tipoCita_id" campo_nombre="nombreTipoCita"></Campo>
+        <Campo titulo="NOMBRE TIPO CITA" filtro="si"></Campo>
+        <Campo titulo="ID ESTADO ACTUAL" filtro="si" multiple="si" tabla="EstadoCita" campo_valor="id" campo_nombre="estado"></Campo>
+        <Campo titulo="ESTADO ACTUAL" filtro="no" ></Campo>
+        <Campo titulo="FECHA CITA" filtro="si" fecha="si"></Campo>
+        <Campo titulo="ID MÉDICO"  filtro="si" multiple="si" tabla="Prestadores" campo_valor="idPrestador" campo_nombre="NombrePrestador"></Campo>
+        <Campo titulo="NOMBRE MÉDICO" filtro="si"></Campo>
+        <Campo titulo="ID ESPECIALIDAD"  filtro="si" multiple="si" tabla="Especialidades" campo_valor="idEspecialidad" campo_nombre="NombreEspecialidad"></Campo>
+        <Campo titulo="NOMBRE ESPECIALIDAD" filtro="si"></Campo>
+        <Campo titulo="NOMBRE PACIENTE" filtro="si"></Campo>
+        <Campo titulo="TELÉFONOS CONTACTO" filtro="no"></Campo>
+        <Campo titulo="DOCUMENTO ID EMPLEADO" filtro="si"></Campo>
+        <Campo titulo="DOCUMENTO ID PACIENTE" filtro="si"></Campo>
+        <Campo titulo="ID EMPLEADO" filtro="si" multiple="si" tabla=".SIC_EMPLEADO" campo_valor="id_empleado" campo_nombre="apellido_paterno + ' ' + primer_nombre"></Campo>
+        <Campo titulo="NOMBRE EMPLEADO" filtro="si" ></Campo>
+        <Campo titulo="ID BENEFICIARIO" filtro="si" multiple="si" tabla=".SIC_BENEFICIARIO" campo_valor="beneficiario_id" campo_nombre="primer_apellido+ ' ' + primer_nombre"></Campo>
+        <Campo titulo="NOMBRE BENEFICIARIO" filtro="si" ></Campo>
+        <Campo titulo="ID USUARIO"  filtro="si" multiple="si" tabla="Users" campo_valor="idUser" campo_nombre="NameUser"></Campo>
+        <Campo titulo="LOGIN USUARIO"  filtro="si"></Campo>
+        <Campo titulo="ACCION"  filtro="si"></Campo>
+        <Campo titulo="FECHA ACCIÓN"  filtro="si" fecha="si"></Campo>
+        <Campo titulo="NOTAS ADICIONALES" filtro="no"></Campo>
+    </Campos>
+</Reporte>

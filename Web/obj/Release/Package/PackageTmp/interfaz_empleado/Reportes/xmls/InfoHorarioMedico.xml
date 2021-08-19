@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes" ?>
+<Reporte
+        Consulta="
+		
+SELECT 
+empresa_id as COL1,
+Nombre AS COL2,
+fechaInicio AS COL3,
+fechaFin as COL4,
+duracion AS COL5,
+idPrestador AS COL6,
+NombrePrestador AS COL7,
+IdEspecialidad AS COL8,
+nombreespecialidad AS COL9,
+festivo AS COL10,
+idSede as COL11,
+nombreSede as COL12
+
+FROM    vInfoHorarioMedico
+where 1 = 1
+                "
+        DirPlantillas="Basica\"
+        NombreReporte="Agenda_Horario"
+        cadenaConexion="ConnectionStringReembolsos"
+        cantidad_parametros="0"
+        Titulo="Agenda (Horario médicos)"
+>
+<Campos>
+	<Campo titulo="EMPRESA ID" expansion="si" filtro="si" multiple="si" tabla="EmpresaDatos" campo_valor="empresa_id" campo_nombre="AbreviacionEmpresa"></Campo>
+	<Campo titulo="NOMBRE EMPRESA" filtro="no"></Campo>
+	<Campo titulo="FECHA INICIO" filtro="si" fecha="si"></Campo>
+	<Campo titulo="FECHA FIN" filtro="si" fecha="si"></Campo>
+	<Campo titulo="DURACIÓN (HORAS)" filtro="si" ></Campo>
+	<Campo titulo="ID MÉDICO"  filtro="si" multiple="si" tabla="Prestadores" campo_valor="idPrestador" campo_nombre="NombrePrestador"></Campo>
+	<Campo titulo="NOMBRE MÉDICO" filtro="si"></Campo>
+	<Campo titulo="ID ESPECIALIDAD"  filtro="si" multiple="si" tabla="Especialidades" campo_valor="idEspecialidad" campo_nombre="NombreEspecialidad"></Campo>
+	<Campo titulo="NOMBRE ESPECIALIDAD" filtro="si"></Campo>
+	<Campo titulo="FESTIVO" filtro="si"></Campo>
+		<Campo titulo="ID SEDE"  filtro="si" multiple="si" tabla="Sedes" campo_valor="sede_id" campo_nombre="NombreSede"></Campo>
+	<Campo titulo="NOMBRE SEDE" filtro="si"></Campo>
+
+</Campos>
+</Reporte>

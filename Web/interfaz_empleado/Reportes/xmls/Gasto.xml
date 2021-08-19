@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes" ?>
+<Reporte
+        Consulta="
+SELECT		DISTINCT	SICAU.DBO.SIC_EMPRESA.empresa_id AS COL1,	
+				ISNULL(sicau.dbo.SIC_EMPLEADO.apellido_paterno, '') + ' ' + ISNULL(sicau.dbo.SIC_EMPLEADO.apellido_materno, '') + ' ' + ISNULL(sicau.dbo.SIC_EMPLEADO.primer_nombre, '') + ' ' + ISNULL(sicau.dbo.SIC_EMPLEADO.segundo_nombre, '') AS COL2,					
+				ISNULL((SELECT SUM(dbo.SolicitudTipoServicio.ValorAprobado) AS Exp1
+				FROM  dbo.Solicitud  INNER JOIN
+                      dbo.SolicitudTipoServicio ON dbo.Solicitud.IdSolicitud = dbo.SolicitudTipoServicio.IdSolicitud
+				WHERE dbo.Solicitud.id_empleado = SICAU.dbo.SIC_EMPLEADO.id_empleado
+				AND  dbo.SolicitudTipoServicio.IdSolicitudEstado = 4 
+				AND DATEPART(YEAR,Solicitud.Fecha) = DATEPART(YEAR,DATEADD(year,-1,getdate()))),0) AS COL3 				
+FROM         SICAU.dbo.SIC_CENTRO_COSTO INNER JOIN
+                      SICAU.dbo.SIC_EMPRESA ON SICAU.dbo.SIC_CENTRO_COSTO.empresa_id = SICAU.dbo.SIC_EMPRESA.empresa_id INNER JOIN
+                      SICAU.dbo.SIC_EMPLEADO ON SICAU.dbo.SIC_CENTRO_COSTO.centro_costo_id = SICAU.dbo.SIC_EMPLEADO.centro_costo_id
+WHERE 1=1
+                "
+        DirPlantillas="Basica\"
+        NombreReporte="Gasto"
+        cadenaConexion="ConnectionStringReembolsos"
+        cantidad_parametros="0"
+        Titulo="GASTO EMPLEADO "
+>
+<Campos>
+<Campo titulo="EMPRESA ID" expansion="si" filtro="si" multiple="si" tabla="EmpresaDatos" campo_valor="empresa_id" campo_nombre="AbreviacionEmpresa"></Campo>
+<Campo titulo="PACIENTE" filtro="si"></Campo>
+<Campo titulo="VALOR APROBADO" filtro="no"></Campo>
+</Campos>
+</Reporte>

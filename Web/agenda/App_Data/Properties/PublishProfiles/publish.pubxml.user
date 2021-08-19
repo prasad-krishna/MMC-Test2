@@ -1,0 +1,641 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <LastUsedBuildConfiguration>Debug</LastUsedBuildConfiguration>
+    <LastUsedPlatform>Any CPU</LastUsedPlatform>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_GlobalResources/DevExpress_Web_ASPxScheduler_v10_1.es.resx">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="App_GlobalResources/DevExpress_Web_ASPxScheduler_v10_1.resx">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="App_GlobalResources/DevExpress_XtraScheduler_v10_1_Core.es.resx">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="App_GlobalResources/DevExpress_XtraScheduler_v10_1_Core.resx">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/DevExpress_Web_ASPxScheduler_v10_1.designer.cs">
+      <publishTime>09/21/2015 12:21:49</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/DevExpress_Web_ASPxScheduler_v10_1.es.designer.cs">
+      <publishTime>09/21/2015 12:21:47</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/DevExpress_Web_ASPxScheduler_v10_1.es.resx">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/DevExpress_Web_ASPxScheduler_v10_1.resx">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/DevExpress_XtraScheduler_v10_1_Core.designer.cs">
+      <publishTime>09/21/2015 12:21:49</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/DevExpress_XtraScheduler_v10_1_Core.es.designer.cs">
+      <publishTime>09/21/2015 12:21:49</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/DevExpress_XtraScheduler_v10_1_Core.es.resx">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="bin/App_GlobalResources/DevExpress_XtraScheduler_v10_1_Core.resx">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="bin/Content/agenda.css">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="bin/DataAccess.dll">
+      <publishTime>05/31/2010 15:15:15</publishTime>
+    </File>
+    <File Include="bin/DataAccess.pdb">
+      <publishTime>05/31/2010 15:15:15</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Data.v10.1.dll">
+      <publishTime>05/18/2010 12:49:32</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxEditors.v10.1.dll">
+      <publishTime>05/18/2010 12:55:53</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.ASPxScheduler.v10.1.dll">
+      <publishTime>05/18/2010 12:56:17</publishTime>
+    </File>
+    <File Include="bin/DevExpress.Web.v10.1.dll">
+      <publishTime>05/18/2010 12:55:49</publishTime>
+    </File>
+    <File Include="bin/DevExpress.XtraScheduler.v10.1.Core.dll">
+      <publishTime>05/18/2010 12:53:03</publishTime>
+    </File>
+    <File Include="bin/Logic.dll">
+      <publishTime>05/31/2010 15:15:17</publishTime>
+    </File>
+    <File Include="bin/Logic.pdb">
+      <publishTime>05/31/2010 15:15:17</publishTime>
+    </File>
+    <File Include="bin/Mercer.Tpa.Agenda.Web.dll">
+      <publishTime>09/22/2015 09:56:42</publishTime>
+    </File>
+    <File Include="bin/Mercer.Tpa.Agenda.Web.pdb">
+      <publishTime>09/22/2015 09:56:42</publishTime>
+    </File>
+    <File Include="bin/Web.dll">
+      <publishTime>05/31/2010 15:15:23</publishTime>
+    </File>
+    <File Include="bin/Web.pdb">
+      <publishTime>05/31/2010 15:15:22</publishTime>
+    </File>
+    <File Include="ChangeLog.txt">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="Content/agenda.css">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="Content/configuracionHorarios.css">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="Content/estiloscomunes.css">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="Content/ie6.css">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="Content/images/accept.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/add.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/application_go.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/bell.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/bigButton.gif">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/bullet_error.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/clock.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/clock_32.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/clock_red.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/close_16.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/icoCalendar.gif">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/icoMenu.gif">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ico_adicionar.gif">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/imgBullet.gif">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/imgClose.gif">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/newspaper_32.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/note.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/page_text_32.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/search_32.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/telephone.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-anim_basic_16x16.gif">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_flat_0_aaaaaa_40x100.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_flat_75_102251_40x100.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_flat_75_ffffff_40x100.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_glass_55_fbf9ee_1x400.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_glass_65_ffffff_1x400.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_glass_75_dadada_1x400.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_glass_75_e6e6e6_1x400.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_glass_95_fef1ec_1x400.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_highlight-soft_75_cccccc_1x100.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-bg_inset-soft_95_fef1ec_1x100.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_222222_256x240.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_2e83ff_256x240.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_454545_256x240.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_888888_256x240.png">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_cd0a0a_256x240.png">
+      <publishTime>09/21/2015 12:20:22</publishTime>
+    </File>
+    <File Include="Content/images/ui-icons_fff0f0_256x240.png">
+      <publishTime>09/21/2015 12:20:22</publishTime>
+    </File>
+    <File Include="Content/images/user.png">
+      <publishTime>09/21/2015 12:20:22</publishTime>
+    </File>
+    <File Include="Content/jquery-ui-1.8rc3.custom.css">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/jquery.jgrowl.css">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="Content/jquery.ui.accordion.css">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="Content/jquery.ui.all.css">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="Content/jquery.ui.autocomplete.css">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="Content/jquery.ui.base.css">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="Content/jquery.ui.button.css">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="Content/jquery.ui.core.css">
+      <publishTime>09/21/2015 12:20:20</publishTime>
+    </File>
+    <File Include="Content/jquery.ui.datepicker.css">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/jquery.ui.dialog.css">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/jquery.ui.progressbar.css">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/jquery.ui.resizable.css">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/jquery.ui.slider.css">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/jquery.ui.tabs.css">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/jquery.ui.theme.css">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/notificaciones.css">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/registroCitas.css">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="Content/ui.jqgrid.css">
+      <publishTime>09/21/2015 12:20:21</publishTime>
+    </File>
+    <File Include="DataAcess/CodeDesignLog.txt">
+      <publishTime>09/21/2015 12:20:22</publishTime>
+    </File>
+    <File Include="DevExpress/ASPxSchedulerForms/AppointmentDragToolTip.ascx">
+      <publishTime>09/21/2015 12:20:22</publishTime>
+    </File>
+    <File Include="DevExpress/ASPxSchedulerForms/AppointmentForm.ascx">
+      <publishTime>09/21/2015 12:20:22</publishTime>
+    </File>
+    <File Include="DevExpress/ASPxSchedulerForms/AppointmentFormEx.ascx">
+      <publishTime>09/21/2015 12:20:22</publishTime>
+    </File>
+    <File Include="DevExpress/ASPxSchedulerForms/AppointmentToolTip.ascx">
+      <publishTime>09/21/2015 12:20:22</publishTime>
+    </File>
+    <File Include="DevExpress/ASPxSchedulerForms/GotoDateForm.ascx">
+      <publishTime>09/21/2015 12:20:22</publishTime>
+    </File>
+    <File Include="DevExpress/ASPxSchedulerForms/HorizontalAppointmentTemplate.ascx">
+      <publishTime>09/21/2015 12:20:22</publishTime>
+    </File>
+    <File Include="DevExpress/ASPxSchedulerForms/HorizontalSameDayAppointmentTemplate.ascx">
+      <publishTime>09/21/2015 12:20:22</publishTime>
+    </File>
+    <File Include="DevExpress/ASPxSchedulerForms/InplaceEditor.ascx">
+      <publishTime>09/21/2015 12:20:23</publishTime>
+    </File>
+    <File Include="DevExpress/ASPxSchedulerForms/RecurrentAppointmentDeleteForm.ascx">
+      <publishTime>09/21/2015 12:20:23</publishTime>
+    </File>
+    <File Include="DevExpress/ASPxSchedulerForms/RecurrentAppointmentEditForm.ascx">
+      <publishTime>09/21/2015 12:20:23</publishTime>
+    </File>
+    <File Include="DevExpress/ASPxSchedulerForms/ReminderForm.ascx">
+      <publishTime>09/21/2015 12:20:23</publishTime>
+    </File>
+    <File Include="DevExpress/ASPxSchedulerForms/SelectionToolTip.ascx">
+      <publishTime>09/21/2015 12:20:23</publishTime>
+    </File>
+    <File Include="DevExpress/ASPxSchedulerForms/VerticalAppointmentTemplate.ascx">
+      <publishTime>09/21/2015 12:20:23</publishTime>
+    </File>
+    <File Include="DevExpress/Leer.txt">
+      <publishTime>09/21/2015 12:20:22</publishTime>
+    </File>
+    <File Include="Scripts/achtung-0.3.0/AUTHORS.txt">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/achtung-0.3.0/LICENSE.txt">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/achtung-0.3.0/ui.achtung-min.css">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/achtung-0.3.0/ui.achtung-min.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/achtung-0.3.0/ui.achtung.css">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/achtung-0.3.0/ui.achtung.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/achtung-0.3.0/version.txt">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/AdministracionMedios.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/AdministracionSedes.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/AdministracionTiposCita.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/AgendaMedico.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/BusquedaCitas.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/common.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/ConfiguracionHorarioMedico.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.4.2.min.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery-ui-1.8.custom.min.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.bgiframe.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.jgrowl_minimized.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.tablehover.min.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry-es.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/Copy of jquery.timeentry.min.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-cs.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-de.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-es.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-fr.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-hu.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-is.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-it.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-ja.js">
+      <publishTime>09/21/2015 12:20:26</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-nl.js">
+      <publishTime>09/21/2015 12:20:26</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-pl.js">
+      <publishTime>09/21/2015 12:20:26</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-pt.js">
+      <publishTime>09/21/2015 12:20:26</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-ro.js">
+      <publishTime>09/21/2015 12:20:26</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-ru.js">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-sk.js">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-sv.js">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-tr.js">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-vi.js">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry-zh-CN.js">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry.compat-1.2.6.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry.css">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry.min.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/jquery.timeentry.pack.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/spinnerDefault.png">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/spinnerDefaultBig.png">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/spinnerGem.png">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/spinnerGemBig.png">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/spinnerGreen.png">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/spinnerGreenBig.png">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/spinnerOrange.png">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/spinnerOrangeBig.png">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/spinnerSquare.png">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/spinnerSquareBig.png">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/spinnerText.png">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/spinnerTextBig.png">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/spinnerUpDown.png">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/spinnerUpDownBig.png">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.1.4.7/timeEntryBasics.html">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.css">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.timeentry.min.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/jquery.ui.datepicker-es.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/json2.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/MiAgenda.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/ModuloRegistroCitas.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/ui.achtung-min.css">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/ui.achtung-min.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/ui.achtung.css">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="Scripts/ui.achtung.js">
+      <publishTime>09/21/2015 12:20:25</publishTime>
+    </File>
+    <File Include="UI/Admin/AdminAgenda.Master">
+      <publishTime>09/21/2015 12:20:28</publishTime>
+    </File>
+    <File Include="UI/Admin/AdminAgendaInicio.aspx">
+      <publishTime>09/21/2015 12:20:28</publishTime>
+    </File>
+    <File Include="UI/Admin/AdminFestivos.aspx">
+      <publishTime>09/21/2015 12:20:28</publishTime>
+    </File>
+    <File Include="UI/Admin/AdminMediosComunicacion.aspx">
+      <publishTime>09/21/2015 12:20:28</publishTime>
+    </File>
+    <File Include="UI/Admin/AdminSedes.aspx">
+      <publishTime>09/21/2015 12:20:28</publishTime>
+    </File>
+    <File Include="UI/Admin/AdminTiposCita.aspx">
+      <publishTime>09/21/2015 12:20:28</publishTime>
+    </File>
+    <File Include="UI/Admin/AdminZonasHorarias.aspx">
+      <publishTime>09/21/2015 12:20:29</publishTime>
+    </File>
+    <File Include="UI/Admin/UsuariosSedes.aspx">
+      <publishTime>09/21/2015 12:20:29</publishTime>
+    </File>
+    <File Include="UI/AgendaInicio.aspx">
+      <publishTime>09/22/2015 09:18:06</publishTime>
+    </File>
+    <File Include="UI/AgendaMedico.aspx">
+      <publishTime>09/21/2015 12:20:27</publishTime>
+    </File>
+    <File Include="UI/BusquedaCitas/BusquedaCitas.aspx">
+      <publishTime>09/21/2015 12:20:29</publishTime>
+    </File>
+    <File Include="UI/BusquedaCitas/ControlFiltroBusquedas.ascx">
+      <publishTime>09/21/2015 12:20:29</publishTime>
+    </File>
+    <File Include="UI/BusquedaCitas/ConvencionesEstados.ascx">
+      <publishTime>09/21/2015 12:20:29</publishTime>
+    </File>
+    <File Include="UI/BusquedaCitas/DialogoCancelarCita.ascx">
+      <publishTime>09/21/2015 12:20:29</publishTime>
+    </File>
+    <File Include="UI/BusquedaCitas/DialogoRegistrarRecordatorioPaciente.ascx">
+      <publishTime>09/21/2015 12:20:29</publishTime>
+    </File>
+    <File Include="UI/BusquedaCitas/DialogoRegistroLlegadaPaciente.ascx">
+      <publishTime>09/21/2015 12:20:29</publishTime>
+    </File>
+    <File Include="UI/CitasMedico/CitasMedicoGrid.ascx">
+      <publishTime>09/21/2015 12:20:29</publishTime>
+    </File>
+    <File Include="UI/CitasMedico/CitasMedicoScheduler.ascx">
+      <publishTime>09/21/2015 12:20:29</publishTime>
+    </File>
+    <File Include="UI/CitasMedico/ControlInfoCitas.ascx">
+      <publishTime>09/21/2015 12:20:29</publishTime>
+    </File>
+    <File Include="UI/ConfiguracionHorario/ConfigurarHorarioMedico.aspx">
+      <publishTime>09/21/2015 12:20:29</publishTime>
+    </File>
+    <File Include="UI/ConfiguracionHorario/ControlHorarioDia.ascx">
+      <publishTime>09/21/2015 12:20:29</publishTime>
+    </File>
+    <File Include="UI/ConfiguracionHorario/ControlHorarioSemana.ascx">
+      <publishTime>09/21/2015 12:20:30</publishTime>
+    </File>
+    <File Include="UI/ConfiguracionHorario/DesignLog.txt">
+      <publishTime>09/21/2015 12:20:30</publishTime>
+    </File>
+    <File Include="UI/ConfiguracionHorario/HorarioMedicoInicio.aspx">
+      <publishTime>09/21/2015 12:20:30</publishTime>
+    </File>
+    <File Include="UI/ConfiguracionHorario/SelectorSemana.ascx">
+      <publishTime>09/21/2015 12:20:30</publishTime>
+    </File>
+    <File Include="UI/CustomSchedulerTemplates/AppointmentDragToolTip.ascx">
+      <publishTime>09/21/2015 12:20:31</publishTime>
+    </File>
+    <File Include="UI/CustomSchedulerTemplates/HorizontalAppointmentTemplateCustom.ascx">
+      <publishTime>09/21/2015 12:20:31</publishTime>
+    </File>
+    <File Include="UI/CustomSchedulerTemplates/HorizontalSameDayAppointmentTemplateCustom.ascx">
+      <publishTime>09/21/2015 12:20:31</publishTime>
+    </File>
+    <File Include="UI/CustomSchedulerTemplates/PlantillaCitaScheduler.ascx">
+      <publishTime>09/21/2015 12:20:31</publishTime>
+    </File>
+    <File Include="UI/CustomSchedulerTemplates/PlantillaCitaSchedulerWorkweek.ascx">
+      <publishTime>09/21/2015 12:20:32</publishTime>
+    </File>
+    <File Include="UI/Notificaciones/Notificador.ascx">
+      <publishTime>09/21/2015 12:20:33</publishTime>
+    </File>
+    <File Include="UI/Pacientes/ControlInfoPaciente.ascx">
+      <publishTime>09/21/2015 12:20:33</publishTime>
+    </File>
+    <File Include="UI/RegistroCitas/ControlFiltroDisponibilidad.ascx">
+      <publishTime>09/21/2015 12:20:32</publishTime>
+    </File>
+    <File Include="UI/RegistroCitas/ModuloRegistroCitas.aspx">
+      <publishTime>09/21/2015 12:20:33</publishTime>
+    </File>
+    <File Include="UI/ServiciosAgendaCliente.aspx">
+      <publishTime>09/21/2015 12:20:28</publishTime>
+    </File>
+    <File Include="UI/Utils/ControlMensajeError.ascx">
+      <publishTime>09/21/2015 12:20:33</publishTime>
+    </File>
+    <File Include="UI/Utils/UserControlMessage.ascx">
+      <publishTime>09/21/2015 12:20:33</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>09/22/2015 09:56:34</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

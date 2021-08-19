@@ -1,0 +1,20 @@
+﻿.agenda_menu_list li
+{
+    float:left;
+}
+
+/*Corrige problema con floats y elementos LI en IE*/
+.agenda_menu_list a,.agenda_menu_list a:visited
+{
+    display:block;
+    float:left;
+}
+
+.campoFormulario
+{
+    width:95%;
+    position:relative;
+    margin:0;
+    padding:0;
+    text-align:left;
+}

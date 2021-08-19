@@ -1,0 +1,4 @@
+﻿Controles y formularios que permiten configurar el horario del medico.
+Abril 6 de 2010
+Creados controles.
+SelectorSemana.ascx: Permite seleccionar una semana

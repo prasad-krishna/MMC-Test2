@@ -1,0 +1,15 @@
+<TR height=10>
+        <td class="textogris" vAlign="top">{NOMBRECAMPO}</td>
+        <td width="138" vAlign="top">
+                <select name="_C{POSICIONCAMPO}" onChange="javascript:cambiarRestriccion{POSICIONCAMPO}(this)"size="1" class="textogris" >
+                <option value="">Escoja ...</option>
+                <option value="=">Igual a</option>
+                </select>
+        </td>
+        
+        <td  width="156"class="textogris" vAlign="top">
+                <input type=text name=_T{POSICIONCAMPO} value="" class="info" size="45" readonly>
+                <input type=hidden name=_V{POSICIONCAMPO} value="" class="info" size="15">
+                <a href="javascript:seleccionarEntidad('{NOMBREENTIDAD}','{TABLABASE}','{IDTABLABASE}','{NOMBRETABLABASE}',{POSICIONCAMPO})">Escoger valores</a>
+        </td>
+</TR>

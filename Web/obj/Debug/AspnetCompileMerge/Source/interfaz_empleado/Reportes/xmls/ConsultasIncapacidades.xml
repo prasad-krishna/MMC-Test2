@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes" ?>
+<Reporte
+        Consulta="
+SELECT		dbo.Consulta.empresa_id AS COL1, 
+			CONVERT(VARCHAR(10),dbo.Consulta.FechaCreacion,103) AS COL2, 
+			CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN SICAU.dbo.SIC_EMPLEADO.identificacion ELSE SICAU.dbo.SIC_BENEFICIARIO.identificacion END AS COL3, 
+            CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN isnull(SICAU.dbo.SIC_EMPLEADO.primer_nombre + ' ', '') 
+                      + isnull(SICAU.dbo.SIC_EMPLEADO.segundo_nombre + ' ', '') ELSE isnull(SICAU.dbo.SIC_BENEFICIARIO.primer_nombre + ' ', '') 
+                      + isnull(SICAU.dbo.SIC_BENEFICIARIO.segundo_nombre + ' ', '') END AS COL4, 
+			CASE WHEN dbo.Consulta.beneficiario_id IS NULL 
+                      THEN isnull(SICAU.dbo.SIC_EMPLEADO.apellido_paterno + ' ', '') + isnull(SICAU.dbo.SIC_EMPLEADO.apellido_materno + ' ', '') 
+                      ELSE isnull(SICAU.dbo.SIC_BENEFICIARIO.primer_apellido + ' ', '') + isnull(SICAU.dbo.SIC_BENEFICIARIO.segundo_apellido + ' ', '') END AS COL5, 
+            CONVERT(VARCHAR(10),dbo.Incapacidad.FechaInicio,103) AS COL6, 
+			CONVERT(VARCHAR(10),dbo.Incapacidad.FechaFin,103) AS COL7, 
+			DATEDIFF(day, dbo.Incapacidad.FechaInicio, dbo.Incapacidad.FechaFin) + 1 AS COL8,
+			(SELECT     CASE WHEN ISNULL(Diagnosticos.NombreDiagnostico, '') NOT IN ('') 
+														   THEN Diagnosticos.NombreDiagnostico + '  ' ELSE '' END AS '*'
+									FROM          dbo.IncapacidadDiagnosticos INNER JOIN
+														   dbo.Diagnosticos ON dbo.IncapacidadDiagnosticos.IdDiagnostico = dbo.Diagnosticos.IdDiagnostico
+									WHERE      dbo.IncapacidadDiagnosticos.IdIncapacidad = dbo.Incapacidad.IdIncapacidad FOR XML PATH('')) AS COL9, 
+			(SELECT     CASE WHEN ISNULL(Diagnosticos.NombreDiagnostico, '') NOT IN ('') 
+														   THEN Diagnosticos.CodigoDiagnostico + '  ' ELSE '' END AS '*'
+									FROM          dbo.IncapacidadDiagnosticos INNER JOIN
+														   dbo.Diagnosticos ON dbo.IncapacidadDiagnosticos.IdDiagnostico = dbo.Diagnosticos.IdDiagnostico
+									WHERE      dbo.IncapacidadDiagnosticos.IdIncapacidad = dbo.Incapacidad.IdIncapacidad FOR XML PATH('')) AS COL10,
+
+
+             ISNULL(SICAU.dbo.SIC_EMPLEADO.codigo,'') AS COL11,
+			 dbo.Prestadores.NombrePrestador AS COL12, 
+			 CASE WHEN dbo.Incapacidad.Continuacion = 1 THEN 'SI' ELSE 'NO' END AS COL13,
+			 DATEPART(MONTH,Incapacidad.FechaInicio) AS COL14, 
+			 DATEPART(YEAR,Incapacidad.FechaInicio) AS COL15,			
+			 SICAU.dbo.SIC_EMPLEADO.cargo AS COL16, 
+			 SICAU.dbo.SIC_EMPLEADO.IPS AS COL17, 
+			 SICAU.dbo.SIC_TABLA_DOMINIO.descripcion AS COL18			 
+FROM         dbo.Incapacidad INNER JOIN
+                      dbo.Consulta INNER JOIN
+                      SICAU.dbo.SIC_EMPLEADO ON dbo.Consulta.id_empleado = SICAU.dbo.SIC_EMPLEADO.id_empleado INNER JOIN
+                      dbo.Prestadores ON dbo.Consulta.IdPrestador = dbo.Prestadores.IdPrestador ON 
+                      dbo.Incapacidad.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+                      SICAU.dbo.SIC_TABLA_DOMINIO ON SICAU.dbo.SIC_EMPLEADO.EPS = SICAU.dbo.SIC_TABLA_DOMINIO.dominio_id LEFT OUTER JOIN
+                      SICAU.dbo.SIC_BENEFICIARIO ON dbo.Consulta.beneficiario_id = SICAU.dbo.SIC_BENEFICIARIO.beneficiario_id
+WHERE		(1=1)
+                "
+        DirPlantillas="Basica\"
+        NombreReporte="Consultas"
+        cadenaConexion="ConnectionStringReembolsos"
+        cantidad_parametros="0"
+        Titulo="CONSULTAS "
+>
+<Campos>
+<Campo titulo="EMPRESA ID" expansion="si" filtro="si" multiple="si" tabla="EmpresaDatos" campo_valor="empresa_id" campo_nombre="AbreviacionEmpresa"></Campo>
+<Campo titulo="FECHA CONSULTA" filtro="si"  fecha="si"></Campo>
+<Campo titulo="IDENTIFICACION" filtro="si"></Campo>
+<Campo titulo="NOMBRES" filtro="si"></Campo>
+<Campo titulo="APELLIDOS" filtro="si"></Campo>
+<Campo titulo="FECHA INICIO" filtro="no" fecha="si"></Campo>
+<Campo titulo="FECHA FIN" filtro="no" fecha="si"></Campo>
+<Campo titulo="TOTAL DÍAS" filtro="no"></Campo>
+<Campo titulo="DIAGNÓSTICO" filtro="no"></Campo>
+<Campo titulo="CÓDIGO DX" filtro="no"></Campo>
+<Campo titulo="REGISTRO" filtro="si"></Campo>
+<Campo titulo="TRANSCRIPCIÓN" filtro="no"></Campo>
+<Campo titulo="PRÓRROGA" filtro="no"></Campo>
+<Campo titulo="MES INCAPACIDAD" filtro="no"></Campo>
+<Campo titulo="AÑO INCAPACIDAD" filtro="no"></Campo>
+<Campo titulo="CARGO" filtro="no"></Campo>
+<Campo titulo="BASE" filtro="no"></Campo>
+<Campo titulo="EPS" filtro="no"></Campo>
+</Campos>
+</Reporte>

@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes" ?>
+<Reporte
+        Consulta="SELECT        SIC_EMPRESA.corporativo_id AS col1, SIC_EMPRESA.nombre AS col2, Consulta.empresa_id AS COL3, CONVERT(VARCHAR(20), Consulta.FechaCreacion, 103) AS COL4, CONVERT(VARCHAR(20), Consulta.FechaModificacion, 
+                         103) AS COL5, CONVERT(VARCHAR(20), Consulta.FechaCreacion, 103) + ' ' + CONVERT(VARCHAR(20), Consulta.FechaCreacion, 108) + CASE WHEN Consulta.FechaModificacion IS NULL THEN '-' + CONVERT(VARCHAR(20), 
+                         dbo.Consulta.FechaCreacion, 103) + ' ' + CONVERT(VARCHAR(20), dbo.Consulta.FechaCreacion, 108) ELSE '-' + CONVERT(VARCHAR(20), dbo.Consulta.FechaModificacion, 103) + ' ' + CONVERT(VARCHAR(20), 
+                         dbo.Consulta.FechaModificacion, 108) END AS COL6, Users.NameUser AS COL7, Consulta.ConsecutivoNombre AS COL8, Prestadores.NombrePrestador AS COL9, Sedes.nombreSede AS COL10, 
+                         CASE WHEN dbo.SIC_EMPLEADO.locClave IS NULL THEN ISNULL(dbo.SIC_BENEFICIARIO.locDescripcion, '') ELSE ISNULL(dbo.SIC_EMPLEADO.locDescripcion, '') END AS COL11, 
+                         CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN isnull(SIC_EMPLEADO.primer_nombre + ' ', '') + isnull(SIC_EMPLEADO.segundo_nombre + ' ', '') + isnull(SIC_EMPLEADO.apellido_paterno + ' ', '') 
+                         + isnull(SIC_EMPLEADO.apellido_materno + ' ', '') + ' -  ' + CONVERT(VARCHAR(12), ISNULL(SIC_EMPLEADO.identificacion COLLATE Modern_Spanish_CI_AS, '')) ELSE isnull(SIC_BENEFICIARIO.primer_nombre + ' ', '') 
+                         + isnull(SIC_BENEFICIARIO.segundo_nombre + ' ', '') + isnull(SIC_BENEFICIARIO.primer_apellido + ' ', '') + isnull(SIC_BENEFICIARIO.segundo_apellido + ' ', '') + ' -  ' + CONVERT(VARCHAR(12), 
+                         ISNULL(SIC_BENEFICIARIO.identificacion COLLATE Modern_Spanish_CI_AS, '')) END AS COL12, CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN CONVERT(VARCHAR(20), SIC_EMPLEADO.fecha_nacimiento, 103) 
+                         ELSE CONVERT(VARCHAR(20), SIC_BENEFICIARIO.fecha_nacimiento, 103) END AS COL13, CASE WHEN dbo.Consulta.beneficiario_id IS NULL 
+                         THEN CASE WHEN SIC_EMPLEADO.sexo = 1 THEN 'M' ELSE 'F' END ELSE CASE WHEN SIC_BENEFICIARIO.genero = 1 THEN 'M' ELSE 'F' END END AS COL14, CASE WHEN dbo.Consulta.beneficiario_id IS NULL 
+                         THEN 'TITULAR' ELSE Parentescos.NombreParentesco END AS COL15, TipoConsultas.IdTipoConsulta AS COL16, CASE WHEN (Consulta.IdTipoConsulta = 3 AND ISNULL(CONVERT(SMALLINT, Consulta.Finalizada), 0) = 1) 
+                         THEN TipoConsultas.NombreTipoConsulta + ' (Cerrada)' WHEN (Consulta.IdTipoConsulta = 3 AND ISNULL(CONVERT(SMALLINT, Consulta.Finalizada), 0) = 0) 
+                         THEN TipoConsultas.NombreTipoConsulta + ' (Abierta)' ELSE TipoConsultas.NombreTipoConsulta END AS COL17, GirosEmpresas.NombreGiroEmpresa AS COL18, ConsultaHistoriaLaboralEmpresas.AniosEmpresa1 AS COL19, 
+                         ConsultaHistoriaLaboralEmpresas.MesesEmpresa1 AS COL20, ConsultaHistoriaLaboralEmpresas.PuestoEmpresa1 AS COL21, GE2.NombreGiroEmpresa AS COL22, ConsultaHistoriaLaboralEmpresas.AniosEmpresa2 AS COL23, 
+                         ConsultaHistoriaLaboralEmpresas.MesesEmpresa2 AS COL24, ConsultaHistoriaLaboralEmpresas.PuestoEmpresa2 AS COL25, GE3.NombreGiroEmpresa AS COL26, ConsultaHistoriaLaboralEmpresas.AniosEmpresa3 AS COL27, 
+                         ConsultaHistoriaLaboralEmpresas.MesesEmpresa3 AS COL28, ConsultaHistoriaLaboralEmpresas.PuestoEmpresa3 AS COL29, GE4.NombreGiroEmpresa AS COL30, ConsultaHistoriaLaboralEmpresas.AniosEmpresa4 AS COL31, 
+                         ConsultaHistoriaLaboralEmpresas.MesesEmpresa4 AS COL32, ConsultaHistoriaLaboralEmpresas.PuestoEmpresa4 AS COL33, GE5.NombreGiroEmpresa AS COL34, ConsultaHistoriaLaboralEmpresas.AniosEmpresa5 AS COL35, 
+                         ConsultaHistoriaLaboralEmpresas.MesesEmpresa5 AS COL36, ConsultaHistoriaLaboralEmpresas.PuestoEmpresa5 AS COL37, 
+                         CASE WHEN ConsultaHistoriaLaboralFisicos.Ruido = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralFisicos.Ruido = 0 THEN 'No' ELSE '' END AS COL38, ConsultaHistoriaLaboralFisicos.AniosRuido AS COL39, 
+                         ConsultaHistoriaLaboralFisicos.MesesRuido AS COL40, ConsultaHistoriaLaboralFisicos.ComentariosRuido AS COL41, 
+                         CASE WHEN ConsultaHistoriaLaboralFisicos.Iluminacion = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralFisicos.Iluminacion = 0 THEN 'No' ELSE '' END AS COL42, ConsultaHistoriaLaboralFisicos.AniosIluminacion AS COL43, 
+                         ConsultaHistoriaLaboralFisicos.MesesIluminacion AS COL44, ConsultaHistoriaLaboralFisicos.ComentariosIluminacion AS COL45, 
+                         CASE WHEN ConsultaHistoriaLaboralFisicos.Vibraciones = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralFisicos.Vibraciones = 0 THEN 'No' ELSE '' END AS COL46, ConsultaHistoriaLaboralFisicos.AniosVibraciones AS COL47, 
+                         ConsultaHistoriaLaboralFisicos.MesesVibraciones AS COL48, ConsultaHistoriaLaboralFisicos.ComentariosVibraciones AS COL49, 
+                         CASE WHEN ConsultaHistoriaLaboralFisicos.Radiacion = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralFisicos.Radiacion = 0 THEN 'No' ELSE '' END AS COL50, ConsultaHistoriaLaboralFisicos.AniosRadiacion AS COL51, 
+                         ConsultaHistoriaLaboralFisicos.MesesRadiacion AS COL52, ConsultaHistoriaLaboralFisicos.ComentariosRadiacion AS COL53, 
+                         CASE WHEN ConsultaHistoriaLaboralFisicos.TempExtremas = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralFisicos.TempExtremas = 0 THEN 'No' ELSE '' END AS COL54, 
+                         ConsultaHistoriaLaboralFisicos.AniosTempExtremas AS COL55, ConsultaHistoriaLaboralFisicos.MesesTempExtremas AS COL56, ConsultaHistoriaLaboralFisicos.ComentariosTempExtremas AS COL57, 
+                         CASE WHEN ConsultaHistoriaLaboralFisicos.Otro1 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralFisicos.Otro1 = 0 THEN 'No' ELSE '' END AS COL58, ConsultaHistoriaLaboralFisicos.AniosOtro1 AS COL59, 
+                         ConsultaHistoriaLaboralFisicos.MesesOtro1 AS COL60, ConsultaHistoriaLaboralFisicos.ComentariosOtro1 AS COL61, 
+                         CASE WHEN ConsultaHistoriaLaboralFisicos.Otro2 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralFisicos.Otro2 = 0 THEN 'No' ELSE '' END AS COL62, ConsultaHistoriaLaboralFisicos.AniosOtro2 AS COL63, 
+                         ConsultaHistoriaLaboralFisicos.MesesOtro2 AS COL64, ConsultaHistoriaLaboralFisicos.ComentariosOtro2 AS COL65, 
+                         CASE WHEN ConsultaHistoriaLaboralFisicos.Otro3 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralFisicos.Otro3 = 0 THEN 'No' ELSE '' END AS COL66, ConsultaHistoriaLaboralFisicos.AniosOtro3 AS COL67, 
+                         ConsultaHistoriaLaboralFisicos.MesesOtro3 AS COL68, ConsultaHistoriaLaboralFisicos.ComentariosOtro3 AS COL69, 
+                         CASE WHEN ConsultaHistoriaLaboralFisicos.Otro4 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralFisicos.Otro4 = 0 THEN 'No' ELSE '' END AS COL70, ConsultaHistoriaLaboralFisicos.AniosOtro4 AS COL71, 
+                         ConsultaHistoriaLaboralFisicos.MesesOtro4 AS COL72, ConsultaHistoriaLaboralFisicos.ComentariosOtro4 AS COL73, 
+                         CASE WHEN ConsultaHistoriaLaboralFisicos.Otro5 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralFisicos.Otro5 = 0 THEN 'No' ELSE '' END AS COL74, ConsultaHistoriaLaboralFisicos.AniosOtro5 AS COL75, 
+                         ConsultaHistoriaLaboralFisicos.MesesOtro5 AS COL76, ConsultaHistoriaLaboralFisicos.ComentariosOtro5 AS COL77, 
+                         CASE WHEN ConsultaHistoriaLaboralQuimicos.Polvos = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralQuimicos.Polvos = 0 THEN 'No' ELSE '' END AS COL78, ConsultaHistoriaLaboralQuimicos.AniosPolvos AS COL79, 
+                         ConsultaHistoriaLaboralQuimicos.MesesPolvos AS COL80, ConsultaHistoriaLaboralQuimicos.ComentariosPolvos AS COL81, 
+                         CASE WHEN ConsultaHistoriaLaboralQuimicos.Humos = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralQuimicos.Humos = 0 THEN 'No' ELSE '' END AS COL82, ConsultaHistoriaLaboralQuimicos.AniosHumos AS COL83, 
+                         ConsultaHistoriaLaboralQuimicos.MesesHumos AS COL84, ConsultaHistoriaLaboralQuimicos.ComentariosHumos AS COL85, 
+                         CASE WHEN ConsultaHistoriaLaboralQuimicos.RociosNeblina = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralQuimicos.RociosNeblina = 0 THEN 'No' ELSE '' END AS COL86, 
+                         ConsultaHistoriaLaboralQuimicos.AniosRociosNeblina AS COL87, ConsultaHistoriaLaboralQuimicos.MesesRociosNeblina AS COL88, ConsultaHistoriaLaboralQuimicos.ComentariosRociosNeblina AS COL89, 
+                         CASE WHEN ConsultaHistoriaLaboralQuimicos.Vapores = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralQuimicos.Vapores = 0 THEN 'No' ELSE '' END AS COL90, ConsultaHistoriaLaboralQuimicos.AniosVapores AS COL91, 
+                         ConsultaHistoriaLaboralQuimicos.MesesVapores AS COL92, ConsultaHistoriaLaboralQuimicos.ComentariosVapores AS COL93, 
+                         CASE WHEN ConsultaHistoriaLaboralQuimicos.Gases = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralQuimicos.Gases = 0 THEN 'No' ELSE '' END AS COL94, ConsultaHistoriaLaboralQuimicos.AniosGases AS COL95, 
+                         ConsultaHistoriaLaboralQuimicos.MesesGases AS COL96, ConsultaHistoriaLaboralQuimicos.ComentariosGases AS COL97, 
+                         CASE WHEN ConsultaHistoriaLaboralQuimicos.Otro1 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralQuimicos.Otro1 = 0 THEN 'No' ELSE '' END AS COL98, ConsultaHistoriaLaboralQuimicos.AniosOtro1 AS COL99, 
+                         ConsultaHistoriaLaboralQuimicos.MesesOtro1 AS COL100, ConsultaHistoriaLaboralQuimicos.ComentariosOtro1 AS COL101, 
+                         CASE WHEN ConsultaHistoriaLaboralQuimicos.Otro2 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralQuimicos.Otro2 = 0 THEN 'No' ELSE '' END AS COL102, ConsultaHistoriaLaboralQuimicos.AniosOtro2 AS COL103, 
+                         ConsultaHistoriaLaboralQuimicos.MesesOtro2 AS COL104, ConsultaHistoriaLaboralQuimicos.ComentariosOtro2 AS COL105, 
+                         CASE WHEN ConsultaHistoriaLaboralQuimicos.Otro3 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralQuimicos.Otro3 = 0 THEN 'No' ELSE '' END AS COL106, ConsultaHistoriaLaboralQuimicos.AniosOtro3 AS COL107, 
+                         ConsultaHistoriaLaboralQuimicos.MesesOtro3 AS COL108, ConsultaHistoriaLaboralQuimicos.ComentariosOtro3 AS COL109, 
+                         CASE WHEN ConsultaHistoriaLaboralQuimicos.Otro4 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralQuimicos.Otro4 = 0 THEN 'No' ELSE '' END AS COL110, ConsultaHistoriaLaboralQuimicos.AniosOtro4 AS COL111, 
+                         ConsultaHistoriaLaboralQuimicos.MesesOtro4 AS COL112, ConsultaHistoriaLaboralQuimicos.ComentariosOtro4 AS COL113, 
+                         CASE WHEN ConsultaHistoriaLaboralQuimicos.Otro5 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralQuimicos.Otro5 = 0 THEN 'No' ELSE '' END AS COL114, ConsultaHistoriaLaboralQuimicos.AniosOtro5 AS COL115, 
+                         ConsultaHistoriaLaboralQuimicos.MesesOtro5 AS COL116, ConsultaHistoriaLaboralQuimicos.ComentariosOtro5 AS COL117, 
+                         CASE WHEN ConsultaHistoriaLaboralBiologicos.Bacteria = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralBiologicos.Bacteria = 0 THEN 'No' ELSE '' END AS COL118, ConsultaHistoriaLaboralBiologicos.AniosBacteria AS COL119, 
+                         ConsultaHistoriaLaboralBiologicos.MesesBacteria AS COL120, ConsultaHistoriaLaboralBiologicos.ComentariosBacteria AS COL121, 
+                         CASE WHEN ConsultaHistoriaLaboralBiologicos.Virus = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralBiologicos.Virus = 0 THEN 'No' ELSE '' END AS COL122, ConsultaHistoriaLaboralBiologicos.AniosVirus AS COL123, 
+                         ConsultaHistoriaLaboralBiologicos.MesesVirus AS COL124, ConsultaHistoriaLaboralBiologicos.ComentariosVirus AS COL125, 
+                         CASE WHEN ConsultaHistoriaLaboralBiologicos.Parasitos = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralBiologicos.Parasitos = 0 THEN 'No' ELSE '' END AS COL126, 
+                         ConsultaHistoriaLaboralBiologicos.AniosParasitos AS COL127, ConsultaHistoriaLaboralBiologicos.MesesParasitos AS COL128, ConsultaHistoriaLaboralBiologicos.ComentariosParasitos AS COL129, 
+                         CASE WHEN ConsultaHistoriaLaboralBiologicos.Otro1 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralBiologicos.Otro1 = 0 THEN 'No' ELSE '' END AS COL130, ConsultaHistoriaLaboralBiologicos.AniosOtro1 AS COL131, 
+                         ConsultaHistoriaLaboralBiologicos.MesesOtro1 AS COL132, ConsultaHistoriaLaboralBiologicos.ComentariosOtro1 AS COL133, 
+                         CASE WHEN ConsultaHistoriaLaboralBiologicos.Otro2 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralBiologicos.Otro2 = 0 THEN 'No' ELSE '' END AS COL134, ConsultaHistoriaLaboralBiologicos.AniosOtro2 AS COL135, 
+                         ConsultaHistoriaLaboralBiologicos.MesesOtro2 AS COL136, ConsultaHistoriaLaboralBiologicos.ComentariosOtro2 AS COL137, 
+                         CASE WHEN ConsultaHistoriaLaboralBiologicos.Otro3 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralBiologicos.Otro3 = 0 THEN 'No' ELSE '' END AS COL138, ConsultaHistoriaLaboralBiologicos.AniosOtro3 AS COL139, 
+                         ConsultaHistoriaLaboralBiologicos.MesesOtro3 AS COL140, ConsultaHistoriaLaboralBiologicos.ComentariosOtro3 AS COL141, 
+                         CASE WHEN ConsultaHistoriaLaboralBiologicos.Otro4 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralBiologicos.Otro4 = 0 THEN 'No' ELSE '' END AS COL142, ConsultaHistoriaLaboralBiologicos.AniosOtro4 AS COL143, 
+                         ConsultaHistoriaLaboralBiologicos.MesesOtro4 AS COL144, ConsultaHistoriaLaboralBiologicos.ComentariosOtro4 AS COL145, 
+                         CASE WHEN ConsultaHistoriaLaboralBiologicos.Otro5 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralBiologicos.Otro5 = 0 THEN 'No' ELSE '' END AS COL146, ConsultaHistoriaLaboralBiologicos.AniosOtro5 AS COL147, 
+                         ConsultaHistoriaLaboralBiologicos.MesesOtro5 AS COL148, ConsultaHistoriaLaboralBiologicos.ComentariosOtro5 AS COL149, 
+                         CASE WHEN ConsultaHistoriaLaboralErgonomicos.MovsRepetitivos = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralErgonomicos.MovsRepetitivos = 0 THEN 'No' ELSE '' END AS COL150, 
+                         ConsultaHistoriaLaboralErgonomicos.AniosMovsRepetitivos AS COL151, ConsultaHistoriaLaboralErgonomicos.MesesMovsRepetitivos AS COL152, 
+                         ConsultaHistoriaLaboralErgonomicos.ComentariosMovsRepetitivos AS COL153, 
+                         CASE WHEN ConsultaHistoriaLaboralErgonomicos.PosturasForzadas = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralErgonomicos.PosturasForzadas = 0 THEN 'No' ELSE '' END AS COL154, 
+                         ConsultaHistoriaLaboralErgonomicos.AniosPosturasForzadas AS COL155, ConsultaHistoriaLaboralErgonomicos.MesesPosturasForzadas AS COL156, 
+                         ConsultaHistoriaLaboralErgonomicos.ComentariosPosturasForzadas AS COL157, 
+                         CASE WHEN ConsultaHistoriaLaboralErgonomicos.ManejoManCajas = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralErgonomicos.ManejoManCajas = 0 THEN 'No' ELSE '' END AS COL158, 
+                         ConsultaHistoriaLaboralErgonomicos.AniosManejoManCajas AS COL159, ConsultaHistoriaLaboralErgonomicos.MesesManejoManCajas AS COL160, 
+                         ConsultaHistoriaLaboralErgonomicos.ComentariosManejoManCajas AS COL161, 
+                         CASE WHEN ConsultaHistoriaLaboralErgonomicos.BidepestacionProlongada = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralErgonomicos.BidepestacionProlongada = 0 THEN 'No' ELSE '' END AS COL162, 
+                         ConsultaHistoriaLaboralErgonomicos.AniosBidepestacionProlongada AS COL163, ConsultaHistoriaLaboralErgonomicos.MesesBidepestacionProlongada AS COL164, 
+                         ConsultaHistoriaLaboralErgonomicos.ComentariosBidepestacionProlongada AS COL165, 
+                         CASE WHEN ConsultaHistoriaLaboralErgonomicos.SedestacionProlongada = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralErgonomicos.SedestacionProlongada = 0 THEN 'No' ELSE '' END AS COL166, 
+                         ConsultaHistoriaLaboralErgonomicos.AniosSedestacionProlongada AS COL167, ConsultaHistoriaLaboralErgonomicos.MesesSedestacionProlongada AS COL168, 
+                         ConsultaHistoriaLaboralErgonomicos.ComentariosSedestacionProlongada AS COL169, 
+                         CASE WHEN ConsultaHistoriaLaboralErgonomicos.Otro1 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralErgonomicos.Otro1 = 0 THEN 'No' ELSE '' END AS COL170, ConsultaHistoriaLaboralErgonomicos.AniosOtro1 AS COL171, 
+                         ConsultaHistoriaLaboralErgonomicos.MesesOtro1 AS COL172, ConsultaHistoriaLaboralErgonomicos.ComentariosOtro1 AS COL173, 
+                         CASE WHEN ConsultaHistoriaLaboralErgonomicos.Otro2 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralErgonomicos.Otro2 = 0 THEN 'No' ELSE '' END AS COL174, ConsultaHistoriaLaboralErgonomicos.AniosOtro2 AS COL175, 
+                         ConsultaHistoriaLaboralErgonomicos.MesesOtro2 AS COL176, ConsultaHistoriaLaboralErgonomicos.ComentariosOtro2 AS COL177, 
+                         CASE WHEN ConsultaHistoriaLaboralErgonomicos.Otro3 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralErgonomicos.Otro3 = 0 THEN 'No' ELSE '' END AS COL178, ConsultaHistoriaLaboralErgonomicos.AniosOtro3 AS COL179, 
+                         ConsultaHistoriaLaboralErgonomicos.MesesOtro3 AS COL180, ConsultaHistoriaLaboralErgonomicos.ComentariosOtro3 AS COL181, 
+                         CASE WHEN ConsultaHistoriaLaboralErgonomicos.Otro4 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralErgonomicos.Otro4 = 0 THEN 'No' ELSE '' END AS COL182, ConsultaHistoriaLaboralErgonomicos.AniosOtro4 AS COL183, 
+                         ConsultaHistoriaLaboralErgonomicos.MesesOtro4 AS COL184, ConsultaHistoriaLaboralErgonomicos.ComentariosOtro4 AS COL185, 
+                         CASE WHEN ConsultaHistoriaLaboralErgonomicos.Otro5 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralErgonomicos.Otro5 = 0 THEN 'No' ELSE '' END AS COL186, ConsultaHistoriaLaboralErgonomicos.AniosOtro5 AS COL187, 
+                         ConsultaHistoriaLaboralErgonomicos.MesesOtro5 AS COL188, ConsultaHistoriaLaboralErgonomicos.ComentariosOtro5 AS COL189, 
+                         CASE WHEN ConsultaHistoriaLaboralPsicoSociales.Estres = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralPsicoSociales.Estres = 0 THEN 'No' ELSE '' END AS COL190, 
+                         ConsultaHistoriaLaboralPsicoSociales.AniosEstres AS COL191, ConsultaHistoriaLaboralPsicoSociales.MesesEstres AS COL192, ConsultaHistoriaLaboralPsicoSociales.ComentariosEstres AS COL193, 
+                         CASE WHEN ConsultaHistoriaLaboralPsicoSociales.Burnot = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralPsicoSociales.Burnot = 0 THEN 'No' ELSE '' END AS COL194, 
+                         ConsultaHistoriaLaboralPsicoSociales.AniosBurnot AS COL195, ConsultaHistoriaLaboralPsicoSociales.MesesBurnot AS COL196, ConsultaHistoriaLaboralPsicoSociales.ComentariosBurnot AS COL197, 
+                         CASE WHEN ConsultaHistoriaLaboralPsicoSociales.Mobbing = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralPsicoSociales.Mobbing = 0 THEN 'No' ELSE '' END AS COL198, 
+                         ConsultaHistoriaLaboralPsicoSociales.AniosMobbing AS COL199, ConsultaHistoriaLaboralPsicoSociales.MesesMobbing AS COL200, ConsultaHistoriaLaboralPsicoSociales.ComentariosMobbing AS COL201, 
+                         CASE WHEN ConsultaHistoriaLaboralPsicoSociales.TrabajoxTurnos = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralPsicoSociales.TrabajoxTurnos = 0 THEN 'No' ELSE '' END AS COL202, 
+                         ConsultaHistoriaLaboralPsicoSociales.AniosTrabajoxTurnos AS COL203, ConsultaHistoriaLaboralPsicoSociales.MesesTrabajoxTurnos AS COL204, 
+                         ConsultaHistoriaLaboralPsicoSociales.ComentariosTrabajoxTurnos AS COL205, 
+                         CASE WHEN ConsultaHistoriaLaboralPsicoSociales.Otro1 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralPsicoSociales.Otro1 = 0 THEN 'No' ELSE '' END AS COL206, ConsultaHistoriaLaboralPsicoSociales.AniosOtro1 AS COL207, 
+                         ConsultaHistoriaLaboralPsicoSociales.MesesOtro1 AS COL208, ConsultaHistoriaLaboralPsicoSociales.ComentariosOtro1 AS COL209, 
+                         CASE WHEN ConsultaHistoriaLaboralPsicoSociales.Otro2 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralPsicoSociales.Otro2 = 0 THEN 'No' ELSE '' END AS COL210, ConsultaHistoriaLaboralPsicoSociales.AniosOtro2 AS COL211, 
+                         ConsultaHistoriaLaboralPsicoSociales.MesesOtro2 AS COL212, ConsultaHistoriaLaboralPsicoSociales.ComentariosOtro2 AS COL213, 
+                         CASE WHEN ConsultaHistoriaLaboralPsicoSociales.Otro3 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralPsicoSociales.Otro3 = 0 THEN 'No' ELSE '' END AS COL214, ConsultaHistoriaLaboralPsicoSociales.AniosOtro3 AS COL215, 
+                         ConsultaHistoriaLaboralPsicoSociales.MesesOtro3 AS COL216, ConsultaHistoriaLaboralPsicoSociales.ComentariosOtro3 AS COL217, 
+                         CASE WHEN ConsultaHistoriaLaboralPsicoSociales.Otro4 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralPsicoSociales.Otro4 = 0 THEN 'No' ELSE '' END AS COL218, ConsultaHistoriaLaboralPsicoSociales.AniosOtro4 AS COL219, 
+                         ConsultaHistoriaLaboralPsicoSociales.MesesOtro4 AS COL220, ConsultaHistoriaLaboralPsicoSociales.ComentariosOtro4 AS COL221, 
+                         CASE WHEN ConsultaHistoriaLaboralPsicoSociales.Otro5 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralPsicoSociales.Otro5 = 0 THEN 'No' ELSE '' END AS COL222, ConsultaHistoriaLaboralPsicoSociales.AniosOtro5 AS COL223, 
+                         ConsultaHistoriaLaboralPsicoSociales.MesesOtro5 AS COL224, ConsultaHistoriaLaboralPsicoSociales.ComentariosOtro5 AS COL225, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.BiometriaHematica = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.BiometriaHematica = 0 THEN 'No' ELSE '' END AS COL226, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.GrupoSanguineo = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.GrupoSanguineo = 0 THEN 'No' ELSE '' END AS COL227, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.QuimicaSanguinea = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.QuimicaSanguinea = 0 THEN 'No' ELSE '' END AS COL228, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.Coproparasitoscopio = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.Coproparasitoscopio = 0 THEN 'No' ELSE '' END AS COL229, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.Ego = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.Ego = 0 THEN 'No' ELSE '' END AS COL230, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.ExudadoFaringeo = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.ExudadoFaringeo = 0 THEN 'No' ELSE '' END AS COL231, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.ReaccionesFebriles = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.ReaccionesFebriles = 0 THEN 'No' ELSE '' END AS COL232, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.TeleTorax = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.TeleTorax = 0 THEN 'No' ELSE '' END AS COL233, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.RxColumnaLumbar = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.RxColumnaLumbar = 0 THEN 'No' ELSE '' END AS COL234, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.Audiometria = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.Audiometria = 0 THEN 'No' ELSE '' END AS COL235, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.Espirometria = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.Espirometria = 0 THEN 'No' ELSE '' END AS COL236, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.Electrocardiograma = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.Electrocardiograma = 0 THEN 'No' ELSE '' END AS COL237, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.PruebaEsfuerzo = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.PruebaEsfuerzo = 0 THEN 'No' ELSE '' END AS COL238, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.AgudezaVisual = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.AgudezaVisual = 0 THEN 'No' ELSE '' END AS COL239, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.Toxicologia = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.Toxicologia = 0 THEN 'No' ELSE '' END AS COL240, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.PerfilDrogas = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.PerfilDrogas = 0 THEN 'No' ELSE '' END AS COL241, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.DesintometriaOsea = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.DesintometriaOsea = 0 THEN 'No' ELSE '' END AS COL242, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.Ecografia = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.Ecografia = 0 THEN 'No' ELSE '' END AS COL243, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.PruebasEgonometricas = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.PruebasEgonometricas = 0 THEN 'No' ELSE '' END AS COL244, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.EvaluacionPsicologica = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.EvaluacionPsicologica = 0 THEN 'No' ELSE '' END AS COL245, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.Otro1 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.Otro1 = 0 THEN 'No' ELSE '' END AS COL246, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.Otro2 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.Otro2 = 0 THEN 'No' ELSE '' END AS COL247, 
+                         CASE WHEN ConsultaHistoriaLaboralLaborarios.Otro3 = 1 THEN 'Si' WHEN ConsultaHistoriaLaboralLaborarios.Otro3 = 0 THEN 'No' ELSE '' END AS COL248						
+FROM            Parentescos INNER JOIN
+                         SIC_BENEFICIARIO ON Parentescos.IdParentesco = SIC_BENEFICIARIO.parentesco RIGHT OUTER JOIN
+                         SIC_EMPLEADO INNER JOIN
+                         Consulta INNER JOIN
+                         Prestadores ON Consulta.IdPrestador = Prestadores.IdPrestador INNER JOIN
+                         TipoConsultas ON Consulta.IdTipoConsulta = TipoConsultas.IdTipoConsulta ON SIC_EMPLEADO.id_empleado = Consulta.id_empleado INNER JOIN
+                         Users ON Consulta.IdUserCreacion = Users.IdUser ON SIC_BENEFICIARIO.beneficiario_id = Consulta.beneficiario_id INNER JOIN
+                         SIC_EMPRESA ON Consulta.empresa_id = SIC_EMPRESA.empresa_id INNER JOIN
+                         ConsultaHistoriaLaboralLaborarios ON Consulta.IdConsulta = ConsultaHistoriaLaboralLaborarios.IdConsulta LEFT OUTER JOIN
+                         ConsultaHistoriaLaboralEmpresas ON Consulta.IdConsulta = ConsultaHistoriaLaboralEmpresas.IdConsulta LEFT OUTER JOIN
+                         ConsultaHistoriaLaboralFisicos ON Consulta.IdConsulta = ConsultaHistoriaLaboralFisicos.IdConsulta LEFT OUTER JOIN
+                         ConsultaHistoriaLaboralQuimicos ON Consulta.IdConsulta = ConsultaHistoriaLaboralQuimicos.IdConsulta LEFT OUTER JOIN
+                         ConsultaHistoriaLaboralBiologicos ON Consulta.IdConsulta = ConsultaHistoriaLaboralBiologicos.IdConsulta LEFT OUTER JOIN
+                         ConsultaHistoriaLaboralErgonomicos ON Consulta.IdConsulta = ConsultaHistoriaLaboralErgonomicos.IdConsulta LEFT OUTER JOIN
+                         ConsultaHistoriaLaboralPsicoSociales ON Consulta.IdConsulta = ConsultaHistoriaLaboralPsicoSociales.IdConsulta LEFT OUTER JOIN
+                         ConsultaHistoriaLaboralLaborarios AS ConsultaHistoriaLaboralLaborarios_1 ON Consulta.IdConsulta = ConsultaHistoriaLaboralLaborarios_1.IdConsulta LEFT OUTER JOIN
+                         Sedes ON Consulta.sede_id = Sedes.sede_id LEFT OUTER JOIN
+                         GirosEmpresas ON ConsultaHistoriaLaboralEmpresas.IdGirosEmpresa1 = GirosEmpresas.IdGiroEmpresa LEFT OUTER JOIN
+                         GirosEmpresas AS GE2 ON ConsultaHistoriaLaboralEmpresas.IdGirosEmpresa2 = GE2.IdGiroEmpresa LEFT OUTER JOIN
+                         GirosEmpresas AS GE3 ON ConsultaHistoriaLaboralEmpresas.IdGirosEmpresa3 = GE3.IdGiroEmpresa LEFT OUTER JOIN
+                         GirosEmpresas AS GE4 ON ConsultaHistoriaLaboralEmpresas.IdGirosEmpresa4 = GE4.IdGiroEmpresa LEFT OUTER JOIN
+                         GirosEmpresas AS GE5 ON ConsultaHistoriaLaboralEmpresas.IdGirosEmpresa5 = GE5.IdGiroEmpresa
+WHERE        (1 = 1) AND (Consulta.IdTipoConsulta = 18)"
+        DirPlantillas="Basica\"
+        NombreReporte="Consultas"
+        cadenaConexion="ConnectionStringReembolsos"
+        cantidad_parametros="0"
+        Titulo="CONSULTAS ">
+  <Campos>
+    <Campo titulo="CORPORATIVO" filtro="si" select="si" tabla="SIC_CORPORATIVO" campo_valor="corporativo_id" campo_nombre="nombre"></Campo>
+    <Campo titulo="EMPRESA" filtro="no"></Campo>
+    <Campo titulo="EMPRESA ID" expansion="si" filtro="si" multiple="si" tabla="EmpresaDatos" campo_valor="empresa_id" campo_nombre="AbreviacionEmpresa"></Campo>
+    <Campo titulo="FECHA CREACION CONSULTA" filtro="si"  fecha="si"></Campo>
+    <Campo titulo="FECHA MODIFICACION CONSULTA" filtro="si"  fecha="si"></Campo>
+    <Campo titulo="FECHA Y HORA CONSULTA - ÚLTIMA MODIFICACION" filtro="no"></Campo>
+    <Campo titulo="USUARIO CREACIÓN" filtro="no"></Campo>
+    <Campo titulo="No. CONSULTA" filtro="no"></Campo>
+    <Campo titulo="MÉDICO" filtro="no"></Campo>
+    <Campo titulo="SEDE CONSULTA" filtro="si"></Campo>
+    <Campo titulo="LOCALIDAD EMPLEADO" filtro="si"></Campo>
+    <Campo titulo="PACIENTE" filtro="si"></Campo>
+    <Campo titulo="FECHA NACIMIENTO" filtro="no" fecha="si"></Campo>
+    <Campo titulo="GÉNERO" filtro="no"></Campo>
+    <Campo titulo="PARENTESCO" filtro="no"></Campo>
+    <Campo titulo="TIPO CONSULTA ID" filtro="no"></Campo>
+    <Campo titulo="TIPO CONSULTA" filtro="no"></Campo>
+    <Campo titulo="GIRO EMPRESA 1" filtro="no"></Campo>
+    <Campo titulo="AÑOS EMPRESA1" filtro="no"></Campo>
+    <Campo titulo="MESES EMPRESA1" filtro="no"></Campo>
+    <Campo titulo="PUESTO EMPRESA1" filtro="no"></Campo>
+    <Campo titulo="GIRO EMPRESA 2" filtro="no"></Campo>
+    <Campo titulo="AÑOS EMPRESA2" filtro="no"></Campo>
+    <Campo titulo="MESES EMPRESA2" filtro="no"></Campo>
+    <Campo titulo="PUESTO EMPRESA2" filtro="no"></Campo>
+    <Campo titulo="GIRO EMPRESA 3" filtro="no"></Campo>
+    <Campo titulo="AÑOS EMPRESA3" filtro="no"></Campo>
+    <Campo titulo="MESES EMPRESA3" filtro="no"></Campo>
+    <Campo titulo="PUESTO EMPRESA3" filtro="no"></Campo>
+    <Campo titulo="GIRO EMPRESA 4" filtro="no"></Campo>
+    <Campo titulo="AÑOS EMPRESA4" filtro="no"></Campo>
+    <Campo titulo="MESES EMPRESA4" filtro="no"></Campo>
+    <Campo titulo="PUESTO EMPRESA4" filtro="no"></Campo>
+    <Campo titulo="GIRO EMPRESA 5" filtro="no"></Campo>
+    <Campo titulo="AÑOS EMPRESA5" filtro="no"></Campo>
+    <Campo titulo="MESES EMPRESA5" filtro="no"></Campo>
+    <Campo titulo="PUESTO EMPRESA5" filtro="no"></Campo>
+    <Campo titulo="RUIDO" filtro="no"></Campo>
+    <Campo titulo="AÑOS RUIDO" filtro="no"></Campo>
+    <Campo titulo="MESES RUIDO" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS RUIDO" filtro="no"></Campo>
+    <Campo titulo="ILUMINACIÓN" filtro="no"></Campo>
+    <Campo titulo="AÑOS ILUMINACIÓN" filtro="no"></Campo>
+    <Campo titulo="MESES ILUMINACIÓN" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS ILUMINACIÓN" filtro="no"></Campo>
+    <Campo titulo="VIBRACIONES" filtro="no"></Campo>
+    <Campo titulo="AÑOS VIBRACIONES" filtro="no"></Campo>
+    <Campo titulo="MESES VIBRACIONES" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS VIBRACIONES" filtro="no"></Campo>
+    <Campo titulo="RADIACIÓN" filtro="no"></Campo>
+    <Campo titulo="AÑOS RADIACIÓN" filtro="no"></Campo>
+    <Campo titulo="MESES RADIACIÓN" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS RADIACIÓN" filtro="no"></Campo>
+    <Campo titulo="TEMP EXTREMAS" filtro="no"></Campo>
+    <Campo titulo="AÑOS TEMP EXTREMAS" filtro="no"></Campo>
+    <Campo titulo="MESES TEMP EXTREMAS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS TEMP EXTREMAS" filtro="no"></Campo>
+    <Campo titulo="OTRO1" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO1" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO1" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO1" filtro="no"></Campo>
+    <Campo titulo="OTRO2" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO2" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO2" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO2" filtro="no"></Campo>
+    <Campo titulo="OTRO3" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO3" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO3" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO3" filtro="no"></Campo>
+    <Campo titulo="OTRO4" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO4" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO4" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO4" filtro="no"></Campo>
+    <Campo titulo="OTRO5" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO5" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO5" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO5" filtro="no"></Campo>
+    <Campo titulo="POLVOS" filtro="no"></Campo>
+    <Campo titulo="AÑOS POLVOS" filtro="no"></Campo>
+    <Campo titulo="MESES POLVOS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS POLVOS" filtro="no"></Campo>
+    <Campo titulo="HUMOS" filtro="no"></Campo>
+    <Campo titulo="AÑOS HUMOS" filtro="no"></Campo>
+    <Campo titulo="MESES HUMOS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS HUMOS" filtro="no"></Campo>
+    <Campo titulo="ROCÍOS NEBLINA" filtro="no"></Campo>
+    <Campo titulo="AÑOS ROCÍOS NEBLINA" filtro="no"></Campo>
+    <Campo titulo="MESES ROCÍOS NEBLINA" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS ROCÍOS NEBLINA" filtro="no"></Campo>
+    <Campo titulo="VAPORES" filtro="no"></Campo>
+    <Campo titulo="AÑOS VAPORES" filtro="no"></Campo>
+    <Campo titulo="MESES VAPORES" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS VAPORES" filtro="no"></Campo>
+    <Campo titulo="GASES" filtro="no"></Campo>
+    <Campo titulo="AÑOS GASES" filtro="no"></Campo>
+    <Campo titulo="MESES GASES" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS GASES" filtro="no"></Campo>
+    <Campo titulo="OTRO1" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO1" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO1" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO1" filtro="no"></Campo>
+    <Campo titulo="OTRO2" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO2" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO2" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO2" filtro="no"></Campo>
+    <Campo titulo="OTRO3" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO3" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO3" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO3" filtro="no"></Campo>
+    <Campo titulo="OTRO4" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO4" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO4" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO4" filtro="no"></Campo>
+    <Campo titulo="OTRO5" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO5" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO5" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO5" filtro="no"></Campo>
+    <Campo titulo="BACTERIA" filtro="no"></Campo>
+    <Campo titulo="AÑOS BACTERIA" filtro="no"></Campo>
+    <Campo titulo="MESES BACTERIA" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS BACTERIA" filtro="no"></Campo>
+    <Campo titulo="VIRUS" filtro="no"></Campo>
+    <Campo titulo="AÑOS VIRUS" filtro="no"></Campo>
+    <Campo titulo="MESES VIRUS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS VIRUS" filtro="no"></Campo>
+    <Campo titulo="PARÁSITOS" filtro="no"></Campo>
+    <Campo titulo="AÑOS PARÁSITOS" filtro="no"></Campo>
+    <Campo titulo="MESES PARÁSITOS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS PARÁSITOS" filtro="no"></Campo>
+    <Campo titulo="OTRO1" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO1" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO1" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO1" filtro="no"></Campo>
+    <Campo titulo="OTRO2" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO2" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO2" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO2" filtro="no"></Campo>
+    <Campo titulo="OTRO3" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO3" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO3" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO3" filtro="no"></Campo>
+    <Campo titulo="OTRO4" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO4" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO4" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO4" filtro="no"></Campo>
+    <Campo titulo="OTRO5" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO5" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO5" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO5" filtro="no"></Campo>
+    <Campo titulo="MOVIMINETOS REPETITIVOS" filtro="no"></Campo>
+    <Campo titulo="AÑOS MOVIMIENTOS REPETITIVOS" filtro="no"></Campo>
+    <Campo titulo="MESES MOVIMIENTOS REPETITIVOS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS MOVIMIENTOS REPETITIVOS" filtro="no"></Campo>
+    <Campo titulo="POSTURAS FORZADAS" filtro="no"></Campo>
+    <Campo titulo="AÑOS POSTURAS FORZADAS" filtro="no"></Campo>
+    <Campo titulo="MESES POSTURAS FORZADAS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS POSTURAS FORZADAS" filtro="no"></Campo>
+    <Campo titulo="MANEJO MAN CAJAS" filtro="no"></Campo>
+    <Campo titulo="AÑOS MANEJO MAN CAJAS" filtro="no"></Campo>
+    <Campo titulo="MESES MANEJÓ MAN CAJAS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS MANEJO MAN CAJAS" filtro="no"></Campo>
+    <Campo titulo="BIPEDESTACIÓN PROLONGADA" filtro="no"></Campo>
+    <Campo titulo="AÑOS BIPEDESTACIÓN PROLONGADA" filtro="no"></Campo>
+    <Campo titulo="MESES BIPEDESTACIÓN PROLONGADA" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS BIPEDESTACIÓN PROLONGADA" filtro="no"></Campo>
+    <Campo titulo="SEDESTACIÓN PROLONGADA" filtro="no"></Campo>
+    <Campo titulo="AÑOS SEDESTACIÓN PROLONGADA" filtro="no"></Campo>
+    <Campo titulo="MESES SEDESTACIÓN PROLONGADA" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS SEDESTACIÓN PROLONGADA" filtro="no"></Campo>
+    <Campo titulo="OTRO1" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO1" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO1" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO1" filtro="no"></Campo>
+    <Campo titulo="OTRO2" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO2" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO2" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO2" filtro="no"></Campo>
+    <Campo titulo="OTRO3" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO3" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO3" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO3" filtro="no"></Campo>
+    <Campo titulo="OTRO4" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO4" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO4" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO4" filtro="no"></Campo>
+    <Campo titulo="OTRO5" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO5" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO5" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO5" filtro="no"></Campo>
+    <Campo titulo="ESTRÉS" filtro="no"></Campo>
+    <Campo titulo="AÑOS ESTRÉS" filtro="no"></Campo>
+    <Campo titulo="MESES ESTRÉS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS ESTRÉS" filtro="no"></Campo>
+    <Campo titulo="BURNOT" filtro="no"></Campo>
+    <Campo titulo="AÑOS BURNOT" filtro="no"></Campo>
+    <Campo titulo="MESES BURNOT" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS BURNOT" filtro="no"></Campo>
+    <Campo titulo="MOBBING" filtro="no"></Campo>
+    <Campo titulo="AÑOS MOBBING" filtro="no"></Campo>
+    <Campo titulo="MESES MOBBING" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS MOBBING" filtro="no"></Campo>
+    <Campo titulo="TRABAJOX TURNOS" filtro="no"></Campo>
+    <Campo titulo="AÑOS TRABAJOX TURNOS" filtro="no"></Campo>
+    <Campo titulo="MESES TRABAJOX TURNOS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS TRABAJOX TURNOS" filtro="no"></Campo>
+    <Campo titulo="OTRO1" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO1" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO1" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO1" filtro="no"></Campo>
+    <Campo titulo="OTRO2" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO2" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO2" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO2" filtro="no"></Campo>
+    <Campo titulo="OTRO3" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO3" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO3" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO3" filtro="no"></Campo>
+    <Campo titulo="OTRO4" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO4" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO4" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO4" filtro="no"></Campo>
+    <Campo titulo="OTRO5" filtro="no"></Campo>
+    <Campo titulo="AÑOS OTRO5" filtro="no"></Campo>
+    <Campo titulo="MESES OTRO5" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTRO5" filtro="no"></Campo>
+    <Campo titulo="Biometría hemática" filtro="no"></Campo>
+    <Campo titulo="Grupo sanguíneo" filtro="no"></Campo>
+    <Campo titulo="Química sanguínea" filtro="no"></Campo>
+    <Campo titulo="Coproparasitoscopio" filtro="no"></Campo>
+    <Campo titulo="Examen General de Orina" filtro="no"></Campo>
+    <Campo titulo="Exudado faríngeo y/o bacilos ácido-alcohol resistentes (BAAR)." filtro="no"></Campo>
+    <Campo titulo="Reacciones febriles" filtro="no"></Campo>
+    <Campo titulo="Tele de torax" filtro="no"></Campo>
+    <Campo titulo="Rx. Columna lumbar" filtro="no"></Campo>
+    <Campo titulo="Audiometría" filtro="no"></Campo>
+    <Campo titulo="Espirometría" filtro="no"></Campo>
+    <Campo titulo="Electrocardiograma" filtro="no"></Campo>
+    <Campo titulo="Prueba de esfuerzo" filtro="no"></Campo>
+    <Campo titulo="Agudeza visual y/o campimetría" filtro="no"></Campo>
+    <Campo titulo="Monitoreo biológico (toxicología)" filtro="no"></Campo>
+    <Campo titulo="Perfil de abuso de drogas" filtro="no"></Campo>
+    <Campo titulo="Densitometría osea" filtro="no"></Campo>
+    <Campo titulo="Ecografía" filtro="no"></Campo>
+    <Campo titulo="Pruebas ergonométricas" filtro="no"></Campo>
+    <Campo titulo="Evaluación psicológica" filtro="no"></Campo>
+    <Campo titulo="Otro" filtro="no"></Campo>
+    <Campo titulo="Otro2" filtro="no"></Campo>
+    <Campo titulo="Otro (otros más)" filtro="no"></Campo>
+  </Campos>
+
+</Reporte>

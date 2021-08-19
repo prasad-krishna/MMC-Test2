@@ -1,0 +1,150 @@
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\bin\Web.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\bin\Web.pdb
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\bin\es\Web.resources.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\bin\AntiXSSLibrary.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\bin\DataAccess.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\bin\Logic.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\bin\DataAccess.pdb
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\bin\Logic.pdb
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.resources
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.resources
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.resources
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.resources
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.es.resources
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.es.resources
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.es.resources
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.es.resources
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\obj\Debug\es\Web.resources.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\obj\Debug\Web.dll
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Web\obj\Debug\Web.pdb
+C:\Users\rayala00\Documents\HB.HC\Web\bin\Web.dll
+C:\Users\rayala00\Documents\HB.HC\Web\bin\Web.pdb
+C:\Users\rayala00\Documents\HB.HC\Web\bin\es\Web.resources.dll
+C:\Users\rayala00\Documents\HB.HC\Web\bin\DataAccess.dll
+C:\Users\rayala00\Documents\HB.HC\Web\bin\Logic.dll
+C:\Users\rayala00\Documents\HB.HC\Web\bin\DataAccess.pdb
+C:\Users\rayala00\Documents\HB.HC\Web\bin\Logic.pdb
+C:\Users\rayala00\Documents\HB.HC\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+C:\Users\rayala00\Documents\HB.HC\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.resources
+C:\Users\rayala00\Documents\HB.HC\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.resources
+C:\Users\rayala00\Documents\HB.HC\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.resources
+C:\Users\rayala00\Documents\HB.HC\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.resources
+C:\Users\rayala00\Documents\HB.HC\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.es.resources
+C:\Users\rayala00\Documents\HB.HC\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.es.resources
+C:\Users\rayala00\Documents\HB.HC\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.es.resources
+C:\Users\rayala00\Documents\HB.HC\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.es.resources
+C:\Users\rayala00\Documents\HB.HC\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+C:\Users\rayala00\Documents\HB.HC\Web\obj\Debug\es\Web.resources.dll
+C:\Users\rayala00\Documents\HB.HC\Web\obj\Debug\Web.dll
+C:\Users\rayala00\Documents\HB.HC\Web\obj\Debug\Web.pdb
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\bin\Web.dll
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\bin\Web.pdb
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\bin\es\Web.resources.dll
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\bin\DataAccess.dll
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\bin\Logic.dll
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\bin\DataAccess.pdb
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\bin\Logic.pdb
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.resources
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.resources
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.resources
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.resources
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.es.resources
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.es.resources
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.es.resources
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.es.resources
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\obj\Debug\es\Web.resources.dll
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\obj\Debug\Web.dll
+C:\Users\rayala00\Documents\HB.HC version Ultima\Web\obj\Debug\Web.pdb
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\Web.dll.config
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\Web.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\Web.pdb
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\es\Web.resources.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\DataAccess.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\Logic.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\System.Web.Extensions.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\DataAccess.pdb
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\Logic.pdb
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.resources
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.resources
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.resources
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.resources
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.es.resources
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.es.resources
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.es.resources
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.es.resources
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\es\Web.resources.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.dll
+C:\inetpub\wwwroot\EH&B\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.pdb
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.resources
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.resources
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.resources
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.resources
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.es.resources
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.es.resources
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.es.resources
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.es.resources
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\Web.dll.config
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\Web.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\DataAccess.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\Logic.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\DataAccess.pdb
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\Logic.pdb
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\es\Web.resources.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\obj\Debug\Web.pdb
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\Web.pdb
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\es\Web.resources.dll
+C:\SS\004 - Historias Clinicas\HB.HC version Ultima\Web\bin\AntiXSSLibrary.dll
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\bin\Web.dll.config
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\bin\Web.dll
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\bin\Web.pdb
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\bin\es\Web.resources.dll
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\bin\AntiXSSLibrary.dll
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\bin\DataAccess.dll
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\bin\Logic.dll
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\bin\DataAccess.pdb
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\bin\Logic.pdb
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.resources
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.resources
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.resources
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.resources
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.es.resources
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.es.resources
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.es.resources
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.es.resources
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\obj\Debug\es\Web.resources.dll
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\obj\Debug\Web.dll
+C:\SS\004 - Historias Clinicas\HB.HC.MFA\Web\obj\Debug\Web.pdb
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\bin\Web.dll.config
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\bin\Web.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\bin\Web.pdb
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\bin\es\Web.resources.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\bin\AntiXSSLibrary.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\bin\DataAccess.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\bin\Logic.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\bin\DataAccess.pdb
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\bin\Logic.pdb
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\obj\Debug\Web.csprojResolveAssemblyReference.cache
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.resources
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.resources
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.resources
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.resources
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.es.resources
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\obj\Debug\Web.agenda.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.es.resources
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_Web_ASPxScheduler_v10_1.es.resources
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\obj\Debug\Web.agenda.bin.App_GlobalResources.DevExpress_XtraScheduler_v10_1_Core.es.resources
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\obj\Debug\Web.csproj.GenerateResource.Cache
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\obj\Debug\es\Web.resources.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\obj\Debug\Web.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\obj\Debug\Web.pdb
+C:\SS\004 - Historias Clinicas\1 - DEV\Web\bin\MMC.Seguridad.dll

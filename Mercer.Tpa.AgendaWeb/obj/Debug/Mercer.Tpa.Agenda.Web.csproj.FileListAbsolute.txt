@@ -1,0 +1,33 @@
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Mercer.Tpa.AgendaWeb\obj\Debug\Mercer.Tpa.Agenda.Web.pdb
+C:\Users\rayala00\Documents\ricardo\tfs\HB.HC\Mercer.Tpa.AgendaWeb\obj\Debug\Mercer.Tpa.Agenda.Web.dll.licenses
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\App_GlobalResources\DevExpress_Web_ASPxScheduler_v10_1.resx
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\App_GlobalResources\DevExpress_XtraScheduler_v10_1_Core.es.resx
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\App_GlobalResources\DevExpress_XtraScheduler_v10_1_Core.resx
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\App_GlobalResources\DevExpress_Web_ASPxScheduler_v10_1.es.resx
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\App_GlobalResources\DevExpress_Web_ASPxScheduler_v10_1.es.designer.cs
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\App_GlobalResources\DevExpress_Web_ASPxScheduler_v10_1.designer.cs
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\App_GlobalResources\DevExpress_XtraScheduler_v10_1_Core.designer.cs
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\App_GlobalResources\DevExpress_XtraScheduler_v10_1_Core.es.designer.cs
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\Content\agenda.css
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\Mercer.Tpa.Agenda.Web.dll.config
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\Mercer.Tpa.Agenda.Web.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\Mercer.Tpa.Agenda.Web.pdb
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\AntiXSSLibrary.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\DataAccess.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\DevExpress.Data.v10.1.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\DevExpress.Web.ASPxEditors.v10.1.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\DevExpress.Web.ASPxScheduler.v10.1.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\DevExpress.Web.v10.1.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\DevExpress.XtraScheduler.v10.1.Core.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\fredck.fckeditorv2.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\Idunno.AntiCsrf.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\Logic.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\System.Web.Extensions.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\EnvDTE.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\stdole.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\DataAccess.pdb
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\bin\Logic.pdb
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\obj\Debug\Mercer.Tpa.Agenda.Web.csprojResolveAssemblyReference.cache
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\obj\Debug\Mercer.Tpa.Agenda.Web.dll.licenses
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\obj\Debug\Mercer.Tpa.Agenda.Web.dll
+C:\SS\004 - Historias Clinicas\1 - DEV\Mercer.Tpa.AgendaWeb\obj\Debug\Mercer.Tpa.Agenda.Web.pdb

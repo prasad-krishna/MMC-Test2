@@ -1,0 +1,20 @@
+<TR>
+        <td class="textogris">{NOMBRECAMPO}</td>
+        <td width="138">
+                <select name="_C{POSICIONCAMPO}" onChange="javascript:cambiarRestriccion{POSICIONCAMPO}(this)"size="1" class="textogris" >
+                <option value="">Escoja ...</option>
+                <option value="=">Igual a</option>
+                <option value="<>">Diferente a</option>
+                </select>
+        </td>
+        
+        <td  width="156"class="textogris">
+                <select name=_V{POSICIONCAMPO} class="info">
+                {OPCIONES}
+                </select>
+        </td>
+        <td class="textogris"" id=divRestricionY{POSICIONCAMPO} style="visibility:hidden">
+        </td>
+        <td class="textogris" id=divRestricion{POSICIONCAMPO} style="visibility:hidden">
+        </td>
+</TR>

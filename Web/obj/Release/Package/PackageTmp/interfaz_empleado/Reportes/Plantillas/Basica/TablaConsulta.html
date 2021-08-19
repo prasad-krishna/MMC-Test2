@@ -1,0 +1,215 @@
+{FORMULARIO}
+<link href="basico.css" rel="stylesheet" type="text/css" />
+  <table width=523 height=31 background="img/toptabla.gif" cellpadding=0 cellspacing=0 border=0 vAlign="top">
+  <tr>
+        <td align=right><input type=button class="button" value="Enviar" onClick="javascript:salto()" ></td>
+        <td width=30px></td>
+  </tr>
+  </table>
+  <table style="margin:0 0 0 0;" width="490" cellspacing="5">
+  <TR>
+        <td class="textonara" vAlign="top">Columna</td>
+        <td class="textonara" nowrap align=left vAlign="top">Mostrar?
+                <br><br><a href="javascript:seleccionarTodosMostrar();">Todos</a>
+                <br><a href="javascript:deseleccionarTodosMostrar();">Ninguno</a>
+                <br><a href="javascript:invertirseleccionarTodosMostrar();">Invertir</a>
+                <br>
+        </td>
+        <td class="textonara" nowrap align=left vAlign="top">Agrupar?
+                <br><br><a href="javascript:seleccionarTodosAgrupar();">Todos</a>
+                <br><a href="javascript:deseleccionarTodosAgrupar();">Ninguno</a>
+                <br><a href="javascript:invertirseleccionarTodosAgrupar();">Invertir</a>
+                <br>
+        </td>
+        <td class="textonara" nowrap align=left vAlign="top">Ordenar?
+                <br><br><a href="javascript:seleccionarTodosOrdenar();">Todos</a>
+                <br><a href="javascript:deseleccionarTodosOrdenar();">Ninguno</a>
+                <br><a href="javascript:invertirseleccionarTodosOrdenar();">Invertir</a>
+                <br>
+        </td>
+        <td class="textonara" vAlign="top">Condición:</td>
+  </TR>
+  <tr height=10><td colspan=5></td></tr>
+         {FILASCONDICIONES}
+  </table>
+<div align="right"><img src="img/fintabla.gif" width="523" height="10" /></div>
+<input type=hidden name=numFilas id=numFilas value="{_NUMFILAS_}">
+<script>
+        function seleccionarTodosMostrar(){
+                var a = document.getElementById("numFilas");
+                i = 0;
+                while(i < parseInt(a.value)){
+                        document.getElementById("_VISIBLE"+i).checked = true;
+                        i = i + 1;
+                }
+        }
+        function deseleccionarTodosMostrar(){
+                var a = document.getElementById("numFilas");
+                i = 0;
+                while(i < parseInt(a.value)){
+                        document.getElementById("_VISIBLE"+i).checked = false;
+                        i = i + 1;
+                }
+        }
+        function invertirseleccionarTodosMostrar(){
+                var a = document.getElementById("numFilas");
+                i = 0;
+                while(i < parseInt(a.value)){
+                        if(document.getElementById("_VISIBLE"+i).checked){
+                                document.getElementById("_VISIBLE"+i).checked = false;
+                        }
+                        else{
+                                document.getElementById("_VISIBLE"+i).checked = true;
+                        }
+                        i = i + 1;
+                }
+        }
+        function seleccionarTodosAgrupar(){
+                var a = document.getElementById("numFilas");
+                i = 0;
+                while(i < parseInt(a.value)){
+                        if(document.getElementById("_VISIBLE"+i).checked){
+                                document.getElementById("_GROUP"+i).checked = true;
+                        }
+                        else{
+                                document.getElementById("_GROUP"+i).checked = false;
+                        }
+                        i = i + 1;
+                }
+        }
+        function deseleccionarTodosAgrupar(){
+                var a = document.getElementById("numFilas");
+                i = 0;
+                while(i < parseInt(a.value)){
+                        document.getElementById("_GROUP"+i).checked = false;
+                        i = i + 1;
+                }
+        }
+        function invertirseleccionarTodosAgrupar(){
+                var a = document.getElementById("numFilas");
+                i = 0;
+                while(i < parseInt(a.value)){
+                        if(document.getElementById("_GROUP"+i).checked){
+                                document.getElementById("_GROUP"+i).checked = false;
+                        }
+                        else{
+                                if(document.getElementById("_VISIBLE"+i).checked){
+                                        document.getElementById("_GROUP"+i).checked = true;
+                                }
+                                else{
+                                        document.getElementById("_GROUP"+i).checked = false;
+                                }
+                        }
+                        i = i + 1;
+                }
+        }
+        function seleccionarTodosOrdenar(){
+                var a = document.getElementById("numFilas");
+                i = 0;
+                while(i < parseInt(a.value)){
+                        if(document.getElementById("_VISIBLE"+i).checked){
+                                document.getElementById("_ORDER"+i).checked = true;
+                        }
+                        else{
+                                document.getElementById("_ORDER"+i).checked = false;
+                        }
+                        i = i + 1;
+                }
+        }
+        function deseleccionarTodosOrdenar(){
+                var a = document.getElementById("numFilas");
+                i = 0;
+                while(i < parseInt(a.value)){
+                        document.getElementById("_ORDER"+i).checked = false;
+                        i = i + 1;
+                }
+        }
+        function invertirseleccionarTodosOrdenar(){
+                var a = document.getElementById("numFilas");
+                i = 0;
+                while(i < parseInt(a.value)){
+                        if(document.getElementById("_ORDER"+i).checked){
+                                document.getElementById("_ORDER"+i).checked = false;
+                        }
+                        else{
+                                if(document.getElementById("_VISIBLE"+i).checked){
+                                        document.getElementById("_ORDER"+i).checked = true;
+                                }
+                                else{
+                                        document.getElementById("_ORDER"+i).checked = false;
+                                }
+                        }
+                        i = i + 1;
+                }
+        }
+        function nuevoOrden(posicion){
+                var idSelect = document.getElementById('_DIVSELECTORDER'+posicion);
+                var el_select = document.getElementById('_SELECTORDER'+posicion);
+                var newElem = document.createElement("OPTION");
+
+                document.getElementById("cantidad_grupos").value = parseInt(document.getElementById("cantidad_grupos").value) + 1;
+                i = 1;
+                while( i <= parseInt(document.getElementById("cantidad_grupos").value)){
+                        newElem = document.createElement("OPTION");
+                        newElem.text = i;
+                        newElem.value = i;
+                        el_select.options.add(newElem);
+                        i = i + 1;
+                }
+
+                idSelect.style.visibility = 'visible';
+
+                el_select.options.selectedIndex = el_select.options.length - 1;
+
+                i = 0;
+                while(document.getElementById('_ORDER'+i)){
+                        if(document.getElementById('_ORDER'+i).checked && i!= posicion){
+                                el_select = document.getElementById('_SELECTORDER'+i);
+                                newElem = document.createElement("OPTION");
+                                newElem.text = document.cantidadOrdenes;
+                                newElem.value = document.cantidadOrdenes;
+                                el_select.options.add(newElem);
+                        }
+                        i = i + 1;
+                }
+        }
+        function borrarOrden(posicion){
+                var idSelect = document.getElementById('_DIVSELECTORDER'+posicion);
+                var el_select = document.getElementById('_SELECTORDER'+posicion);
+
+                idSelect.style.visibility = 'hidden';
+                if(el_select.options.selectedIndex == parseInt(document.getElementById("cantidad_grupos").value)){
+                        document.getElementById("cantidad_grupos").value = parseInt(document.getElementById("cantidad_grupos").value) - 1;
+                }
+                // Se borran los elementos del select menos el primero
+                while(el_select.options.length > 1){
+                        if(navigator.appName == "Microsoft Internet Explorer"){
+                                el_select.options.remove(1);
+                        }
+                        else{
+                                el_select.options[1] = null;
+                        }
+                }
+                el_select.options.selectedIndex = 0;
+
+        }
+        function salto(){
+                var i = 0;
+                var encontrado = false;
+                while(document.getElementById("_GROUP"+i)){
+                        if(document.getElementById("_GROUP"+i).checked){
+                                encontrado = true;
+                        }
+                        i = i + 1;
+                }
+                if(!encontrado){
+                        document.reporte.action = 'reporte.aspx';
+                }
+                else{
+                        document.reporte.action = 'reporteExcel.aspx';
+                }
+                document.reporte.submit();
+        }
+</script>
+<input type=hidden name=cantidad_grupos value=0 id=cantidad_grupos>
+</form>

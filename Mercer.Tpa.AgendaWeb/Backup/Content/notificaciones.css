@@ -1,0 +1,43 @@
+﻿/* Estilos para Notificaciones */
+.labelDescripcion{
+    display:block;
+    font-weight:bold;
+}
+.labelFecha{
+    display:block;
+    font-size:8px;
+}
+.labelHoraCita{
+    display:block;
+    font-weight:bold;
+}
+.contenedorNotificacion{
+
+}
+ .citaRegistrada{
+    background-color:#C1E9F4;
+}
+.citaReprogramada{
+    background-color:#FFFFCC;
+}
+ .citaCancelada{
+    background-color:#D78D96;
+}
+.citaEspera{
+    background-color:#DE8703;
+}
+.notificationGroup{
+    padding:5px;
+    width:120px;
+    border-right:solid 1px #102251;
+    vertical-align:top;
+}
+.contenedorDataListNotificacion{
+    width:100%;
+    overflow:scroll;
+}
+
+.citaRegistrada,.citaReprogramada,.citaCancelada,.citaEspera
+{
+    vertical-align:top;
+}

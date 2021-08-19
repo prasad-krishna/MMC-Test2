@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes" ?>
+<Reporte
+        Consulta="
+		
+
+select 
+emp.empresa_id AS COL1,
+emp.Nombre AS COL2,
+FECHA as COL3,
+info.IDPRESTADOR as COL4,
+info.NOMBREPRESTADOR AS COL5,
+esp.idEspecialidad AS COL6,
+esp.NombreEspecialidad as COL7,
+HORASASIGNADAS as COL8,
+HORASATENDIDAS AS COL9,
+HORASPROGRAMADAS AS COL10,
+(HORASATENDIDAS / HORASASIGNADAS)*100 AS COL11,
+(HORASPROGRAMADAS /HORASASIGNADAS)*100 AS COL12
+
+FROM vDisponibilidadMedico info
+LEFT JOIN EMPRESAPRESTADORES ep
+on info.idprestador = ep.idprestador
+LEFT JOIN .SIC_EMPRESA emp on
+ep.empresa_id = emp.empresa_id
+LEFT JOIN Prestadores p on 
+info.idprestador = p.idprestador
+LEFT JOIN Especialidades esp on
+p.idespecialidad = esp.idespecialidad
+
+
+
+
+where 1 = 1
+                "
+        DirPlantillas="Basica\"
+        NombreReporte="Agenda_Ocupación"
+        cadenaConexion="ConnectionStringReembolsos"
+        cantidad_parametros="0"
+        Titulo="Agenda (Ocupación médicos)"
+>
+<Campos>
+	<Campo titulo="EMPRESA ID" expansion="si" filtro="si" multiple="si" tabla="EmpresaDatos" campo_valor="empresa_id" campo_nombre="AbreviacionEmpresa"></Campo>
+	<Campo titulo="NOMBRE EMPRESA" filtro="no"></Campo>
+	<Campo titulo="FECHA" filtro="si" fecha="si"></Campo>
+	<Campo titulo="ID MÉDICO"  filtro="si" multiple="si" tabla="Prestadores" campo_valor="idPrestador" campo_nombre="NombrePrestador"></Campo>
+	<Campo titulo="NOMBRE MÉDICO" filtro="si"></Campo>
+	<Campo titulo="ID ESPECIALIDAD"  filtro="si" multiple="si" tabla="Especialidades" campo_valor="idEspecialidad" campo_nombre="NombreEspecialidad"></Campo>
+	<Campo titulo="NOMBRE ESPECIALIDAD" filtro="si"></Campo>
+	<Campo titulo="HORAS ASIGNADAS (HORARIO)" filtro="si"></Campo>
+	<Campo titulo="HORAS ATENDIDAS (CITAS FINALIZADAS)" filtro="si"></Campo>
+	<Campo titulo="HORAS PROGRAMADAS (CITAS PROGRAMADAS)" filtro="si"></Campo>
+	<Campo titulo="PORCENTAJE OCUPACIÓN REAL" filtro="si"></Campo>
+	<Campo titulo="PORCENTAJE OCUPACIÓN PROGRAMADA" filtro="si"></Campo>
+
+
+</Campos>
+</Reporte>

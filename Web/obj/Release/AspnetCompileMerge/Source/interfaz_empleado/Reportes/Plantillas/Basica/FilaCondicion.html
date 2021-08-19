@@ -1,0 +1,93 @@
+<TR height=10>
+        <td class="textogris" vAlign="top">{NOMBRECAMPO}</td>
+        <td class="textogris" vAlign="top"><input type=checkbox id=_VISIBLE{POSICIONCAMPO} name=_VISIBLE{POSICIONCAMPO} checked value="visible" onchange="var a = document.getElementById('_GROUP{POSICIONCAMPO}');var b = document.getElementById('_ORDER{POSICIONCAMPO}');if(!this.checked){a.checked = false; b.checked = false;}"></td>
+        <td class="textogris" vAlign="top">{AGRUPABLE}<input type=checkbox id=_GROUP{POSICIONCAMPO} name=_GROUP{POSICIONCAMPO} value="grupo"
+                                                onclick="javascript:
+                                                                var elemento = document.getElementById('_VISIBLE{POSICIONCAMPO}');
+                                                                if(!elemento.checked && this.checked){
+                                                                        alert('Para poder agrupar por el campo debe estar en la seleccion');
+                                                                        this.checked = false;
+                                                                }
+                                                        ">{FINAGRUPABLE}
+                                                        </td>
+        <td nowrap class="textogris" vAlign="top">{ORDENABLE}<input type=checkbox id=_ORDER{POSICIONCAMPO} name=_ORDER{POSICIONCAMPO} value="{POSICIONCAMPO}"
+                                                onclick="javascript:
+                                                                var elemento = document.getElementById('_VISIBLE{POSICIONCAMPO}');
+                                                                if(!elemento.checked && this.checked){
+                                                                        alert('Para poder ordenar por el campo debe estar visible');
+                                                                        this.checked = false;
+                                                                        borrarOrden({POSICIONCAMPO});
+                                                                }
+                                                                else if(this.checked){
+                                                                        nuevoOrden({POSICIONCAMPO});
+                                                                }
+                                                                else if(!this.checked){
+                                                                        borrarOrden({POSICIONCAMPO});
+                                                                }
+                                                                else{
+                                                                }
+                                                        ">{FINORDENABLE} <div style="visibility:hidden" id="_DIVSELECTORDER{POSICIONCAMPO}"><select name="_SELECTORDER{POSICIONCAMPO}" id="_SELECTORDER{POSICIONCAMPO}" class="textBox"><option value="">Posición</option></select></div>
+                                                        </td>
+
+        <td width="138" vAlign="top">
+                {CAMPOFILTRO1}
+                <select class="textBox" id="_C{POSICIONCAMPO}" name="_C{POSICIONCAMPO}" onChange="javascript:cambiarRestriccion{POSICIONCAMPO}(this)"size="1" class="textogris" >
+                <option value="">Escoja ...</option>
+                <option value="=">Igual a</option>
+                <option value="LIKE">Parecido a</option>
+                <option value="GT">Mayor a ...</option>
+                <option value="GTE">Mayor o igual a ...</option>
+                <option value="LT">Menor a ...</option>
+                <option value="LTE">Menor o igual a ...</option>
+                <option value="BETWEEN">Entre</option>
+                </select>
+                {FINCAMPOFILTRO1}
+        </td>
+        
+        <td  width="156"class="textogris" vAlign="top">
+                {CAMPOFILTRO2}
+                <input type=text id=_V{POSICIONCAMPO} name=_V{POSICIONCAMPO} value="" class="textBox" size="15" onChange="cambiarRestriccion{POSICIONCAMPO}();var a = document.getElementById('_C{POSICIONCAMPO}'); if(this.value != '' && a.options.selectedIndex == 0){a.options.selectedIndex = 2;};">
+                {FINCAMPOFILTRO2}
+                <div class="textogris" id=divRestricionY{POSICIONCAMPO} style="visibility:hidden">
+                        y
+                </div>
+                <div class="textogris" id=divRestricion{POSICIONCAMPO} style="visibility:hidden">
+                        {CAMPOFILTRO3}
+                        <input type=text id=_2V{POSICIONCAMPO} name=_2V{POSICIONCAMPO} value="" class="textBox" size="15">
+                        {FINCAMPOFILTRO3}
+                </div>
+        </td>
+</TR>
+<script>
+    function        cambiarRestriccion{POSICIONCAMPO}(){
+            alert("cuando cambie el corporativo cambiar valor" + {POSICIONCAMPO});
+                if(document.reporte._C{POSICIONCAMPO}.options[document.reporte._C{POSICIONCAMPO}.options.selectedIndex].value == 'BETWEEN'){
+                        document.getElementById('divRestricion{POSICIONCAMPO}').style.visibility = '';
+                        document.getElementById('divRestricionY{POSICIONCAMPO}').style.visibility = '';
+                        document.getElementById('_2V{POSICIONCAMPO}').className = 'textBoxError';
+                }
+                else{
+                        document.getElementById('divRestricion{POSICIONCAMPO}').style.visibility = 'hidden';
+                        document.getElementById('divRestricionY{POSICIONCAMPO}').style.visibility = 'hidden';
+                        document.getElementById('_2V{POSICIONCAMPO}').className = 'textBox';
+                }
+                if(document.reporte._C{POSICIONCAMPO}.options.selectedIndex > 0 && document.getElementById('_V{POSICIONCAMPO}').value == ''){
+                        document.getElementById('_C{POSICIONCAMPO}').className = 'textBox';
+                        document.getElementById('_V{POSICIONCAMPO}').className = 'textBoxError';
+                }
+                else if(document.reporte._C{POSICIONCAMPO}.options.selectedIndex > 0 && document.getElementById('_V{POSICIONCAMPO}').value != ''){
+                        document.getElementById('_C{POSICIONCAMPO}').className = 'textBox';
+                        document.getElementById('_V{POSICIONCAMPO}').className = 'textBox';
+                }
+                else if(document.reporte._C{POSICIONCAMPO}.options.selectedIndex == 0 && document.getElementById('_V{POSICIONCAMPO}').value != ''){
+                        document.getElementById('_C{POSICIONCAMPO}').className = 'textBoxError';
+                        document.getElementById('_V{POSICIONCAMPO}').className = 'textBox';
+                }
+                else if(document.reporte._C{POSICIONCAMPO}.options.selectedIndex == 0 && document.getElementById('_V{POSICIONCAMPO}').value == ''){
+                        document.getElementById('_C{POSICIONCAMPO}').className = 'textBox';
+                        document.getElementById('_V{POSICIONCAMPO}').className = 'textBox';
+                }
+                else{
+                }
+        }
+</script>

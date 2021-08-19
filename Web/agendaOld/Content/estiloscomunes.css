@@ -1,0 +1,430 @@
+﻿
+body
+{
+    font-family:Verdana;
+    font-size:11px;
+}
+
+label
+{
+text-align:left;
+}
+
+table td
+{
+    text-align:left;
+}
+.headerGrid
+{
+    text-align:center;
+}
+
+.bigButton
+{
+    font-weight: bold;
+	font-size: 11px;
+	background-image: url(images/bigButton.gif);
+	width: 150px;
+	color: #0057a6;
+	border-top-style: none;
+	font-style: normal;
+	font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	border-right-style: none;
+	border-left-style: none;
+	height: 21px;
+	border-bottom-style: none;
+}
+fieldset{
+text-align:left;
+}
+/**** Titulos ****/
+h1{
+    font-family:Verdana;
+    font-size:14px;
+    font-weight:bold;
+    width:100%;
+    border-bottom:solid 1px #CDCAC9;
+    color:#102251;
+    height:32px;
+    padding-left:34px;
+    background:#fff url(images/page_text_32.gif) no-repeat 0 0;
+    line-height:32px;
+}
+
+h2{
+    font-family:Verdana;
+    font-size:12px;
+    font-weight:bold;
+    width:100%;
+    border-bottom:solid 1px #CDCAC9;
+    color:#102251;
+}
+
+h3{
+    font-family:Verdana;
+    font-size:11px;
+    font-weight:bold;
+    width:100%;
+    border-bottom:solid 1px #CDCAC9;
+    color:#102251;
+}
+
+h4{
+    font-family:Verdana;
+    font-size:11px;
+    font-weight:bold;
+    width:100%;
+    color:#102251;
+}
+
+.tituloBuscar
+{
+
+    background:#fff url(images/search_32.gif) no-repeat 0 0;
+}
+
+
+.tituloAgenda
+{
+
+    background:#fff url(images/clock_32.gif) no-repeat 0 0;
+}
+.tituloRegistroCitas
+{
+
+    background:#fff url(images/newspaper_32.gif) no-repeat 0 0;
+}
+
+/*** Campos formularios **/
+.campoFormulario
+{
+    width:95%;
+    position:relative;
+    margin:0 5% 0 5%;
+    text-align:left;
+}
+.campoFormulario label
+{
+    display:block;
+    margin-bottom:3px;
+    
+}
+.campoFormulario input,.campoFormulario textArea, .campoFormulario select
+{
+    width:90%;
+}
+
+.campoFormulario .button
+{
+    width:92px;
+}
+
+.campoFormulario .button
+{
+    width:91px;
+    margin:auto;
+}
+
+.campoFormulario .check input
+{
+    width:20px;
+}
+
+/**** Filtros ***/
+.contenedorFiltros
+{
+    border:1px solid #DDDDDD;
+    margin-bottom:10px;
+}
+
+.contenedorFiltros .botonBuscar
+{
+    width:91px;
+    margin-left:auto;    
+    margin-right:auto;
+    margin-top:10px;   
+    text-align:center;
+    display:block;
+    
+}
+
+.agenda_menu_list
+{
+    list-style-type:none;
+    margin:0;
+    margin-bottom:10px;
+    padding:0;
+    width:99%;
+}
+.agenda_menu_list li
+{
+    list-style-image:none;
+    list-style-type:none;
+    display:block;
+    float:left;
+    margin-right:5px;
+}
+.agenda_menu_list a,.agenda_menu_list a:visited
+{
+    color:#0057A6;
+    display:block;
+    height:32px;
+    padding-left:22px;
+    background:#fff url("images/application_go.gif") no-repeat 0 0;
+}
+.linkAdd
+{
+
+    background:#fff url("images/add.gif") no-repeat 0 0;
+
+}
+.tabsContainer{
+    width:800px;
+    
+}
+
+
+.selectedRow td
+{
+    background-color:Navy;
+    color:#fff;
+}
+
+/* Cambios a tema de jquery para adaptarlos a layout de mercer*/
+.ui-widget {
+    font-family:Verdana,Arial,sans-serif;
+    font-size:11px;
+}
+.ui-dialog .ui-dialog-titlebar {
+    padding:0;
+    position:relative;
+}
+.ui-dialog .ui-dialog-buttonpane button {
+    cursor:pointer;
+    float:right;
+    line-height:1.1em;
+    margin:0.1em 0.4em 0.1em 0;
+    overflow:visible;
+    padding:0.2em 0.6em 0.3em;
+    width:auto;
+}
+.ui-button-text-only .ui-button-text {
+    padding:0.1em 1em;
+}
+ui-dialog-titlebar
+{
+    font-size:14px;
+}
+
+
+
+
+
+/* Estilos mensajes de error y notificaciones al usuario
+utilizados por el control UserControlMessage.ascx*/
+.MensajeError
+{
+    background-color:#EBC6CB;
+}
+.MensajeAdvertencia
+{
+    background-color:#FDE48B;
+}
+.MensajeNotificación
+{
+    background-color:#D3E9BF;
+}
+
+
+
+/*Layout columnas*/
+/*Columna que ocupa el 30 porciento*/
+.columna30
+{
+    width:29%;
+    float:left;
+}
+
+.columna50
+{
+    width:49%;
+    float:left;
+}
+
+.limpiarFloats
+{
+    clear:both;
+}
+
+ .alternateRow
+{
+     background-color:#e3e6ea;
+}
+.disponibilidadRow
+{
+  padding:3px;
+}
+.labelFiltro
+{
+  color:#102251;
+  font-weight:bold;
+  font-size:12px;
+  margin-bottom:4px;
+  display:block;
+}
+
+
+
+.moduloRegistroCitas #dialogoConfirmarRegistroCita p
+{
+    padding:0;
+    margin:0;
+}
+
+.moduloRegistroCitas #dialogoConfirmarRegistroCita label
+{
+    display:block;
+}
+
+.columna2
+{
+    width:49%;
+    float:left;
+}
+/*Link que muestra el menu contextual */
+.menuGrid,.menuGrid:hover{
+    display:block;
+    width:18px;
+    height:18px;
+ }
+
+
+/*Contenedor del menu contextual*/
+.menuContextualGrid
+{
+    padding:0;
+    font-size:11px;
+    text-align:left;
+}
+.menuContextualGrid ul
+{
+    margin:0;
+    padding:0;
+}
+.menuContextualGrid li
+{
+    list-style-type:none;
+    height:1.1em;
+    padding:0 0 2px 8px;
+    background:#fff url("images/imgBullet.gif") no-repeat 0 0;
+    margin:0 0 0 5px;
+    border-bottom:solid 1px #CDCAC9;
+}
+.menuContextualGrid li a
+{
+ text-decoration:none;
+}
+.menuContextualGrid li a:visited
+{
+ text-decoration:none;
+}
+.menuContextualGrid li a:hover
+{
+ font-weight:bold;
+}
+
+.linkCerrarMenu
+{
+    display:block;
+    width:10px;
+    height:12px;
+    background:#fff url("images/imgClose.gif") no-repeat 0 0;
+    margin-left:5px;
+    margin-bottom:5px;
+}
+
+/*Estados de cita*/
+
+/*Pendiente*/
+.estadoCitaPendiente,.estadoCitaPendiente:hover
+{
+ width:16px;
+ height:16px;
+ background:transparent url(images/clock.gif) repeat-x 0 0;
+  margin:auto;
+}
+/*Finalizada*/
+.estadoCitaFinalizada,.estadoCitaFinalizada:hover
+{
+ width:16px;
+ height:16px;
+ background:transparent url(images/accept.gif) repeat-x  0 0;
+  margin:auto;
+}
+/*Inasistida*/
+.estadoCitaInasistida,.estadoCitaInasistida:hover
+{
+ width:16px;
+ height:16px;
+ background:transparent url(images/clock_red.gif) repeat-x  0 0;
+  margin:auto;
+}
+
+/*Cancelada*/
+.estadoCitaCancelada,.estadoCitaCancelada:hover
+{
+ width:16px;
+ height:16px;
+ background:transparent url(images/date_delete.gif) repeat-x  0 0;
+  margin:auto;
+}
+
+/*En espera*/
+.estadoCitaEspera,.estadoCitaEspera:hover
+{
+ width:16px;
+ height:16px;
+ margin:auto;
+ background:transparent url(images/bell.gif) no-repeat 0 0;
+}
+
+/*Titulo fieldset info paciente*/
+.tituloInfoPaciente
+{
+    display:block;
+    height:17px;
+    padding-left:17px;
+    background:#fff url("images/user.gif") no-repeat 0 0;
+}
+
+.contenedorError
+{
+    width:99%;
+    padding:1em;
+    background-color:#FF3333;
+    border:solid 1px #CC0000;
+}
+
+/*Mensajes de notificacion*/
+.MensajeNotificacion
+{
+    background-color:#33CC33;
+    border:solid 1px #339933;
+    width:99%;
+    padding:5px;
+}
+
+label .textRed
+{
+    color:Red;
+}
+/*wrap columnas grid (solo para IE)*/
+.columnaGrid
+{
+    word-wrap: break-word;
+}
+
+.filaSeleccionada
+{
+    background-color:#6699CC;
+}

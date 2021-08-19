@@ -1,0 +1,891 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes" ?>
+<Reporte
+          Consulta="
+SELECT sic_empresa.corporativo_id AS COL1
+	,sic_empresa.nombre AS COL2
+	,dbo.Consulta.empresa_id AS COL3
+	,CONVERT(VARCHAR(20), dbo.Consulta.FechaCreacion, 103) AS COL4
+	,CONVERT(VARCHAR(20), dbo.Consulta.FechaModificacion, 103) AS COL5
+	,CONVERT(VARCHAR(20), dbo.Consulta.FechaCreacion, 103) + ' ' + CONVERT(VARCHAR(20), dbo.Consulta.FechaCreacion, 108) + CASE 
+		WHEN Consulta.FechaModificacion IS NULL
+			THEN '-' + CONVERT(VARCHAR(20), dbo.Consulta.FechaCreacion, 103) + ' ' + CONVERT(VARCHAR(20), dbo.Consulta.FechaCreacion, 108)
+		ELSE '-' + CONVERT(VARCHAR(20), dbo.Consulta.FechaModificacion, 103) + ' ' + CONVERT(VARCHAR(20), dbo.Consulta.FechaModificacion, 108)
+		END AS COL6
+	,CONVERT(VARCHAR(20), dbo.Consulta.FechaFinCreacion, 103)+ ' ' + CONVERT(VARCHAR(20), dbo.Consulta.FechaFinCreacion, 108) AS COL7
+	,case when isnull(dbo.Consulta.Finalizada,0)= 1 then 'CERRADA' else 'EN PROCESO' end AS COL8
+	,dbo.Users.NameUser AS COL9
+	,dbo.Consulta.ConsecutivoNombre AS COL10
+	,dbo.Prestadores.NombrePrestador AS COL11
+	,Sedes.nombreSede AS COL12
+	,CASE 
+		WHEN dbo.SIC_EMPLEADO.locClave IS NULL
+			THEN ISNULL(dbo.SIC_BENEFICIARIO.locDescripcion, '')
+		ELSE ISNULL(dbo.SIC_EMPLEADO.locDescripcion, '')
+		END AS COL13
+	,CASE 
+		WHEN dbo.Consulta.beneficiario_id IS NULL
+			THEN isnull(SIC_EMPLEADO.primer_nombre + ' ', '') + isnull(SIC_EMPLEADO.segundo_nombre + ' ', '') + isnull(SIC_EMPLEADO.apellido_paterno + ' ', '') + isnull(SIC_EMPLEADO.apellido_materno + ' ', '')
+		ELSE isnull(SIC_BENEFICIARIO.primer_nombre + ' ', '') + isnull(SIC_BENEFICIARIO.segundo_nombre + ' ', '') + isnull(SIC_BENEFICIARIO.primer_apellido + ' ', '') + isnull(SIC_BENEFICIARIO.segundo_apellido + ' ', '')
+		END AS COL14
+	,CASE 
+		WHEN dbo.Consulta.beneficiario_id IS NULL
+			THEN CONVERT(VARCHAR(12), ISNULL(SIC_EMPLEADO.identificacion COLLATE Modern_Spanish_CI_AS, ''))
+		ELSE CONVERT(VARCHAR(12), ISNULL(SIC_BENEFICIARIO.identificacion COLLATE Modern_Spanish_CI_AS, ''))
+		END AS COL15
+	,CASE 
+		WHEN dbo.Consulta.beneficiario_id IS NULL
+			THEN CONVERT(VARCHAR(20), SIC_EMPLEADO.fecha_nacimiento, 103)
+		ELSE CONVERT(VARCHAR(20), SIC_BENEFICIARIO.fecha_nacimiento, 103)
+		END AS COL16
+	,CASE 
+		WHEN dbo.Consulta.beneficiario_id IS NULL
+			THEN CASE 
+					WHEN SIC_EMPLEADO.sexo = 1
+						THEN 'M'
+					ELSE 'F'
+					END
+		ELSE CASE 
+				WHEN SIC_BENEFICIARIO.genero = 1
+					THEN 'M'
+				ELSE 'F'
+				END
+		END AS COL17
+	,CASE 
+		WHEN dbo.Consulta.beneficiario_id IS NULL
+			THEN 'TITULAR'
+		ELSE Parentescos.NombreParentesco
+		END AS COL18
+	,TipoConsultas.IdTipoConsulta AS COL19
+	,CASE --MAHG Se agregó la columna para identificar si Wellness primera Vez es editable
+		WHEN (
+				Consulta.IdTipoConsulta = 3
+				AND ISNULL(Convert(SMALLINT, Consulta.Finalizada), 0) = 1
+				)
+			THEN TipoConsultas.NombreTipoConsulta + ' (Cerrada)'
+		WHEN (
+				Consulta.IdTipoConsulta = 3
+				AND ISNULL(Convert(SMALLINT, Consulta.Finalizada), 0) = 0
+				)
+			THEN TipoConsultas.NombreTipoConsulta + ' (Abierta)'
+		ELSE TipoConsultas.NombreTipoConsulta
+		END AS COL20
+	,TipoEnfermedades.NombreTipoEnfermedad AS COL21
+	,Consulta.Motivo AS COL22
+	,Consulta.EnfermedadActual AS COL23
+	,Consulta.ObservacionesGenerales + '   |   ' + Solicitud.Observaciones AS COL24
+	,Consulta.Contrarreferencia AS COL25
+	,(
+		SELECT NombreDiagnostico
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.Diagnosticos ON dbo.ConsultaDiagnosticos.IdDiagnostico = dbo.Diagnosticos.IdDiagnostico
+		WHERE OrdenDiagnosticos = 1
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL26
+	,(
+		SELECT CASE 
+				WHEN dbo.ConsultaDiagnosticos.TiempoEvolucion IS NULL
+					THEN ''
+				ELSE CONVERT(VARCHAR(10), dbo.ConsultaDiagnosticos.TiempoEvolucion)
+				END + ' ' + ISNULL(dbo.ConsultaDiagnosticos.PeriodoEvolucion, '') AS TiempoEvolucion
+		FROM dbo.ConsultaDiagnosticos
+		WHERE OrdenDiagnosticos = 1
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL27
+	,(
+		SELECT dbo.TipoDiagnosticos.NombreTipoDiagnostico
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.TipoDiagnosticos ON dbo.ConsultaDiagnosticos.IdTipoDiagnostico = dbo.TipoDiagnosticos.IdTipoDiagnostico
+		WHERE OrdenDiagnosticos = 1
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL28
+	,(
+		SELECT dbo.DiagnosticosClasificacion.NombreDiagnosticoClasificacion
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.DiagnosticosClasificacion ON dbo.ConsultaDiagnosticos.IdDiagnosticoClasificacion = dbo.DiagnosticosClasificacion.IdDiagnosticoClasificacion
+		WHERE OrdenDiagnosticos = 1
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL29
+	,(
+		SELECT NombreDiagnostico
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.Diagnosticos ON dbo.ConsultaDiagnosticos.IdDiagnostico = dbo.Diagnosticos.IdDiagnostico
+		WHERE OrdenDiagnosticos = 2
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL30
+	,(
+		SELECT CASE 
+				WHEN dbo.ConsultaDiagnosticos.TiempoEvolucion IS NULL
+					THEN ''
+				ELSE CONVERT(VARCHAR(10), dbo.ConsultaDiagnosticos.TiempoEvolucion)
+				END + ' ' + ISNULL(dbo.ConsultaDiagnosticos.PeriodoEvolucion, '') AS TiempoEvolucion
+		FROM dbo.ConsultaDiagnosticos
+		WHERE OrdenDiagnosticos = 2
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL31
+	,(
+		SELECT dbo.TipoDiagnosticos.NombreTipoDiagnostico
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.TipoDiagnosticos ON dbo.ConsultaDiagnosticos.IdTipoDiagnostico = dbo.TipoDiagnosticos.IdTipoDiagnostico
+		WHERE OrdenDiagnosticos = 2
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL32
+	,(
+		SELECT dbo.DiagnosticosClasificacion.NombreDiagnosticoClasificacion
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.DiagnosticosClasificacion ON dbo.ConsultaDiagnosticos.IdDiagnosticoClasificacion = dbo.DiagnosticosClasificacion.IdDiagnosticoClasificacion
+		WHERE OrdenDiagnosticos = 2
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL33
+	,(
+		SELECT NombreDiagnostico
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.Diagnosticos ON dbo.ConsultaDiagnosticos.IdDiagnostico = dbo.Diagnosticos.IdDiagnostico
+		WHERE OrdenDiagnosticos = 3
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL34
+	,(
+		SELECT CASE 
+				WHEN dbo.ConsultaDiagnosticos.TiempoEvolucion IS NULL
+					THEN ''
+				ELSE CONVERT(VARCHAR(10), dbo.ConsultaDiagnosticos.TiempoEvolucion)
+				END + ' ' + ISNULL(dbo.ConsultaDiagnosticos.PeriodoEvolucion, '') AS TiempoEvolucion
+		FROM dbo.ConsultaDiagnosticos
+		WHERE OrdenDiagnosticos = 3
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL35
+	,(
+		SELECT dbo.TipoDiagnosticos.NombreTipoDiagnostico
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.TipoDiagnosticos ON dbo.ConsultaDiagnosticos.IdTipoDiagnostico = dbo.TipoDiagnosticos.IdTipoDiagnostico
+		WHERE OrdenDiagnosticos = 3
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL36
+	,(
+		SELECT dbo.DiagnosticosClasificacion.NombreDiagnosticoClasificacion
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.DiagnosticosClasificacion ON dbo.ConsultaDiagnosticos.IdDiagnosticoClasificacion = dbo.DiagnosticosClasificacion.IdDiagnosticoClasificacion
+		WHERE OrdenDiagnosticos = 3
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL37
+	,(
+		SELECT NombreDiagnostico
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.Diagnosticos ON dbo.ConsultaDiagnosticos.IdDiagnostico = dbo.Diagnosticos.IdDiagnostico
+		WHERE OrdenDiagnosticos = 4
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL38
+	,(
+		SELECT CASE 
+				WHEN dbo.ConsultaDiagnosticos.TiempoEvolucion IS NULL
+					THEN ''
+				ELSE CONVERT(VARCHAR(10), dbo.ConsultaDiagnosticos.TiempoEvolucion)
+				END + ' ' + ISNULL(dbo.ConsultaDiagnosticos.PeriodoEvolucion, '') AS TiempoEvolucion
+		FROM dbo.ConsultaDiagnosticos
+		WHERE OrdenDiagnosticos = 4
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL39
+	,(
+		SELECT dbo.TipoDiagnosticos.NombreTipoDiagnostico
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.TipoDiagnosticos ON dbo.ConsultaDiagnosticos.IdTipoDiagnostico = dbo.TipoDiagnosticos.IdTipoDiagnostico
+		WHERE OrdenDiagnosticos = 4
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL40
+	,(
+		SELECT dbo.DiagnosticosClasificacion.NombreDiagnosticoClasificacion
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.DiagnosticosClasificacion ON dbo.ConsultaDiagnosticos.IdDiagnosticoClasificacion = dbo.DiagnosticosClasificacion.IdDiagnosticoClasificacion
+		WHERE OrdenDiagnosticos = 4
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL41
+	,(
+		SELECT NombreDiagnostico
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.Diagnosticos ON dbo.ConsultaDiagnosticos.IdDiagnostico = dbo.Diagnosticos.IdDiagnostico
+		WHERE OrdenDiagnosticos = 5
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL42
+	,(
+		SELECT CASE 
+				WHEN dbo.ConsultaDiagnosticos.TiempoEvolucion IS NULL
+					THEN ''
+				ELSE CONVERT(VARCHAR(10), dbo.ConsultaDiagnosticos.TiempoEvolucion)
+				END + ' ' + ISNULL(dbo.ConsultaDiagnosticos.PeriodoEvolucion, '') AS TiempoEvolucion
+		FROM dbo.ConsultaDiagnosticos
+		WHERE OrdenDiagnosticos = 5
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL43
+	,(
+		SELECT dbo.TipoDiagnosticos.NombreTipoDiagnostico
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.TipoDiagnosticos ON dbo.ConsultaDiagnosticos.IdTipoDiagnostico = dbo.TipoDiagnosticos.IdTipoDiagnostico
+		WHERE OrdenDiagnosticos = 5
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL44
+	,(
+		SELECT dbo.DiagnosticosClasificacion.NombreDiagnosticoClasificacion
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.DiagnosticosClasificacion ON dbo.ConsultaDiagnosticos.IdDiagnosticoClasificacion = dbo.DiagnosticosClasificacion.IdDiagnosticoClasificacion
+		WHERE OrdenDiagnosticos = 5
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL45
+	,(
+		SELECT NombreDiagnostico
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.Diagnosticos ON dbo.ConsultaDiagnosticos.IdDiagnostico = dbo.Diagnosticos.IdDiagnostico
+		WHERE OrdenDiagnosticos = 6
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL46
+	,(
+		SELECT CASE 
+				WHEN dbo.ConsultaDiagnosticos.TiempoEvolucion IS NULL
+					THEN ''
+				ELSE CONVERT(VARCHAR(10), dbo.ConsultaDiagnosticos.TiempoEvolucion)
+				END + ' ' + ISNULL(dbo.ConsultaDiagnosticos.PeriodoEvolucion, '') AS TiempoEvolucion
+		FROM dbo.ConsultaDiagnosticos
+		WHERE OrdenDiagnosticos = 6
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL47
+	,(
+		SELECT dbo.TipoDiagnosticos.NombreTipoDiagnostico
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.TipoDiagnosticos ON dbo.ConsultaDiagnosticos.IdTipoDiagnostico = dbo.TipoDiagnosticos.IdTipoDiagnostico
+		WHERE OrdenDiagnosticos = 6
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL48
+	,(
+		SELECT dbo.DiagnosticosClasificacion.NombreDiagnosticoClasificacion
+		FROM dbo.ConsultaDiagnosticos
+		INNER JOIN dbo.DiagnosticosClasificacion ON dbo.ConsultaDiagnosticos.IdDiagnosticoClasificacion = dbo.DiagnosticosClasificacion.IdDiagnosticoClasificacion
+		WHERE OrdenDiagnosticos = 6
+			AND dbo.ConsultaDiagnosticos.IdConsulta = Consulta.IdConsulta
+		) AS COL49
+	,Consulta.PlanTratamiento AS COL50
+	,CONVERT(VARCHAR(20), Consulta.CitaControl, 103) AS COL51
+	,CASE 
+		WHEN ConsultaAntecedentes.NormalMedicos = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL52
+	,ConsultaAntecedentes.Medicos AS COL53
+	,CASE 
+		WHEN ConsultaAntecedentes.NormalQuirurgicos = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL54
+	,ConsultaAntecedentes.Quirurgicos AS COL55
+	,CASE 
+		WHEN ConsultaAntecedentes.NormalGinecobstetricos = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL56
+	,ConsultaAntecedentes.Ginecobstetricos AS COL57
+	,CASE 
+		WHEN ConsultaAntecedentes.NormalTransfusionales = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL58
+	,ConsultaAntecedentes.Transfusionales AS COL59
+	,CASE 
+		WHEN ConsultaAntecedentes.NormalToxicoAlergicos = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL60
+	,ConsultaAntecedentes.ToxicoAlergicos AS COL61
+	,CASE 
+		WHEN ConsultaAntecedentes.NormalFarmacologicos = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END + ' ' + CASE 
+		WHEN ConsultaAntecedentes.RiesgoCardiovascular = 1
+			THEN 'Riesgo Cardiovascular: Si'
+		ELSE 'Riesgo Cardiovascular: No'
+		END AS COL62
+	,ConsultaAntecedentes.Farmacologicos AS COL63
+	,CASE 
+		WHEN ConsultaAntecedentes.NormalFamiliares = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL64
+	,ConsultaAntecedentes.Familiares AS COL65
+	,CASE 
+		WHEN ConsultaAntecedentes.NormalOtrosAntecedentes = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL66
+	,ConsultaAntecedentes.OtrosAntecedentes AS COL67
+	,ConsultaAntecedentes.Menarquia AS COL68
+	,ConsultaAntecedentes.FechaUltimaMestruacion AS COL69
+	,ConsultaAntecedentes.Gestaciones AS COL70
+	,ConsultaAntecedentes.Partos AS COL71
+	,ConsultaAntecedentes.Cesareas AS COL72
+	,ConsultaAntecedentes.Abortos AS COL73
+	,ConsultaAntecedentes.Vivos AS COL74
+	,CASE 
+		WHEN ConsultaRevisionSistemas.NormalAspectoGeneral = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL75
+	,ConsultaRevisionSistemas.AspectoGeneral AS COL76
+	,CASE 
+		WHEN ConsultaRevisionSistemas.NormalCabeza = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL77
+	,ConsultaRevisionSistemas.Cabeza AS COL78
+	,CASE 
+		WHEN ConsultaRevisionSistemas.NormalCuello = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL79
+	,ConsultaRevisionSistemas.Cuello AS COL80
+	,CASE 
+		WHEN ConsultaRevisionSistemas.NormalTorax = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL81
+	,ConsultaRevisionSistemas.Torax AS COL82
+	,CASE 
+		WHEN ConsultaRevisionSistemas.NormalAbdomen = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL83
+	,ConsultaRevisionSistemas.Abdomen AS COL84
+	,CASE 
+		WHEN ConsultaRevisionSistemas.NormalOtros = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL85
+	,ConsultaRevisionSistemas.Otros AS COL86
+	,ConsultaExamenFisico.Peso AS COL87
+	,ConsultaExamenFisico.Talla AS COL88
+	,ConsultaExamenFisico.IndiceMasaCorporal AS COL89
+	,ConsultaExamenFisico.TensionArterial AS COL90
+	,ConsultaExamenFisico.TensionArterialDiastolica AS COL91
+	,ConsultaExamenFisico.TensionArterialSistolica AS COL92
+	,ConsultaExamenFisico.FrecuenciaCardiaca AS COL93
+	,ConsultaExamenFisico.FrecuenciaRespiratoria AS COL94
+	,ConsultaExamenFisico.Temperatura AS COL95
+	,ConsultaExamenFisico.ComentariosExamenFisico AS COL96
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalAspectoGeneral = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL97
+	,ConsultaExamenFisico.ExamenAspectoGeneral AS COL98
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalCabeza = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL99
+	,ConsultaExamenFisico.ExamenCabeza AS COL100
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalPielFanelas = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL101
+	,ConsultaExamenFisico.ExamenPielFanelas AS COL102
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalConjuntivaOcular = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL103
+	,ConsultaExamenFisico.ExamenConjuntivaOcular AS COL104
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalReflejoCorneal = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL105
+	,ConsultaExamenFisico.ExamenReflejoCorneal AS COL106
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalPupilas = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL107
+	,ConsultaExamenFisico.ExamenPupilas AS COL108
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalOidos = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL109
+	,ConsultaExamenFisico.ExamenOidos AS COL110
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalOtoscopia = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL111
+	,ConsultaExamenFisico.ExamenOtoscopia AS COL112
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalRinoscopia = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL113
+	,ConsultaExamenFisico.ExamenRinoscopia AS COL114
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalBocaFaringe = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL115
+	,ConsultaExamenFisico.ExamenBocaFaringe AS COL116
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalCuello = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL117
+	,ConsultaExamenFisico.ExamenCuello AS COL118
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalAmigdalas = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL119
+	,ConsultaExamenFisico.ExamenAmigdalas AS COL120
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalTiroides = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL121
+	,ConsultaExamenFisico.ExamenTiroides AS COL122
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalAdenopatias = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL123
+	,ConsultaExamenFisico.ExamenAdenopatias AS COL124
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalTorax = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL125
+	,ConsultaExamenFisico.ExamenTorax AS COL126
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalRuidosCardiacos = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL127
+	,ConsultaExamenFisico.ExamenRuidosCardiacos AS COL128
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalRuidosRespiratorios = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL129
+	,ConsultaExamenFisico.ExamenRuidosRespiratorios AS COL130
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalPalpacionAbdomen = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL131
+	,ConsultaExamenFisico.ExamenPalpacionAbdomen AS COL132
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalAbdomen = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL133
+	,ConsultaExamenFisico.ExamenAbdomen AS COL134
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalGenitalesExternos = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL135
+	,ConsultaExamenFisico.ExamenGenitalesExternos AS COL136
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalHernias = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL137
+	,ConsultaExamenFisico.ExamenHernias AS COL138
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalColumnaVertebral = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL139
+	,ConsultaExamenFisico.ExamenColumnaVertebral AS COL140
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalExtremidadesSuperiores = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL141
+	,ConsultaExamenFisico.ExamenExtremidadesSuperiores AS COL142
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalExtremidadesInferiores = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL143
+	,ConsultaExamenFisico.ExamenExtremidadesInferiores AS COL144
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalVarices = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL145
+	,ConsultaExamenFisico.ExamenVarices AS COL146
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalNeurologico = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL147
+	,ConsultaExamenFisico.ExamenNeurologico AS COL148
+	,CASE 
+		WHEN ConsultaExamenFisico.ExamenNormalOtros = 1
+			THEN ''
+		ELSE 'ANORMAL'
+		END AS COL149
+	,ConsultaExamenFisico.ExamenOtros AS COL150
+	,ConsultaPruebasBiometricas.ColesterolTotal AS COL151
+	,ConsultaPruebasBiometricas.ColesterolHDL AS COL152
+	,ConsultaPruebasBiometricas.ColesterolHDLmmol AS COL153
+	,ConsultaPruebasBiometricas.ColesterolLDL AS COL154
+	,ConsultaPruebasBiometricas.Trigliceridos AS COL155
+	,ConsultaPruebasBiometricas.IndiceAterogenico AS COL156
+	,ConsultaPruebasBiometricas.AntigenoProstata AS COL157
+	,ConsultaPruebasBiometricas.GlucemiaAyunas AS COL158
+	,ConsultaPruebasBiometricas.HemoglobinaGlucosilada AS COL159
+	,ConsultaPruebasBiometricas.Homocisteina AS COL160
+	,Consulta.ExamenesLaboratorio AS COL161
+	,CASE 
+		WHEN ConsultaPruebasBiometricas.PresenciaMicroorganismos = 1
+			THEN 'Ausencia de Infección'
+		WHEN ConsultaPruebasBiometricas.PresenciaMicroorganismos = 0
+			THEN 'Presencia Microorganismo'
+		ELSE ''
+		END AS COL162
+	,CONVERT(VARCHAR(20), ConsultaPruebasBiometricas.FechaPapanicolauMicro, 103) AS COL163
+	,ConsultaPruebasBiometricas.ObservacionesPresenciaMicro AS COL164
+	,(
+		SELECT Descripcion
+		FROM PreguntaRespuesta
+		WHERE IdPreguntaRespuesta = ConsultaPruebasBiometricas.ResultadoMorfologico
+		) AS COL165
+	,(
+		SELECT Descripcion
+		FROM PreguntaRespuesta
+		WHERE IdPreguntaRespuesta = ConsultaPruebasBiometricas.AnormalidadCelulasEpiteliales
+		) AS COL166
+	,(
+		SELECT Descripcion
+		FROM PreguntaRespuesta
+		WHERE IdPreguntaRespuesta = ConsultaPruebasBiometricas.CelulasEscamosasAtipicas
+		) AS COL167
+	,(
+		SELECT Descripcion
+		FROM PreguntaRespuesta
+		WHERE IdPreguntaRespuesta = ConsultaPruebasBiometricas.Mamografia
+		) AS COL168
+	,ConsultaPruebasBiometricas.MamografiaObservaciones AS COL169
+	,CASE 
+		WHEN ConsultaPruebasBiometricas.Audiometria = 1
+			THEN 'Normal'
+		WHEN ConsultaPruebasBiometricas.Audiometria = 0
+			THEN 'Anormal'
+		ELSE ''
+		END AS COL170
+	,ConsultaPruebasBiometricas.AudiometriaObservaciones AS COL171
+	,CASE 
+		WHEN ConsultaPruebasBiometricas.RayosX = 1
+			THEN 'Normal'
+		WHEN ConsultaPruebasBiometricas.RayosX = 0
+			THEN 'Anormal'
+		ELSE ''
+		END AS COL172
+	,ConsultaPruebasBiometricas.RayosXObservaciones AS COL173
+	,CASE 
+		WHEN ConsultaPruebasBiometricas.Miopia = 1
+			THEN 'X'
+		WHEN ConsultaPruebasBiometricas.Miopia = 0
+			THEN ''
+		ELSE ''
+		END AS COL174
+	,ConsultaPruebasBiometricas.MiopiaValor AS COL175
+	,ConsultaPruebasBiometricas.MiopiaValorOI AS COL176
+	,ConsultaPruebasBiometricas.MiopiaObservaciones AS COL177
+	,CASE 
+		WHEN ConsultaPruebasBiometricas.Astigmatismo = 1
+			THEN 'X'
+		WHEN ConsultaPruebasBiometricas.Astigmatismo = 0
+			THEN ''
+		ELSE ''
+		END AS COL178
+	,ConsultaPruebasBiometricas.AstigmatismoValor AS COL179
+	,ConsultaPruebasBiometricas.AstigmatismoValorOI AS COL180
+	,ConsultaPruebasBiometricas.AstigmatismoObservaciones AS COL181
+	,CASE 
+		WHEN ConsultaPruebasBiometricas.Hipermetropia = 1
+			THEN 'X'
+		WHEN ConsultaPruebasBiometricas.Hipermetropia = 0
+			THEN ''
+		ELSE ''
+		END AS COL182
+	,ConsultaPruebasBiometricas.HipermetropiaValor AS COL183
+	,ConsultaPruebasBiometricas.HipermetropiaValorOI AS COL184
+	,ConsultaPruebasBiometricas.HipermetropiaObservaciones AS COL185
+	,CASE 
+		WHEN ConsultaPruebasBiometricas.Presbicia = 1
+			THEN 'X'
+		WHEN ConsultaPruebasBiometricas.Presbicia = 0
+			THEN ''
+		ELSE ''
+		END AS COL186
+	,ConsultaPruebasBiometricas.PresbiciaValor AS COL187
+	,ConsultaPruebasBiometricas.PresbiciaValorOI AS COL188
+	,ConsultaPruebasBiometricas.PresbiciaObservaciones AS COL189
+	,CASE 
+		WHEN ConsultaPruebasBiometricas.OtrosExamenVisual = 1
+			THEN 'X'
+		WHEN ConsultaPruebasBiometricas.OtrosExamenVisual = 0
+			THEN ''
+		ELSE ''
+		END AS COL190
+	,(
+		SELECT NombreDiagnostico
+		FROM Diagnosticos
+		WHERE IdDiagnostico = ConsultaPruebasBiometricas.IdDiagnosticoExamenVisual
+		) AS COL191
+	,CONVERT(VARCHAR(20), Incapacidad.FechaInicio, 103) AS COL192
+	,CONVERT(VARCHAR(20), Incapacidad.FechaFin, 103) AS COL193
+	,CASE 
+		WHEN Incapacidad.Continuacion = 1
+			THEN 'Si'
+		WHEN Incapacidad.Continuacion = 0
+			THEN 'No'
+		ELSE ''
+		END AS COL194
+	,CASE 
+		WHEN Incapacidad.Transcripcion = 1
+			THEN 'Si'
+		WHEN Incapacidad.Transcripcion = 0
+			THEN 'No'
+		ELSE ''
+		END AS COL195
+	,Incapacidad.Observaciones AS COL196
+	,ConsultaPruebasBiometricas.GlucemiaSinAyunas AS COL197
+FROM  dbo.Parentescos INNER JOIN
+      SIC_BENEFICIARIO ON dbo.Parentescos.IdParentesco = SIC_BENEFICIARIO.parentesco RIGHT OUTER JOIN
+      SIC_EMPLEADO INNER JOIN
+      dbo.Consulta INNER JOIN
+      dbo.Prestadores ON dbo.Consulta.IdPrestador = dbo.Prestadores.IdPrestador INNER JOIN
+      dbo.TipoConsultas ON dbo.Consulta.IdTipoConsulta = dbo.TipoConsultas.IdTipoConsulta INNER JOIN
+      dbo.TipoEnfermedades ON dbo.Consulta.IdTipoEnfermedad = dbo.TipoEnfermedades.IdTipoEnfermedad INNER JOIN
+      dbo.ConsultaAntecedentes ON dbo.Consulta.IdConsulta = dbo.ConsultaAntecedentes.IdConsulta INNER JOIN
+      dbo.ConsultaRevisionSistemas ON dbo.Consulta.IdConsulta = dbo.ConsultaRevisionSistemas.IdConsulta INNER JOIN
+      dbo.ConsultaHabitos ON dbo.Consulta.IdConsulta = dbo.ConsultaHabitos.IdConsulta INNER JOIN      
+      dbo.ConsultaExamenFisico ON dbo.Consulta.IdConsulta = dbo.ConsultaExamenFisico.IdConsulta ON 
+      SIC_EMPLEADO.id_empleado = dbo.Consulta.id_empleado INNER JOIN
+      dbo.Users ON dbo.Consulta.IdUserCreacion = dbo.Users.IdUser ON 
+      SIC_BENEFICIARIO.beneficiario_id = dbo.Consulta.beneficiario_id LEFT OUTER JOIN
+      dbo.Solicitud ON dbo.Consulta.IdConsulta = dbo.Solicitud.IdConsulta LEFT OUTER JOIN
+      dbo.Incapacidad ON dbo.Consulta.IdConsulta = dbo.Incapacidad.IdConsulta LEFT OUTER JOIN
+      dbo.ConsultaPruebasBiometricas ON ConsultaPruebasBiometricas.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+      dbo.ConsultaEstiloVidaParte1 ON ConsultaEstiloVidaParte1.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+      dbo.ConsultaEstiloVidaParte2 ON ConsultaEstiloVidaParte2.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+      dbo.ConsultaEstiloVidaParte3 ON ConsultaEstiloVidaParte3.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+      dbo.ConsultaNutricion ON ConsultaNutricion.IdConsulta = dbo.Consulta.IdConsulta INNER JOIN 
+      sic_empresa ON Consulta.empresa_id = sic_empresa.empresa_id LEFT OUTER JOIN 
+      Sedes ON Consulta.sede_id = Sedes.sede_id 
+ WHERE		(1=1)"
+        DirPlantillas="Basica\"
+        NombreReporte="ConsultasBajas"
+        cadenaConexion="ConnectionStringReembolsos"
+        cantidad_parametros="0"
+        Titulo="CONSULTAS "
+>
+  <Campos>
+    <Campo titulo="CORPORATIVO" filtro="si" select="si" tabla="SIC_CORPORATIVO" campo_valor="corporativo_id" campo_nombre="nombre"></Campo>
+    <Campo titulo="EMPRESA" filtro="no"></Campo>
+    <Campo titulo="EMPRESA ID" expansion="si" filtro="si" multiple="si" tabla="EmpresaDatos" campo_valor="empresa_id" campo_nombre="AbreviacionEmpresa"></Campo>
+    <Campo titulo="FECHA CREACION CONSULTA" filtro="si"  fecha="si"></Campo>
+    <Campo titulo="FECHA MODIFICACION CONSULTA" filtro="si"  fecha="si"></Campo>
+    <Campo titulo="FECHA Y HORA CONSULTA - ÚLTIMA MODIFICACION" filtro="no"></Campo>
+    <Campo titulo="FECHA FIN DE CREACIÓN" filtro="si"  fecha="si"></Campo>
+    <Campo titulo="ESTATUS CONSULTA" filtro="si" select="si" 
+           tabla="(select 'SI' Valor,'CERRADA' Descripcion union all select 'NO' Valor,'EN PROCESO' Descripcion)tbOpciones"
+           campo_valor="Descripcion" campo_nombre="Descripcion"></Campo>
+    <Campo titulo="USUARIO CREACIÓN" filtro="no"></Campo>
+    <Campo titulo="No. CONSULTA" filtro="no"></Campo>
+    <Campo titulo="MÉDICO" filtro="no"></Campo>
+    <Campo titulo="SEDE CONSULTA" filtro="si"></Campo>
+    <Campo titulo="LOCALIDAD EMPLEADO" filtro="si"></Campo>
+    <Campo titulo="PACIENTE" filtro="si"></Campo>
+    <Campo titulo="No EMPLEADO" filtro="si"></Campo>
+    <Campo titulo="FECHA NACIMIENTO" filtro="no" fecha="si"></Campo>
+    <Campo titulo="GÉNERO" filtro="no"></Campo>
+    <Campo titulo="PARENTESCO" filtro="no"></Campo>
+    <Campo titulo="ID TIPO CONSULTA" filtro="si" select="si" tabla="TipoConsultas" campo_valor="IdTipoConsulta" campo_nombre="NombreTipoConsulta"></Campo>
+    <Campo titulo="TIPO CONSULTA" filtro="no"></Campo>
+    <Campo titulo="TIPO ENFERMEDAD" filtro="no"></Campo>
+    <Campo titulo="MOTIVO" filtro="no"></Campo>
+    <Campo titulo="ENFERMEDAD ACTUAL" filtro="no"></Campo>
+    <Campo titulo="OBSERVACIONES GENERALES | RECOMENDACIONES" filtro="no"></Campo>
+    <Campo titulo="CONTRARREFERENCIA " filtro="no"></Campo>
+    <Campo titulo="DIAGNÓSTICO PRINCIPAL" filtro="no"></Campo>
+    <Campo titulo="TIEMPO EVOLUCIÓN PRINCIPAL" filtro="no"></Campo>
+    <Campo titulo="TIPO DIAGNÓSTICO PRINCIPAL" filtro="no"></Campo>
+    <Campo titulo="CATEGORÍA DIAGNÓSTICO PRINCIPAL" filtro="no"></Campo>
+    <Campo titulo="DIAGNÓSTICO 2" filtro="no"></Campo>
+    <Campo titulo="TIEMPO EVOLUCIÓN 2" filtro="no"></Campo>
+    <Campo titulo="TIPO DIAGNÓSTICO 2" filtro="no"></Campo>
+    <Campo titulo="CATEGORÍA DIAGNÓSTICO 2" filtro="no"></Campo>
+    <Campo titulo="DIAGNÓSTICO 3" filtro="no"></Campo>
+    <Campo titulo="TIEMPO EVOLUCIÓN 3" filtro="no"></Campo>
+    <Campo titulo="TIPO DIAGNÓSTICO 3" filtro="no"></Campo>
+    <Campo titulo="CATEGORÍA DIAGNÓSTICO 3" filtro="no"></Campo>
+    <Campo titulo="DIAGNÓSTICO 4" filtro="no"></Campo>
+    <Campo titulo="TIEMPO EVOLUCIÓN 4" filtro="no"></Campo>
+    <Campo titulo="TIPO DIAGNÓSTICO 4" filtro="no"></Campo>
+    <Campo titulo="CATEGORÍA DIAGNÓSTICO 4" filtro="no"></Campo>
+    <Campo titulo="DIAGNÓSTICO 5" filtro="no"></Campo>
+    <Campo titulo="TIEMPO EVOLUCIÓN 5" filtro="no"></Campo>
+    <Campo titulo="TIPO DIAGNÓSTICO 5" filtro="no"></Campo>
+    <Campo titulo="CATEGORÍA DIAGNÓSTICO 5" filtro="no"></Campo>
+    <Campo titulo="DIAGNÓSTICO 6" filtro="no"></Campo>
+    <Campo titulo="TIEMPO EVOLUCIÓN 6" filtro="no"></Campo>
+    <Campo titulo="TIPO DIAGNÓSTICO 6" filtro="no"></Campo>
+    <Campo titulo="CATEGORÍA DIAGNÓSTICO 6" filtro="no"></Campo>
+    <Campo titulo="PLAN TRATAMIENTO" filtro="no"></Campo>
+    <Campo titulo="CITA CONTROL" filtro="no"></Campo>
+    <Campo titulo="ANTECEDENTES MÉDICOS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS ANTECEDENTES MÉDICOS" filtro="no"></Campo>
+    <Campo titulo="ANTECEDENTES QUIRÚRGICOS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS ANTECEDENTES QUIRÚRGICOS" filtro="no"></Campo>
+    <Campo titulo="ANTECEDENTES GINECOBSTÉTRICOS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS ANTECEDENTES GINECOBSTÉTRICOS" filtro="no"></Campo>
+    <Campo titulo="ANTECEDENTES TRANSFUSIONALES" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS ANTECEDENTES TRANSFUSIONALES" filtro="no"></Campo>
+    <Campo titulo="ANTECEDENTES TÓXICO ALÉRGICOS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS ANTECEDENTES TÓXICO ALÉRGICOS" filtro="no"></Campo>
+    <Campo titulo="ANTECEDENTES FARMACOLÓGICOS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS ANTECEDENTES FARMACOLÓGICOS" filtro="no"></Campo>
+    <Campo titulo="ANTECEDENTES FAMILIARES" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS ANTECEDENTES FAMILIARES" filtro="no"></Campo>
+    <Campo titulo="OTROS ANTECEDENTES" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTROS ANTECEDENTES" filtro="no"></Campo>
+    <Campo titulo="MENARQUIA" filtro="no"></Campo>
+    <Campo titulo="FECHA ÚLTIMA MESTRUACIÓN" filtro="no"></Campo>
+    <Campo titulo="GESTACIONES" filtro="no"></Campo>
+    <Campo titulo="PARTOS" filtro="no"></Campo>
+    <Campo titulo="CESÁREAS" filtro="no"></Campo>
+    <Campo titulo="ABORTOS" filtro="no"></Campo>
+    <Campo titulo="VIVOS" filtro="no"></Campo>
+    <Campo titulo="REV SISTEMAS ASPECTO GENERAL" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS ASPECTO GENERAL" filtro="no"></Campo>
+    <Campo titulo="REV SISTEMAS CABEZA" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS CABEZA" filtro="no"></Campo>
+    <Campo titulo="REV SISTEMAS CUELLO" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS CUELLO " filtro="no"></Campo>
+    <Campo titulo="REV SISTEMAS TÓRAX" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS TÓRAX" filtro="no"></Campo>
+    <Campo titulo="REV SISTEMAS ABDOMEN" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS ABDOMEN" filtro="no"></Campo>
+    <Campo titulo="REV SISTEMAS OTROS " filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTROS " filtro="no"></Campo>
+    <Campo titulo="PESO " filtro="no"></Campo>
+    <Campo titulo="TALLA " filtro="no"></Campo>
+    <Campo titulo="ÍNIDICE MASA CORPORAL " filtro="no"></Campo>
+    <Campo titulo="TENSIÓN ARTERIAL " filtro="no"></Campo>
+    <Campo titulo="TENSIÓN DIASTÓLICA " filtro="no"></Campo>
+    <Campo titulo="TENSIÓN SISTÓLICA " filtro="no"></Campo>
+    <Campo titulo="FRECUENCIA CARDIACA " filtro="no"></Campo>
+    <Campo titulo="FRECUENCIA RESPIRATORIA " filtro="no"></Campo>
+    <Campo titulo="TEMPERATURA " filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS EXAMEN FÍSICO " filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO ASPECTO GENERAL" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS ASPECTO GENERAL" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO CABEZA" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS CABEZA" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO PIEL FANERAS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS PIEL FANERAS" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO CONJUNTIVA OCULAR" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS CONJUNTIVA OCULAR" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO REFLEJO CORNEAL" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS REFLEJO CORNEAL" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO PUPILAS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS PUPILAS" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO OÍDOS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OÍDOS" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO OTOSCOPIA" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTOSCOPIA" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO RINOSCOPIA" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS RINOSCOPIA" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO BOCA FARINGE" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS BOCA FARINGE" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO CUELLO" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS CUELLO" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO AMÍGDALAS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS AMÍGDALAS" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO TIROIDES" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS TIROIDES" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO ADENOPATÍAS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS ADENOPATÍAS" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO TÓRAX" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS TÓRAX" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO RUIDOS CARDIACOS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS RUIDOS CARDIACOS" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO RUIDOS RESPIRATORIOS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS RUIDOS RESPIRATORIOS" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO PALPACIÓN ABDOMEN" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS PALPACIÓN ABDOMEN" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO ABDOMEN" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS ABDOMEN" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO GENITALES EXTERNOS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS GENITALES EXTERNOS" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO HERNIAS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS HERNIAS" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO COLUMNA VERTEBRAL" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS COLUMNA VERTEBRAL" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO EXTREMIDADES SUPERIORES" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS EXTREMIDADES SUPERIORES" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO EXTREMIDADES INFERIORES" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS EXTREMIDADES INFERIORES" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO VARICES" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS VARICES" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO NEUROLÓGICO" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS NEUROLÓGICO" filtro="no"></Campo>
+    <Campo titulo="EXAMEN FÍSICO OTROS" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS OTROS" filtro="no"></Campo>
+    <Campo titulo="COLESTEROL TOTAL" filtro="no"></Campo>
+    <Campo titulo="COLESTEROL HDL 1" filtro="no"></Campo>
+    <Campo titulo="COLESTEROL HDL 2" filtro="no"></Campo>
+    <Campo titulo="COLESTEROL LDL" filtro="no"></Campo>
+    <Campo titulo="TRIGLICÉRIDOS" filtro="no"></Campo>
+    <Campo titulo="ÍNDICE ATEROGÉNICO" filtro="no"></Campo>
+    <Campo titulo="ANTÍGENO PRÓSTATA" filtro="no"></Campo>
+    <Campo titulo="GLICEMIA AYUNAS" filtro="no"></Campo>
+    <Campo titulo="HEMOGLOBINA GLUCOSILADA" filtro="no"></Campo>
+    <Campo titulo="HOMOCISTEINA" filtro="no"></Campo>
+    <Campo titulo="EXÁMENES LABORATORIO" filtro="no"></Campo>
+    <Campo titulo="PAPANICOLAU MICROBIOLÓGICO" filtro="no"></Campo>
+    <Campo titulo="FECHA PAPANICOLAU" filtro="no"></Campo>
+    <Campo titulo="OBSERVACIONES PAPANICOLAU MICROBIOLÓGICO" filtro="no"></Campo>
+    <Campo titulo="PAPANICOLAU MORFOLÓGICO 1" filtro="no"></Campo>
+    <Campo titulo="PAPANICOLAU MORFOLÓGICO 2" filtro="no"></Campo>
+    <Campo titulo="PAPANICOLAU MORFOLÓGICO 3" filtro="no"></Campo>
+    <Campo titulo="MAMOGRAFÍA" filtro="no"></Campo>
+    <Campo titulo="OBSERVACIONES MAMOGRAFÍA" filtro="no"></Campo>
+    <Campo titulo="AUDIOMETRÍA" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS AUDIOMETRÍA" filtro="no"></Campo>
+    <Campo titulo="RAYOS X" filtro="no"></Campo>
+    <Campo titulo="COMENTARIOS RAYOS X" filtro="no"></Campo>
+    <Campo titulo="MIOPÍA" filtro="no"></Campo>
+    <Campo titulo="MIOPÍA VALOR OD" filtro="no"></Campo>
+    <Campo titulo="MIOPÍA VALOR OI" filtro="no"></Campo>
+    <Campo titulo="MIOPÍA OBSERVACIONES" filtro="no"></Campo>
+    <Campo titulo="ASTIGMATISMO" filtro="no"></Campo>
+    <Campo titulo="ASTIGMATISMO VALOR OD" filtro="no"></Campo>
+    <Campo titulo="ASTIGMATISMO VALOR OI" filtro="no"></Campo>
+    <Campo titulo="ASTIGMATISMO OBSERVACIONES" filtro="no"></Campo>
+    <Campo titulo="HIPERMETROPÍA" filtro="no"></Campo>
+    <Campo titulo="HIPERMETROPÍA VALOR OD" filtro="no"></Campo>
+    <Campo titulo="HIPERMETROPÍA VALOR OI" filtro="no"></Campo>
+    <Campo titulo="HIPERMETROPÍA OBSERVACIONES" filtro="no"></Campo>
+    <Campo titulo="PRESBICIA" filtro="no"></Campo>
+    <Campo titulo="PRESBICIA VALOR OD" filtro="no"></Campo>
+    <Campo titulo="PRESBICIA VALOR OI" filtro="no"></Campo>
+    <Campo titulo="PRESBICIA OBSERVACIONES" filtro="no"></Campo>
+    <Campo titulo="OTROS EXAMEN VISUAL" filtro="no"></Campo>
+    <Campo titulo="OTROS DIAGNÓSTICO EXAMEN VISUAL" filtro="no"></Campo>
+    <Campo titulo="INCAPACIDAD FECHA INICIO" filtro="no"></Campo>
+    <Campo titulo="INCAPACIDAD FECHA FIN" filtro="no"></Campo>
+    <Campo titulo="INCAPACIDAD CONTINUACIÓN" filtro="no"></Campo>
+    <Campo titulo="INCAPACIDAD TRANSCRIPCIÓN" filtro="no"></Campo>
+    <Campo titulo="INCAPACIDAD OBSERVACIONES " filtro="no"></Campo>
+    <Campo titulo="GLICEMIA SIN AYUNAS" filtro="no"></Campo>
+
+  </Campos>
+</Reporte>

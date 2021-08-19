@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes" ?>
+<Reporte
+        Consulta="
+
+SELECT
+  sic_empresa.corporativo_id as col1,
+  sic_empresa.nombre as col2,
+  dbo.Consulta.empresa_id AS COL3,
+  CONVERT(varchar(20),dbo.Consulta.FechaCreacion, 103)  AS COL4,
+  CONVERT(varchar(20),dbo.Consulta.FechaModificacion, 103)  AS COL5,
+  CONVERT(varchar(20),dbo.Consulta.FechaCreacion,103) + ' ' + CONVERT(varchar(20),dbo.Consulta.FechaCreacion,108) + CASE WHEN Consulta.FechaModificacion IS NULL THEN '-' + CONVERT(varchar(20),dbo.Consulta.FechaCreacion,103) + ' ' + CONVERT(varchar(20),dbo.Consulta.FechaCreacion,108)  ELSE '-' + CONVERT(varchar(20),dbo.Consulta.FechaModificacion,103) + ' ' + CONVERT(varchar(20),dbo.Consulta.FechaModificacion,108)END  AS COL6,
+  dbo.Users.NameUser AS COL7,
+  dbo.Consulta.ConsecutivoNombre AS COL8,
+  dbo.Prestadores.NombrePrestador AS COL9,
+  dbo.Sedes.nombreSede AS COL10,
+  CASE WHEN dbo.SIC_EMPLEADO.locClave IS NULL 
+  THEN ISNULL(dbo.SIC_BENEFICIARIO.locDescripcion, '')
+  ELSE ISNULL(dbo.SIC_EMPLEADO.locDescripcion, '')
+  END AS COL11,
+  CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN isnull(SIC_EMPLEADO.primer_nombre + ' ', '') 
+  + isnull(SIC_EMPLEADO.segundo_nombre + ' ', '') + isnull(SIC_EMPLEADO.apellido_paterno + ' ', '') 
+  + isnull(SIC_EMPLEADO.apellido_materno + ' ', '') 
+  ELSE isnull(SIC_BENEFICIARIO.primer_nombre + ' ', '') 
+  + isnull(SIC_BENEFICIARIO.segundo_nombre + ' ', '') + isnull(SIC_BENEFICIARIO.primer_apellido + ' ', '') 
+  + isnull(SIC_BENEFICIARIO.segundo_apellido + ' ', '')   
+  END AS COL12,
+  CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN CONVERT(VARCHAR(12), ISNULL(SIC_EMPLEADO.identificacion  COLLATE Modern_Spanish_CI_AS, '')) ELSE CONVERT(VARCHAR(12), ISNULL(SIC_BENEFICIARIO.identificacion  COLLATE Modern_Spanish_CI_AS, '')) END AS COL13,
+  CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN CONVERT(varchar(20), SIC_EMPLEADO.fecha_nacimiento, 103) ELSE CONVERT(varchar(20), SIC_BENEFICIARIO.fecha_nacimiento, 103) END AS COL14,
+  CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN CASE WHEN SIC_EMPLEADO.sexo = 1 THEN 'M' ELSE 'F' END ELSE CASE WHEN SIC_BENEFICIARIO.genero = 1 THEN 'M' ELSE 'F' END END AS COL15,
+  CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN 'TITULAR' ELSE Parentescos.NombreParentesco END AS COL16,
+  TipoConsultas.IdTipoConsulta AS COL17,
+  CASE --MAHG Se agregó la columna para identificar si Wellness primera Vez es editable
+  WHEN (Consulta.IdTipoConsulta = 3 AND ISNULL(Convert(smallint,Consulta.Finalizada),0) = 1 )
+  THEN 
+  TipoConsultas.NombreTipoConsulta + ' (Cerrada)'
+  WHEN (Consulta.IdTipoConsulta = 3 AND ISNULL(Convert(smallint,Consulta.Finalizada),0) = 0 )
+  THEN 
+  TipoConsultas.NombreTipoConsulta + ' (Abierta)'
+  ELSE TipoConsultas.NombreTipoConsulta 
+  END AS COL18,
+  TipoEnfermedades.NombreTipoEnfermedad AS COL19, 
+  CASE WHEN ConsultaEstiloVidaParte1.ProgramaWellness = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.ProgramaWellness = 0 THEN 'No'  ELSE '' END AS COL20
+  ,CASE WHEN ConsultaEstiloVidaParte1.FirmaWellness = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.FirmaWellness = 0 THEN 'No'  ELSE '' END AS COL21
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.ConductaCigarrillo) AS COL22
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.TiempoPrimerCigarrillo) AS COL23
+  ,CASE WHEN ConsultaEstiloVidaParte1.DificultadFumar = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.DificultadFumar = 0 THEN 'No'  ELSE '' END AS COL24
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.CigarrilloSuprimir) AS COL25
+  ,ConsultaEstiloVidaParte1.CigarrillosalDia AS COL26
+  ,CASE WHEN ConsultaEstiloVidaParte1.FrecuenciaPrimerasHorasDia = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.FrecuenciaPrimerasHorasDia = 0 THEN 'No'  ELSE '' END AS COL27
+  ,CASE WHEN ConsultaEstiloVidaParte1.FumaEnfermedad = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.FumaEnfermedad = 0 THEN 'No'  ELSE '' END AS COL28
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.CategoriaCigarrillos) AS COL29
+  ,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.AspiraHumo) AS COL30
+  ,ConsultaEstiloVidaParte1.AnosDejoFumar AS COL31
+  ,ConsultaEstiloVidaParte1.PromedioDiarioX2Anos AS COL32  
+  ,(SELECT     CASE WHEN ISNULL(PreguntaRespuesta.Descripcion, '') NOT IN ('') 
+THEN PreguntaRespuesta.Descripcion + ',' ELSE '' END AS '*'
+FROM    ConsultaOpcion 
+INNER JOIN PreguntaRespuesta 
+ON ConsultaOpcion.IdPreguntaRespuesta = PreguntaRespuesta.IdPreguntaRespuesta
+WHERE  ConsultaOpcion.IdPreguntaRespuestaPadre   = 506 
+AND ConsultaOpcion.IdConsulta = Consulta.IdConsulta FOR XML PATH('')) AS COL33
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.ConviveFumador) AS COL34      
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.CopasSemana) AS COL35
+,CASE WHEN ConsultaEstiloVidaParte1.CriticaAlcohol = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.CriticaAlcohol = 0 THEN 'No'  ELSE '' END AS COL36
+,CASE WHEN ConsultaEstiloVidaParte1.ArrepentidoAlcohol = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.ArrepentidoAlcohol = 0 THEN 'No'  ELSE '' END AS COL37
+,CASE WHEN ConsultaEstiloVidaParte1.LagunaAlcohol = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.LagunaAlcohol = 0 THEN 'No'  ELSE '' END AS COL38
+,CASE WHEN ConsultaEstiloVidaParte1.MananaAlcohol = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.MananaAlcohol = 0 THEN 'No'  ELSE '' END AS COL39       
+,CASE WHEN ConsultaEstiloVidaParte1.PracticaDeporte = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.PracticaDeporte = 0 THEN 'No'  ELSE '' END AS COL40
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.PracticaDeporteSemana) AS COL41
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.PromedioTiempoMinutos) AS COL42
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.TipoActividadFisica ) AS COL43
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.HorasDiariasTV) AS COL44
+,CASE WHEN ConsultaEstiloVidaParte1.NoRutinaEjercicio = 1 THEN 'Si' WHEN ConsultaEstiloVidaParte1.rutinaEjercicioUltimoMes = 0 THEN 'No'  ELSE '' END AS COL45
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstiloVidaParte1.NoRutinaEjercicio) AS COL46
+, ConsultaEstiloVidaParte1.OtroMotivo AS COL47
+,CASE WHEN ConsultaEstamosContigo.PresionArterial30dias = 1 THEN 'Si' WHEN ConsultaEstamosContigo.PresionArterial30dias = 0 THEN 'No'  ELSE '' END AS COL48
+,CONVERT(varchar(20),dbo.ConsultaEstamosContigo.FechaPresionArterial30dias, 103)  AS COL49
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstamosContigo.ValorPresionArterial30dias) AS COL50
+, CASE WHEN HAS.VisitaNutriologo = 1 THEN 'Si' WHEN HAS.VisitaNutriologo = 0 THEN 'No'  ELSE '' END AS COL51
+, HAS.NoVisitaNutriologo AS COL52
+, CASE WHEN HAS.ApegadoDieta = 1 THEN 'Si' WHEN HAS.ApegadoDieta = 0 THEN 'No'  ELSE '' END AS COL53  
+, (SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= HAS.IndicacionesMedico) AS COL54
+, HAS.NoCumpleTratamientos AS COL55
+, CASE WHEN HAS.MedicoTratamiento = 1 THEN 'Si' WHEN HAS.MedicoTratamiento = 0 THEN 'No'  ELSE '' END AS COL56   
+,(SELECT     CASE WHEN ISNULL(PreguntaRespuesta.Descripcion, '') NOT IN ('') 
+THEN PreguntaRespuesta.Descripcion + ',' ELSE '' END AS '*'
+FROM    ConsultaOpcion 
+INNER JOIN PreguntaRespuesta 
+ON ConsultaOpcion.IdPreguntaRespuesta = PreguntaRespuesta.IdPreguntaRespuesta
+WHERE  ConsultaOpcion.IdPreguntaRespuestaPadre   = 547 
+AND ConsultaOpcion.IdConsulta = Consulta.IdConsulta FOR XML PATH('')) AS COL57
+, HAS.OtraComplicacion AS COL58
+, HAS.Medicamentos AS COL59
+, HAS.Recomendaciones AS COL60
+, CONVERT(varchar(20),HAS.FechaSiguienteCita,103) AS  COL61
+,CASE WHEN ConsultaEstamosContigo.Glucosa30dias = 1 THEN 'Si' WHEN ConsultaEstamosContigo.Glucosa30dias = 0 THEN 'No'  ELSE '' END AS COL62
+,CONVERT(varchar(20),dbo.ConsultaEstamosContigo.FechaGlucosa30dias, 103)  AS COL63
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstamosContigo.ValorGlucosa30dias) AS COL64
+, CASE WHEN DM.VisitaNutriologo = 1 THEN 'Si' WHEN DM.VisitaNutriologo = 0 THEN 'No'  ELSE '' END AS COL65
+, DM.NoVisitaNutriologo AS COL66
+, CASE WHEN DM.ApegadoDieta = 1 THEN 'Si' WHEN DM.ApegadoDieta = 0 THEN 'No'  ELSE '' END AS COL67  
+, (SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= DM.IndicacionesMedico) AS COL68
+, DM.NoCumpleTratamientos AS COL69
+, CASE WHEN DM.MedicoTratamiento = 1 THEN 'Si' WHEN DM.MedicoTratamiento = 0 THEN 'No'  ELSE '' END AS COL70   
+,(SELECT     CASE WHEN ISNULL(PreguntaRespuesta.Descripcion, '') NOT IN ('') 
+THEN PreguntaRespuesta.Descripcion + ',' ELSE '' END AS '*'
+FROM    ConsultaOpcion 
+INNER JOIN PreguntaRespuesta 
+ON ConsultaOpcion.IdPreguntaRespuesta = PreguntaRespuesta.IdPreguntaRespuesta
+WHERE  ConsultaOpcion.IdPreguntaRespuestaPadre   = 553 
+AND ConsultaOpcion.IdConsulta = Consulta.IdConsulta FOR XML PATH('')) AS COL71
+, DM.OtraComplicacion AS COL72
+, DM.Medicamentos AS COL73
+, DM.Recomendaciones AS COL74
+, CONVERT(varchar(20),DM.FechaSiguienteCita,103) AS COL75    
+,CASE WHEN ConsultaEstamosContigo.ColesterolTotal30Dias = 1 THEN 'Si' WHEN ConsultaEstamosContigo.ColesterolTotal30Dias = 0 THEN 'No'  ELSE '' END AS COL76
+,CONVERT(varchar(20),dbo.ConsultaEstamosContigo.FechaColesterolTotal30Dias, 103)  AS COL77
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstamosContigo.ValorColesterolTotal30Dias) AS COL78
+,CASE WHEN ConsultaEstamosContigo.ColesterolHDL30Dias = 1 THEN 'Si' WHEN ConsultaEstamosContigo.ColesterolHDL30Dias = 0 THEN 'No'  ELSE '' END AS COL79
+,CONVERT(varchar(20),dbo.ConsultaEstamosContigo.FechaColesterolHDL30Dias, 103)  AS COL80
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstamosContigo.ValorColesterolHDL30Dias) AS COL81
+,CASE WHEN ConsultaEstamosContigo.ColesterolLDL30Dias = 1 THEN 'Si' WHEN ConsultaEstamosContigo.ColesterolLDL30Dias = 0 THEN 'No'  ELSE '' END AS COL82
+,CONVERT(varchar(20),dbo.ConsultaEstamosContigo.FechaColesterolLDL30Dias, 103)  AS COL83
+,(SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstamosContigo.ValorColesterolLDL30Dias) AS COL84
+, CASE WHEN DISLIPIDEMIAS.VisitaNutriologo = 1 THEN 'Si' WHEN DISLIPIDEMIAS.VisitaNutriologo = 0 THEN 'No'  ELSE '' END AS COL85 
+, DISLIPIDEMIAS.NoVisitaNutriologo AS COL86
+, CASE WHEN DISLIPIDEMIAS.ApegadoDieta = 1 THEN 'Si' WHEN DISLIPIDEMIAS.ApegadoDieta = 0 THEN 'No'  ELSE '' END AS COL87  
+, (SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= DISLIPIDEMIAS.IndicacionesMedico) AS COL88
+, DISLIPIDEMIAS.NoCumpleTratamientos AS COL89
+, CASE WHEN DISLIPIDEMIAS.MedicoTratamiento = 1 THEN 'Si' WHEN DISLIPIDEMIAS.MedicoTratamiento = 0 THEN 'No'  ELSE '' END AS COL90   
+,(SELECT     CASE WHEN ISNULL(PreguntaRespuesta.Descripcion, '') NOT IN ('') 
+THEN PreguntaRespuesta.Descripcion + ',' ELSE '' END AS '*'
+FROM    ConsultaOpcion 
+INNER JOIN PreguntaRespuesta 
+ON ConsultaOpcion.IdPreguntaRespuesta = PreguntaRespuesta.IdPreguntaRespuesta
+WHERE  ConsultaOpcion.IdPreguntaRespuestaPadre   = 559 
+AND ConsultaOpcion.IdConsulta = Consulta.IdConsulta FOR XML PATH('')) AS COL91
+, DISLIPIDEMIAS.OtraComplicacion AS COL92
+, DISLIPIDEMIAS.Medicamentos AS COL93
+, DISLIPIDEMIAS.Recomendaciones AS COL94
+, CONVERT(varchar(20),DISLIPIDEMIAS.FechaSiguienteCita,103) AS  COL95
+, CASE WHEN ConsultaEstamosContigo.Trigliceridos30Dias = 1 THEN 'Si' WHEN ConsultaEstamosContigo.Trigliceridos30Dias = 0 THEN 'No'  ELSE '' END AS COL96
+, CONVERT(varchar(20),dbo.ConsultaEstamosContigo.FechaTrigliceridos30Dias, 103)  AS COL97
+, (SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstamosContigo.ValorTrigliceridos30DiasHombres) AS COL98
+, (SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= ConsultaEstamosContigo.ValorTrigliceridos30DiasMujeres) AS COL99
+, CASE WHEN TRIGLICERIDOS.VisitaNutriologo = 1 THEN 'Si' WHEN TRIGLICERIDOS.VisitaNutriologo = 0 THEN 'No'  ELSE '' END AS COL100
+, TRIGLICERIDOS.NoVisitaNutriologo AS COL101
+, CASE WHEN TRIGLICERIDOS.ApegadoDieta = 1 THEN 'Si' WHEN TRIGLICERIDOS.ApegadoDieta = 0 THEN 'No'  ELSE '' END AS COL102  
+, (SELECT Descripcion FROM PreguntaRespuesta WHERE IdPreguntaRespuesta= TRIGLICERIDOS.IndicacionesMedico) AS COL103
+, TRIGLICERIDOS.NoCumpleTratamientos AS COL104
+, CASE WHEN TRIGLICERIDOS.MedicoTratamiento = 1 THEN 'Si' WHEN TRIGLICERIDOS.MedicoTratamiento = 0 THEN 'No'  ELSE '' END AS COL105   
+,(SELECT     CASE WHEN ISNULL(PreguntaRespuesta.Descripcion, '') NOT IN ('') 
+THEN PreguntaRespuesta.Descripcion + ',' ELSE '' END AS '*'
+FROM    ConsultaOpcion 
+INNER JOIN PreguntaRespuesta 
+ON ConsultaOpcion.IdPreguntaRespuesta = PreguntaRespuesta.IdPreguntaRespuesta
+WHERE  ConsultaOpcion.IdPreguntaRespuestaPadre   = 565 
+AND ConsultaOpcion.IdConsulta = Consulta.IdConsulta FOR XML PATH('')) AS COL106
+, TRIGLICERIDOS.OtraComplicacion AS COL107
+, TRIGLICERIDOS.Medicamentos AS COL108
+, TRIGLICERIDOS.Recomendaciones AS COL109
+, CONVERT(varchar(20),TRIGLICERIDOS.FechaSiguienteCita,103) AS  COL110
+FROM    dbo.Parentescos INNER JOIN
+        dbo.SIC_BENEFICIARIO ON dbo.Parentescos.IdParentesco = dbo.SIC_BENEFICIARIO.parentesco RIGHT OUTER JOIN
+        dbo.SIC_EMPLEADO INNER JOIN
+        dbo.Consulta INNER JOIN
+        dbo.Prestadores ON dbo.Consulta.IdPrestador = dbo.Prestadores.IdPrestador INNER JOIN
+        dbo.TipoConsultas ON dbo.Consulta.IdTipoConsulta = dbo.TipoConsultas.IdTipoConsulta INNER JOIN
+        dbo.TipoEnfermedades ON dbo.Consulta.IdTipoEnfermedad = dbo.TipoEnfermedades.IdTipoEnfermedad INNER JOIN
+        dbo.ConsultaAntecedentes ON dbo.Consulta.IdConsulta = dbo.ConsultaAntecedentes.IdConsulta INNER JOIN
+        dbo.ConsultaRevisionSistemas ON dbo.Consulta.IdConsulta = dbo.ConsultaRevisionSistemas.IdConsulta ON 
+        dbo.SIC_EMPLEADO.id_empleado = dbo.Consulta.id_empleado INNER JOIN
+        dbo.Users ON dbo.Consulta.IdUserCreacion = dbo.Users.IdUser ON 
+        dbo.SIC_BENEFICIARIO.beneficiario_id = dbo.Consulta.beneficiario_id LEFT OUTER JOIN
+        dbo.Solicitud ON dbo.Consulta.IdConsulta = dbo.Solicitud.IdConsulta LEFT OUTER JOIN
+        dbo.ConsultaEstiloVidaParte1 ON dbo.ConsultaEstiloVidaParte1.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+        dbo.ConsultaEstiloVidaParte2 ON dbo.ConsultaEstiloVidaParte2.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+        dbo.ConsultaEstiloVidaParte3 ON dbo.ConsultaEstiloVidaParte3.IdConsulta = dbo.Consulta.IdConsulta LEFT OUTER JOIN
+        dbo.ConsultaEstamosContigo ON dbo.ConsultaEstamosContigo.IdConsulta = dbo.Consulta.IdConsulta INNER JOIN
+        dbo.SIC_EMPRESA ON dbo.Consulta.empresa_id = dbo.SIC_EMPRESA.empresa_id LEFT OUTER JOIN
+        dbo.ConsultaEstamosContigoGenerales AS HAS ON dbo.Consulta.IdConsulta = HAS.IdConsulta AND HAS.IdTipoPadecimiento = 1 LEFT OUTER JOIN
+        dbo.ConsultaEstamosContigoGenerales AS DM ON dbo.Consulta.IdConsulta = DM.IdConsulta AND DM.IdTipoPadecimiento = 2 LEFT OUTER JOIN
+        dbo.ConsultaEstamosContigoGenerales AS Dislipidemias ON dbo.Consulta.IdConsulta = Dislipidemias.IdConsulta AND Dislipidemias.IdTipoPadecimiento = 3 LEFT OUTER JOIN
+        dbo.ConsultaEstamosContigoGenerales AS Trigliceridos ON dbo.Consulta.IdConsulta = Trigliceridos.IdConsulta AND DM.IdTipoPadecimiento = 4 LEFT OUTER JOIN
+        dbo.Sedes ON dbo.Consulta.sede_id = dbo.Sedes.sede_id 
+ WHERE		(1=1) "
+        DirPlantillas="Basica\"
+        NombreReporte="Consultas"
+        cadenaConexion="ConnectionStringReembolsos"
+        cantidad_parametros="0"
+        Titulo="CONSULTAS "
+>
+  <Campos>
+    <Campo titulo="CORPORATIVO" filtro="si" select="si" tabla="SIC_CORPORATIVO" campo_valor="corporativo_id" campo_nombre="nombre"></Campo>
+    <Campo titulo="EMPRESA" filtro="no"></Campo>
+    <Campo titulo="EMPRESA ID" expansion="si" filtro="si" multiple="si" tabla="EmpresaDatos" campo_valor="empresa_id" campo_nombre="AbreviacionEmpresa"></Campo>
+    <Campo titulo="FECHA CREACION CONSULTA" filtro="si"  fecha="si"></Campo>
+    <Campo titulo="FECHA MODIFICACION CONSULTA" filtro="si"  fecha="si"></Campo>
+    <Campo titulo="FECHA Y HORA CONSULTA - ÚLTIMA MODIFICACION" filtro="no"></Campo>
+    <Campo titulo="USUARIO CREACIÓN" filtro="no"></Campo>
+    <Campo titulo="No. CONSULTA" filtro="no"></Campo>
+    <Campo titulo="MÉDICO" filtro="no"></Campo>
+    <Campo titulo="SEDE CONSULTA" filtro="si"></Campo>
+    <Campo titulo="LOCALIDAD EMPLEADO" filtro="si"></Campo>
+    <Campo titulo="PACIENTE" filtro="si"></Campo>
+    <Campo titulo="No EMPLEADO" filtro="si"></Campo>
+    <Campo titulo="FECHA NACIMIENTO" filtro="no" fecha="si"></Campo>
+    <Campo titulo="GÉNERO" filtro="no"></Campo>
+    <Campo titulo="PARENTESCO" filtro="no"></Campo>
+    <Campo titulo="ID TIPO CONSULTA" filtro="si" select="si" tabla="TipoConsultas" campo_valor="IdTipoConsulta" campo_nombre="NombreTipoConsulta"></Campo>
+    <Campo titulo="TIPO CONSULTA" filtro="no"></Campo>
+    <Campo titulo="TIPO ENFERMEDAD" filtro="no"></Campo>
+    <Campo titulo="AFILIADO WELLNESS" filtro="no"></Campo>
+    <Campo titulo="FIRMO ACUERDO WELLNESS" filtro="no"></Campo>
+    <Campo titulo="CONDUCTA FRENTE AL CIGARRILLO" filtro="no"></Campo>
+    <Campo titulo="TIEMPO DESDE LEVANTARSE HASTA PRIMER CIGARRILLO" filtro="no"></Campo>
+    <Campo titulo="DIFICULTAD NO FUMAR SITIOS PROHIBIDOS" filtro="no"></Campo>
+    <Campo titulo="CIGARRILLO QUE COSTARÍA MAS SUPRIMIR" filtro="no"></Campo>
+    <Campo titulo="CIGARRILLOS AL DÍA" filtro="no"></Campo>
+    <Campo titulo="FUMA MAS FRECUENTE EN LAS HORAS DEL DÍA" filtro="no"></Campo>
+    <Campo titulo="FUMA EN ENFERMEDAD" filtro="no"></Campo>
+    <Campo titulo="CATEGORÍA DE CIGARRILLO" filtro="no"></Campo>
+    <Campo titulo="ASPIRA EL HUMO CUANDO MIENTRAS FUMA" filtro="no"></Campo>
+    <Campo titulo="AÑOS DEJÓ DE FUMAR" filtro="no"></Campo>
+    <Campo titulo="PROMEDIO CIGARRILLOS DOS AÑOS ANTES DE DEJAR DE FUMAR" filtro="no"></Campo>
+    <Campo titulo="PRODUCTOS DE TABACO QUE CONSUME" filtro="no"></Campo>
+    <Campo titulo="CONVIVE CON FUMADOR" filtro="no"></Campo>
+    <Campo titulo="COPAS X SEMANA" filtro="no"></Campo>
+    <Campo titulo="HA CRITICADO CONSUMO ALCOHOL" filtro="no"></Campo>
+    <Campo titulo="SE HA ARREPENTIDO CANTIDAD DE ALCOHOL CONSUMIDO" filtro="no"></Campo>
+    <Campo titulo="HA TENIDO LAGUNAS" filtro="no"></Campo>
+    <Campo titulo="PRIMERO CONSUMIDO EN LA MAÑANA COPA ALCOHOL" filtro="no"></Campo>
+    <Campo titulo="PRACTICA DEPORTE" filtro="no"></Campo>
+    <Campo titulo="VECES PRACTICA DEPORTE SEMANA" filtro="no"></Campo>
+    <Campo titulo="PROMEDIO MINUTOS PRACTICA DEPORTE" filtro="no"></Campo>
+    <Campo titulo="TIPO ACTIVIDAD FÍSICA" filtro="no"></Campo>
+    <Campo titulo="HORAS DIARIAS TV" filtro="no"></Campo>
+    <Campo titulo="RUTINA DE EJERCICIOS EN EL ULTIMO MES" filtro="no"></Campo>
+    <Campo titulo="MOTIVO NO REALIZA EJERCICIO" filtro="no"></Campo>
+    <Campo titulo="OTRO MOTIVO" filtro="no"></Campo>
+    <Campo titulo="PRESIÓN ARTERIAL 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="FECHA PRESIÓN ARTERIAL 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="VALOR PRESIÓN ARTERIAL 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="HAS - HA VISITADO EL NUTRIÓLOGO" filtro="no"></Campo>
+    <Campo titulo="HAS - RAZÓN POR NO VISITAR EL NUTRIÓLOGO" filtro="no"></Campo>
+    <Campo titulo="HAS - SE HA APEGADO A LA DIETA QUE SE ESTABLECIÓ" filtro="no"></Campo>
+    <Campo titulo="HAS - HA CUMPLIDO CON EL TRATAMIENTO SEGÚN INDICACIONES DEL MÉDICO TRATANTE" filtro="no"></Campo>
+    <Campo titulo="HAS - RAZÓN POR NO CUMPLIR EL TRATAMIENTO" filtro="no"></Campo>
+    <Campo titulo="HAS - CUENTA CON UN MEDICO TRATANTE RESPONSABLE DEL TRATAMIENTO" filtro="no"></Campo>
+    <Campo titulo="HAS - HA PRESENTADO COMPLICACION DE SU ENFERMEDAD DESDE LA ÚLTIMA VISITA A SU MEDICO TRATANTE" filtro="no"></Campo>
+    <Campo titulo="HAS - CUALES COMPLICACIONES" filtro="no"></Campo>
+    <Campo titulo="HAS - QUE MEDICAMENTOS UTILIZA ACTUALMENTE PARA EL CONTROL DE SU ENFERMEDAD" filtro="no"></Campo>
+    <Campo titulo="HAS - RECOMENDACIONES" filtro="no"></Campo>
+    <Campo titulo="HAS - FECHA SIGUIENTE CITA" filtro="no"></Campo>
+    <Campo titulo="GLUCOSA 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="FECHA GLUCOSA 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="VALOR GLUCOSA 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="DM - HA VISITADO EL NUTRIÓLOGO" filtro="no"></Campo>
+    <Campo titulo="DM - RAZÓN POR NO VISITAR EL NUTRIÓLOGO" filtro="no"></Campo>
+    <Campo titulo="DM - SE HA APEGADO A LA DIETA QUE SE ESTABLECIÓ" filtro="no"></Campo>
+    <Campo titulo="DM - HA CUMPLIDO CON EL TRATAMIENTO SEGÚN INDICACIONES DEL MÉDICO TRATANTE" filtro="no"></Campo>
+    <Campo titulo="DM - RAZÓN POR NO CUMPLIR EL TRATAMIENTO" filtro="no"></Campo>
+    <Campo titulo="DM - CUENTA CON UN MEDICO TRATANTE RESPONSABLE DEL TRATAMIENTO" filtro="no"></Campo>
+    <Campo titulo="DM - HA PRESENTADO COMPLICACION DE SU ENFERMEDAD DESDE LA ÚLTIMA VISITA A SU MEDICO TRATANTE" filtro="no"></Campo>
+    <Campo titulo="DM - CUALES COMPLICACIONES" filtro="no"></Campo>
+    <Campo titulo="DM - QUE MEDICAMENTOS UTILIZA ACTUALMENTE PARA EL CONTROL DE SU ENFERMEDAD" filtro="no"></Campo>
+    <Campo titulo="DM - RECOMENDACIONES" filtro="no"></Campo>
+    <Campo titulo="DM - FECHA SIGUIENTE CITA" filtro="no"></Campo>
+    <Campo titulo="COLESTEROL TOTAL 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="FECHA COLESTEROL TOTAL 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="VALOR COLESTEROL TOTAL 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="COLESTEROL HDL 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="FECHA COLESTEROL HDL 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="VALOR COLESTEROL HDL 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="COLESTEROL LDL 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="FECHA COLESTEROL LDL 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="VALOR COLESTEROL LDL 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="TRIGLICERIDOS 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="DISLIPIDEMIAS - HA VISITADO EL NUTRIÓLOGO" filtro="no"></Campo>
+    <Campo titulo="DISLIPIDEMIAS - RAZÓN POR NO VISITAR EL NUTRIÓLOGO" filtro="no"></Campo>
+    <Campo titulo="DISLIPIDEMIAS - SE HA APEGADO A LA DIETA QUE SE ESTABLECIÓ" filtro="no"></Campo>
+    <Campo titulo="DISLIPIDEMIAS - HA CUMPLIDO CON EL TRATAMIENTO SEGÚN INDICACIONES DEL MÉDICO TRATANTE" filtro="no"></Campo>
+    <Campo titulo="DISLIPIDEMIAS - RAZÓN POR NO CUMPLIR EL TRATAMIENTO" filtro="no"></Campo>
+    <Campo titulo="DISLIPIDEMIAS - CUENTA CON UN MEDICO TRATANTE RESPONSABLE DEL TRATAMIENTO" filtro="no"></Campo>
+    <Campo titulo="DISLIPIDEMIAS - HA PRESENTADO COMPLICACION DE SU ENFERMEDAD DESDE LA ÚLTIMA VISITA A SU MEDICO TRATANTE" filtro="no"></Campo>
+    <Campo titulo="DISLIPIDEMIAS - CUALES COMPLICACIONES" filtro="no"></Campo>
+    <Campo titulo="DISLIPIDEMIAS - QUE MEDICAMENTOS UTILIZA ACTUALMENTE PARA EL CONTROL DE SU ENFERMEDAD" filtro="no"></Campo>
+    <Campo titulo="DISLIPIDEMIAS - RECOMENDACIONES" filtro="no"></Campo>
+    <Campo titulo="DISLIPIDEMIAS - FECHA SIGUIENTE CITA" filtro="no"></Campo>
+    <Campo titulo="FECHA TRIGLICERIDOS 30 DÍAS" filtro="no"></Campo>
+    <Campo titulo="VALOR TRIGLICERIDOS 30 DÍAS HOMBRES" filtro="no"></Campo>
+    <Campo titulo="VALOR TRIGLICERIDOS 30 DÍAS MUJERES" filtro="no"></Campo>
+    <Campo titulo="TRIGLICERIDOS - HA VISITADO EL NUTRIÓLOGO" filtro="no"></Campo>
+    <Campo titulo="TRIGLICERIDOS - RAZÓN POR NO VISITAR EL NUTRIÓLOGO" filtro="no"></Campo>
+    <Campo titulo="TRIGLICERIDOS - SE HA APEGADO A LA DIETA QUE SE ESTABLECIÓ" filtro="no"></Campo>
+    <Campo titulo="TRIGLICERIDOS - HA CUMPLIDO CON EL TRATAMIENTO SEGÚN INDICACIONES DEL MÉDICO TRATANTE" filtro="no"></Campo>
+    <Campo titulo="TRIGLICERIDOS - RAZÓN POR NO CUMPLIR EL TRATAMIENTO" filtro="no"></Campo>
+    <Campo titulo="TRIGLICERIDOS - CUENTA CON UN MEDICO TRATANTE RESPONSABLE DEL TRATAMIENTO" filtro="no"></Campo>
+    <Campo titulo="TRIGLICERIDOS - HA PRESENTADO COMPLICACION DE SU ENFERMEDAD DESDE LA ÚLTIMA VISITA A SU MEDICO TRATANTE" filtro="no"></Campo>
+    <Campo titulo="TRIGLICERIDOS - CUALES COMPLICACIONES" filtro="no"></Campo>
+    <Campo titulo="TRIGLICERIDOS - QUE MEDICAMENTOS UTILIZA ACTUALMENTE PARA EL CONTROL DE SU ENFERMEDAD" filtro="no"></Campo>
+    <Campo titulo="TRIGLICERIDOS - RECOMENDACIONES" filtro="no"></Campo>
+    <Campo titulo="TRIGLICERIDOS - FECHA SIGUIENTE CITA" filtro="no"></Campo>
+  </Campos>
+</Reporte>

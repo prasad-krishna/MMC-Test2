@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="iso-8859-15" standalone="yes" ?>
+<Reporte
+        Consulta="
+SELECT		dbo.Consulta.empresa_id AS COL1, 
+			CONVERT(varchar(20),dbo.Consulta.FechaCreacion, 103)  AS COL2, 
+			dbo.Consulta.ConsecutivoNombre AS COL3, 
+			dbo.Prestadores.NombrePrestador AS COL4, 
+			dbo.Ciudades.NombreCiudad AS COL5,
+            CASE WHEN dbo.Solicitud.beneficiario_id IS NULL THEN SICAU.dbo.SIC_EMPLEADO.identificacion ELSE SICAU.dbo.SIC_BENEFICIARIO.identificacion END AS COL6, 
+            CASE WHEN dbo.Solicitud.beneficiario_id IS NULL THEN isnull(SICAU.dbo.SIC_EMPLEADO.primer_nombre + ' ', '') 
+                      + isnull(SICAU.dbo.SIC_EMPLEADO.segundo_nombre + ' ', '') + isnull(SICAU.dbo.SIC_EMPLEADO.apellido_paterno + ' ', '') 
+                      + isnull(SICAU.dbo.SIC_EMPLEADO.apellido_materno + ' ', '') ELSE isnull(SICAU.dbo.SIC_BENEFICIARIO.primer_nombre + ' ', '') 
+                      + isnull(SICAU.dbo.SIC_BENEFICIARIO.segundo_nombre + ' ', '') + isnull(SICAU.dbo.SIC_BENEFICIARIO.primer_apellido + ' ', '') 
+                      + isnull(SICAU.dbo.SIC_BENEFICIARIO.segundo_apellido + ' ', '') END AS COL7, 
+			CASE WHEN dbo.Solicitud.beneficiario_id IS NULL THEN CONVERT(varchar(20), SICAU.dbo.SIC_EMPLEADO.fecha_nacimiento, 103) ELSE CONVERT(varchar(20), SICAU.dbo.SIC_BENEFICIARIO.fecha_nacimiento, 103) END AS COL8, 
+			CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN CASE WHEN SICAU.dbo.SIC_EMPLEADO.sexo = 1 THEN 'M' ELSE 'F' END ELSE CASE WHEN SICAU.dbo.SIC_BENEFICIARIO.genero = 1 THEN 'M' ELSE 'F' END END AS COL9,
+			CASE WHEN dbo.Consulta.beneficiario_id IS NULL THEN DATEDIFF(DAY, SICAU.dbo.SIC_EMPLEADO.fecha_nacimiento, GETDATE())/365 ELSE DATEDIFF(DAY, SICAU.dbo.SIC_BENEFICIARIO.fecha_nacimiento, GETDATE())/365 END AS COL10,
+			(SELECT     CASE WHEN ISNULL(Diagnosticos.NombreDiagnostico, '') NOT IN ('') 
+														   THEN Diagnosticos.NombreDiagnostico + '  ' ELSE '' END AS '*'
+									FROM          dbo.SolicitudTipoServicioDiagnosticos INNER JOIN
+														   dbo.Diagnosticos ON dbo.SolicitudTipoServicioDiagnosticos.IdDiagnostico = dbo.Diagnosticos.IdDiagnostico
+									WHERE      dbo.SolicitudTipoServicioDiagnosticos.IdSolicitudTipoServicio = dbo.SolicitudTipoServicio.IdSolicitudTipoServicio AND 
+														   dbo.SolicitudTipoServicioDiagnosticos.IdSolicitud = dbo.SolicitudTipoServicio.IdSolicitud FOR XML PATH('')) AS COL11, 
+			dbo.Solicitud.ConsecutivoNombre AS COL12, 	  
+			dbo.TipoServicios.IdTipoServicio AS COL13, 
+            dbo.TipoServicios.NombreTipoServicio AS COL14, 
+			CASE WHEN Medicamentos.IdMedicamento IS NULL THEN dbo.Servicios.NombreServicio ELSE ISNULL(dbo.Medicamentos.NombreComercial, '') END AS COL15, 
+            CASE WHEN Medicamentos.IdMedicamento IS NULL THEN '' ELSE ISNULL(dbo.Medicamentos.PrincipioActivo, '') END AS COL16, 
+            CASE WHEN Medicamentos.IdMedicamento IS NULL THEN '' ELSE ISNULL(dbo.Laboratorios.NombreLaboratorio, '') END AS COL17, 
+            CASE WHEN Medicamentos.IdMedicamento IS NULL THEN ISNULL(dbo.SolicitudServicio.Cantidad, '') ELSE ISNULL(dbo.SolicitudServicio.Cantidad, '') + '-' + ISNULL(dbo.SolicitudServicio.Duracion, '') + '-' + ISNULL(dbo.SolicitudServicio.Dosis, '') END AS COL18
+FROM         dbo.Prestadores INNER JOIN
+                      dbo.Consulta INNER JOIN
+                      SICAU.dbo.SIC_EMPLEADO ON dbo.Consulta.id_empleado = SICAU.dbo.SIC_EMPLEADO.id_empleado INNER JOIN
+                      dbo.Solicitud ON dbo.Consulta.IdConsulta = dbo.Solicitud.IdConsulta INNER JOIN
+                      dbo.SolicitudTipoServicio ON dbo.Solicitud.IdSolicitud = dbo.SolicitudTipoServicio.IdSolicitud INNER JOIN
+                      dbo.TipoServicios ON dbo.SolicitudTipoServicio.IdTipoServicio = dbo.TipoServicios.IdTipoServicio INNER JOIN
+                      dbo.SolicitudServicio ON dbo.SolicitudTipoServicio.IdSolicitudTipoServicio = dbo.SolicitudServicio.IdSolicitudTipoServicio AND 
+                      dbo.SolicitudTipoServicio.IdSolicitud = dbo.SolicitudServicio.IdSolicitud ON dbo.Prestadores.IdPrestador = dbo.Consulta.IdPrestador LEFT OUTER JOIN
+                      dbo.Ciudades ON dbo.Prestadores.IdCiudad = dbo.Ciudades.IdCiudad LEFT OUTER JOIN
+                      dbo.Laboratorios INNER JOIN
+                      dbo.Medicamentos ON dbo.Laboratorios.IdLaboratorio = dbo.Medicamentos.IdLaboratorio ON 
+                      dbo.SolicitudServicio.IdMedicamento = dbo.Medicamentos.IdMedicamento LEFT OUTER JOIN
+                      dbo.Servicios ON dbo.SolicitudServicio.IdServicio = dbo.Servicios.IdServicio LEFT OUTER JOIN
+                      SICAU.dbo.SIC_BENEFICIARIO ON dbo.Consulta.beneficiario_id = SICAU.dbo.SIC_BENEFICIARIO.beneficiario_id
+WHERE		(1=1)
+                "
+        DirPlantillas="Basica\"
+        NombreReporte="Consulta Servicios Medicamentos"
+        cadenaConexion="ConnectionStringReembolsos"
+        cantidad_parametros="0"
+        Titulo="CONSULTAS SERVICIOS Y MEDICAMENTOS "
+>
+<Campos>
+<Campo titulo="EMPRESA ID" expansion="si" filtro="si" multiple="si" tabla="EmpresaDatos" campo_valor="empresa_id" campo_nombre="AbreviacionEmpresa"></Campo>
+<Campo titulo="FECHA CONSULTA" filtro="si"  fecha="si"></Campo>
+<Campo titulo="No. CONSULTA" filtro="no"></Campo>
+<Campo titulo="MEDICO" filtro="no"></Campo>
+<Campo titulo="CIUDAD" filtro="no"></Campo>
+<Campo titulo="IDENTIFICACION" filtro="si"></Campo>
+<Campo titulo="PACIENTE" filtro="si"></Campo>
+<Campo titulo="FECHA NACIMIENTO" filtro="no" fecha="si"></Campo>
+<Campo titulo="GÉNERO" filtro="no" fecha="si"></Campo>
+<Campo titulo="EDAD" filtro="no" fecha="si"></Campo>
+<Campo titulo="DIAGNÓSTICO" filtro="no"></Campo>
+<Campo titulo="No. ORDEN" filtro="no"></Campo>
+<Campo titulo="ID TIPO SERVICIO" filtro="si" select="si" tabla="TipoServicios" campo_valor="IdTipoServicio" campo_nombre="NombreTipoServicio"></Campo>
+<Campo titulo="TIPO SERVICIO" filtro="no"></Campo>
+<Campo titulo="SERVICIO/MEDICAMENTO" filtro="no"></Campo>
+<Campo titulo="MEDICAMENTO PRINCIPIO ACTIVO" filtro="no"></Campo>
+<Campo titulo="MEDICAMENTO LABORATORIO" filtro="no"></Campo>
+<Campo titulo="MEDICAMENTO DETALLE ORDEN" filtro="no"></Campo>
+</Campos>
+</Reporte>

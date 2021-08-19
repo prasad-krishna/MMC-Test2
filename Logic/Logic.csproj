@@ -1,0 +1,298 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{478834A3-1609-4694-B979-8B978413ABDF}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Logic</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Logic</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <IsWebBootstrapper>true</IsWebBootstrapper>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>http://localhost/Logic/</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Web</InstallFrom>
+    <UpdateEnabled>true</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>
+    </NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AntiXSSLibrary, Version=4.2.0.0, Culture=neutral, PublicKeyToken=d127efab8a9c114f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Desktop\AntiXSSLibrary.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationBlocks.Data, Version=2.0.0.0, Culture=neutral" />
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Web">
+      <Name>System.Web</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CaracteresObligatoriosPassword.cs" />
+    <Compile Include="Constante.cs" />
+    <Compile Include="Consulta.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConsultaBiometricos.cs" />
+    <Compile Include="ConsultaDiagnosticos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ConsultaEstamosContigoGeneral.cs" />
+    <Compile Include="ConsultaOpcion.cs" />
+    <Compile Include="Diagnosticos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Disclaimer.cs" />
+    <Compile Include="EmpresaDatos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EmpresaDivisiones.cs" />
+    <Compile Include="EmpresaParentescos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EmpresaPrestadores.cs" />
+    <Compile Include="EmpresaTipoServicios.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="EmpresaUsers.cs" />
+    <Compile Include="GeneralTable.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Incapacidad.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IncapacidadDiagnosticos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LineasNegocio.cs" />
+    <Compile Include="Log.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LogErrors.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Mail.cs" />
+    <Compile Include="Mails.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Medicamentos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Parentescos.cs" />
+    <Compile Include="Permissions.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PreguntaRespuesta.cs" />
+    <Compile Include="Prestadores.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PresupuestosEmpresa.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PresupuestosIndividuo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="RangoRiesgos.cs" />
+    <Compile Include="SIC_EMPRESA.cs" />
+    <Compile Include="SIC_PRIVACIDAD.cs" />
+    <Compile Include="Proveedores.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reporte.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Reportes.cs" />
+    <Compile Include="Security.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Servicios.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SIC_BENEFICIARIO.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SIC_EMPLEADO.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SIC_Empresa_SICAM.cs" />
+    <Compile Include="SIC_USUARIO.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Solicitud.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SolicitudLiquidacion.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SolicitudReportes.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SolicitudServicio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SolicitudTipoServicio.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SolicitudTipoServicioDiagnosticos.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SolicitudTipoServicioProveedores.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TipoServicios.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Users.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UsersPasswords.cs" />
+    <Compile Include="Validaciones.cs" />
+    <Compile Include="_NumeroEmpleado.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{BCCF58D6-E3BD-4107-84F5-716944390A01}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Asemblies\AntiXSSLibrary.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

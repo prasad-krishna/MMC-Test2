@@ -1,0 +1,351 @@
+﻿
+body
+{
+    font-family: Verdana;
+    font-size: 11px;
+}
+
+input
+{
+    border: 1px solid #54616E;
+    height: 24px;
+}
+label
+{
+    text-align: left;
+}
+fieldset
+{
+    text-align: left;
+}
+/*Estilos generales modulo de agenda*/
+h1
+{
+    font-family: Verdana;
+    font-size: 14px;
+    font-weight: bold;
+    width: 100%;
+    border-bottom: solid 1px #CDCAC9;
+    color: #102251;
+}
+
+.agenda_menu_list
+{
+    list-style-type: none;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+}
+.agenda_menu_list li
+{
+    list-style-image: none;
+    list-style-type: none;
+    display: block;
+    float: left;
+    margin-right: 5px;
+}
+.agenda_menu_list a, .agenda_menu_list a:visited
+{
+    color: #0057A6;
+    display: block;
+    height: 32px;
+    padding-left: 22px;
+    background: #fff url("images/application_go.gif") no-repeat 0 0;
+}
+.linkAdd
+{
+    background: #fff url("images/add.gif") no-repeat 0 0;
+}
+.tabsContainer
+{
+    width: 100%;
+}
+/*contenedor del formulario de citas*/
+#appointmentDetails
+{
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+}
+#schedulerContainer
+{
+    margin: 0;
+    padding: 0;
+    width: 99%;
+}
+#appointmentDetails label
+{
+    width: 100%;
+    display: block;
+}
+
+.saveAppointmentBtn
+{
+    width: 100px;
+    margin: auto;
+}
+
+.schedulerControl
+{
+    margin-left: 0.3em;
+}
+
+.alignedLabel
+{
+    vertical-align: middle;
+}
+
+/*********Estilos de CitasPacientes.aspx**********/
+.gridCitasUsuario
+{
+    width: 99%;
+}
+/*********Estilos de DiasFestivos.aspx**********/
+#contenedorDiasFestivos span
+{
+    display: block;
+}
+/*Link mostrado en grid de citas de usuario*/
+.linkVerCita
+{
+    margin-left: 0.5em;
+}
+
+/***** Estilos para prototipo ***/
+.selectedRow td
+{
+    background-color: Navy;
+    color: #fff;
+}
+
+/* Cambios a tema de jquery para adaptarlos a layout de mercer*/
+.ui-widget
+{
+    font-family: Verdana,Arial,sans-serif;
+    font-size: 12px;
+}
+.ui-dialog .ui-dialog-titlebar
+{
+    padding: 0;
+    position: relative;
+}
+.ui-dialog .ui-dialog-buttonpane button
+{
+    cursor: pointer;
+    float: right;
+    line-height: 1.1em;
+    margin: 0.1em 0.4em 0.1em 0;
+    overflow: visible;
+    padding: 0.2em 0.6em 0.3em;
+    width: auto;
+}
+.ui-button-text-only .ui-button-text
+{
+    padding: 0.1em 1em;
+}
+ui-dialog-titlebar
+{
+    font-size: 14px;
+}
+
+/* Elementos especificos */
+#linkMostrarNavigator
+{
+    display: block;
+    position: absolute;
+    width: 200px;
+    right: 0;
+    background: #fff url("images/icoCalendar.gif") no-repeat 0 0;
+    height: 20px;
+    padding-left: 20px;
+}
+
+/* Estilos mensajes de error y notificaciones al usuario
+utilizados por el control UserControlMessage.ascx*/
+.MensajeError
+{
+    background-color: #EBC6CB;
+}
+.MensajeAdvertencia
+{
+    background-color: #FDE48B;
+}
+.MensajeNotificación
+{
+    background-color: #D3E9BF;
+}
+
+/*Estilos utilizados en modulo de registro cita*/
+.moduloRegistroCitas .infoPaciente p
+{
+    padding: 0;
+    margin: 3px 0 0 0;
+}
+.moduloRegistroCitas .infoPaciente
+{
+    border-bottom: solid 1px #000;
+    margin-bottom: 5px;
+    border-color: #7F96B1;
+}
+
+.contenedorFiltro
+{
+    border: solid 1px #7F96B1;
+    padding: 5px;
+}
+.contenedorFiltro input[type=text]
+{
+    width: 99%;
+}
+
+/*Layout columnas*/
+/*Columna que ocupa el 30 porciento*/
+.columna30
+{
+    width: 29%;
+    float: left;
+}
+
+.columna50
+{
+    width: 49%;
+    float: left;
+}
+
+.limpiarFloats
+{
+    clear: both;
+}
+
+.disponibilidad-alternate
+{
+    padding: 3px;
+    background-color: #e3e6ea;
+}
+.disponibilidadRow
+{
+    padding: 3px;
+}
+.labelFiltro
+{
+    color: #102251;
+    font-weight: bold;
+    font-size: 12px;
+    margin-bottom: 4px;
+    display: block;
+}
+
+
+
+.moduloRegistroCitas #dialogoConfirmarRegistroCita p
+{
+    padding: 0;
+    margin: 0;
+}
+
+.moduloRegistroCitas #dialogoConfirmarRegistroCita label
+{
+    display: block;
+}
+
+.columna2
+{
+    width: 49%;
+    float: left;
+}
+
+.contenedorCita
+{
+    font-size: 10px;
+}
+/*Citas en scheduler*/
+/*Cita pendiente*/
+.citaEstadoPendiente
+{
+}
+
+/*Cita en espera*/
+.citaEstadoEspera
+{
+}
+
+/*Cita finalizada*/
+.citaEstadoFinalizada label
+{
+    text-decoration: line-through;
+}
+
+/*Estilo de alertas*/
+div.jGrowl div.alerta
+{
+    background-color: #E6F7D4;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    opacity: 1;
+    filter: alpha(opacity = 100);
+    width: 270px;
+    height: 90px;
+    padding: 0px;
+    overflow: hidden;
+    border-color: #5ab500;
+}
+
+.achtung
+{
+    background-color: #DE8703;
+    color:#000;
+}
+
+#panelTabsAgenda
+{
+    padding:5px;
+}
+#panelTabsAgenda a
+{
+
+    padding-left:5px;
+    padding-right:5px;
+    border-left:solid 1px #000;
+    text-decoration:none;
+}
+
+/*Panel de referencia de colores de las citas del scheduler*/
+.referenciaCitaAgenda
+{
+    float:left;
+    padding:5px;
+    border:solid 1px #fff;
+}
+
+.referenciaPendiente
+{
+    background-color:#C1E9F4;
+}
+
+.referenciaFinalizada
+{
+background-color:#00FF99;
+}
+
+.referenciaEspera
+{
+background-color:#DE8703;
+}
+
+.referenciaInasistida
+{
+background-color:#DEDCD9;
+}
+
+/*Estilos de etiquetas de citas en el control scheduler (Usadas en los custom appointment templates)*/
+.labelCitaScheduler
+{
+    font-family:'Trebuchet MS',Verdana;
+    font-size:11px;
+}
+
+.schedulerCitaInicio,.schedulerCitaDuracion,.schedulerPaciente,.schedulerSede,.schedulerCitaDesc
+{
+    font-family:'Trebuchet MS',Verdana;
+    font-size:11px;
+}
