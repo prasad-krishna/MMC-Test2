@@ -67,7 +67,9 @@ namespace TPA.interfaz_empleado.reportes
             }
             catch (Exception ex)
             {
+                //GAMM. Information Leakage. No se debe mostrar el mensje de error.
                 this.DisplayMessage(ex.Message);
+                Response.Redirect(@"~\ErrorPage.aspx", true);
             }
         }
 

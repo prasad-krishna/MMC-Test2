@@ -2451,8 +2451,11 @@ public class Reporte
         }
         catch (Exception ex)
         {
+            //GAMM. Information Leakage. No se debe mostrar el mensje de error.
+
             /* Se imprime el valor de la excepcion */
-            resultado = ex.ToString();
+            //resultado = ex.ToString();
+            throw new Exception("Error");
         }
 
         /* Se libera el archivo xml */
@@ -2559,8 +2562,13 @@ public class Reporte
         }
         catch (Exception ex)
         {
+            //GAMM. Information Leakage. No se debe mostrar el mensje de error.
+
             /* Se imprime el valor de la excepcion */
-            resultado = ex.ToString();
+            //resultado = ex.ToString();
+
+            throw new Exception("Error");
+            
         }
 
         /* Se libera el archivo xml */
