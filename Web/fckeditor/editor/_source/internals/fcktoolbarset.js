@@ -89,7 +89,7 @@ function FCKToolbarSet_Create( overhideLocation )
 			// Workaround for Safari 12256. Ticket #63
 			var sBase = '' ;
 			if ( FCKBrowserInfo.IsSafari )
-				sBase = '<base href="' + window.document.location + '">' ;
+			    sBase = '<base href="' + encodeURI(window.document.location) + '">';
 
 			// Initialize the IFRAME document body.
 			eTargetDocument.open() ;
