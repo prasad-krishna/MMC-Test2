@@ -22,6 +22,9 @@
  * toolbar.
  */
 
+import org.owasp.html.Sanitizers;
+import org.owasp.html.PolicyFactory;
+
 function FCKToolbarSet_Create( overhideLocation )
 {
 	var oToolbarSet ;
@@ -86,14 +89,11 @@ function FCKToolbarSet_Create( overhideLocation )
 			// Write the basic HTML for the toolbar (copy from the editor main page).
 			var eTargetDocument = eToolbarIFrame.contentWindow.document ;
 
-			// Workaround for Safari 12256. Ticket #63
-			var sBase = '' ;
-			if ( FCKBrowserInfo.IsSafari )
-			    sBase = '<base href="' + encodeURI(window.document.location) + '">';
+		    // Workaround for Safari 12256. Ticket #63
 
 			// Initialize the IFRAME document body.
 			eTargetDocument.open() ;
-			eTargetDocument.write( '<html><head>' + sBase + '<script type="text/javascript"> var adjust = function() { window.frameElement.height = document.body.scrollHeight ; }; '
+			eTargetDocument.write( '<html><head><script type="text/javascript"> var adjust = function() { window.frameElement.height = document.body.scrollHeight ; }; '
 					+ 'window.onresize = window.onload = '
 					+ 'function(){'		// poll scrollHeight until it no longer changes for 1 sec.
 					+ 'var timer = null;'

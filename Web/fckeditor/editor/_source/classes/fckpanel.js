@@ -85,17 +85,11 @@ var FCKPanel = function( parentWindow )
 		oDocument = this.Document = oIFrameWindow.document ;
 
 		// Workaround for Safari 12256. Ticket #63
-		var sBase = '' ;
-		if ( FCKBrowserInfo.IsSafari )
-			sBase = '<base href="' + encodeURI(window.document.location) + '">' ;
 
 		// Initialize the IFRAME document body.
 		oDocument.open() ;
-		oDocument.write( '<html><head>' + sBase + '<\/head><body style="margin:0px;padding:0px;"><\/body><\/html>' ) ;
+		oDocument.write( '<html><head><\/head><body style="margin:0px;padding:0px;"><\/body><\/html>' ) ;
 		oDocument.close() ;
-
-		if( FCKBrowserInfo.IsAIR )
-		    FCKAdobeAIR.Panel_Contructor(oDocument, encodeURI(window.document.location));
 
 		FCKTools.AddEventListenerEx( oIFrameWindow, 'focus', FCKPanel_Window_OnFocus, this ) ;
 		FCKTools.AddEventListenerEx( oIFrameWindow, 'blur', FCKPanel_Window_OnBlur, this ) ;
