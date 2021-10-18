@@ -2418,35 +2418,23 @@ public class Reporte
             }
 
             /* Lee la plantillas de las tablas */
-            archivoLectura = new StreamReader(dirPlantillas + "Tabla.html");
-            plantillaTabla = archivoLectura.ReadToEnd();
-            archivoLectura.Close();
-
+            plantillaTabla = LeerArchivo(dirPlantillas + "Tabla.html", 200);
+            
             /* Lee la plantillas de fila de titulo */
-            archivoLectura = new StreamReader(dirPlantillas + "FilaTitulo.html");
-            plantillaFilaTitulo = archivoLectura.ReadToEnd();
-            archivoLectura.Close();
+            plantillaFilaTitulo = LeerArchivo(dirPlantillas + "FilaTitulo.html", 350);
 
             /* Lee la plantillas de titulo */
-            archivoLectura = new StreamReader(dirPlantillas + "Titulo.html");
-            plantillaTitulo = archivoLectura.ReadToEnd();
-            archivoLectura.Close();
+            plantillaTitulo = LeerArchivo(dirPlantillas + "Titulo.html", 350);
 
             /* Lee la plantillas de fila de celda */
-            archivoLectura = new StreamReader(dirPlantillas + "FilaCelda.html");
-            plantillaFilaCelda = archivoLectura.ReadToEnd();
-            archivoLectura.Close();
+            plantillaFilaCelda = LeerArchivo(dirPlantillas + "FilaCelda.html", 120);
 
             /* Lee la plantillas de celda */
-            archivoLectura = new StreamReader(dirPlantillas + "Celda.html");
-            plantillaCelda = archivoLectura.ReadToEnd();
-            archivoLectura.Close();
+            plantillaCelda = LeerArchivo(dirPlantillas + "Celda.html", 130);
 
             /* Lee la plantillas de navegacion */
-            archivoLectura = new StreamReader(dirPlantillas + "Navegacion.html");
-            plantillaNavegacion = archivoLectura.ReadToEnd();
-            archivoLectura.Close();
-
+            plantillaNavegacion = LeerArchivo(dirPlantillas + "Navegacion.html", 400);
+            
             resultado = this.darReporte(nombreReporte, campos, nombresRequest, valoresRequest, request.Path, consultaBase, condicionesAdicionales, pagina, numeroRegistrosPagina, plantillaTabla, plantillaTitulo, plantillaFilaTitulo, plantillaCelda, plantillaFilaCelda, plantillaNavegacion, System.Configuration.ConfigurationManager.ConnectionStrings[cadenaConexion].ToString(), cantidad_parametros, nombreDivAnterior, parametrosAnteriores, request, elTitulo);
         }
         catch (Exception ex)
@@ -2466,6 +2454,46 @@ public class Reporte
 
         return resultado;
     }
+    /// <summary>
+    /// Lee un archivo y valida total de caracteres linea por linea    
+    /// </summary>
+    /// <param name="filePath"></param>
+    /// <param name="totCarXline"></param>
+    /// <returns>Texto del archivo</returns>
+    public string LeerArchivo(string filePath, int totCarXline)
+    {
+
+        using (StreamReader reader = new StreamReader(filePath))
+        {
+
+            string cadena = "";
+            int totalCarac = 0;
+
+            while (true)
+            {
+                string line = reader.ReadLine();
+
+                if (line == null)
+                {
+                    break;
+                }
+
+                totalCarac = line.Length;
+
+                if (totCarXline < totalCarac)
+                {
+                    reader.Close();
+                    return "";
+                }
+                cadena += line;
+            }
+
+            reader.Close();
+            return cadena;
+        }
+        
+    }
+
     /// <summary>
     /// A partir de un xml que define un reporte calcula como se debe visualizar obteniendo las plantillas necesarias
     /// </summary>

@@ -58,35 +58,22 @@ namespace TPA.interfaz_empleado.reportes
                 reporte = new Reporte();
 
                 /* Lee la plantillas de las tablas */
-                archivoLectura = new StreamReader(pathPlantillas + "Tabla.html");
-                plantillaTabla = archivoLectura.ReadToEnd();
-                archivoLectura.Close();
+                plantillaTabla = reporte.LeerArchivo(pathPlantillas + "Tabla.html", 200);
 
                 /* Lee la plantillas de fila de titulo */
-                archivoLectura = new StreamReader(pathPlantillas + "FilaTitulo.html");
-                plantillaFilaTitulo = archivoLectura.ReadToEnd();
-                archivoLectura.Close();
+                plantillaFilaTitulo = reporte.LeerArchivo(pathPlantillas + "FilaTitulo.html", 350);
 
                 /* Lee la plantillas de titulo */
-                archivoLectura = new StreamReader(pathPlantillas + "Titulo.html");
-                plantillaTitulo = archivoLectura.ReadToEnd();
-                archivoLectura.Close();
+                plantillaTitulo = reporte.LeerArchivo(pathPlantillas + "Titulo.html", 350);
 
                 /* Lee la plantillas de fila de celda */
-                archivoLectura = new StreamReader(pathPlantillas + "FilaCelda.html");
-                plantillaFilaCelda = archivoLectura.ReadToEnd();
-                archivoLectura.Close();
+                plantillaFilaCelda = reporte.LeerArchivo(pathPlantillas + "FilaCelda.html", 120);
 
                 /* Lee la plantillas de celda */
-                archivoLectura = new StreamReader(pathPlantillas + "Celda.html");
-                plantillaCelda = archivoLectura.ReadToEnd();
-                archivoLectura.Close();
+                plantillaCelda = reporte.LeerArchivo(pathPlantillas + "Celda.html", 350);
 
                 /* Lee la plantillas de navegacion */
-                archivoLectura = new StreamReader(pathPlantillas + "Navegacion.html");
-                plantillaNavegacion = archivoLectura.ReadToEnd();
-                archivoLectura.Close();
-
+                plantillaNavegacion = reporte.LeerArchivo(pathPlantillas + "Navegacion.html", 400);
 
                 //RAM* Agrego corporativo
                 resultado = reporte.darReporteSelector(Encoder.HtmlEncode(Request["campo_nombre"].ToString()), 

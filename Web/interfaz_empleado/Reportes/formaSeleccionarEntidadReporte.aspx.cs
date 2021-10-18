@@ -10,6 +10,7 @@ using System.Web.UI.HtmlControls;
 using System.IO;
 using Mercer.Medicines.Logic;
 using Microsoft.Security.Application;
+
 namespace TPA.interfaz_empleado.reportes
 {
 
@@ -46,17 +47,13 @@ namespace TPA.interfaz_empleado.reportes
             }
 
             /* Lee la plantillas de las tablas */
-            archivoLectura = new StreamReader(pathPlantillas + "TablaConsulta.html");
-            plantillaTablaConsulta = archivoLectura.ReadToEnd();
-            archivoLectura.Close();
+            reporte = new Reporte();
+            plantillaTablaConsulta = reporte.LeerArchivo(pathPlantillas + "TablaConsulta.html",500);
 
             /* Lee la plantillas de fila de titulo */
-            archivoLectura = new StreamReader(pathPlantillas + "FilaCondicion.html");
-            plantillaFilaCondicion = archivoLectura.ReadToEnd();
-            archivoLectura.Close();
-
+            plantillaFilaCondicion = reporte.LeerArchivo(pathPlantillas + "FilaCondicion.html", 500);
+            
             /* Se genera el nuevo reporte */
-            reporte = new Reporte();
             resultado = reporte.darFormularioReporteSelector("Seleccionar " + Encoder.HtmlEncode(Request["nombreEntidad"].ToString()),
                 //Inicio
                 //Auto:Diego Montejano Avila
