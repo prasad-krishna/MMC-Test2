@@ -8,6 +8,9 @@ using System.Data;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 
+using System.Text;
+using System.Security.Cryptography;
+
 //Este código se ocupara para el framework 2.0 para que puedan emplearse las extensiones de metodos.
 namespace System.Runtime.CompilerServices
 {
@@ -250,66 +253,41 @@ namespace TPA
             return Regex.Replace(strIn, @"[^\w" + caracteresValidos.Replace("|", "\\") + "]", "");
         }
         /// <summary>
-        ///Auto:Diego Montejano Avila
-        ///Proyecto: Auditoria 2014
-        ///Fecha: 2014/09/19
-        /// Genera una contraseña aleatoria en base a los caracteres que estan en base de datos.
+        ///Auto:GM
+        ///Proyecto: VulScan CodeBase
+        ///Fecha: 2020/10/19
+        /// Genera una contraseña aleatoria en base a los caracteres permitidos.
         /// </summary>
         /// <returns></returns>
-        public static string GeneraContrasena()
+        public static string GeneraContrasena(int length, int options)
         {
-            try
-            {
-                #region Variables
+            const string valid = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+            const string valid_all = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890.:;()[]{}?!¿¡@-_/#";
 
-                Random obj = new Random();
-                //Variable auxiliar en caso de que base de datos no regrese ningún registro de configuración.
-                string posibles = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-                //Objeto para obtener la configuración de caracteres permitidos y caracteres para formar una nueva contraseña.
-                CaracteresObligatoriosPassword caracteresPassword = new CaracteresObligatoriosPassword();
-                //Tabla para almacenar la configuración de caracteres para formar la nueva contraseña.
-                DataTable dtCaracteresPassword = caracteresPassword.ConsultaCaracteresObligatoriosPassword().Tables[0];
-                //Total de registros que contienen los caracteres para formar la nueva contraseña.
-                int totListCarPass = dtCaracteresPassword.Rows.Count - 1;
-                //Contador de ayuda para saber si ya tomo un caracter de cada renglon de la tabla de caracteres para formar la nueva contraseña
-                int contListCarPass = 0;
-                //Variable para guardar la posicion del renglon aleatorio cuando ya se tomo un caracter de cada renglon de la tabla de caracteres para formar una nueva contraseña
-                int posListCarPassAleatoria = 0;
-                //Variable para almacenar la longitud de la variable axuliar en caso de que no se configure en base de datos los caracteres validos
-                int longitud = posibles.Length;
-                //Letra aleatoria
-                char letra;
-                //Longitud de la nueva contraseña
-                int longitudnuevacadena = 15;
-                //Nueva contraseña
-                string nuevacadena = "";
-                #endregion
-                for (int i = 0; i < longitudnuevacadena; i++)
+            // Alfanumerico = 1
+            if (options == 1)
+            {
+                StringBuilder res = new StringBuilder();
+                byte[] random = new byte[1];
+                RNGCryptoServiceProvider rProvider = new RNGCryptoServiceProvider();
+                while (0 < length--)
                 {
-                    //Si existe configuración de caracteres validos en la base de datos los tomamos sino se toma el default.
-                    if (totListCarPass > -1)
-                    {
-                        //Si ya se tomo un caracter de cada renglon de la tabla de caracteres validos para formar la nueva contraseña se toma un reglon aleatorio
-                        if (contListCarPass <= totListCarPass)
-                            letra = dtCaracteresPassword.Rows[contListCarPass][0].ToString()[obj.Next(dtCaracteresPassword.Rows[contListCarPass][0].ToString().Length)];
-                        else
-                        {
-                            posListCarPassAleatoria = obj.Next(dtCaracteresPassword.Rows.Count);
-                            letra = dtCaracteresPassword.Rows[posListCarPassAleatoria][0].ToString()[obj.Next(dtCaracteresPassword.Rows[posListCarPassAleatoria][0].ToString().Length)];
-                        }
-                    }
-                    else
-                        letra = posibles[obj.Next(longitud)];
-                    //concatena la letra obtenida aleatoriamente
-                    nuevacadena += letra.ToString();
-                    contListCarPass++;
+                    rProvider.GetBytes(random);
+                    res.Append(valid[random[0] % (valid.Length - 1)]);
                 }
-                return nuevacadena;
+                return res.ToString();
             }
-            catch (Exception ex)
+            else// Todo = 2
             {
-
-                throw ex;
+                StringBuilder res = new StringBuilder();
+                byte[] random = new byte[1];
+                RNGCryptoServiceProvider rProvider = new RNGCryptoServiceProvider();
+                while (0 < length--)
+                {
+                    rProvider.GetBytes(random);
+                    res.Append(valid_all[random[0] % (valid_all.Length - 1)]);
+                }
+                return res.ToString();
             }
         }
 
