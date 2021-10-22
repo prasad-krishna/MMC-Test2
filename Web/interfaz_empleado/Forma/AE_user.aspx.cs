@@ -166,7 +166,7 @@ namespace TPA.interfaz_admon.forma
                 /*
                     GAMM. NOTA: Verificar la generacion de la contraseña a este nivel. No es necesario.
                 */
-                string contrasenia = AuxiliarSeguridad.GeneraContrasena().ToString();
+                string contrasenia = AuxiliarSeguridad.GeneraContrasena(15,2).ToString();
 
 
                 //Solo se valida contra la contraseña actual a los usuarios existentes

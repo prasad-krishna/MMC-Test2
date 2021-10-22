@@ -1133,7 +1133,7 @@ namespace TPA
                             objUser.NewPassword = true;
                             objUser.ExpiredPassword = true;
                             //Se genera una contraseña aleatoria
-                            NuevaContrasena = AuxiliarSeguridad.GeneraContrasena();
+                            NuevaContrasena = AuxiliarSeguridad.GeneraContrasena(15,2);
                             objUser.Password = Security.SHA256_Encrypt(NuevaContrasena, null);
                             //No se debe guardar en el historico de contraseñas la contraseña generada
                             objUser.GuardarHistoricoContrasena = false;

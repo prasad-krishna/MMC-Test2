@@ -2562,30 +2562,20 @@ public class Reporte
 
 
             // Lee la plantillas de las tablas
-            archivoLectura = new StreamReader(dirPlantillas + "TablaConsulta.html");
-            plantillaTablaConsulta = archivoLectura.ReadToEnd();
-            archivoLectura.Close();
+            plantillaTablaConsulta = LeerArchivo(dirPlantillas + "TablaConsulta.html", 200);
 
             // Lee la plantillas de fila de titulo 
-            archivoLectura = new StreamReader(dirPlantillas + "FilaCondicion.html");
-            plantillaFilaCondicion = archivoLectura.ReadToEnd();
-            archivoLectura.Close();
+            plantillaFilaCondicion = LeerArchivo(dirPlantillas + "FilaCondicion.html", 200);
 
             // Lee la plantillas de fila de titulo 
-            archivoLectura = new StreamReader(dirPlantillas + "FilaCondicionSelect.html");
-            plantillaFilaCondicionSelect = archivoLectura.ReadToEnd();
-            archivoLectura.Close();
+            plantillaFilaCondicionSelect = LeerArchivo(dirPlantillas + "FilaCondicionSelect.html", 200);
 
             /* Lee la plantillas de fila de titulo */
-            archivoLectura = new StreamReader(dirPlantillas + "FilaCondicionSelectMultiple.html");
-            plantillaFilaCondicionSelectMultiple = archivoLectura.ReadToEnd();
-            archivoLectura.Close();
+            plantillaFilaCondicionSelectMultiple = LeerArchivo(dirPlantillas + "FilaCondicionSelectMultiple.html", 200);
 
             /* Lee la plantillas de fila de titulo */
-            archivoLectura = new StreamReader(dirPlantillas + "FilaCondicionFecha.html");
-            plantillaFilaCondicionFecha = archivoLectura.ReadToEnd();
-            archivoLectura.Close();
-
+            plantillaFilaCondicionFecha = LeerArchivo(dirPlantillas + "FilaCondicionFecha.html", 200);
+            
             resultado = this.darFormularioReporte(nombreReporte, campos, nombresRequest, valoresRequest, plantillaTablaConsulta, plantillaFilaCondicion, plantillaFilaCondicionSelect, plantillaFilaCondicionSelectMultiple, plantillaFilaCondicionFecha, System.Configuration.ConfigurationManager.ConnectionStrings[cadenaConexion].ToString(), cadenaConexion, sesion);
         }
         catch (Exception ex)
