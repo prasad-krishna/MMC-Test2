@@ -141,7 +141,7 @@
             {
                 LinkButton lnkDiagnostico = (LinkButton)e.Item.FindControl("lnkDiagnostico");
 
-                string script = "<script language='javascript'>DevolverDiagnostico('" + lnkDiagnostico.Text + "'," + e.Item.Cells[1].Text.ToString() + "," + e.Item.Cells[2].Text.ToString() + "); return false;</script>";
+                string script = "<script language='javascript'>DevolverDiagnostico('" + HttpUtility.ParseQueryString(lnkDiagnostico.Text) + "'," + Convert.ToInt32(e.Item.Cells[1].Text).ToString() + "," + Convert.ToInt32(e.Item.Cells[2].Text).ToString() + "); return false;</script>";
 
                 //Inicio 12/01/10 MAHG Se verifica si la solicitud es Asíncrona
                 if (System.Web.UI.ScriptManager.GetCurrent(this.Page) != null && System.Web.UI.ScriptManager.GetCurrent(this.Page).IsInAsyncPostBack)
@@ -185,7 +185,7 @@
             {
                 DataRow rowItem = ((DataRowView)e.Item.DataItem).Row;
                 LinkButton lnkDiagnostico = (LinkButton)e.Item.FindControl("lnkDiagnostico");
-                lnkDiagnostico.Attributes.Add("onClick", "javascript:DevolverDiagnostico('" + rowItem["CodigoDiagnostico"].ToString() + "-" + rowItem["NombreDiagnostico"].ToString() + "'," + rowItem["IdDiagnostico"].ToString() + "," + rowItem["IdDiagnosticoClasificacion"].ToString() + ");closeLayer('BuscarDiagnostico'); return false;");
+                lnkDiagnostico.Attributes.Add("onClick", "javascript:DevolverDiagnostico('" + HttpUtility.ParseQueryString(rowItem["CodigoDiagnostico"].ToString()) + "-" + HttpUtility.ParseQueryString(rowItem["NombreDiagnostico"].ToString()) + "'," + Convert.ToInt32(rowItem["IdDiagnostico"]).ToString() + "," + Convert.ToInt32(rowItem["IdDiagnosticoClasificacion"]).ToString() + ");closeLayer('BuscarDiagnostico'); return false;");
             }
 
 

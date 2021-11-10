@@ -83,7 +83,7 @@ namespace Mercer.Medicines.Logic
         /// </summary>
         public enum EnumConstantes 
         {
-            _DiasPasswordExpira, _CaracteresEspecialesLogin, _TimeOutFormsAuthenticationTicket
+            _DiasPasswordExpira, _CaracteresEspecialesLogin, _TimeOutFormsAuthenticationTicket, _RSA_AA_SECURITYKEY
         };
 
         /// <summary>

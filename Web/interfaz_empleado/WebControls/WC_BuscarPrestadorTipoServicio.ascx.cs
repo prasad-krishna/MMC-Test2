@@ -65,7 +65,7 @@
             {
                 if (dtPrestadores.Rows.Count == 1)
                 {
-                    string script = "<script language='javascript'>DevolverPrestadorTipoServicio('" + dtPrestadores.Rows[0]["NombrePrestador"].ToString() + "'," + dtPrestadores.Rows[0]["IdPrestador"].ToString() + ")</script>";
+                    string script = "<script language='javascript'>DevolverPrestadorTipoServicio('" + HttpUtility.ParseQueryString(dtPrestadores.Rows[0]["NombrePrestador"].ToString()) + "'," + Convert.ToInt32(dtPrestadores.Rows[0]["IdPrestador"]).ToString() + ")</script>";
 
 
                      //Inicio 12/01/10 MAHG Se verifica si la solicitud es Asíncrona
@@ -130,7 +130,8 @@
             {
                 LinkButton lnkNombre = (LinkButton)e.Item.FindControl("lnkNombre");
 
-                string script = "<script language='javascript'>DevolverPrestadorTipoServicio('" + lnkNombre.Text + "'," + e.Item.Cells[0].Text.ToString() + ")</script>";
+                
+                string script = "<script language='javascript'>DevolverPrestadorTipoServicio('" + HttpUtility.ParseQueryString(lnkNombre.Text) + "'," + Convert.ToInt32(e.Item.Cells[0].Text).ToString() + ")</script>";
 
 
                  //Inicio 12/01/10 MAHG Se verifica si la solicitud es Asíncrona
@@ -170,7 +171,7 @@
             {
                 DataRow rowItem = ((DataRowView)e.Item.DataItem).Row;
                 LinkButton lnkNombre = (LinkButton)e.Item.FindControl("lnkNombre");
-                lnkNombre.Attributes.Add("onClick", "javascript:DevolverPrestadorTipoServicio('" + rowItem["NombrePrestador"].ToString() + "'," + rowItem["IdPrestador"].ToString() + ");closeLayer('BuscarPrestadorTipoServicio');");
+                lnkNombre.Attributes.Add("onClick", "javascript:DevolverPrestadorTipoServicio('" + HttpUtility.ParseQueryString(rowItem["NombrePrestador"].ToString()) + "'," + Convert.ToInt32(rowItem["IdPrestador"]).ToString() + ");closeLayer('BuscarPrestadorTipoServicio');");
             }
 
         }

@@ -52,7 +52,8 @@ namespace TPA
         private string serverAddr = ConfigurationManager.AppSettings["RSA_AA_URI"];
         private string orgName = ConfigurationManager.AppSettings["RSA_AA_ORGNAME"];
         private string groups = ConfigurationManager.AppSettings["RSA_AA_GROUPS"];
-        private string securitykey = ConfigurationManager.AppSettings["RSA_AA_SECURITYKEY"];
+        //GAMM
+        private string securitykey; 
         //Bhushan MFA - end
 
         #endregion
@@ -162,6 +163,13 @@ namespace TPA
                     string bypassmfa = Session["bypassMFA"].ToString();
                     if (bypassmfa != "Yes")
                     {
+                        /*GAMM I.*/
+                        Constante objConstante;
+                        objConstante = new Constante();
+                        objConstante.GetConstante(Constante.EnumConstantes._RSA_AA_SECURITYKEY);
+                        securitykey = objConstante.ConValor;
+                        /*GAMM F.*/
+
                         userEmail = (string)Session["userEmail"].ToString().ToLower();
                         //mfa 26 sep - start
                         string usercookie = string.Empty;

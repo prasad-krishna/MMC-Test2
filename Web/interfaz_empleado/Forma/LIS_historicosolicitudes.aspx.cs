@@ -152,7 +152,7 @@ namespace TPA.interfaz_empleado.forma
             {
                 if (e.CommandName == "Copiar")
                 {
-                    Response.Write("<script>opener.location='AE_solicitudorden.aspx?IdSolicitudCopia=" + e.Item.Cells[0].Text + "&employee_id=" + e.Item.Cells[1].Text + "&IdConsulta=" + Request.QueryString["IdConsulta"] + "&editar=1';top.close();</script>");
+                    Response.Write("<script>opener.location='AE_solicitudorden.aspx?IdSolicitudCopia=" + Convert.ToInt32(e.Item.Cells[0].Text).ToString() + "&employee_id=" + Convert.ToInt32(e.Item.Cells[1].Text).ToString() + "&IdConsulta=" + HttpUtility.ParseQueryString(Request.QueryString["IdConsulta"]) + "&editar=1';top.close();</script>");
 
                 }
             }

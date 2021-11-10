@@ -148,7 +148,7 @@
             {
                 LinkButton lnkProveedor = (LinkButton)e.Item.FindControl("lnkProveedor");
 
-                string script = "<script language='javascript'>DevolverProveedor('" + lnkProveedor.Text + "'," + e.Item.Cells[1].Text.ToString() + ",'" + e.Item.Cells[2].Text.ToString() + "','" + e.Item.Cells[3].Text.ToString() + "','" + e.Item.Cells[4].Text.ToString() + "')</script>";
+                string script = "<script language='javascript'>DevolverProveedor('" + HttpUtility.ParseQueryString(lnkProveedor.Text) + "'," + Convert.ToInt32(e.Item.Cells[1].Text).ToString() + ",'" + HttpUtility.ParseQueryString(e.Item.Cells[2].Text.ToString()) + "','" + HttpUtility.ParseQueryString(e.Item.Cells[3].Text.ToString()) + "','" + HttpUtility.ParseQueryString(e.Item.Cells[4].Text.ToString()) + "')</script>";
 
                  //Inicio 12/01/10 MAHG Se verifica si la solicitud es Asíncrona
                 if (System.Web.UI.ScriptManager.GetCurrent(this.Page) != null && System.Web.UI.ScriptManager.GetCurrent(this.Page).IsInAsyncPostBack)
@@ -195,7 +195,7 @@
             {
                 DataRow rowItem = ((DataRowView)e.Item.DataItem).Row;
                 LinkButton lnkProveedor = (LinkButton)e.Item.FindControl("lnkProveedor");
-                lnkProveedor.Attributes.Add("onClick", "javascript:DevolverProveedor('" + rowItem["NombreProveedor"].ToString() + "'," + rowItem["IdProveedor"].ToString() + ",'" + rowItem["Telefonos"].ToString() + "','" + rowItem["Direcciones"].ToString() + "','" + rowItem["Horario"].ToString() + "');closeLayer('BuscarDiagnostico');");
+                lnkProveedor.Attributes.Add("onClick", "javascript:DevolverProveedor('" + HttpUtility.ParseQueryString(rowItem["NombreProveedor"].ToString()) + "'," + Convert.ToInt32(rowItem["IdProveedor"]).ToString() + ",'" + HttpUtility.ParseQueryString(rowItem["Telefonos"].ToString()) + "','" + HttpUtility.ParseQueryString(rowItem["Direcciones"].ToString()) + "','" + HttpUtility.ParseQueryString(rowItem["Horario"].ToString())+ "');closeLayer('BuscarDiagnostico');");
             }
         }
 
