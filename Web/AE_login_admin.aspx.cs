@@ -223,7 +223,6 @@ namespace TPA
                         LogMessage("Hashedid-" + hashedId);
                         string payloadEnc = mfa.GetEncryptedPayload(securitykey, user);
                         LogMessage("PayloadEnc-" + payloadEnc);
-                        LogMessage("Security key-" + securitykey);
                         string hmac = mfa.GetHMAC(securitykey, payloadEnc);
                         LogMessage("Hmackey-" + hmac);
                         LogMessage("ServerAddress-" + serverAddr);
